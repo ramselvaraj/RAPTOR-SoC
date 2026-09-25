@@ -1,0 +1,11 @@
+./multi_cycle/tb/tb_riscv_mc.sv
+./multi_cycle/rtl/riscv_mc.sv
+./multi_cycle/rtl/controller.sv
+./multi_cycle/rtl/datapath.sv
+./multi_cycle/rtl/pc.sv
+./multi_cycle/rtl/instruction_memory.sv
+./multi_cycle/rtl/instr_reg.sv
+./multi_cycle/rtl/reg_file.sv
+./multi_cycle/rtl/data_reg.sv
+./multi_cycle/rtl/memory.sv
+./multi_cycle/rtl/alu.sv

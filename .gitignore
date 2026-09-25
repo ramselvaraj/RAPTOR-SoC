@@ -1,0 +1,8 @@
+# simulation artifacts
+*.vvp
+*.vcd
+
+# simt_gpu build artifacts, generated sim files, and optional venv
+simt_gpu/build/
+simt_gpu/.venv/
+simt_gpu/**/__pycache__/
