@@ -51,26 +51,29 @@ verilator --binary --timing --top-module tb_riscv_mc \
 
 Expected: `All multi-cycle processor tests passed.`
 
-### `simt_gpu/` — SIMT GPU (Phase 0 skeleton)
+### `simt_gpu/` — SIMT GPU (Phase 1 in progress)
 
-> Phase 0 is a deliberate placeholder: a single-lane scanner that echoes a
-> framebuffer unchanged. It exercises the host <-> simulation <-> host file loop;
-> the SIMT core and real ISA replace it in later phases.
+A programmable SIMT accelerator: 2 warps × 4 lanes, custom 16-bit ISA
+(`CONST/ADD/SUB/LDR/STR/RET`), driven by `start`/`done` and an external memory
+port. Phase 0's echo scanner has been replaced by the Phase 1 module set.
 
-Set up the optional Python environment and run the full file-I/O loop:
+The RTL modules are **scaffolded** (ports + `TODO` behavior) for the Phase 1
+assignment. See `docs/PHASE1_ASSIGNMENT.md`.
 
 ```sh
 cd simt_gpu
-make venv     # optional: Pillow/numpy for PNG + reference models
-make inputs   # crop/downscale the sample photos
-make run      # frame -> sim -> out, verifies the echo, renders a PNG
+make build                     # compile the integration testbench
+make unit TEST=tb_alu          # run one module unit test
+make run                       # assemble -> golden model -> RTL -> PNG compare
+make venv                      # optional: Pillow/numpy for images
 ```
 
-`make build` alone builds `build/obj/Vtb_gpu`; `make clean` removes artifacts.
+See `docs/GPU_ISA.md`, `docs/BUS_PROTOCOL.md`, and `docs/ADDRESS_MAP.md`.
 
 ## Status
 
-Early development. The CPU runs standalone; the GPU is a bring-up scaffold.
+Phase 1 in progress. The CPU runs standalone from the riscv repo; the GPU is
+being brought up as a programmable SIMT device (`docs/PHASE1_ASSIGNMENT.md`).
 A top-level SoC integration (shared bus, CPU <-> GPU memory) is future work.
 The CPU currently embeds its own memories and is not yet wired to a shared bus.
 
