@@ -1,0 +1,175 @@
+:root {
+  --ink: #1a1a1a;
+  --muted: #5c5c5c;
+  --rule: #d8d4cc;
+  --paper: #fdfcf9;
+  --accent: #8a1c1c;
+  --code-bg: #f2efe9;
+  --ok: #1f6f3f;
+  --bad: #a3261f;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 18px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.55;
+}
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 6rem;
+}
+
+.kicker {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.6rem;
+}
+
+h1 {
+  font-size: 2.3rem;
+  line-height: 1.1;
+  margin: 0 0 0.6rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin: 2.8rem 0 0.6rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin: 1.8rem 0 0.4rem;
+  font-weight: 600;
+}
+
+.lede {
+  font-size: 1.18rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0 0 1.5rem;
+}
+
+p { margin: 0.7rem 0; }
+
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  background: var(--code-bg);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+pre {
+  background: var(--code-bg);
+  border-left: 3px solid var(--accent);
+  padding: 0.9rem 1.1rem;
+  overflow-x: auto;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+pre code { background: none; padding: 0; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.4rem 1.1rem;
+  border-left: 3px solid var(--rule);
+  color: var(--muted);
+  font-style: italic;
+}
+
+figure {
+  margin: 1.8rem 0;
+  text-align: center;
+}
+
+figure svg { max-width: 100%; height: auto; }
+
+figcaption {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+th { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+
+.callout {
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  background: #fff;
+  padding: 0.9rem 1.1rem;
+  margin: 1.5rem 0;
+}
+
+.callout strong { color: var(--accent); }
+
+.quiz { border: 1px solid var(--rule); background: #fff; padding: 1.2rem 1.4rem; margin: 2rem 0; }
+.quiz h3 { margin-top: 0; }
+.quiz .question { margin: 1.3rem 0; }
+.quiz .question p { font-weight: 600; margin-bottom: 0.4rem; }
+.quiz label { display: block; padding: 0.3rem 0.5rem; cursor: pointer; border-radius: 4px; }
+.quiz label:hover { background: var(--code-bg); }
+.quiz button {
+  font: inherit;
+  font-size: 0.9rem;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.6rem;
+}
+.quiz .result { margin-top: 0.9rem; font-weight: 600; font-size: 0.92rem; }
+.quiz .result.ok { color: var(--ok); }
+.quiz .result.bad { color: var(--bad); }
+.correct { color: var(--ok); font-weight: 600; }
+.incorrect { color: var(--bad); font-weight: 600; }
+
+.ask {
+  margin-top: 3rem;
+  padding: 1rem 1.2rem;
+  border-top: 3px double var(--rule);
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.pager { display: flex; justify-content: space-between; margin-top: 2.5rem; font-size: 0.85rem; }
+.pager a { color: var(--accent); }
+
+a { color: var(--accent); }
+
+@media print {
+  .quiz button { display: none; }
+  body { font-size: 11pt; }
+  main { padding: 0; }
+}

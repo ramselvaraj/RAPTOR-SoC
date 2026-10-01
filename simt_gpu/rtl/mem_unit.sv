@@ -38,12 +38,54 @@ module mem_unit #(parameter int LANES = 4)(
     output logic [31:0]      load_data [LANES],
     output logic             done
 );
+    logic busy;
+    int   lane_ptr;
+    logic cur_valid;
+    int   cur_lane;
+
     always_comb begin
-        mem_req   = 1'b0;   // TODO(Person A)
-        mem_we    = 1'b0;   // TODO(Person A)
-        mem_addr  = 32'b0;  // TODO(Person A)
-        mem_wdata = 32'b0;  // TODO(Person A)
-        done      = 1'b0;   // TODO(Person A)
-        for (int l = 0; l < LANES; l++) load_data[l] = 32'b0;
+        cur_valid = 1'b0;
+        cur_lane  = 0;
+        for (int l = 0; l < LANES; l++) begin
+            if (!cur_valid && (l >= lane_ptr) && lane_mask[l]) begin
+                cur_valid = 1'b1;
+                cur_lane  = l;
+            end
+        end
+
+        mem_req   = 1'b0;
+        mem_we    = 1'b0;
+        mem_addr  = 32'b0;
+        mem_wdata = 32'b0;
+        if (busy && cur_valid) begin
+            mem_req   = 1'b1;
+            mem_we    = is_store;
+            mem_addr  = base_val[cur_lane] + idx_val[cur_lane];
+            mem_wdata = data_val[cur_lane];
+        end
+    end
+
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset) begin
+            busy     <= 1'b0;
+            lane_ptr <= 0;
+            done     <= 1'b0;
+            for (int l = 0; l < LANES; l++) load_data[l] <= 32'b0;
+        end else begin
+            done <= 1'b0;
+            if (start) begin
+                busy     <= 1'b1;
+                lane_ptr <= 0;
+                for (int l = 0; l < LANES; l++) load_data[l] <= 32'b0;
+            end else if (busy) begin
+                if (cur_valid && mem_ready) begin
+                    if (!is_store) load_data[cur_lane] <= mem_rdata;
+                    lane_ptr <= cur_lane + 1;
+                end else if (!cur_valid) begin
+                    busy <= 1'b0;
+                    done <= 1'b1;
+                end
+            end
+        end
     end
 endmodule

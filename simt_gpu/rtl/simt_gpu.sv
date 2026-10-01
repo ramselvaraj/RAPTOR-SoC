@@ -43,19 +43,19 @@ module simt_gpu #(
     logic [WARPS-1:0][31:0]      w_mem_addr;
     logic [WARPS-1:0][31:0]      w_mem_wdata;
     logic [WARPS-1:0][PC_W-1:0]  w_imem_addr;
-    logic [31:0]                 src_q, dst_q, threads_q;
-    logic                        all_halted;
+    logic [31:0]                 src_q, dst_q, threads_q, block_base;
+    logic                        all_halted, launch;
 
-    dcr u_dcr(
+    dcr #(.TB(WARPS*LANES)) u_dcr(
         .clk(clk), .reset(reset), .start(start),
         .thread_count(thread_count), .src_addr(src_addr), .dst_addr(dst_addr),
         .all_halted(all_halted),
-        .busy(busy), .done(done),
+        .busy(busy), .done(done), .launch(launch), .block_base(block_base),
         .thread_count_q(threads_q), .src_addr_q(src_q), .dst_addr_q(dst_q)
     );
 
     dispatcher #(.WARPS(WARPS), .LANES(LANES)) u_disp(
-        .start(start), .thread_count(threads_q),
+        .start(launch), .thread_count(threads_q), .block_base(block_base),
         .warp_start(warp_start),
         .warp_tid_base(warp_tid_base),
         .warp_lane_mask(warp_lane_mask)

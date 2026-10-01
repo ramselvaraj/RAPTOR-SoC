@@ -14,6 +14,10 @@ module alu(
     output logic [31:0] result
 );
     always_comb begin
-        result = 32'b0;  // TODO(Person B): replace with the real ALU
+      case (op)
+        2'd0: result = a + b;
+        2'd1: result = a - b;
+        default: result = 32'b0; //illegal op
+    endcase
     end
 endmodule

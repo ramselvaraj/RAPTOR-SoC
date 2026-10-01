@@ -14,7 +14,27 @@ module scheduler #(parameter int WARPS = 2)(
     input  logic [WARPS-1:0] ready,
     output logic [WARPS-1:0] grant
 );
+    int last;
+    int winner;
+
     always_comb begin
-        grant = '0;  // TODO(Person A)
+        logic found;
+        grant  = '0;
+        found  = 0;
+        winner = 0;
+        for (int i = 0; i < WARPS; i++) begin
+            int w;
+            w = (last + i) % WARPS;      // scan starting just after `last`
+            if (!found && ready[w]) begin
+                grant[w] = 1'b1;         // one-hot win
+                found    = 1;
+                winner   = w;
+            end
+        end
+    end
+
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset)          last <= 0;
+        else if (|grant)    last <= (winner + 1) % WARPS;
     end
 endmodule

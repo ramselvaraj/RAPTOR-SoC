@@ -8,18 +8,38 @@ Read first: `docs/BUS_PROTOCOL.md`, `docs/ADDRESS_MAP.md`, `docs/GPU_ISA.md`.
 
 ## Configuration (decided)
 
-- `WARPS = 2`, `LANES = 4`, 16 registers/lane, 16-bit ISA.
+- `WARPS = 2`, `LANES = 4` → **8 physical threads per wave**, 16 registers/lane,
+  16-bit ISA.
 - Data bus is single-cycle combinational; instruction memory is combinational.
 - `r0 = threadIdx`, `r14 = SRC`, `r15 = DST` (dispatcher-preloaded).
+
+## Wave (thread-block) loop
+
+The hardware has only 8 lanes, but a kernel may ask for more threads (the
+acceptance kernel wants 256). Like a real GPU running a grid of thread blocks,
+`dcr` sequences **waves**: it launches the 8 lanes, waits for all warps to
+halt, advances `block_base` by 8, and relaunches — until `thread_count` is
+covered. 256 threads = 32 waves.
+
+```
+dcr: IDLE --start--> LAUNCH --1cy--> RUN --all_halted?--> more? LAUNCH : DONE
+                     launch=1                    block_base += 8
+dispatcher: tid = block_base + w*LANES + l
+```
+
+So `dcr` gained `launch` (per-wave restart pulse) and `block_base`, and
+`dispatcher` gained the `block_base` input. A warp restarts from `W_HALT` (pc
+back to 0) on each `start_warp` pulse.
 
 ## Repair the interface first
 
 The module **ports are frozen**. Both of you should read every `rtl/*.sv`
 skeleton and agree on these before writing bodies:
 
-- `rtl/dcr.sv` — `start/thread_count/src/dst/all_halted` → `busy/done/*_q`
-- `rtl/dispatcher.sv` — `thread_count` → `warp_start`, `warp_tid_base`,
-  `warp_lane_mask`
+- `rtl/dcr.sv` — `start/thread_count/src/dst/all_halted` →
+  `busy/done/launch/block_base/*_q`
+- `rtl/dispatcher.sv` — `thread_count`, `block_base` → `warp_start`,
+  `warp_tid_base`, `warp_lane_mask`
 - `rtl/scheduler.sv` — `ready[WARPS]` → one-hot `grant[WARPS]`
 - `rtl/warp.sv` — per-warp FSM (FETCH/EXEC/MEM/HALT), instantiates
   `decoder`, `regfile`, `mem_unit`, and concurrent `alu`s
@@ -36,8 +56,8 @@ doc.
 | File | Requirement | Test |
 |---|---|---|
 | `rtl/alu.sv` **or** `rtl/decoder.sv` (pick one to start) | see Person B table | unit |
-| `rtl/dcr.sv` | Latch config on `start`, assert `busy`; when `busy && all_halted`, drop `busy` and pulse `done` one cycle | `make unit TEST=tb_dcr` |
-| `rtl/dispatcher.sv` | `tid = w*LANES + l`; `warp_tid_base[w] = w*LANES`; lane active iff `tid < thread_count`; `warp_start` follows `start` | `make unit TEST=tb_dispatcher` |
+| `rtl/dcr.sv` | Latch config on `start`; sequence waves: `launch=1` for one cycle, `busy` while running, advance `block_base` by `TB`, pulse `done` after the final wave | `make unit TEST=tb_dcr` |
+| `rtl/dispatcher.sv` | `tid = block_base + w*LANES + l`; `warp_tid_base[w] = block_base + w*LANES`; lane active iff `tid < thread_count`; `warp_start` follows `start` | `make unit TEST=tb_dispatcher` |
 | `rtl/scheduler.sv` | Round-robin, exactly one grant/cycle, fair | `make unit TEST=tb_scheduler` |
 | `rtl/mem_unit.sv` | Walk lanes 0..LANES-1, skip inactive; one bus transfer per active lane at `base+idx`; capture loads; pulse `done` | via `make run` |
 | `rtl/simt_gpu.sv` | Provided wiring — verify the grant-based memory/instruction mux and fix if needed | `make run` |
@@ -49,7 +69,7 @@ doc.
 | `rtl/alu.sv` | `op==0`→`a+b`, `op==1`→`a-b` | `make unit TEST=tb_alu` |
 | `rtl/decoder.sv` | Slice the fields; `legal=1` for opcodes `0x0..0x5` | `make unit TEST=tb_decoder` |
 | `rtl/regfile.sv` | 16 regs × LANES; `r0/r14/r15` special read-only; per-lane write mask; reset to 0 | `make unit TEST=tb_regfile` |
-| `rtl/warp.sv` | FSM in the file header; instantiate decoder/regfile/alu/mem_unit; `ready` in FETCH/EXEC; `RET` halts | `make run` |
+| `rtl/warp.sv` | FSM in the file header; instantiate decoder/regfile/alu/mem_unit; `ready` in FETCH/EXEC/MEM; `RET` halts; restart from `W_HALT` (pc←0) on `start_warp` | `make run` |
 
 ## Test commands
 

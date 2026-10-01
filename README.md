@@ -51,31 +51,38 @@ verilator --binary --timing --top-module tb_riscv_mc \
 
 Expected: `All multi-cycle processor tests passed.`
 
-### `simt_gpu/` — SIMT GPU (Phase 1 in progress)
+### `simt_gpu/` — SIMT GPU (Phase 1 working)
 
-A programmable SIMT accelerator: 2 warps × 4 lanes, custom 16-bit ISA
-(`CONST/ADD/SUB/LDR/STR/RET`), driven by `start`/`done` and an external memory
-port. Phase 0's echo scanner has been replaced by the Phase 1 module set.
-
-The RTL modules are **scaffolded** (ports + `TODO` behavior) for the Phase 1
-assignment. See `docs/PHASE1_ASSIGNMENT.md`.
+A programmable SIMT accelerator: 2 warps × 4 lanes = 8 physical threads,
+custom 16-bit ISA (`CONST/ADD/SUB/LDR/STR/RET`). Larger thread counts run as
+**waves** (thread blocks): 256 threads = 32 waves of 8. Verified
+pixel-for-pixel against a Python golden model.
 
 ```sh
 cd simt_gpu
 make build                     # compile the integration testbench
 make unit TEST=tb_alu          # run one module unit test
-make run                       # assemble -> golden model -> RTL -> PNG compare
+make run                       # brighten: assemble -> golden model -> RTL -> PNG
 make venv                      # optional: Pillow/numpy for images
 ```
 
-See `docs/GPU_ISA.md`, `docs/BUS_PROTOCOL.md`, and `docs/ADDRESS_MAP.md`.
+See `docs/GPU_ISA.md`, `docs/BUS_PROTOCOL.md`, `docs/ADDRESS_MAP.md`, and
+`docs/PHASE1_ASSIGNMENT.md`.
+
+## Progress notes
+
+- `docs/PHASE1_PROGRESS.md` — running build log for the Phase 1 GPU bring-up,
+  written while implementing the RTL module by module.
+- `learning/` — accompanying study notes, mission, and lessons generated during
+  the build (not part of the hardware design).
 
 ## Status
 
-Phase 1 in progress. The CPU runs standalone from the riscv repo; the GPU is
-being brought up as a programmable SIMT device (`docs/PHASE1_ASSIGNMENT.md`).
-A top-level SoC integration (shared bus, CPU <-> GPU memory) is future work.
-The CPU currently embeds its own memories and is not yet wired to a shared bus.
+Phase 1 complete: the programmable SIMT GPU runs the `brighten` and `copy`
+kernels through a wave loop and matches the Python golden model at 256 threads.
+The CPU runs standalone from the riscv repo. A top-level SoC integration
+(shared bus, CPU <-> GPU memory + MMIO) is Phase 4; the CPU currently embeds
+its own memories and is not yet wired to a shared bus.
 
 ## License
 

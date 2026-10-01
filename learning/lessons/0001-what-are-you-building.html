@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 1 — What are you building?</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<main>
+
+<header>
+  <p class="kicker">RAPTOR-SoC SIMT GPU · Lesson 1</p>
+  <h1>What are you building?</h1>
+  <p class="lede">One tiny program. Hundreds of threads. Eight execution slots sharing a single instruction stream and one memory bus.</p>
+</header>
+
+<p>Before any SystemVerilog, get this picture in your head. Everything in
+<code>simt_gpu/rtl</code> exists to serve it.</p>
+
+<h2>1. The job: brighten an image</h2>
+
+<p>You have a 16&times;16 image = 256 pixels, packed one per 32-bit word. The
+source lives at word <code>0x2000</code>, and you want the brightened copy at
+word <code>0x6000</code>. The whole kernel is five instructions:</p>
+
+<pre><code>CONST r1, 0x20      ; delta = 32
+LDR   r2, r14, r0   ; r2 = src[r0]      (r14 = SRC base)
+ADD   r3, r2, r1    ; r3 = r2 + delta
+STR   r3, r15, r0   ; dst[r0] = r3      (r15 = DST base)
+RET                 ; done</code></pre>
+
+<div class="callout">
+<strong>Notice there is no loop.</strong> This program does not iterate over
+pixels. It is written as if it operates on <em>one</em> pixel. The
+<code>r0</code> register &mdash; the <em>thread index</em> &mdash; is the only
+thing that decides <em>which</em> pixel. Run it once with <code>r0=0</code> and
+you brighten pixel 0. Run it with <code>r0=137</code> and you brighten pixel 137.
+</div>
+
+<h2>2. A thread is just that program plus private numbers</h2>
+
+<p>A <strong>thread</strong> is not a software process. Here it is nothing more
+than:</p>
+
+<ul>
+  <li>the same instruction text for everyone, and</li>
+  <li>its own copy of the 16 registers, and</li>
+  <li>one number that makes it unique: its thread index, parked in <code>r0</code>.</li>
+</ul>
+
+<p>Because each thread owns its registers, <code>r2</code> means "my pixel" to
+every thread simultaneously. That is the whole trick. One program, many private
+states.</p>
+
+<h2>3. Why not just loop on a CPU?</h2>
+
+<p>A CPU core does one thing at a time. To brighten 256 pixels it must run the
+fetch&ndash;decode&ndash;execute cycle 256 times, spending the expensive control
+logic (fetch, decode, program counter) on every single pixel. The arithmetic
+unit sits mostly idle.</p>
+
+<p>A GPU makes a different bet: <em>replicate the cheap stuff, share the
+expensive stuff.</em> Copy the register file + ALU (the "data path") four times,
+but keep a single instruction fetch, single decoder, single program counter for
+all four. That shared bundle is a <strong>warp</strong>. Each replicated data
+path is a <strong>lane</strong>.</p>
+
+<figure>
+<svg viewBox="0 0 820 300" role="img" aria-label="One warp: a single instruction feeds four lanes, each with its own register file and ALU, gated by a lane mask">
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 z" fill="#8a1c1c"/>
+    </marker>
+  </defs>
+
+  <rect x="20" y="115" width="150" height="70" rx="6" fill="#f2efe9" stroke="#1a1a1a"/>
+  <text x="95" y="143" text-anchor="middle" font-family="monospace" font-size="13">ADD r3,r2,r1</text>
+  <text x="95" y="163" text-anchor="middle" font-size="11" fill="#5c5c5c">one instruction</text>
+  <text x="95" y="272" text-anchor="middle" font-size="12" fill="#5c5c5c">shared fetch + decode + PC</text>
+  <line x1="95" y1="185" x2="95" y2="252" stroke="#d8d4cc"/>
+
+  <g font-size="12">
+    <rect x="230" y="20"  width="360" height="52" rx="5" fill="#fff" stroke="#1a1a1a"/>
+    <rect x="230" y="80"  width="360" height="52" rx="5" fill="#fff" stroke="#1a1a1a"/>
+    <rect x="230" y="140" width="360" height="52" rx="5" fill="#fff" stroke="#1a1a1a"/>
+    <rect x="230" y="200" width="360" height="52" rx="5" fill="#e6e2da" stroke="#b8b2a6" stroke-dasharray="4 3"/>
+  </g>
+
+  <g font-family="ui-monospace, monospace" font-size="12">
+    <text x="250" y="50">lane 0</text><text x="330" y="50">RF</text><text x="430" y="50">ALU</text><text x="520" y="50">writes</text>
+    <text x="250" y="110">lane 1</text><text x="330" y="110">RF</text><text x="430" y="110">ALU</text><text x="520" y="110">writes</text>
+    <text x="250" y="170">lane 2</text><text x="330" y="170">RF</text><text x="430" y="170">ALU</text><text x="520" y="170">writes</text>
+    <text x="250" y="230">lane 3</text><text x="330" y="230">RF</text><text x="430" y="230">ALU</text><text x="520" y="230">masked off</text>
+  </g>
+
+  <line x1="170" y1="150" x2="225" y2="46"  stroke="#8a1c1c" marker-end="url(#a)"/>
+  <line x1="170" y1="150" x2="225" y2="106" stroke="#8a1c1c" marker-end="url(#a)"/>
+  <line x1="170" y1="150" x2="225" y2="166" stroke="#8a1c1c" marker-end="url(#a)"/>
+  <line x1="170" y1="150" x2="225" y2="226" stroke="#8a1c1c" marker-end="url(#a)"/>
+
+  <text x="620" y="110" font-size="12" fill="#5c5c5c">lane mask = 1110</text>
+  <text x="620" y="130" font-size="11" fill="#5c5c5c">(3 threads left)</text>
+</svg>
+<figcaption>A warp broadcasts one instruction to every lane at once. Each lane
+runs it on its own registers. Lanes whose mask bit is 0 still receive the
+instruction but are not allowed to change anything.</figcaption>
+</figure>
+
+<h3>SIMT vs SIMD (the distinction that matters)</h3>
+
+<p>This looks like SIMD, but there is one crucial difference: each lane has
+<em>its own register file and its own identity</em>, whereas classic SIMD lanes
+have no state of their own. That is exactly why this is called
+<strong>SIMT</strong> &mdash; Single Instruction, Multiple Threads &mdash; and
+why the same program can be written per-pixel instead of per-vector. Lanes can
+also be switched off individually; that is the primitive this machine uses
+instead of branching.</p>
+
+<h2>4. The machine you actually have</h2>
+
+<p>Now map the words onto your specific design:</p>
+
+<table>
+  <thead><tr><th>Word</th><th>In this machine</th></tr></thead>
+  <tbody>
+    <tr><td>Thread</td><td>One pixel's worth of state: 16 registers + an index in <code>r0</code>.</td></tr>
+    <tr><td>Lane</td><td>One physical data path: its slice of the register file plus an ALU.</td></tr>
+    <tr><td>Warp</td><td>4 lanes that share one program counter and one instruction fetch.</td></tr>
+    <tr><td>Warps</td><td>2 of them, so 8 execution slots (8 lanes) total.</td></tr>
+    <tr><td>Kernel</td><td>The five instructions of <code>brighten</code>.</td></tr>
+    <tr><td>Launch</td><td>A <code>start</code> pulse carrying thread count + SRC/DST addresses.</td></tr>
+  </tbody>
+</table>
+
+<figure>
+<svg viewBox="0 0 820 500" role="img" aria-label="Block diagram of the RAPTOR-SoC SIMT GPU">
+  <defs>
+    <marker id="b" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 z" fill="#1a1a1a"/>
+    </marker>
+  </defs>
+
+  <rect x="300" y="10" width="220" height="46" rx="6" fill="#f2efe9" stroke="#1a1a1a"/>
+  <text x="410" y="31" text-anchor="middle" font-size="13" font-weight="bold">DCR</text>
+  <text x="410" y="48" text-anchor="middle" font-size="11" fill="#5c5c5c">latch config · busy / done</text>
+
+  <rect x="300" y="86" width="220" height="46" rx="6" fill="#f2efe9" stroke="#1a1a1a"/>
+  <text x="410" y="107" text-anchor="middle" font-size="13" font-weight="bold">DISPATCHER</text>
+  <text x="410" y="124" text-anchor="middle" font-size="11" fill="#5c5c5c">threads → warps · tid base · lane masks</text>
+
+  <line x1="410" y1="56" x2="410" y2="84" stroke="#1a1a1a" marker-end="url(#b)"/>
+
+  <g>
+    <rect x="70" y="166" width="300" height="140" rx="6" fill="#fff" stroke="#1a1a1a"/>
+    <text x="220" y="188" text-anchor="middle" font-size="13" font-weight="bold">WARP 0</text>
+    <rect x="90" y="200" width="260" height="26" rx="4" fill="#f2efe9" stroke="#d8d4cc"/>
+    <text x="220" y="218" text-anchor="middle" font-size="11" font-family="monospace">FSM · PC · instruction register</text>
+    <rect x="90" y="234" width="260" height="26" rx="4" fill="#f2efe9" stroke="#d8d4cc"/>
+    <text x="220" y="252" text-anchor="middle" font-size="11" font-family="monospace">regfile + ALU × 4 lanes</text>
+    <rect x="90" y="268" width="260" height="26" rx="4" fill="#f2efe9" stroke="#d8d4cc"/>
+    <text x="220" y="286" text-anchor="middle" font-size="11" font-family="monospace">mem_unit (serializes lanes)</text>
+  </g>
+
+  <g>
+    <rect x="450" y="166" width="300" height="140" rx="6" fill="#fff" stroke="#1a1a1a"/>
+    <text x="600" y="188" text-anchor="middle" font-size="13" font-weight="bold">WARP 1</text>
+    <rect x="470" y="200" width="260" height="26" rx="4" fill="#f2efe9" stroke="#d8d4cc"/>
+    <text x="600" y="218" text-anchor="middle" font-size="11" font-family="monospace">FSM · PC · instruction register</text>
+    <rect x="470" y="234" width="260" height="26" rx="4" fill="#f2efe9" stroke="#d8d4cc"/>
+    <text x="600" y="252" text-anchor="middle" font-size="11" font-family="monospace">regfile + ALU × 4 lanes</text>
+    <rect x="470" y="268" width="260" height="26" rx="4" fill="#f2efe9" stroke="#d8d4cc"/>
+    <text x="600" y="286" text-anchor="middle" font-size="11" font-family="monospace">mem_unit (serializes lanes)</text>
+  </g>
+
+  <line x1="330" y1="132" x2="240" y2="164" stroke="#1a1a1a" marker-end="url(#b)"/>
+  <line x1="490" y1="132" x2="580" y2="164" stroke="#1a1a1a" marker-end="url(#b)"/>
+
+  <rect x="300" y="336" width="220" height="46" rx="6" fill="#f2efe9" stroke="#1a1a1a"/>
+  <text x="410" y="357" text-anchor="middle" font-size="13" font-weight="bold">SCHEDULER</text>
+  <text x="410" y="374" text-anchor="middle" font-size="11" fill="#5c5c5c">ready[2] → one-hot grant[2]</text>
+
+  <line x1="220" y1="306" x2="360" y2="334" stroke="#1a1a1a" marker-end="url(#b)"/>
+  <line x1="600" y1="306" x2="460" y2="334" stroke="#1a1a1a" marker-end="url(#b)"/>
+  <text x="150" y="330" font-size="11" fill="#5c5c5c">ready</text>
+  <text x="610" y="330" font-size="11" fill="#5c5c5c">ready</text>
+
+  <line x1="360" y1="382" x2="220" y2="352" stroke="#8a1c1c" marker-end="url(#a)"/>
+  <line x1="460" y1="382" x2="600" y2="352" stroke="#8a1c1c" marker-end="url(#a)"/>
+  <text x="150" y="372" font-size="11" fill="#8a1c1c">grant</text>
+  <text x="610" y="372" font-size="11" fill="#8a1c1c">grant</text>
+
+  <rect x="180" y="412" width="460" height="46" rx="6" fill="#1a1a1a"/>
+  <text x="410" y="433" text-anchor="middle" font-size="13" fill="#fdfcf9" font-weight="bold">SHARED BUS (combinational, one transfer / cycle)</text>
+  <text x="410" y="450" text-anchor="middle" font-size="11" fill="#cfcac0">instruction memory read · data load / store</text>
+
+  <line x1="220" y1="306" x2="260" y2="410" stroke="#1a1a1a" stroke-dasharray="3 3"/>
+  <line x1="600" y1="306" x2="560" y2="410" stroke="#1a1a1a" stroke-dasharray="3 3"/>
+
+  <line x1="70" y1="120" x2="40" y2="120" stroke="#1a1a1a" marker-end="url(#b)"/>
+  <text x="10" y="112" font-size="11" fill="#5c5c5c">start</text>
+  <path d="M70,200 C20,200 20,60 300,33" fill="none" stroke="#1a1a1a" stroke-dasharray="3 3" marker-end="url(#b)"/>
+  <text x="18" y="150" font-size="11" fill="#5c5c5c" transform="rotate(-90 18 150)">all_halted</text>
+</svg>
+<figcaption>Boxes are the modules in <code>simt_gpu/rtl</code>. Only one warp drives
+the shared bus per cycle; the scheduler decides which. Instruction fetch and
+data load/store use the <em>same</em> bus.</figcaption>
+</figure>
+
+<h2>5. What actually happens on a launch</h2>
+
+<ol>
+  <li><strong>DCR</strong> sees <code>start</code>, latches the thread count and the SRC/DST addresses, and raises <code>busy</code>.</li>
+  <li><strong>Dispatcher</strong> turns the thread count into per-warp information: which lane indices are active, and what thread index each warp starts at.</li>
+  <li><strong>Scheduler</strong> looks at which warps are ready and grants exactly one the bus this cycle, rotating fairly.</li>
+  <li>The granted <strong>warp</strong> fetches the next instruction over the shared bus and executes it in all four lanes at once.</li>
+  <li>A load or store cannot move four words at once on a one-word bus, so the warp's <strong>mem_unit</strong> walks lanes 0&hellip;3 one at a time.</li>
+  <li><code>RET</code> halts a warp. When every warp has halted, DCR drops <code>busy</code> and pulses <code>done</code>.</li>
+</ol>
+
+<h2>6. Masking: the missing lanes</h2>
+
+<p>If the thread count is 6, warp&nbsp;0 covers threads 0&ndash;3 (all four lanes on) and
+warp&nbsp;1 covers only threads 4&ndash;5, so its lanes 2 and 3 are inactive. The
+dispatcher computes this as a <strong>lane mask</strong>. Inactive lanes still receive the
+instruction, but their writes to registers and memory are suppressed. This is
+the machine's only defence against out-of-range pixels.</p>
+
+<h2>7. Where you fit (Person A)</h2>
+
+<p>You own the left/top half of that diagram &mdash; the launch, the thread
+mapping, the arbitration, and the memory walk:</p>
+
+<table>
+  <thead><tr><th>Module</th><th>One-line job</th></tr></thead>
+  <tbody>
+    <tr><td><code>dcr.sv</code></td><td>Latch the launch, own <code>busy</code>/<code>done</code>.</td></tr>
+    <tr><td><code>dispatcher.sv</code></td><td>Thread count → per-warp start, tid base, lane masks.</td></tr>
+    <tr><td><code>scheduler.sv</code></td><td>Fairly pick one ready warp per cycle.</td></tr>
+    <tr><td><code>mem_unit.sv</code></td><td>Walk lanes one at a time over the single bus.</td></tr>
+    <tr><td><code>simt_gpu.sv</code></td><td>Wire it all together and mux the granted warp onto the bus.</td></tr>
+  </tbody>
+</table>
+
+<p>Person B owns the warp body: the FSM, decoder, register file and ALU.</p>
+
+<div class="quiz" id="quiz">
+  <h3>Check yourself (recall, don't re-read)</h3>
+
+  <div class="question" data-correct="a">
+    <p>1. Within one warp, what do the lanes share?</p>
+    <label><input type="radio" name="q1" value="a"> A single program counter</label>
+    <label><input type="radio" name="q1" value="b"> A single register file</label>
+    <label><input type="radio" name="q1" value="c"> A single global thread id</label>
+    <label><input type="radio" name="q1" value="d"> A single arithmetic unit</label>
+  </div>
+
+  <div class="question" data-correct="a">
+    <p>2. In this machine, how does a thread find its own pixel?</p>
+    <label><input type="radio" name="q2" value="a"> Through its unique thread index in r0</label>
+    <label><input type="radio" name="q2" value="b"> Through a loop counter kept in r1</label>
+    <label><input type="radio" name="q2" value="c"> Through the program counter in r14</label>
+    <label><input type="radio" name="q2" value="d"> Through the warp grant written to r15</label>
+  </div>
+
+  <div class="question" data-correct="a">
+    <p>3. What does the scheduler hand out each cycle?</p>
+    <label><input type="radio" name="q3" value="a"> One warp exclusive use of the bus</label>
+    <label><input type="radio" name="q3" value="b"> One lane exclusive use of the stack</label>
+    <label><input type="radio" name="q3" value="c"> One thread exclusive use of the cache</label>
+    <label><input type="radio" name="q3" value="d"> One memory bank exclusive use of a port</label>
+  </div>
+
+  <button id="check">Check answers</button>
+  <div class="result" id="result" aria-live="polite"></div>
+</div>
+
+<h2>Primary source for this lesson</h2>
+<p>Read the NVIDIA CUDA Programming Guide's
+<a href="https://docs.nvidia.com/cuda/cuda-programming-guide/01-introduction/programming-model.html">"Warps and SIMT"</a>
+section &mdash; it is the canonical description of warp, lane, lock-step
+execution and masking. For the SIMT-vs-SIMD distinction, Cornell's
+<a href="https://cvw.cac.cornell.edu/gpu-architecture/gpu-characteristics/simt_warp">SIMT and Warps</a>
+page is excellent. All links live in <a href="../RESOURCES.md">RESOURCES.md</a>.</p>
+
+<div class="ask">
+  <strong>I'm your teacher for this.</strong> If any sentence here did not land,
+  or you want to see this diagram drawn against the actual <code>rtl/*.sv</code>
+  ports, say so before we move on. Next lesson: <em>the shared bus and why one
+  grant per cycle</em>.
+</div>
+
+</main>
+
+<script>
+document.getElementById('check').addEventListener('click', function () {
+  var questions = document.querySelectorAll('#quiz .question');
+  var correct = 0, answered = 0;
+  questions.forEach(function (q) {
+    var chosen = q.querySelector('input:checked');
+    q.querySelectorAll('label').forEach(function (l) {
+      l.classList.remove('correct', 'incorrect');
+    });
+    if (!chosen) return;
+    answered++;
+    if (chosen.value === q.dataset.correct) {
+      chosen.parentElement.classList.add('correct');
+      correct++;
+    } else {
+      chosen.parentElement.classList.add('incorrect');
+    }
+  });
+  var out = document.getElementById('result');
+  if (answered < questions.length) {
+    out.className = 'result bad';
+    out.textContent = 'Answer all three first.';
+  } else if (correct === questions.length) {
+    out.className = 'result ok';
+    out.textContent = correct + ' / ' + questions.length + ' — that is the big picture. Ready for the bus.';
+  } else {
+    out.className = 'result bad';
+    out.textContent = correct + ' / ' + questions.length + ' — re-read section 4 and try again.';
+  }
+});
+</script>
+</body>
+</html>
