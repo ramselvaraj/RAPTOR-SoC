@@ -50,12 +50,20 @@ module warp #(parameter int LANES = 4, parameter int PC_W = 16)(
     logic [3:0]  waddr;
 
     logic [31:0] alu_res [LANES];
-    logic [1:0]  alu_op;
+    logic [3:0]  alu_op;
 
     logic        mem_start, mem_done;
     logic [31:0] load_data [LANES];
 
     logic is_add, is_sub, is_const, is_ldr, is_str, is_ret, is_mem, is_alu;
+    logic is_mul, is_div, is_and, is_or, is_xor, is_sll, is_srl;
+
+    // ------------------------------------------------------------------
+    // Phase 2: CMP (0xD) and branches (0xE) are decoded but NOT yet
+    // executed here -- they behave as NOPs until the next sub-phase.
+    // TODO(Person B, 2b): add a flags register {N,Z,P}, execute CMP, and
+    // redirect pc on a taken BRnzp (uniform, all active lanes together).
+    // ------------------------------------------------------------------
 
     decoder u_dec(
         .instr(ir), .opcode(opcode), .rd(rd), .rs1(rs1), .rs2(rs2),
@@ -94,9 +102,27 @@ module warp #(parameter int LANES = 4, parameter int PC_W = 16)(
         is_ldr   = (opcode == 4'h3);
         is_str   = (opcode == 4'h4);
         is_ret   = (opcode == 4'h5);
-        is_alu   = is_add || is_sub;
+        is_mul   = (opcode == 4'h6);
+        is_div   = (opcode == 4'h7);
+        is_and   = (opcode == 4'h8);
+        is_or    = (opcode == 4'h9);
+        is_xor   = (opcode == 4'hA);
+        is_sll   = (opcode == 4'hB);
+        is_srl   = (opcode == 4'hC);
+        is_alu   = is_add || is_sub || is_mul || is_div || is_and || is_or
+                   || is_xor || is_sll || is_srl;
         is_mem   = is_ldr || is_str;
-        alu_op   = is_sub ? 2'd1 : 2'd0;
+
+        // ALU op encoding (see alu.sv).
+        alu_op = 4'd0;                 // ADD default
+        if (is_sub)      alu_op = 4'd1;
+        else if (is_mul) alu_op = 4'd2;
+        else if (is_div) alu_op = 4'd3;
+        else if (is_and) alu_op = 4'd4;
+        else if (is_or)  alu_op = 4'd5;
+        else if (is_xor) alu_op = 4'd6;
+        else if (is_sll) alu_op = 4'd7;
+        else if (is_srl) alu_op = 4'd8;
     end
 
     always_comb begin

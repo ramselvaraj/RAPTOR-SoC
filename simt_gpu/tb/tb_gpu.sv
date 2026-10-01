@@ -18,7 +18,7 @@ module tb_gpu;
     parameter int PC_W       = 16;
     parameter int ADDR_W     = 15;              // 32768 data words
     parameter int WORDS      = 1 << ADDR_W;
-    parameter int PROG_WORDS = 256;
+    parameter int PROG_WORDS = 1024;
 
     logic              clk = 1'b0;
     logic              reset = 1'b1;
@@ -52,7 +52,7 @@ module tb_gpu;
     always #5 clk = ~clk;
 
     // Instruction memory: combinational read.
-    assign imem_rdata = prog_mem[imem_addr[7:0]];
+    assign imem_rdata = prog_mem[imem_addr[9:0]];
 
     // Data memory: combinational read, synchronous write.
     assign mem_rdata = data_mem[mem_addr[ADDR_W-1:0]];
@@ -105,8 +105,10 @@ module tb_gpu;
     end
 
     // Watchdog: fail loudly instead of hanging if the GPU never finishes.
+    // The unrolled interior blur runs ~481 waves x ~125 instructions, so this
+    // is generous (a stuck design still fails quickly in wall-clock terms).
     initial begin
-        repeat (200000) @(posedge clk);
+        repeat (20000000) @(posedge clk);
         $fatal(1, "tb_gpu: TIMEOUT - GPU never asserted done");
     end
 endmodule

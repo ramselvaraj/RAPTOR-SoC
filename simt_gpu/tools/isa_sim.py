@@ -48,10 +48,12 @@ def run(prog, data, threads, src, dst, max_steps=100000):
         regs[15] = dst & MASK32
         pc = 0
         steps = 0
+        n = z = p = 0
         while steps < max_steps:
             if not 0 <= pc < len(prog):
                 raise RuntimeError(f"tid {tid}: pc {pc} out of program range")
-            d = decode(prog[pc])
+            instr = prog[pc]
+            d = decode(instr)
             op = d["op"]
             rd, rs1, rs2, imm = d["rd"], d["rs1"], d["rs2"], d["imm"]
 
@@ -74,6 +76,34 @@ def run(prog, data, threads, src, dst, max_steps=100000):
                 pc += 1
             elif op == 0x5:    # RET
                 break
+            elif op == 0x6:    # MUL
+                wr(regs[rs1] * regs[rs2]); pc += 1
+            elif op == 0x7:    # DIV
+                divisor = regs[rs2]
+                wr(regs[rs1] // divisor if divisor else 0); pc += 1
+            elif op == 0x8:    # AND
+                wr(regs[rs1] & regs[rs2]); pc += 1
+            elif op == 0x9:    # OR
+                wr(regs[rs1] | regs[rs2]); pc += 1
+            elif op == 0xA:    # XOR
+                wr(regs[rs1] ^ regs[rs2]); pc += 1
+            elif op == 0xB:    # SLL
+                wr(regs[rs1] << (regs[rs2] & 31)); pc += 1
+            elif op == 0xC:    # SRL
+                wr((regs[rs1] & MASK32) >> (regs[rs2] & 31)); pc += 1
+            elif op == 0xD:    # CMP
+                res = (regs[rs1] - regs[rs2]) & MASK32
+                n = (res >> 31) & 1
+                z = 1 if res == 0 else 0
+                p = 0 if z else (1 - n)
+                pc += 1
+            elif op == 0xE:    # BRnzp
+                cond = (instr >> 9) & 0x7
+                off = instr & 0x1FF
+                if off >= 0x100:
+                    off -= 0x200
+                taken = ((cond & 0b100) and n) or ((cond & 0b010) and z) or ((cond & 0b001) and p)
+                pc += 1 + (off if taken else 0)
             else:              # illegal -> NOP
                 pc += 1
             steps += 1

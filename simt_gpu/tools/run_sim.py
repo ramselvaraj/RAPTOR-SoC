@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
-"""Phase 1 host driver: assemble -> golden model -> RTL sim -> PNG.
+"""Host driver: assemble -> golden model -> (optional RTL) -> PNG.
 
     kernel.asm -> prog.hex
     image      -> frame.hex
-    isa_sim    -> expected.hex        (golden model)
+    isa_sim    -> expected.hex        (golden ISA model)
+    (interior) -> blur_ref cross-check (independent reference)
     Verilated tb_gpu -> out.hex
-    compare out vs expected over [dst, dst+count); render out.png
+    compare + render out.png
 
 Usage::
 
     run_sim.py                                   # brighten, built-in pattern
-    run_sim.py --image in.png --width 16 --height 16
-    run_sim.py --kernel sw/kernels/copy.asm
+    run_sim.py --golden-only                     # skip RTL, just the model
+    run_sim.py --kernel sw/kernels/blur.asm      # interior blur (uses .gen_blur)
+    run_sim.py --image in.png --width 64 --height 64
 """
 import argparse
 import json
@@ -23,10 +25,13 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 
-import assemble   # noqa: E402
+import assemble    # noqa: E402
+import blur_ref    # noqa: E402
 import img_to_mem  # noqa: E402
 import isa_sim     # noqa: E402
 import mem_to_img  # noqa: E402
+
+WORDS = 32768
 
 
 def main():
@@ -37,43 +42,62 @@ def main():
     ap.add_argument("--height", type=int, default=16)
     ap.add_argument("--binary", default=os.path.join(ROOT, "build", "obj", "Vtb_gpu"))
     ap.add_argument("--workdir", default=os.path.join(ROOT, "build", "run"))
+    ap.add_argument("--golden-only", action="store_true", help="skip the RTL sim")
     args = ap.parse_args()
 
     os.makedirs(args.workdir, exist_ok=True)
-    frame_hex = os.path.join(args.workdir, "frame.hex")
-    frame_json = os.path.join(args.workdir, "frame.json")
-    prog_hex = os.path.join(args.workdir, "prog.hex")
-    prog_json = os.path.join(args.workdir, "prog.json")
-    expected_hex = os.path.join(args.workdir, "expected.hex")
-    out_hex = os.path.join(args.workdir, "out.hex")
-    out_png = os.path.join(args.workdir, "out.png")
+    P = lambda name: os.path.join(args.workdir, name)  # noqa: E731
+    frame_hex, frame_json = P("frame.hex"), P("frame.json")
+    prog_hex, prog_json = P("prog.hex"), P("prog.json")
+    out_hex, out_png = P("out.hex"), P("out.png")
 
-    # 1. Assemble the kernel.
+    # 1. Assemble.
     with open(args.kernel) as f:
-        prog, meta, _ = assemble.assemble(f.read())
+        prog, meta = assemble.assemble(f.read())[:2]
     with open(prog_hex, "w") as f:
         f.write("".join(f"{w & 0xFFFF:04x}\n" for w in prog))
     with open(prog_json, "w") as f:
         json.dump(meta, f)
     print(f"assemble: {args.kernel} -> {len(prog)} instr, {meta}")
 
-    # 2. Frame.
-    count = args.width * args.height
-    img_to_mem.generate(args.image, args.width, args.height, frame_hex, frame_json)
-
+    interior = bool(meta.get("interior"))
     threads, src, dst = meta["threads"], meta["src"], meta["dst"]
-    if threads != count:
-        sys.exit(f"FAIL: kernel .threads={threads} but image is {count} pixels")
+    if interior:
+        W, H = meta["width"], meta["height"]
+    else:
+        W, H = args.width, args.height
+        if threads != W * H:
+            sys.exit(f"FAIL: kernel .threads={threads} but image is {W*H} pixels")
+    count = W * H
 
-    # 3. Golden model.
-    data = [0] * 32768
-    frame = isa_sim.read_hex_words(frame_hex)
-    data[src:src + len(frame)] = frame
+    # 2. Frame.
+    img_to_mem.generate(args.image, W, H, frame_hex, frame_json)
+    frame = isa_sim.read_hex_words(frame_hex)[:count]
+
+    # 3. Golden ISA model.
+    data = [0] * WORDS
+    data[src:src + count] = frame
     isa_sim.run(prog, data, threads, src, dst)
-    with open(expected_hex, "w") as f:
-        f.write("".join(f"{w & 0x00FFFFFF:08x}\n" for w in data))
+    expected = list(data)
 
-    # 4. RTL simulation.
+    # 4. Independent reference for interior blur (catches assembler/kernel bugs).
+    if interior:
+        ref = blur_ref.box_blur_interior(frame, W, H)
+        bad = [p for p in range(count) if expected[dst + p] != ref[p]]
+        if bad:
+            p = bad[0]
+            sys.exit(f"FAIL: kernel/model disagree with blur reference at pixel {p} "
+                     f"(model {expected[dst+p]:06x} vs ref {ref[p]:06x})")
+        print(f"golden: isa_sim matches blur reference on all {count} pixels")
+
+    if args.golden_only:
+        with open(out_hex, "w") as f:
+            f.write("".join(f"{expected[dst+i] & 0x00FFFFFF:08x}\n" for i in range(count)))
+        _, _, path = mem_to_img.write_image(out_hex, frame_json, out_png)
+        print(f"GOLDEN: {threads} threads -> {path}")
+        return
+
+    # 5. RTL simulation.
     if not os.path.exists(args.binary):
         sys.exit(f"error: verilated binary not found: {args.binary}\nrun `make build` first")
     cmd = [
@@ -86,30 +110,25 @@ def main():
         subprocess.run(cmd, check=True, cwd=args.workdir)
     except subprocess.CalledProcessError:
         sys.exit("FAIL: RTL simulation did not complete (timeout or abort).\n"
-                 "      This is expected until the Phase 1 TODO modules are implemented.\n"
-                 "      Start with the unit tests: make unit TEST=tb_alu")
+                 "      Implement/verify the Phase 2 ALU ops, then retry.")
 
-    # 5. Compare.
-    expected = isa_sim.read_hex_words(expected_hex)
     actual = isa_sim.read_hex_words(out_hex)
-    if len(actual) < dst + threads:
-        sys.exit(f"FAIL: output has {len(actual)} words, need {dst + threads}")
 
-    mismatches = [i for i in range(threads) if actual[dst + i] != expected[dst + i]]
-    if mismatches:
-        i = mismatches[0]
-        sys.exit(f"FAIL: {len(mismatches)}/{threads} pixel mismatches "
-                 f"(first at thread {i}: got {actual[dst+i]:06x} expected {expected[dst+i]:06x})")
-
-    src_touched = [i for i in range(threads) if actual[src + i] != frame[i]]
+    # 6. Compare.
+    mism = [i for i in range(count) if actual[dst + i] != expected[dst + i]]
+    if mism:
+        i = mism[0]
+        sys.exit(f"FAIL: {len(mism)}/{count} pixel mismatches "
+                 f"(first at {i}: got {actual[dst+i]:06x} expected {expected[dst+i]:06x})")
+    src_touched = [i for i in range(count) if actual[src + i] != frame[i]]
     if src_touched:
-        sys.exit(f"FAIL: source buffer modified at {len(src_touched)} words (first {src_touched[0]})")
+        sys.exit(f"FAIL: source buffer modified at {len(src_touched)} words")
 
-    # 6. Render.
+    # 7. Render.
     with open(out_hex, "w") as f:
-        f.write("".join(f"{actual[dst+i] & 0x00FFFFFF:08x}\n" for i in range(threads)))
+        f.write("".join(f"{actual[dst+i] & 0x00FFFFFF:08x}\n" for i in range(count)))
     _, _, path = mem_to_img.write_image(out_hex, frame_json, out_png)
-    print(f"PASS: {threads} threads, {len(mismatches)} mismatches -> {path}")
+    print(f"PASS: {threads} threads, 0 mismatches -> {path}")
 
 
 if __name__ == "__main__":

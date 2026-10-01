@@ -14,7 +14,7 @@ UNIT_SRC_tb_dcr        := rtl/dcr.sv        tb/unit/tb_dcr.sv
 UNIT_SRC_tb_dispatcher := rtl/dispatcher.sv tb/unit/tb_dispatcher.sv
 UNIT_SRC_tb_scheduler  := rtl/scheduler.sv  tb/unit/tb_scheduler.sv
 
-.PHONY: all build unit run test check prog inputs venv clean
+.PHONY: all build unit run test check prog inputs venv clean blur golden
 
 all: build
 
@@ -40,6 +40,14 @@ unit:
 # Full Phase 1 loop: assemble -> golden model -> RTL -> compare -> render.
 run: build
 	$(PY) tools/run_sim.py
+
+# Phase 2 interior blur (uses .gen_blur in sw/kernels/blur.asm).
+blur: build
+	$(PY) tools/run_sim.py --kernel sw/kernels/blur.asm
+
+# Golden model + reference only, no RTL.
+golden:
+	$(PY) tools/run_sim.py --kernel sw/kernels/blur.asm --golden-only
 
 test: run
 

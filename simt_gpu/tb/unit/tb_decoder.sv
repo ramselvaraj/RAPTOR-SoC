@@ -40,6 +40,14 @@ module tb_decoder;
         instr = 16'h43F0; expect_bits(4'h4, 4'h3, 4'hF, 4'h0, 8'hF0); expect_legal(1'b1);
         // RET -> 0x5000
         instr = 16'h5000; expect_bits(4'h5, 4'h0, 4'h0, 4'h0, 8'h00); expect_legal(1'b1);
+        // MUL r3, r1, r2 -> 0x6_3_1_2
+        instr = 16'h6312; expect_bits(4'h6, 4'h3, 4'h1, 4'h2, 8'h12); expect_legal(1'b1);
+        // SRL r4, r3, r7 -> 0xC_4_3_7
+        instr = 16'hC437; expect_bits(4'hC, 4'h4, 4'h3, 4'h7, 8'h37); expect_legal(1'b1);
+        // CMP r1, r2 -> 0xD_0_1_2
+        instr = 16'hD012; expect_bits(4'hD, 4'h0, 4'h1, 4'h2, 8'h12); expect_legal(1'b1);
+        // BRnzp (opcode 0xE) is legal
+        instr = 16'hE0FF; #1; expect_legal(1'b1);
         // illegal 0xF000
         instr = 16'hF000; #1; expect_legal(1'b0);
         if (errors == 0) $display("TB_DECODER PASS");

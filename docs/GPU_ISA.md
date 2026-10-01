@@ -34,6 +34,44 @@ All instructions are 16 bits. Common fields:
 
 Any other opcode is illegal and must behave as a NOP.
 
+## Phase 2 additions
+
+| Opcode | Mnemonic | Operation |
+|---|---|---|
+| `0x6` | `MUL rd, rs1, rs2` | `rd = rs1 * rs2` |
+| `0x7` | `DIV rd, rs1, rs2` | `rd = rs1 / rs2` (unsigned integer) |
+| `0x8` | `AND rd, rs1, rs2` | `rd = rs1 & rs2` |
+| `0x9` | `OR  rd, rs1, rs2` | `rd = rs1 \| rs2` |
+| `0xA` | `XOR rd, rs1, rs2` | `rd = rs1 ^ rs2` |
+| `0xB` | `SLL rd, rs1, rs2` | `rd = rs1 << rs2[4:0]` |
+| `0xC` | `SRL rd, rs1, rs2` | `rd = rs1 >> rs2[4:0]` (logical) |
+| `0xD` | `CMP rs1, rs2` | set flags `N/Z/P` from `rs1 - rs2` |
+| `0xE` | `BRnzp label` | branch (see below) |
+
+`CMP` writes no register; it updates three condition flags:
+
+- `N` = result is negative (bit 31 set)
+- `Z` = result is zero
+- `P` = result is positive (nonzero, bit 31 clear)
+
+`BRnzp` is encoded as `[op:4][cond:3][offset:9]`, where `offset` is a **signed
+word offset relative to `pc + 1`** and `cond` selects which flags branch:
+
+| Mnemonic | `cond` (n,z,p) | Branch taken when |
+|---|---|---|
+| `B`   | `111` | always |
+| `BEQ` | `010` | `Z` |
+| `BNE` | `101` | `N \| P` |
+| `BLT` | `100` | `N` |
+| `BGE` | `011` | `Z \| P` |
+| `BLE` | `110` | `N \| Z` |
+| `BGT` | `001` | `P` |
+
+Branch taken = `(cond[2] & N) | (cond[1] & Z) | (cond[0] & P)`.
+
+Phase 2 implements branches as **uniform** (all active lanes take the same
+path). Per-lane divergence is a later phase.
+
 ### Memory operand field aliases
 
 - `LDR rd, rs_base, rs_idx` uses `rd = [11:8]`, `rs_base = [7:4]`, `rs_idx = [3:0]`.

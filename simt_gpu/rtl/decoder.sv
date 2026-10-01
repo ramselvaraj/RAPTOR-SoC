@@ -11,7 +11,7 @@
 // The field slices below are already wired (they are pure bit selection).
 //
 // TODO(Person B): drive `legal`.
-//   legal = 1 for opcodes 0x0..0x5, else 0.
+//   legal = 1 for opcodes 0x0..0xE (Phase 2), else 0.
 module decoder(
     input  logic [15:0] instr,
     output logic [3:0]  opcode,
