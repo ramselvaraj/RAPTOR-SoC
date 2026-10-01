@@ -58,6 +58,16 @@ custom 16-bit ISA (`CONST/ADD/SUB/LDR/STR/RET`). Larger thread counts run as
 **waves** (thread blocks): 256 threads = 32 waves of 8. Verified
 pixel-for-pixel against a Python golden model.
 
+<p align="center">
+  <img src="docs/assets/simt_gpu_brighten_compare.png" alt="RTL brighten kernel: input (left) vs output (right)" width="720">
+</p>
+
+<p align="center"><em>Phase 1 <code>brighten</code> kernel running on the RTL
+datapath (4096 threads = 512 waves, 0 mismatches vs the golden model).
+The scalar <code>+0x20</code> add overflows blue into green — the speckles
+that Phase 2's per-channel saturating math fixes.</em></p>
+
+
 ```sh
 cd simt_gpu
 make build                     # compile the integration testbench
