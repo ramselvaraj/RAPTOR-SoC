@@ -61,7 +61,7 @@ branches, and the interior 3×3 box blur — all verified pixel-for-pixel (see
 `docs/PHASE2_ASSIGNMENT.md`).
 
 <p align="center">
-  <img src="docs/assets/simt_gpu_brighten_compare.png" alt="RTL brighten kernel: input (left) vs output (right)" width="720">
+  <img src="docs/assets/simt_gpu_brighten_aston.png" alt="RTL brighten kernel: input (left) vs output (right)" width="720">
 </p>
 
 <p align="center"><em>Phase 1 <code>brighten</code> kernel running on the RTL
@@ -75,7 +75,7 @@ interior 3×3 box blur, matched pixel-for-pixel against an independent Python
 reference:
 
 <p align="center">
-  <img src="docs/assets/simt_gpu_blur_compare.png" alt="3x3 box blur: input (left) vs RTL output (right)" width="720">
+  <img src="docs/assets/simt_gpu_blur_ferrari.png" alt="3x3 box blur: input (left) vs RTL output (right)" width="720">
 </p>
 
 <p align="center"><em>Phase 2 interior <code>blur</code> on the RTL datapath
