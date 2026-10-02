@@ -65,9 +65,10 @@ branches, and the interior 3×3 box blur — all verified pixel-for-pixel (see
 </p>
 
 <p align="center"><em>Phase 1 <code>brighten</code> kernel running on the RTL
-datapath (4096 threads = 512 waves, 0 mismatches vs the golden model).
-The scalar <code>+0x20</code> add overflows blue into green — the speckles
-that Phase 2's per-channel saturating math fixes.</em></p>
+datapath (input: <code>alonso_aston</code>, 64×64 → 4096 threads = 512 waves,
+0 mismatches vs the golden model). The scalar <code>+0x20</code> add overflows
+blue into green — the speckles that Phase 2's per-channel saturating math
+fixes.</em></p>
 
 Phase 2 adds the full ALU (`MUL/DIV/AND/OR/XOR/SLL/SRL`) and a fully-unrolled
 interior 3×3 box blur, matched pixel-for-pixel against an independent Python
@@ -78,8 +79,9 @@ reference:
 </p>
 
 <p align="center"><em>Phase 2 interior <code>blur</code> on the RTL datapath
-(3844 threads, 125 instructions, 0 mismatches). The 1-pixel border is
-untouched — Phase 3 clamps it.</em></p>
+(input: <code>alonso_ferrari</code>, 3844 threads, 125 instructions,
+0 mismatches). The 1-pixel border is untouched — a later phase clamps
+it.</em></p>
 
 
 
