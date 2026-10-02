@@ -20,7 +20,13 @@ module alu(
         case (op)
             4'd0: result = a + b;             // ADD
             4'd1: result = a - b;             // SUB
-            // TODO(Person B): 4'd2..4'd8 (MUL/DIV/AND/OR/XOR/SLL/SRL)
+            4'd2: result = a * b;             // MUL
+            4'd3: result = (b == 0) ? 32'b0 : a / b;  // DIV (unsigned)
+            4'd4: result = a & b;             // AND
+            4'd5: result = a | b;             // OR
+            4'd6: result = a ^ b;             // XOR
+            4'd7: result = a << b[4:0];       // SLL
+            4'd8: result = a >> b[4:0];       // SRL
             default: result = 32'b0;          // illegal op
         endcase
     end

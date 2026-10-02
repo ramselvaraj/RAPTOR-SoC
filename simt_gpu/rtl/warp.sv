@@ -58,6 +58,12 @@ module warp #(parameter int LANES = 4, parameter int PC_W = 16)(
     logic is_add, is_sub, is_const, is_ldr, is_str, is_ret, is_mem, is_alu;
     logic is_mul, is_div, is_and, is_or, is_xor, is_sll, is_srl;
 
+    logic        is_cmp, is_br;
+    logic        N, Z, P;
+    logic [31:0] cmp_res;
+    logic        br_taken;
+    logic [2:0]  br_cond;
+
     // ------------------------------------------------------------------
     // Phase 2: CMP (0xD) and branches (0xE) are decoded but NOT yet
     // executed here -- they behave as NOPs until the next sub-phase.
@@ -109,6 +115,8 @@ module warp #(parameter int LANES = 4, parameter int PC_W = 16)(
         is_xor   = (opcode == 4'hA);
         is_sll   = (opcode == 4'hB);
         is_srl   = (opcode == 4'hC);
+        is_cmp   = (opcode == 4'hD);
+        is_br    = (opcode == 4'hE);
         is_alu   = is_add || is_sub || is_mul || is_div || is_and || is_or
                    || is_xor || is_sll || is_srl;
         is_mem   = is_ldr || is_str;
@@ -123,6 +131,11 @@ module warp #(parameter int LANES = 4, parameter int PC_W = 16)(
         else if (is_xor) alu_op = 4'd6;
         else if (is_sll) alu_op = 4'd7;
         else if (is_srl) alu_op = 4'd8;
+
+        // Phase 2b: compare + branch (uniform: lane 0 decides the flags).
+        cmp_res  = rd1[0] - rd2[0];
+        br_cond  = ir[11:9];
+        br_taken = (br_cond[2] & N) | (br_cond[1] & Z) | (br_cond[0] & P);
     end
 
     always_comb begin
@@ -172,14 +185,29 @@ module warp #(parameter int LANES = 4, parameter int PC_W = 16)(
             state <= W_IDLE;
             pc    <= '0;
             ir    <= 16'b0;
+            N     <= 1'b0;
+            Z     <= 1'b0;
+            P     <= 1'b0;
         end else begin
             state <= next_state;
             if (state == W_FETCH && grant)
                 ir <= imem_rdata;
+            if (state == W_EXEC && grant && is_cmp) begin
+                N <= cmp_res[31];
+                Z <= (cmp_res == 0);
+                P <= (cmp_res != 0) && !cmp_res[31];
+            end
             if (start_warp)
                 pc <= '0;                       // new wave restarts at pc 0
-            else if ((state == W_EXEC && grant && !is_ret && !is_mem) ||
-                     (state == W_MEM && mem_done))
+            else if (state == W_EXEC && grant) begin
+                if (!is_ret && !is_mem) begin
+                    if (is_br && br_taken)
+                        pc <= pc + 1'b1 + {{(PC_W-9){ir[8]}}, ir[8:0]};
+                    else
+                        pc <= pc + 1'b1;
+                end
+            end
+            else if (state == W_MEM && mem_done)
                 pc <= pc + 1'b1;
         end
     end

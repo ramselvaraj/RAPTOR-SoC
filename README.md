@@ -51,13 +51,14 @@ verilator --binary --timing --top-module tb_riscv_mc \
 
 Expected: `All multi-cycle processor tests passed.`
 
-### `simt_gpu/` — SIMT GPU (Phase 1 done, Phase 2 in progress)
+### `simt_gpu/` — SIMT GPU (Phase 1 + Phase 2 done)
 
 A programmable SIMT accelerator: 2 warps × 4 lanes = 8 physical threads,
 custom 16-bit ISA. Larger thread counts run as **waves** (thread blocks): 256
 threads = 32 waves of 8. Verified pixel-for-pixel against a Python golden model.
-Phase 2 adds the full ALU and the interior 3×3 box blur (RTL work in progress;
-see `docs/PHASE2_ASSIGNMENT.md`).
+Phase 2 adds the full ALU (`MUL/DIV/AND/OR/XOR/SLL/SRL`), `CMP` + uniform
+branches, and the interior 3×3 box blur — all verified pixel-for-pixel (see
+`docs/PHASE2_ASSIGNMENT.md`).
 
 <p align="center">
   <img src="docs/assets/simt_gpu_brighten_compare.png" alt="RTL brighten kernel: input (left) vs output (right)" width="720">
@@ -97,18 +98,18 @@ See `docs/GPU_ISA.md`, `docs/BUS_PROTOCOL.md`, `docs/ADDRESS_MAP.md`,
 
 ## Progress notes
 
-- `docs/PHASE1_PROGRESS.md` — running build log for the Phase 1 GPU bring-up,
-  written while implementing the RTL module by module.
+- `docs/PHASE1_PROGRESS.md`, `docs/PHASE2_PROGRESS.md` — running build logs for
+  the Phase 1 and Phase 2 GPU bring-up, written while implementing the RTL.
 - `learning/` — accompanying study notes, mission, and lessons generated during
   the build (not part of the hardware design).
 
 ## Status
 
-Phase 1 complete and Phase 2 toolchain ready: the SIMT GPU runs `brighten` and
-`copy` at 256 threads, and the full ALU + interior 3×3 blur path is verified
-against an independent reference (Phase 2 RTL work in progress). The CPU runs
-standalone from the riscv repo. A top-level SoC integration (shared bus,
-CPU <-> GPU memory + MMIO) is Phase 4.
+Phase 1 and Phase 2 complete: the SIMT GPU runs `brighten`, `copy`, and the
+interior 3×3 `blur` — with the full ALU and uniform branches — all verified
+pixel-for-pixel against a Python golden model and an independent reference. The
+CPU runs standalone from the riscv repo. A top-level SoC integration (shared
+bus, CPU <-> GPU memory + MMIO) is a later phase.
 
 ## License
 

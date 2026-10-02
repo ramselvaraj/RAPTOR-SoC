@@ -27,6 +27,6 @@ module decoder(
         rs1    = instr[7:4];
         rs2    = instr[3:0];
         imm8   = instr[7:0];
-        legal  = (opcode <= 4'h5);  // TODO(Person B): decode validity
+        legal  = (opcode <= 4'hE);  // Phase 2: 0x0..0xE legal
     end
 endmodule

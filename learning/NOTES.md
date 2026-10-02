@@ -21,8 +21,11 @@ RAPTOR-SoC tree clean. Relative links inside lessons assume this directory.
 3. Wiring + all Person A modules + integration — `lessons/0003-wiring-and-modules.md` ✅
    (this condenses the originally-planned lessons 3–8 into one file, at the
    learner's request; no further core lessons planned)
+4. Phase 2: blur, math, and the two loops — `lessons/0004-phase2-blur-and-branches.md` ✅
+   Phase 2 hub: `PHASE2.md` ✅
 
 ## Open items
 - Back-convert lesson 0001 to Markdown for consistency (offer pending).
-- **Spec inconsistency flagged:** `WARPS*LANES = 8` but kernel/golden model use
-  256 threads. Learner must confirm with staff; see lesson 0003 Part 6.
+- ~~Spec inconsistency: `WARPS*LANES = 8` but kernels use 256 threads.~~
+  **Resolved:** the DCR wave loop relaunches the program per 8-thread wave, so
+  the hardware covers any thread count. See lesson 0004 §8 and `PHASE2.md`.
