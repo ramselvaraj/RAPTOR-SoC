@@ -6,8 +6,11 @@
 //   W_IDLE  --start_warp--> W_FETCH
 //   W_FETCH --grant--> latch ir <= imem_rdata; -> W_EXEC
 //   W_EXEC  --grant--> decode/execute:
-//                         ADD/SUB/CONST: write rd, pc++, -> W_FETCH
+//                         ALU ops (ADD/SUB/MUL/DIV/AND/OR/XOR/SLL/SRL)
+//                         or CONST:      write rd, pc++
 //                         LDR/STR:       start mem_unit, -> W_MEM
+//                         CMP:           update flags, pc++
+//                         BRnzp:         taken ? pc += off : pc++
 //                         RET:           -> W_HALT
 //   W_MEM   --mem_unit done--> LDR: write rd from load_data; pc++, -> W_FETCH
 //   W_HALT  -- terminal, halted=1
@@ -65,10 +68,8 @@ module warp #(parameter int LANES = 4, parameter int PC_W = 16)(
     logic [2:0]  br_cond;
 
     // ------------------------------------------------------------------
-    // Phase 2: CMP (0xD) and branches (0xE) are decoded but NOT yet
-    // executed here -- they behave as NOPs until the next sub-phase.
-    // TODO(Person B, 2b): add a flags register {N,Z,P}, execute CMP, and
-    // redirect pc on a taken BRnzp (uniform, all active lanes together).
+    // Phase 2b: CMP (0xD) sets the {N,Z,P} flags; BRnzp (0xE) redirects pc.
+    // Branches are uniform: lane 0's comparison decides the flags.
     // ------------------------------------------------------------------
 
     decoder u_dec(

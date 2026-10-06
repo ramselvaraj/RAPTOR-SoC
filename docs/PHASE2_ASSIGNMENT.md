@@ -1,83 +1,46 @@
-# Phase 2 Assignment — Packed-RGB Blur
+# Phase 2 — Packed-RGB Blur (COMPLETE)
 
-**Goal:** extend the ISA/ALU to the full integer op set and make the interior
-3×3 box blur match the reference **pixel-for-pixel**.
+**Status:** complete. Full integer ALU, `CMP` + uniform branches, and an
+interior 3×3 box blur matched pixel-for-pixel against an independent reference.
 
 Read first: `docs/GPU_ISA.md` (Phase 2 opcodes), `docs/BUS_PROTOCOL.md`.
+Build log: `docs/PHASE2_PROGRESS.md`.
 
-## What is already done (harness, verified)
+## What was delivered
 
-- **ISA spec** extended: `MUL/DIV/AND/OR/XOR/SLL/SRL`, `CMP`, branches
-  (`B/BEQ/BNE/BLT/BGE/BLE/BGT`) with labels.
-- **Assembler** (`tools/assemble.py`) understands the new mnemonics, labels, and
-  the ` .gen_blur W H` directive that emits a fully-unrolled interior blur.
-- **Golden model** (`tools/isa_sim.py`) executes the new ops + branches.
-- **Independent reference** (`tools/blur_ref.py`): plain Python box blur.
-- **Kernel** `sw/kernels/blur.asm` (` .gen_blur 64 64` → 125 instructions,
-  3844 threads).
-- **Driver** `tools/run_sim.py`: interior-blur mode, cross-checks the golden
+- **ISA** (`docs/GPU_ISA.md`): `MUL/DIV/AND/OR/XOR/SLL/SRL`, `CMP`, and branches
+  (`B/BEQ/BNE/BLT/BGE/BLE/BGT`) with flags + labels.
+- **ALU** (`rtl/alu.sv`): ops `2..8` — `MUL`, `DIV` (unsigned, `b==0`→0),
+  `AND`, `OR`, `XOR`, `SLL` (`a << b[4:0]`), `SRL` (`a >> b[4:0]`).
+- **Decoder** (`rtl/decoder.sv`): `legal = (opcode <= 4'hE)`.
+- **Warp** (`rtl/warp.sv`): routes all nine ALU ops; `CMP` updates the `{N,Z,P}`
+  flags (lane 0 decides, uniform); a taken `BRnzp` redirects `pc` by the signed
+  offset. Branch format `[op][cond:3][off:9]`.
+- **Assembler** (`tools/assemble.py`): new mnemonics, labels, and the
+  `.gen_blur W H` directive (fully-unrolled interior blur → 125 instructions).
+- **Golden model** (`tools/isa_sim.py`) executes the new ops + branches;
+  **`tools/blur_ref.py`** is an independent Python box blur.
+- **Driver** (`tools/run_sim.py`): interior-blur mode, cross-checks the golden
   model against `blur_ref`, then compares the RTL.
+- **Kernel** `sw/kernels/blur.asm` (`.gen_blur 64 64`, 3844 threads).
 
-I (coach) already confirmed the whole path passes end-to-end **once the ALU ops
-below exist** — RTL matched the reference at 4096/4096 pixels. So your job is
-purely the RTL.
+## Verified
 
-## Your job
-
-### Person B — the ALU and decoder (the whole task this phase)
-
-| File | Requirement | Test |
+| Check | Command | Result |
 |---|---|---|
-| `rtl/alu.sv` | Implement ops `2..8`: `MUL`, `DIV` (unsigned, `b==0`→0), `AND`, `OR`, `XOR`, `SLL` (`a << b[4:0]`), `SRL` (`a >> b[4:0]`) | `make unit TEST=tb_alu` |
-| `rtl/decoder.sv` | `legal = (opcode <= 4'hE)` (was `<= 4'h5`) | `make unit TEST=tb_decoder` |
+| ALU ops | `make unit TEST=tb_alu` | `TB_ALU PASS` |
+| Decode | `make unit TEST=tb_decoder` | `TB_DECODER PASS` |
+| Branches | `make branch` | `TB_BRANCH PASS` (CMP/BNE counted loop) |
+| Brighten regression | `make run` | `PASS: 256 threads, 0 mismatches` |
+| Golden model vs reference | `make golden` | matches on all pixels |
+| RTL blur | `make blur` | `PASS: 3844 threads, 0 mismatches` |
 
-ALU op encoding (already derived in `warp.sv`):
+The 1-pixel border is left untouched in Phase 2; clamped borders are Phase 3.
 
-```
-0 ADD   1 SUB   2 MUL   3 DIV   4 AND   5 OR   6 XOR   7 SLL   8 SRL
-```
+## Deferred (by design)
 
-`warp.sv` already routes all nine ops through the ALU and writes `rd`, so no
-warp change is needed for the blur.
-
-### Person A — integration + start on 2b
-
-| Task | Detail |
-|---|---|
-| Verify the blur run | `make blur` (below) — watch it go from FAIL to PASS |
-| Trace the failing op | When it fails, the first mismatch tells you which ALU op is wrong; single-step the wave in a wave dump if needed |
-| Start 2b (branches) | `warp.sv` has a `TODO(Person B, 2b)` block: add the `{N,Z,P}` flags register, execute `CMP` (`0xD`), and redirect `pc` on a taken branch (`0xE`, format `[op][cond:3][off:9]`, signed offset from `pc+1`). Uniform branches only for now. |
-
-## Test commands
-
-```sh
-cd simt_gpu
-make unit TEST=tb_alu          # should fail: MUL/DIV/... return 0
-make unit TEST=tb_decoder      # should fail: 0x6..0xE marked illegal
-make blur                      # full: assemble -> model -> RTL -> compare -> PNG
-```
-
-`make blur` prints `PASS: 3844 threads, 0 mismatches -> .../out.png`.
-
-Use `make golden` to check the model/reference without the RTL, and
-`make run` for the Phase 1 brighten regression (must stay passing).
-
-## Milestones
-
-| # | Milestone | Acceptance |
-|---|---|---|
-| M1 | ALU + decoder unit tests pass | `TB_ALU PASS`, `TB_DECODER PASS` |
-| M2 | Brighten regression holds | `make run` → `PASS: 256 threads, 0 mismatches` |
-| M3 | Blur passes | `make blur` → `PASS: 3844 threads, 0 mismatches` (black 1px border expected) |
-| M4 | 2b: branches | a `CMP`/`BRnzp` test program loops correctly (you'll add the unit test) |
-
-## Notes / gotchas
-
-- Shifts take the amount from `rs2` (a register), so the kernel loads `16`/`8`
-  into registers first. `SLL`/`SRL` must use `b[4:0]`.
-- `DIV` by zero must yield `0` (the kernel never divides by zero, but the unit
-  test checks it).
-- The blur reads `SRC` and writes `DST`; the source buffer must stay unchanged
-  (the driver checks this).
-- Border pixels are intentionally left as 0 in Phase 2; clamped borders are
-  Phase 3.
+- **Coalescing** of per-lane `LDR`/`STR`: the current `mem_unit` issues one lane
+  per bus cycle (uncoalesced baseline). This is a later scale-out optimization,
+  not a Phase 2 requirement.
+- **Per-lane divergence**: branches are uniform (all active lanes together).
+  Reconvergence/masking is a later phase.

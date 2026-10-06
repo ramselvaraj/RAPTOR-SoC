@@ -89,6 +89,7 @@ it.</em></p>
 cd simt_gpu
 make build                     # compile the integration testbench
 make unit TEST=tb_alu          # run one module unit test
+make branch                    # CMP + BRnzp counted-loop regression
 make run                       # brighten: assemble -> golden model -> RTL -> PNG
 make blur                      # Phase 2: interior 3x3 box blur
 make golden                    # model + reference only, no RTL
@@ -108,10 +109,11 @@ See `docs/GPU_ISA.md`, `docs/BUS_PROTOCOL.md`, `docs/ADDRESS_MAP.md`,
 ## Status
 
 Phase 1 and Phase 2 complete: the SIMT GPU runs `brighten`, `copy`, and the
-interior 3×3 `blur` — with the full ALU and uniform branches — all verified
-pixel-for-pixel against a Python golden model and an independent reference. The
-CPU runs standalone from the riscv repo. A top-level SoC integration (shared
-bus, CPU <-> GPU memory + MMIO) is a later phase.
+interior 3×3 `blur` — with the full ALU and uniform branches (`CMP`/`BRnzp`,
+covered by `make branch`) — all verified pixel-for-pixel against a Python golden
+model and an independent reference. The CPU runs standalone from the riscv repo.
+A top-level SoC integration (shared bus, CPU <-> GPU memory + MMIO) is a later
+phase; memory coalescing and per-lane divergence are deferred scale-out work.
 
 ## License
 

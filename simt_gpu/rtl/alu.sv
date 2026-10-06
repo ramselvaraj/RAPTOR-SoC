@@ -6,10 +6,9 @@
 // op encoding (from warp.sv):
 //   0 ADD   1 SUB   2 MUL   3 DIV   4 AND   5 OR   6 XOR   7 SLL   8 SRL
 //
-// TODO(Person B): implement the Phase 2 ops. Shifts use b[4:0] as the amount.
-//   MUL: a * b          DIV: a / b (unsigned; b==0 -> 0)
-//   AND: a & b          OR:  a | b          XOR: a ^ b
-//   SLL: a << b[4:0]    SRL: a >> b[4:0]
+// MUL: a * b          DIV: a / b (unsigned; b==0 -> 0)
+// AND: a & b          OR:  a | b          XOR: a ^ b
+// SLL: a << b[4:0]    SRL: a >> b[4:0]
 module alu(
     input  logic [31:0] a,
     input  logic [31:0] b,

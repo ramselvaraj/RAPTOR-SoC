@@ -8,8 +8,8 @@
 //   for loads, capture mem_rdata into load_data[lane].
 // On finishing all lanes it pulses `done` for one cycle.
 //
-// This is the *uncoalesced baseline*. Phase 2 replaces it with a coalescing
-// unit that merges consecutive-lane accesses.
+// This is the *uncoalesced baseline*. A later scale-out phase can replace it
+// with a coalescing unit that merges consecutive-lane accesses.
 //
 // TODO(Person A):
 //   - on start: busy<=1, lane_ptr<=0, done<=0, clear load_data.

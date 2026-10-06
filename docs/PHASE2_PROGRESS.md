@@ -82,6 +82,5 @@ make run   → PASS: 256 threads, 0 mismatches   (regression)
 make blur  → PASS: 3844 threads, 0 mismatches  (regression)
 ```
 
-Note: no dedicated `tb_warp.sv` yet — verified via the loop kernel through
-`run_sim.py`.
-
+Note: branches are covered by `tb/unit/tb_branch.sv` (`make branch`), which runs
+a `CMP`/`BNE` counted loop and checks `out[tid] = in[tid] + 5`.

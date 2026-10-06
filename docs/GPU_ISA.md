@@ -83,8 +83,8 @@ path). Per-lane divergence is a later phase.
 - Each **lane** executes the same instruction stream on its own register file
   and its own `threadIdx`. Lanes with `threadIdx >= thread_count` are inactive
   and must not write registers or memory.
-- `LDR`/`STR` are per-lane. Phase 1 issues them **one lane per bus cycle**
-  (no coalescing) — this is the baseline that Phase 2 optimizes.
+- `LDR`/`STR` are per-lane. Currently they issue **one lane per bus cycle**
+  (uncoalesced); coalescing is a later scale-out optimization.
 - `RET` halts the warp; inactive lanes do not participate in `done`.
 
 ## Example kernel: brighten
@@ -102,5 +102,5 @@ RET
 ```
 
 Note: because packed RGB is per-channel, `+0x202020` is the "true" brighten;
-Phase 1 exercises the data path with a scalar add, and Phase 2 introduces
-per-channel extract/repack.
+the Phase 1 example uses a scalar add. Phase 2's `blur` does the real
+per-channel extract/accumulate/repack (`tools/assemble.py` `.gen_blur`).
