@@ -51,14 +51,15 @@ verilator --binary --timing --top-module tb_riscv_mc \
 
 Expected: `All multi-cycle processor tests passed.`
 
-### `simt_gpu/` — SIMT GPU (Phase 1 + Phase 2 done)
+### `simt_gpu/` — SIMT GPU (Phase 1–3 done)
 
 A programmable SIMT accelerator: 2 warps × 4 lanes = 8 physical threads,
 custom 16-bit ISA. Larger thread counts run as **waves** (thread blocks): 256
 threads = 32 waves of 8. Verified pixel-for-pixel against a Python golden model.
 Phase 2 adds the full ALU (`MUL/DIV/AND/OR/XOR/SLL/SRL`), `CMP` + uniform
-branches, and the interior 3×3 box blur — all verified pixel-for-pixel (see
-`docs/PHASE2_ASSIGNMENT.md`).
+branches, and the interior 3×3 box blur. Phase 3 adds the **clamped full-frame**
+blur (a second border pass) and a deterministic performance trace (see
+`docs/PHASE3_ASSIGNMENT.md`).
 
 <p align="center">
   <img src="docs/assets/simt_gpu_brighten_aston.png" alt="RTL brighten kernel: input (left) vs output (right)" width="720">
@@ -80,8 +81,20 @@ reference:
 
 <p align="center"><em>Phase 2 interior <code>blur</code> on the RTL datapath
 (input: <code>alonso_ferrari</code>, 3844 threads, 125 instructions,
-0 mismatches). The 1-pixel border is untouched — a later phase clamps
+0 mismatches). The 1-pixel border is untouched — Phase 3 clamps
 it.</em></p>
+
+Phase 3 runs the interior pass, then a second **border** pass that clamps the
+edges and corners, producing a complete full-frame blur for 16×16, 32×32, and
+64×64:
+
+<p align="center">
+  <img src="docs/assets/simt_gpu_full_blur_ferrari.png" alt="Clamped full-frame 3x3 blur: input (left) vs RTL output (right)" width="720">
+</p>
+
+<p align="center"><em>Phase 3 clamped full-frame <code>blur</code>
+(input: <code>alonso_ferrari</code>, 4096 pixels = 3844 interior + 252 border
+threads over two launches, 0 mismatches). Borders are edge-replicated.</em></p>
 
 
 
@@ -92,28 +105,32 @@ make unit TEST=tb_alu          # run one module unit test
 make branch                    # CMP + BRnzp counted-loop regression
 make run                       # brighten: assemble -> golden model -> RTL -> PNG
 make blur                      # Phase 2: interior 3x3 box blur
+make blur16 / blur32 / blur64  # Phase 3: clamped full-frame blur
+make trace SIZE=64             # Phase 3: RTL trace + trace checker
+make phase3                    # full Phase 1-3 regression
 make golden                    # model + reference only, no RTL
 make venv                      # optional: Pillow/numpy for images
 ```
 
-See `docs/GPU_ISA.md`, `docs/BUS_PROTOCOL.md`, `docs/ADDRESS_MAP.md`,
-`docs/PHASE1_ASSIGNMENT.md`, and `docs/PHASE2_ASSIGNMENT.md`.
+See `docs/GPU_ISA.md`, `docs/BUS_PROTOCOL.md`, `docs/ADDRESS_MAP.md`, and
+`docs/PHASE{1,2,3}_ASSIGNMENT.md`.
 
 ## Progress notes
 
-- `docs/PHASE1_PROGRESS.md`, `docs/PHASE2_PROGRESS.md` — running build logs for
-  the Phase 1 and Phase 2 GPU bring-up, written while implementing the RTL.
+- `docs/PHASE1_PROGRESS.md`, `docs/PHASE2_PROGRESS.md`, `docs/PHASE3_PROGRESS.md`
+  — running build logs for the GPU bring-up, written while implementing the RTL.
 - `learning/` — accompanying study notes, mission, and lessons generated during
   the build (not part of the hardware design).
 
 ## Status
 
-Phase 1 and Phase 2 complete: the SIMT GPU runs `brighten`, `copy`, and the
-interior 3×3 `blur` — with the full ALU and uniform branches (`CMP`/`BRnzp`,
-covered by `make branch`) — all verified pixel-for-pixel against a Python golden
-model and an independent reference. The CPU runs standalone from the riscv repo.
-A top-level SoC integration (shared bus, CPU <-> GPU memory + MMIO) is a later
-phase; memory coalescing and per-lane divergence are deferred scale-out work.
+Phase 1–3 complete: the SIMT GPU runs `brighten`, `copy`, the interior `blur`,
+and the clamped full-frame `blur` (16/32/64) — with the full ALU and uniform
+branches (`CMP`/`BRnzp`) — all verified pixel-for-pixel against a Python golden
+model and an independent reference, with a validating execution trace. The CPU
+runs standalone from the riscv repo. A top-level SoC integration (shared bus,
+CPU <-> GPU memory + MMIO) is a later phase; memory coalescing and per-lane
+divergence are deferred scale-out work.
 
 ## License
 

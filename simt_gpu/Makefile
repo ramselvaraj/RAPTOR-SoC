@@ -18,7 +18,10 @@ UNIT_SRC_tb_dispatcher := rtl/dispatcher.sv tb/unit/tb_dispatcher.sv
 UNIT_SRC_tb_scheduler  := rtl/scheduler.sv  tb/unit/tb_scheduler.sv
 UNIT_SRC_tb_branch     := $(RTL)            tb/unit/tb_branch.sv
 
-.PHONY: all build unit run test check prog inputs venv clean blur golden branch
+.PHONY: all build unit run test check prog inputs venv clean blur golden branch \
+        blur16 blur32 blur64 trace phase3 py-test
+
+SIZE ?= 64
 
 all: build
 
@@ -56,6 +59,44 @@ blur: build
 # Golden model + reference only, no RTL.
 golden:
 	$(PY) tools/run_sim.py --kernel sw/kernels/blur.asm --golden-only
+
+# Phase 3: clamped full-frame blur (interior pass + border pass).
+blur16: build
+	$(PY) tools/run_sim.py --full --width 16 --height 16
+
+blur32: build
+	$(PY) tools/run_sim.py --full --width 32 --height 32
+
+blur64: build
+	$(PY) tools/run_sim.py --full --width 64 --height 64
+
+# Phase 3 trace: run an RTL sim with +trace and validate it.
+trace: build
+	$(PY) tools/run_sim.py --full --width $(SIZE) --height $(SIZE) --trace \
+	    --workdir build/run/trace$(SIZE)
+	$(PY) tools/check_trace.py --trace build/run/trace$(SIZE)/trace.txt
+
+# Python generator/reference unit tests.
+py-test:
+	$(PY) tools/tests/test_blur_ref.py
+	$(PY) tools/tests/test_blur_border.py
+
+# Full Phase 3 regression.
+phase3: build
+	$(MAKE) unit TEST=tb_alu
+	$(MAKE) unit TEST=tb_decoder
+	$(MAKE) unit TEST=tb_regfile
+	$(MAKE) unit TEST=tb_dcr
+	$(MAKE) unit TEST=tb_dispatcher
+	$(MAKE) unit TEST=tb_scheduler
+	$(MAKE) branch
+	$(MAKE) py-test
+	$(MAKE) run
+	$(MAKE) blur
+	$(MAKE) blur16
+	$(MAKE) blur32
+	$(MAKE) blur64
+	$(MAKE) trace SIZE=64
 
 test: run
 

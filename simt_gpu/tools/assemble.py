@@ -45,6 +45,8 @@ BRANCHES = {
 }
 BR_OP = 0xE
 
+PROG_WORDS = 1024          # testbench instruction memory size
+
 COMMENT = re.compile(r"[;#].*$")
 
 
@@ -131,11 +133,129 @@ def emit_blur(W, H):
     return prog, iw * (H - 2)
 
 
+def emit_blur_border(W, H):
+    """Emit a fully-unrolled clamped border 3x3 box blur for a W x H image.
+
+    One thread per border pixel, in this order:
+        [0, W)          top row (incl. both corners)
+        [W, 2W)         bottom row (incl. both corners)
+        [2W, 2W+H-2)    left edge (excl. corners)
+        [.., B)         right edge (excl. corners)
+    where B = 2*W + 2*(H-2). Each thread clamps the nine sample coordinates,
+    averages R/G/B //9, repacks 0x00RRGGBB, and stores at DST + y*W + x.
+
+    Branchless: the region is selected arithmetically from t so a warp that
+    straddles two regions still computes correct coordinates (no divergence).
+
+    Register map (loop): r1=Cm r2=x r3=Cp r4=Rm r6=Rp r5=R0 r7=0xFF r8=8
+    r9/10/11=sumR/G/B r12/13=temps; r14=SRC r15=DST.
+    """
+    if W < 3 or H < 3:
+        raise ValueError(f".gen_blur_border needs W>=3 and H>=3, got {W}x{H}")
+    B = 2 * W + 2 * (H - 2)
+    prog = []
+
+    def C(rd, imm):
+        prog.append((0x1 << 12) | (rd << 8) | (imm & 0xFF))
+
+    def R(op, rd, rs1, rs2):
+        prog.append(enc_r(OPCODES[op], rd, rs1, rs2))
+
+    GM, G0, GP = 1, 2, 3          # columns: x-1 (clamped), x, x+1 (clamped)
+    RP, R0, RM = 4, 5, 6          # rows (already *W): y+1, y, y-1 (clamped)
+    BYTE, SH8 = 7, 8
+    SUMR, SUMG, SUMB = 9, 10, 11
+    TA, TB = 12, 13               # temps
+
+    # --- precompute: region flags, x, y, then clamped columns/rows ---
+    C(TA, 1)                      # ONE
+    C(TB, 31)                     # shift for the sign bit
+    C(7, W)                       # r7 = W
+    C(8, 2 * W)                   # r8 = 2W
+    C(11, H - 2)
+    R("ADD", 10, 8, 11)           # r10 = BND = 2W + (H-2)
+
+    R("SUB", 4, 0, 7);  R("SRL", 4, 4, TB)     # r4 = A0 = t<W
+    R("SUB", 5, 0, 8);  R("SRL", 5, 5, TB)     # r5 = B0 = t<2W
+    R("SUB", 6, 0, 10); R("SRL", 6, 6, TB)     # r6 = Cc = t<BND
+
+    R("SUB", 8, TA, TA)           # r8 = 0
+    R("SUB", 9, 5, 4)             # is_bot   = B0 - A0
+    R("SUB", 10, 6, 5)            # is_left  = Cc - B0
+    R("SUB", 11, TA, 6)           # is_right = 1 - Cc
+
+    # x = (W-1) default(right); force by region
+    R("SUB", 6, 7, TA)            # r6 = W-1
+    R("ADD", 2, 6, 8)             # x = W-1
+    R("SUB", 5, 8, 2); R("MUL", 5, 5, 10); R("ADD", 2, 2, 5)   # += is_left*(0-x)
+    R("SUB", 5, 0, 7); R("SUB", 5, 5, 2);  R("MUL", 5, 5, 9);  R("ADD", 2, 2, 5)  # += is_bot*(t-W-x)
+    R("SUB", 5, 0, 2); R("MUL", 5, 5, 4);  R("ADD", 2, 2, 5)   # += is_top*(t-x)
+
+    # y = 0 default(top); force by region
+    R("SUB", 3, 8, 8)             # y = 0
+    C(6, H - 1)
+    R("SUB", 5, 6, 3); R("MUL", 5, 5, 9);  R("ADD", 3, 3, 5)   # += is_bot*((H-1)-y)
+    C(6, 2 * W)
+    R("SUB", 5, 0, 6); R("ADD", 5, 5, TA); R("SUB", 5, 5, 3)
+    R("MUL", 5, 5, 10); R("ADD", 3, 3, 5)                      # += is_left*(t-2W+1-y)
+    C(6, 2 * W); C(5, H - 2); R("ADD", 6, 6, 5)                # r6 = BND
+    R("SUB", 5, 0, 6); R("ADD", 5, 5, TA); R("SUB", 5, 5, 3)
+    R("MUL", 5, 5, 11); R("ADD", 3, 3, 5)                      # += is_right*(t-BND+1-y)
+
+    # rows (y in r3, W in r7) -> R0=r5, RM=r6, RP=r4
+    R("MUL", 5, 3, 7)             # R0 = y*W
+    R("SUB", 6, 3, TA); R("SRL", 8, 6, TB); R("MUL", 8, 8, 6)
+    R("SUB", 6, 6, 8); R("MUL", 6, 6, 7)                       # RM = max(y-1,0)*W
+    R("ADD", 4, 3, TA); C(8, H - 1)
+    R("SUB", 9, 3, 8); R("SRL", 9, 9, TB); R("SUB", 9, TA, 9)
+    R("SUB", 10, 8, 4); R("MUL", 10, 10, 9); R("ADD", 4, 4, 10)
+    R("MUL", 4, 4, 7)                                          # RP = min(y+1,H-1)*W
+
+    # columns -> GM=r1, G0=r2 (x), GP=r3
+    R("SUB", 1, 2, TA); R("SRL", 8, 1, TB); R("MUL", 8, 8, 1)
+    R("SUB", 1, 1, 8)             # GM = max(x-1,0)
+    R("ADD", 3, 2, TA); C(8, W); R("SUB", 8, 8, TA)           # r8 = W-1
+    R("SUB", 9, 2, 8); R("SRL", 9, 9, TB); R("SUB", 9, TA, 9)
+    R("SUB", 10, 8, 3); R("MUL", 10, 10, 9); R("ADD", 3, 3, 10)  # GP = min(x+1,W-1)
+
+    C(BYTE, 0xFF)
+    C(SH8, 8)
+    C(SUMR, 0); C(SUMG, 0); C(SUMB, 0)
+
+    # --- nine clamped samples: address = row[dy] + col[dx] ---
+    rows = {-1: RM, 0: R0, 1: RP}
+    cols = {-1: GM, 0: G0, 1: GP}
+    for dy in (-1, 0, 1):
+        for dx in (-1, 0, 1):
+            R("ADD", TA, rows[dy], cols[dx])
+            R("LDR", TA, 14, TA)                 # TA = mem[SRC + addr]
+            C(TB, 16); R("SRL", TB, TA, TB); R("AND", TB, TB, BYTE)
+            R("ADD", SUMR, SUMR, TB)
+            R("SRL", TB, TA, SH8); R("AND", TB, TB, BYTE)
+            R("ADD", SUMG, SUMG, TB)
+            R("AND", TB, TA, BYTE)
+            R("ADD", SUMB, SUMB, TB)
+
+    C(TB, 9)
+    R("DIV", SUMR, SUMR, TB)
+    R("DIV", SUMG, SUMG, TB)
+    R("DIV", SUMB, SUMB, TB)
+    C(TB, 16); R("SLL", SUMR, SUMR, TB)
+    R("SLL", SUMG, SUMG, SH8)                 # G << 8
+    R("OR", SUMR, SUMR, SUMG)
+    R("OR", SUMR, SUMR, SUMB)
+    R("ADD", TA, R0, G0)                       # p = y*W + x
+    R("STR", SUMR, 15, TA)
+    R("RET", 0, 0, 0)
+    return prog, B
+
+
 def assemble(text):
     threads = None
     src, dst = 0, 0
     width = height = None
     interior = False
+    pass_kind = None
     labels = {}
     prog = []
     pending = []   # (index, cond, label)
@@ -161,6 +281,14 @@ def assemble(text):
                 body, n = emit_blur(width, height)
                 prog.extend(body)
                 interior = True
+                pass_kind = "interior"
+                if threads is None:
+                    threads = n
+            elif d == ".gen_blur_border" and len(parts) == 3:
+                width, height = int(parts[1], 0), int(parts[2], 0)
+                body, n = emit_blur_border(width, height)
+                prog.extend(body)
+                pass_kind = "border"
                 if threads is None:
                     threads = n
             elif d in (".text", ".data", ".global"):
@@ -207,9 +335,16 @@ def assemble(text):
             raise ValueError(f"branch to {label!r} out of range ({off})")
         prog[idx] = (BR_OP << 12) | (cond << 9) | (off & 0x1FF)
 
+    if len(prog) > PROG_WORDS:
+        raise ValueError(
+            f"program is {len(prog)} instructions, exceeds "
+            f"{PROG_WORDS}-word instruction memory")
+
     meta = {"threads": threads or 0, "src": src, "dst": dst}
-    if interior:
-        meta.update({"width": width, "height": height, "interior": True})
+    if pass_kind is not None:
+        meta.update({"width": width, "height": height, "pass": pass_kind})
+        if pass_kind == "interior":
+            meta["interior"] = True          # Phase 2 compatibility
     return prog, meta, labels
 
 
