@@ -30,6 +30,7 @@ RAPTOR-SoC/
 │   ├── sw/kernels/  #   device kernels
 │   ├── tools/       #   host image <-> memory helpers
 │   └── input_images/#   test frames
+├── soc/             # AXI4-Lite integration, shared RAM, MMIO, SoC tests
 └── README.md
 ```
 
@@ -38,18 +39,34 @@ RAPTOR-SoC/
 ### `multi_cycle/` — RISC-V Multi-Cycle CPU
 
 Textbook-style multi-cycle RISC-V processor (Patterson & Hennessey) implementing
-`ADD, SUB, AND, OR, LW, SW, BEQ`. Self-contained: instruction and data memories
-are embedded (64 x 32).
+`ADD, SUB, AND, OR, ADDI, LW, SW, BEQ, BNE, JAL`. It uses a private 1024-word
+instruction TCM and exposes a stalled data-memory request interface for AXI.
 
 Simulate (from the repository root):
 
 ```sh
 verilator --binary --timing --top-module tb_riscv_mc \
-  -f multi_cycle/files.txt --Mdir /tmp/riscv_mc_obj && \
+  soc/rtl/cpu_axi_master.sv -f multi_cycle/files.txt \
+  --Mdir /tmp/riscv_mc_obj && \
   /tmp/riscv_mc_obj/Vtb_riscv_mc
 ```
 
 Expected: `All multi-cycle processor tests passed.`
+
+### `soc/` - CPU-driven Phase 4 integration
+
+The CPU configures and launches both GPU blur passes through AXI4-Lite MMIO,
+polls sticky completion status, and shares a dual-port RAM with the GPU pixel
+bus. The GPU programs remain resident at offsets 0 and 512.
+
+```sh
+make axi                 # AXI slaves, arbitration, backpressure, assertions
+make cpu                 # CPU ISA and stalled-memory tests
+make soc16               # CPU-driven clamped blur at 16x16
+make soc32               # CPU-driven clamped blur at 32x32
+make soc64               # CPU-driven clamped blur at 64x64
+make phase4              # complete Phase 1-4 regression
+```
 
 ### `simt_gpu/` — SIMT GPU (Phase 1–3 done)
 
@@ -113,24 +130,23 @@ make venv                      # optional: Pillow/numpy for images
 ```
 
 See `docs/GPU_ISA.md`, `docs/BUS_PROTOCOL.md`, `docs/ADDRESS_MAP.md`, and
-`docs/PHASE{1,2,3}_ASSIGNMENT.md`.
+`docs/PHASE{1,2,3,4}_ASSIGNMENT.md`.
 
 ## Progress notes
 
-- `docs/PHASE1_PROGRESS.md`, `docs/PHASE2_PROGRESS.md`, `docs/PHASE3_PROGRESS.md`
+- `docs/PHASE1_PROGRESS.md`, `docs/PHASE2_PROGRESS.md`, `docs/PHASE3_PROGRESS.md`,
+  `docs/PHASE4_PROGRESS.md`
   — running build logs for the GPU bring-up, written while implementing the RTL.
 - `learning/` — accompanying study notes, mission, and lessons generated during
   the build (not part of the hardware design).
 
 ## Status
 
-Phase 1–3 complete: the SIMT GPU runs `brighten`, `copy`, the interior `blur`,
-and the clamped full-frame `blur` (16/32/64) — with the full ALU and uniform
-branches (`CMP`/`BRnzp`) — all verified pixel-for-pixel against a Python golden
-model and an independent reference, with a validating execution trace. The CPU
-runs standalone from the riscv repo. A top-level SoC integration (shared bus,
-CPU <-> GPU memory + MMIO) is a later phase; memory coalescing and per-lane
-divergence are deferred scale-out work.
+Phase 1-4 complete: the multi-cycle RISC-V CPU launches both GPU blur passes
+through AXI4-Lite MMIO and polls completion. The integrated SoC produces the
+clamped 16x16, 32x32, and 64x64 frames pixel-for-pixel against the independent
+Python reference while preserving the source framebuffer. Memory coalescing,
+interrupts, caches, and per-lane divergence remain deferred scale-out work.
 
 ## License
 

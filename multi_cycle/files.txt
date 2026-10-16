@@ -7,5 +7,4 @@
 ./multi_cycle/rtl/instr_reg.sv
 ./multi_cycle/rtl/reg_file.sv
 ./multi_cycle/rtl/data_reg.sv
-./multi_cycle/rtl/memory.sv
 ./multi_cycle/rtl/alu.sv

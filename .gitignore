@@ -6,3 +6,5 @@
 simt_gpu/build/
 simt_gpu/.venv/
 simt_gpu/**/__pycache__/
+soc/build/
+soc/**/__pycache__/

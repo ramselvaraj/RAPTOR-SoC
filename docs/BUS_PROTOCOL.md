@@ -1,7 +1,7 @@
-# RAPTOR-SoC Bus Protocol (v0)
+# RAPTOR-SoC Bus Protocol (Phase 4)
 
-Phase 1 uses a deliberately simple single-cycle bus. It matches the dual-port
-framebuffer BRAM and is enough to grow into a shared CPU/GPU fabric in Phase 4.
+The GPU pixel path retains the deliberately simple Phase 1 single-cycle bus.
+Phase 4 adds a separate AXI4-Lite control/data path for the CPU.
 
 ## Signals
 
@@ -31,9 +31,15 @@ framebuffer BRAM and is enough to grow into a shared CPU/GPU fabric in Phase 4.
 5. **One transfer per master per cycle.** Multi-master arbitration (CPU + GPU)
    is a Phase 4 concern; the arbiter will grant one master's request per cycle.
 
-## Phase 4 evolution (do not implement now)
+## CPU AXI4-Lite path
 
-- Byte enables (`mem_be[3:0]`), byte addresses, error response.
-- Arbiter with round-robin grant between CPU and GPU masters.
-- Address decoder routing to system RAM / framebuffer / GPU program memory /
-  GPU MMIO.
+- 32-bit byte-addressed AXI4-Lite with independent `AW`, `W`, `B`, `AR`, and
+  `R` channels and one outstanding transaction per master.
+- Four write strobes are honored by RAM and MMIO writes.
+- The round-robin interconnect has two master ports and routes top-nibble
+  `0x4` accesses to GPU MMIO; other accesses go to the RAM slave, which returns
+  `SLVERR` outside `0x0000_4000..0x0001_BFFF`.
+- CPU instruction fetch remains on a private TCM. GPU program fetch remains on
+  a private 16-bit program-memory port.
+- CPU/AXI byte addresses map to the unchanged GPU word addresses by shifting
+  right two bits. GPU pixel traffic does not traverse AXI.
