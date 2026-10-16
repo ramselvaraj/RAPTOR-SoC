@@ -1,0 +1,776 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "excalidraw-cli",
+  "elements": [
+    {
+      "type": "text",
+      "id": "title",
+      "x": 545,
+      "y": 25,
+      "text": "RAPTOR-SoC Architecture",
+      "fontSize": 34,
+      "fontFamily": 1,
+      "strokeColor": "#111827"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "x": 575,
+      "y": 70,
+      "text": "CPU-controlled SIMT GPU system",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#64748b"
+    },
+    {
+      "type": "rectangle",
+      "id": "cpu",
+      "x": 80,
+      "y": 150,
+      "width": 360,
+      "height": 190,
+      "backgroundColor": "#dbeafe",
+      "fillStyle": "solid",
+      "strokeColor": "#2563eb",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "boundElements": [
+        {
+          "id": "clockcpu",
+          "type": "arrow"
+        },
+        {
+          "id": "cpuaxi",
+          "type": "arrow"
+        },
+        {
+          "id": "cpu_label",
+          "type": "text"
+        }
+      ],
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "type": "text",
+      "id": "cpu_label",
+      "x": 90,
+      "y": 160,
+      "width": 340,
+      "height": 170,
+      "text": "RISC-V CPU\nMulti-cycle RV32I\n\nPrivate instruction TCM\nADDI | LW | SW | BEQ | BNE | JAL",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "cpu",
+      "strokeColor": "#1e3a8a"
+    },
+    {
+      "type": "rectangle",
+      "id": "clock",
+      "x": 650,
+      "y": 120,
+      "width": 260,
+      "height": 90,
+      "backgroundColor": "#f8fafc",
+      "fillStyle": "solid",
+      "strokeColor": "#475569",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "boundElements": [
+        {
+          "id": "clockcpu",
+          "type": "arrow"
+        },
+        {
+          "id": "clockgpu",
+          "type": "arrow"
+        },
+        {
+          "id": "clock_label",
+          "type": "text"
+        }
+      ],
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "type": "text",
+      "id": "clock_label",
+      "x": 660,
+      "y": 130,
+      "width": 240,
+      "height": 70,
+      "text": "Clock + Reset\nOne shared system domain",
+      "fontSize": 17,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "clock",
+      "strokeColor": "#334155"
+    },
+    {
+      "type": "rectangle",
+      "id": "gpu",
+      "x": 1160,
+      "y": 150,
+      "width": 360,
+      "height": 220,
+      "backgroundColor": "#dcfce7",
+      "fillStyle": "solid",
+      "strokeColor": "#16a34a",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "boundElements": [
+        {
+          "id": "clockgpu",
+          "type": "arrow"
+        },
+        {
+          "id": "control",
+          "type": "arrow"
+        },
+        {
+          "id": "pixel",
+          "type": "arrow"
+        },
+        {
+          "id": "progfetch",
+          "type": "arrow"
+        },
+        {
+          "id": "gpu_label",
+          "type": "text"
+        }
+      ],
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "type": "text",
+      "id": "gpu_label",
+      "x": 1170,
+      "y": 160,
+      "width": 340,
+      "height": 200,
+      "text": "SIMT GPU\n2 warps x 4 lanes\n8 physical threads\n\nDCR | dispatcher | scheduler\n16-bit custom ISA",
+      "fontSize": 19,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "gpu",
+      "strokeColor": "#14532d"
+    },
+    {
+      "type": "rectangle",
+      "id": "fabric",
+      "x": 450,
+      "y": 430,
+      "width": 700,
+      "height": 120,
+      "backgroundColor": "#fef3c7",
+      "fillStyle": "solid",
+      "strokeColor": "#d97706",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "boundElements": [
+        {
+          "id": "cpuaxi",
+          "type": "arrow"
+        },
+        {
+          "id": "ramaxi",
+          "type": "arrow"
+        },
+        {
+          "id": "mmioaxi",
+          "type": "arrow"
+        },
+        {
+          "id": "fabric_label",
+          "type": "text"
+        }
+      ],
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "type": "text",
+      "id": "fabric_label",
+      "x": 460,
+      "y": 440,
+      "width": 680,
+      "height": 100,
+      "text": "AXI4-Lite Interconnect\n32-bit control and data path\nRound-robin arbitration + address decode",
+      "fontSize": 21,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "fabric",
+      "strokeColor": "#78350f"
+    },
+    {
+      "type": "rectangle",
+      "id": "ram",
+      "x": 80,
+      "y": 760,
+      "width": 500,
+      "height": 210,
+      "backgroundColor": "#e0e7ff",
+      "fillStyle": "solid",
+      "strokeColor": "#4f46e5",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "boundElements": [
+        {
+          "id": "ramaxi",
+          "type": "arrow"
+        },
+        {
+          "id": "pixel",
+          "type": "arrow"
+        },
+        {
+          "id": "ram_label",
+          "type": "text"
+        }
+      ],
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "type": "text",
+      "id": "ram_label",
+      "x": 90,
+      "y": 770,
+      "width": 480,
+      "height": 190,
+      "text": "Shared RAM\n32K x 32 dual-port memory\n\nFramebuffer A (source)    0x2000\nFramebuffer B (destination)    0x6000",
+      "fontSize": 19,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "ram",
+      "strokeColor": "#312e81"
+    },
+    {
+      "type": "rectangle",
+      "id": "mmio",
+      "x": 700,
+      "y": 760,
+      "width": 350,
+      "height": 210,
+      "backgroundColor": "#f3e8ff",
+      "fillStyle": "solid",
+      "strokeColor": "#9333ea",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "boundElements": [
+        {
+          "id": "mmioaxi",
+          "type": "arrow"
+        },
+        {
+          "id": "control",
+          "type": "arrow"
+        },
+        {
+          "id": "mmio_label",
+          "type": "text"
+        }
+      ],
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "type": "text",
+      "id": "mmio_label",
+      "x": 710,
+      "y": 770,
+      "width": 330,
+      "height": 190,
+      "text": "GPU MMIO\n\nCTRL | STATUS | THREADS\nSRC | DST | PROG_BASE\n\nSticky completion status",
+      "fontSize": 19,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "mmio",
+      "strokeColor": "#581c87"
+    },
+    {
+      "type": "rectangle",
+      "id": "program",
+      "x": 1190,
+      "y": 780,
+      "width": 300,
+      "height": 170,
+      "backgroundColor": "#f1f5f9",
+      "fillStyle": "solid",
+      "strokeColor": "#64748b",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "boundElements": [
+        {
+          "id": "progfetch",
+          "type": "arrow"
+        },
+        {
+          "id": "program_label",
+          "type": "text"
+        }
+      ],
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "type": "text",
+      "id": "program_label",
+      "x": 1200,
+      "y": 790,
+      "width": 280,
+      "height": 150,
+      "text": "GPU Program Memory\n1024 x 16 bits\n\nInterior program @ 0\nBorder program @ 512",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "program",
+      "strokeColor": "#334155"
+    },
+    {
+      "type": "arrow",
+      "id": "clockcpu",
+      "x": 650,
+      "y": 165,
+      "width": 210,
+      "height": 65,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -100,
+          0
+        ],
+        [
+          -100,
+          65
+        ],
+        [
+          -210,
+          65
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "strokeColor": "#64748b",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "startBinding": {
+        "elementId": "clock",
+        "fixedPoint": [
+          0,
+          0.5
+        ]
+      },
+      "endBinding": {
+        "elementId": "cpu",
+        "fixedPoint": [
+          1,
+          0.42
+        ]
+      }
+    },
+    {
+      "type": "arrow",
+      "id": "clockgpu",
+      "x": 910,
+      "y": 165,
+      "width": 430,
+      "height": 0,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          430,
+          0
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "strokeColor": "#64748b",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "startBinding": {
+        "elementId": "clock",
+        "fixedPoint": [
+          1,
+          0.5
+        ]
+      },
+      "endBinding": {
+        "elementId": "gpu",
+        "fixedPoint": [
+          0.5,
+          0
+        ]
+      }
+    },
+    {
+      "type": "arrow",
+      "id": "cpuaxi",
+      "x": 260,
+      "y": 340,
+      "width": 295,
+      "height": 90,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          45
+        ],
+        [
+          295,
+          45
+        ],
+        [
+          295,
+          90
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "strokeColor": "#2563eb",
+      "strokeWidth": 3,
+      "roughness": 1,
+      "startBinding": {
+        "elementId": "cpu",
+        "fixedPoint": [
+          0.5,
+          1
+        ]
+      },
+      "endBinding": {
+        "elementId": "fabric",
+        "fixedPoint": [
+          0.15,
+          0
+        ]
+      },
+      "boundElements": [
+        {
+          "id": "cpuaxi_label",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "cpuaxi_label",
+      "x": 270,
+      "y": 350,
+      "width": 275,
+      "height": 70,
+      "text": "CPU AXI master",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "cpuaxi",
+      "strokeColor": "#1d4ed8"
+    },
+    {
+      "type": "arrow",
+      "id": "ramaxi",
+      "x": 590,
+      "y": 550,
+      "width": 205,
+      "height": 210,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          90
+        ],
+        [
+          -205,
+          90
+        ],
+        [
+          -205,
+          210
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "strokeColor": "#2563eb",
+      "strokeWidth": 3,
+      "roughness": 1,
+      "startBinding": {
+        "elementId": "fabric",
+        "fixedPoint": [
+          0.2,
+          1
+        ]
+      },
+      "endBinding": {
+        "elementId": "ram",
+        "fixedPoint": [
+          0.61,
+          0
+        ]
+      },
+      "boundElements": [
+        {
+          "id": "ramaxi_label",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "ramaxi_label",
+      "x": 600,
+      "y": 560,
+      "width": 185,
+      "height": 190,
+      "text": "AXI RAM host port",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "ramaxi",
+      "strokeColor": "#1d4ed8"
+    },
+    {
+      "type": "arrow",
+      "id": "mmioaxi",
+      "x": 850,
+      "y": 550,
+      "width": 0,
+      "height": 210,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          210
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "strokeColor": "#9333ea",
+      "strokeWidth": 3,
+      "roughness": 1,
+      "startBinding": {
+        "elementId": "fabric",
+        "fixedPoint": [
+          0.57,
+          1
+        ]
+      },
+      "endBinding": {
+        "elementId": "mmio",
+        "fixedPoint": [
+          0.43,
+          0
+        ]
+      }
+    },
+    {
+      "type": "arrow",
+      "id": "control",
+      "x": 1050,
+      "y": 810,
+      "width": 110,
+      "height": 530,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          65,
+          0
+        ],
+        [
+          65,
+          -530
+        ],
+        [
+          110,
+          -530
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "strokeColor": "#9333ea",
+      "strokeWidth": 3,
+      "roughness": 1,
+      "startBinding": {
+        "elementId": "mmio",
+        "fixedPoint": [
+          1,
+          0.24
+        ]
+      },
+      "endBinding": {
+        "elementId": "gpu",
+        "fixedPoint": [
+          0,
+          0.59
+        ]
+      }
+    },
+    {
+      "type": "arrow",
+      "id": "pixel",
+      "x": 1350,
+      "y": 370,
+      "width": 900,
+      "height": 390,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          270
+        ],
+        [
+          -900,
+          270
+        ],
+        [
+          -900,
+          390
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "startArrowhead": "arrow",
+      "strokeColor": "#16a34a",
+      "strokeWidth": 4,
+      "roughness": 1,
+      "startBinding": {
+        "elementId": "gpu",
+        "fixedPoint": [
+          0.53,
+          1
+        ]
+      },
+      "endBinding": {
+        "elementId": "ram",
+        "fixedPoint": [
+          0.74,
+          0
+        ]
+      }
+    },
+    {
+      "type": "arrow",
+      "id": "progfetch",
+      "x": 1340,
+      "y": 780,
+      "width": 0,
+      "height": 410,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          -410
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "strokeColor": "#64748b",
+      "strokeWidth": 3,
+      "roughness": 1,
+      "startBinding": {
+        "elementId": "program",
+        "fixedPoint": [
+          0.5,
+          0
+        ]
+      },
+      "endBinding": {
+        "elementId": "gpu",
+        "fixedPoint": [
+          0.5,
+          1
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "id": "mmio-label",
+      "x": 870,
+      "y": 665,
+      "text": "MMIO slave",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#7e22ce"
+    },
+    {
+      "type": "text",
+      "id": "control-label",
+      "x": 965,
+      "y": 565,
+      "text": "GPU control\nstart | status | launch data",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#7e22ce"
+    },
+    {
+      "type": "text",
+      "id": "pixel-label",
+      "x": 640,
+      "y": 600,
+      "text": "GPU pixel bus (word addressed)",
+      "fontSize": 17,
+      "fontFamily": 1,
+      "strokeColor": "#15803d"
+    },
+    {
+      "type": "text",
+      "id": "fetch-label",
+      "x": 1165,
+      "y": 690,
+      "text": "16-bit instruction fetch",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#475569"
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "x": 80,
+      "y": 1025,
+      "text": "Blue: AXI4-Lite    Purple: GPU control    Green: pixel data    Gray: private fetch and reset",
+      "fontSize": 17,
+      "fontFamily": 1,
+      "strokeColor": "#64748b"
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff",
+    "gridSize": null
+  },
+  "files": {}
+}

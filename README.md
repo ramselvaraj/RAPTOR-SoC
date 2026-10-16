@@ -16,21 +16,9 @@ The RISC-V CPU controls the complete system through an AXI4-Lite bus.
 The CPU configures the GPU, starts two blur passes, and reads the GPU status.
 The GPU reads and writes pixels through a separate memory port.
 
-```text
- RISC-V CPU
-     |
-     +-- private instruction TCM
-     |
-     +-- AXI4-Lite master
-             |
-      AXI4-Lite interconnect
-          |             |
-     shared RAM      GPU MMIO
-          |             |
-          +------ SIMT GPU
-                     |
-              private program memory
-```
+<p align="center">
+  <img src="docs/assets/raptor-soc-architecture.svg" alt="High-level RAPTOR-SoC architecture" width="100%">
+</p>
 
 The final SoC has these functions:
 
