@@ -5,148 +5,118 @@
 <h1 align="center">RAPTOR-SoC</h1>
 
 <p align="center">
-  A RISC-V System-on-Chip.
+  A verified RISC-V system-on-chip with a programmable SIMT GPU.
 </p>
 
----
+## Final SoC
 
-## Overview
+RAPTOR-SoC uses SystemVerilog for the CPU, GPU, memory, and bus logic.
+The RISC-V CPU controls the complete system through an AXI4-Lite bus.
 
-RAPTOR-SoC is a RISC-V based System-on-Chip project. This repository contains the
-hardware design sources, verification environment, and supporting documentation.
+The CPU configures the GPU, starts two blur passes, and reads the GPU status.
+The GPU reads and writes pixels through a separate memory port.
 
-## Repository Layout
-
-```
-RAPTOR-SoC/
-├── docs/            # Documentation and assets (logo)
-├── multi_cycle/     # RISC-V multi-cycle CPU (SystemVerilog)
-│   ├── rtl/         #   design sources
-│   ├── tb/          #   integration testbench
-│   └── files.txt    #   Verilator file list
-├── simt_gpu/        # SIMT GPU subsystem (SystemVerilog + Python harness)
-│   ├── rtl/         #   design sources
-│   ├── tb/          #   testbench
-│   ├── sw/kernels/  #   device kernels
-│   ├── tools/       #   host image <-> memory helpers
-│   └── input_images/#   test frames
-├── soc/             # AXI4-Lite integration, shared RAM, MMIO, SoC tests
-└── README.md
+```text
+ RISC-V CPU
+     |
+     +-- private instruction TCM
+     |
+     +-- AXI4-Lite master
+             |
+      AXI4-Lite interconnect
+          |             |
+     shared RAM      GPU MMIO
+          |             |
+          +------ SIMT GPU
+                     |
+              private program memory
 ```
 
-## Subsystems
+The final SoC has these functions:
 
-### `multi_cycle/` — RISC-V Multi-Cycle CPU
+- A multi-cycle RV32I CPU controls the GPU.
+- An AXI4-Lite interconnect routes RAM and MMIO transfers.
+- A dual-port RAM supports CPU transfers and GPU pixel transfers.
+- GPU MMIO provides control, status, thread count, addresses, and program selection.
+- A two-warp GPU runs custom 16-bit programs on eight physical lanes.
+- The CPU starts the interior pass and the border pass.
+- The CPU reads a sticky completion bit after each pass.
 
-Textbook-style multi-cycle RISC-V processor (Patterson & Hennessey) implementing
-`ADD, SUB, AND, OR, ADDI, LW, SW, BEQ, BNE, JAL`. It uses a private 1024-word
-instruction TCM and exposes a stalled data-memory request interface for AXI.
+## Result
 
-Simulate (from the repository root):
-
-```sh
-verilator --binary --timing --top-module tb_riscv_mc \
-  soc/rtl/cpu_axi_master.sv -f multi_cycle/files.txt \
-  --Mdir /tmp/riscv_mc_obj && \
-  /tmp/riscv_mc_obj/Vtb_riscv_mc
-```
-
-Expected: `All multi-cycle processor tests passed.`
-
-### `soc/` - CPU-driven Phase 4 integration
-
-The CPU configures and launches both GPU blur passes through AXI4-Lite MMIO,
-polls sticky completion status, and shares a dual-port RAM with the GPU pixel
-bus. The GPU programs remain resident at offsets 0 and 512.
-
-```sh
-make axi                 # AXI slaves, arbitration, backpressure, assertions
-make cpu                 # CPU ISA and stalled-memory tests
-make soc16               # CPU-driven clamped blur at 16x16
-make soc32               # CPU-driven clamped blur at 32x32
-make soc64               # CPU-driven clamped blur at 64x64
-make phase4              # complete Phase 1-4 regression
-```
-
-### `simt_gpu/` — SIMT GPU (Phase 1–3 done)
-
-A programmable SIMT accelerator: 2 warps × 4 lanes = 8 physical threads,
-custom 16-bit ISA. Larger thread counts run as **waves** (thread blocks): 256
-threads = 32 waves of 8. Verified pixel-for-pixel against a Python golden model.
-Phase 2 adds the full ALU (`MUL/DIV/AND/OR/XOR/SLL/SRL`), `CMP` + uniform
-branches, and the interior 3×3 box blur. Phase 3 adds the **clamped full-frame**
-blur (a second border pass) and a deterministic performance trace (see
-`docs/PHASE3_ASSIGNMENT.md`).
+The SoC produces a clamped 3x3 box blur.
+The tests compare each output pixel with an independent Python model.
 
 <p align="center">
-  <img src="docs/assets/simt_gpu_brighten_aston.png" alt="RTL brighten kernel: input (left) vs output (right)" width="720">
+  <img src="docs/assets/simt_gpu_full_blur_ferrari.png" alt="Clamped full-frame blur from the RAPTOR-SoC" width="720">
 </p>
 
-<p align="center"><em>Phase 1 <code>brighten</code> kernel running on the RTL
-datapath (input: <code>alonso_aston</code>, 64×64 → 4096 threads = 512 waves,
-0 mismatches vs the golden model). The scalar <code>+0x20</code> add overflows
-blue into green — the speckles that Phase 2's per-channel saturating math
-fixes.</em></p>
+| Frame | GPU threads | SoC cycles | GPU reads | GPU writes | Mismatches |
+|---:|---:|---:|---:|---:|---:|
+| 16x16 | 196 + 60 | 22,066 | 2,304 | 256 | 0 |
+| 32x32 | 900 + 124 | 81,970 | 9,216 | 1,024 | 0 |
+| 64x64 | 3,844 + 252 | 317,362 | 36,864 | 4,096 | 0 |
 
-Phase 2 adds the full ALU (`MUL/DIV/AND/OR/XOR/SLL/SRL`) and a fully-unrolled
-interior 3×3 box blur, matched pixel-for-pixel against an independent Python
-reference:
+Each test also confirms that the GPU does not change the source frame.
+The Phase 1 through Phase 3 tests remain valid.
 
-<p align="center">
-  <img src="docs/assets/simt_gpu_blur_ferrari.png" alt="3x3 box blur: input (left) vs RTL output (right)" width="720">
-</p>
+## Run the SoC
 
-<p align="center"><em>Phase 2 interior <code>blur</code> on the RTL datapath
-(input: <code>alonso_ferrari</code>, 3844 threads, 125 instructions,
-0 mismatches). The 1-pixel border is untouched — Phase 3 clamps
-it.</em></p>
-
-Phase 3 runs the interior pass, then a second **border** pass that clamps the
-edges and corners, producing a complete full-frame blur for 16×16, 32×32, and
-64×64:
-
-<p align="center">
-  <img src="docs/assets/simt_gpu_full_blur_ferrari.png" alt="Clamped full-frame 3x3 blur: input (left) vs RTL output (right)" width="720">
-</p>
-
-<p align="center"><em>Phase 3 clamped full-frame <code>blur</code>
-(input: <code>alonso_ferrari</code>, 4096 pixels = 3844 interior + 252 border
-threads over two launches, 0 mismatches). Borders are edge-replicated.</em></p>
-
-
+Install Verilator and Python 3.
+Run commands from the repository root.
 
 ```sh
-cd simt_gpu
-make build                     # compile the integration testbench
-make unit TEST=tb_alu          # run one module unit test
-make branch                    # CMP + BRnzp counted-loop regression
-make run                       # brighten: assemble -> golden model -> RTL -> PNG
-make blur                      # Phase 2: interior 3x3 box blur
-make blur16 / blur32 / blur64  # Phase 3: clamped full-frame blur
-make trace SIZE=64             # Phase 3: RTL trace + trace checker
-make phase3                    # full Phase 1-3 regression
-make golden                    # model + reference only, no RTL
-make venv                      # optional: Pillow/numpy for images
+make soc64
 ```
 
-See `docs/GPU_ISA.md`, `docs/BUS_PROTOCOL.md`, `docs/ADDRESS_MAP.md`, and
-`docs/PHASE{1,2,3,4}_ASSIGNMENT.md`.
+Use these targets for more tests:
 
-## Progress notes
+```sh
+make axi       # Test the AXI4-Lite bus and protocol assertions.
+make cpu       # Test the CPU instructions and stalled AXI transfers.
+make soc16     # Run the 16x16 SoC test.
+make soc32     # Run the 32x32 SoC test.
+make soc64     # Run the 64x64 SoC test.
+make phase4    # Run all Phase 1 through Phase 4 tests.
+```
 
-- `docs/PHASE1_PROGRESS.md`, `docs/PHASE2_PROGRESS.md`, `docs/PHASE3_PROGRESS.md`,
-  `docs/PHASE4_PROGRESS.md`
-  — running build logs for the GPU bring-up, written while implementing the RTL.
-- `learning/` — accompanying study notes, mission, and lessons generated during
-  the build (not part of the hardware design).
+The SoC test creates a trace, a memory dump, and an output image in `soc/build/run/`.
 
-## Status
+## Main Parts
 
-Phase 1-4 complete: the multi-cycle RISC-V CPU launches both GPU blur passes
-through AXI4-Lite MMIO and polls completion. The integrated SoC produces the
-clamped 16x16, 32x32, and 64x64 frames pixel-for-pixel against the independent
-Python reference while preserving the source framebuffer. Memory coalescing,
-interrupts, caches, and per-lane divergence remain deferred scale-out work.
+| Path | Purpose |
+|---|---|
+| `soc/rtl/` | Final SoC, AXI4-Lite bus, MMIO, and memory |
+| `soc/tb/` | AXI4-Lite and complete SoC tests |
+| `soc/tools/` | RISC-V assembler and SoC test driver |
+| `multi_cycle/rtl/` | Multi-cycle RISC-V CPU |
+| `simt_gpu/rtl/` | SIMT GPU |
+| `simt_gpu/sw/kernels/` | GPU programs |
+| `docs/` | Design specifications and measured results |
+
+## CPU and GPU
+
+The CPU supports `ADD`, `SUB`, `AND`, `OR`, `ADDI`, `LW`, `SW`, `BEQ`, `BNE`, and `JAL`.
+The CPU uses a private instruction memory with 1024 words.
+
+The GPU uses two warps with four lanes in each warp.
+It runs larger workloads as a sequence of eight-thread waves.
+
+The GPU supports arithmetic, logic, memory, compare, branch, and return instructions.
+See `docs/GPU_ISA.md` for the complete instruction format.
+
+## Documentation
+
+- `docs/PHASE4_ASSIGNMENT.md` defines the final SoC.
+- `docs/PHASE4_PROGRESS.md` records the test results.
+- `docs/ADDRESS_MAP.md` defines CPU and GPU addresses.
+- `docs/BUS_PROTOCOL.md` defines the GPU bus and AXI4-Lite path.
+- `learning/` contains project lessons and study notes.
+
+## Deferred Work
+
+The current design does not include caches, interrupts, DMA, or AXI bursts.
+The GPU does not include memory coalescing or per-lane branch divergence.
 
 ## License
 
