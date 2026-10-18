@@ -17,11 +17,7 @@ The CPU configures the GPU, starts two blur passes, and reads the GPU status.
 The GPU reads and writes pixels through a separate memory port.
 
 <p align="center">
-  <img src="docs/assets/raptor-soc-architecture.png" alt="High-level RAPTOR-SoC architecture" width="100%">
-</p>
-
-<p align="center">
-  <sub><a href="docs/assets/raptor-soc-architecture.pptx">Editable DeckCraft source</a> in PowerPoint format.</sub>
+  <img src="docs/assets/raptor-soc-architecture-deckcraft.png" alt="High-level RAPTOR-SoC architecture" width="100%">
 </p>
 
 The final SoC has these functions:
