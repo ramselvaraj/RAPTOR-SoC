@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/raptor-soc-logo.png" alt="RAPTOR-SoC logo" width="480">
+  <img src="docs/assets/raptor-soc.png" alt="RAPTOR-SoC logo" width="640">
 </p>
 
 <h1 align="center">RAPTOR-SoC</h1>
