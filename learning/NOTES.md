@@ -23,6 +23,17 @@ RAPTOR-SoC tree clean. Relative links inside lessons assume this directory.
    learner's request; no further core lessons planned)
 4. Phase 2: blur, math, and the two loops — `lessons/0004-phase2-blur-and-branches.md` ✅
    Phase 2 hub: `PHASE2.md` ✅
+5. Phase 3: full-frame blur + trace — `lessons/0005-phase3-full-frame-blur.md` ✅
+   Phase 3 hub: `PHASE3.md` ✅
+   (written in ASD-STE100 Simplified Technical English at learner request)
+6. Phase 4: CPU-driven SoC + AXI4-Lite — `lessons/0006-phase4-cpu-driven-soc.md` ✅
+   Phase 4 hub: `PHASE4.md` ✅
+   (continues the Simplified Technical English style from lesson 0005)
+
+## Style note
+- From lesson 0005, write in ASD-STE100 Simplified Technical English: short
+  sentences, active voice, one instruction per sentence, no semicolons, no
+  contractions.
 
 ## Open items
 - Back-convert lesson 0001 to Markdown for consistency (offer pending).
