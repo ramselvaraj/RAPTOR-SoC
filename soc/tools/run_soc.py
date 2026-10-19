@@ -63,6 +63,24 @@ def _write_hex(path, words, digits):
             output.write(f"{word & ((1 << (digits * 4)) - 1):0{digits}x}\n")
 
 
+def _cpu_bootstrap(threads1, threads2):
+    """Initialize driver registers with supported ADDI/ADD instructions."""
+    registers = {
+        5: 0x40000000, 6: SRC_ADDR, 7: DST_ADDR,
+        8: threads1, 9: threads2, 10: 0, 11: GPU2_OFFSET, 14: 2,
+    }
+    lines = []
+    for reg, value in registers.items():
+        # Start with the most significant bit, then shift with ADD and add bits.
+        bits = f"{value:b}"
+        lines.append(f"addi x{reg}, x0, {bits[0]}")
+        for bit in bits[1:]:
+            lines.append(f"add x{reg}, x{reg}, x{reg}")
+            if bit == "1":
+                lines.append(f"addi x{reg}, x{reg}, 1")
+    return "\n".join(lines) + "\n"
+
+
 def _build_programs(width, height):
     interior, interior_meta = assemble.assemble(f".gen_blur {width} {height}\n")[:2]
     border, border_meta = assemble.assemble(f".gen_blur_border {width} {height}\n")[:2]
@@ -136,7 +154,9 @@ def run(args):
     pixels_hex, output_png = path("pixels.hex"), path("output.png")
 
     interior, threads1, border, threads2 = _build_programs(width, height)
-    cpu = riscv_asm.assemble(CPU_DRIVER)
+    cpu = riscv_asm.assemble(_cpu_bootstrap(threads1, threads2) + CPU_DRIVER)
+    if len(cpu) > 1024:
+        raise ValueError(f"CPU program has {len(cpu)} words; instruction memory holds 1024")
     _write_hex(cpu_hex, cpu, 8)
     _write_hex(gpu1_hex, interior, 4)
     _write_hex(gpu2_hex, border, 4)

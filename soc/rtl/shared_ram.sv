@@ -16,6 +16,8 @@ module shared_ram #(
     logic [31:0] mem [0:WORDS-1];
 
     always_ff @(posedge clk) begin
+        // If both ports write the same word, the host write wins.
+        // Preserve this priority when replacing the array with a memory macro.
         if (px_we)
             mem[px_addr] <= px_wdata;
         if (host_we)

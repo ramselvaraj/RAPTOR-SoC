@@ -3,6 +3,10 @@
 module tb_riscv_mc;
     logic clk = 0;
     logic reset = 1;
+    logic imem_we = 0;
+    logic [9:0] imem_waddr = 0;
+    logic [31:0] imem_wdata = 0;
+    logic [31:0] program_words [0:18];
     logic mem_req, mem_we, mem_done;
     logic [31:0] mem_addr, mem_wdata, mem_rdata;
     logic [31:0] axi_awaddr, axi_wdata, axi_araddr, axi_rdata;
@@ -25,6 +29,7 @@ module tb_riscv_mc;
 
     riscv_mc dut(
         .clk, .reset,
+        .imem_we, .imem_waddr, .imem_wdata,
         .mem_req, .mem_we, .mem_addr, .mem_wdata,
         .mem_rdata, .mem_done, .state
     );
@@ -174,29 +179,36 @@ module tb_riscv_mc;
         for (i = 0; i < 256; i = i + 1)
             memory[i] = 32'b0;
 
-        // Wait for the instruction memory's initialization before preloading it.
+        // Build the image, then load it through the hardware programming port.
         #1;
-        dut.datapath_inst.imem_inst.memdata[0]  = encode_i(10, 0, 3'b000, 1, 7'b0010011); // addi x1,x0,10
-        dut.datapath_inst.imem_inst.memdata[1]  = encode_i(3, 0, 3'b000, 2, 7'b0010011);  // addi x2,x0,3
-        dut.datapath_inst.imem_inst.memdata[2]  = encode_r(0, 2, 1, 3'b000, 3);            // add x3,x1,x2
-        dut.datapath_inst.imem_inst.memdata[3]  = encode_r(7'b0100000, 2, 1, 3'b000, 5);   // sub x5,x1,x2
-        dut.datapath_inst.imem_inst.memdata[4]  = encode_r(0, 2, 1, 3'b110, 6);            // or x6,x1,x2
-        dut.datapath_inst.imem_inst.memdata[5]  = encode_r(0, 2, 1, 3'b111, 7);            // and x7,x1,x2
-        dut.datapath_inst.imem_inst.memdata[6]  = encode_s(64, 3, 0);                      // sw x3,64(x0)
-        dut.datapath_inst.imem_inst.memdata[7]  = encode_i(64, 0, 3'b010, 4, 7'b0000011); // lw x4,64(x0)
-        dut.datapath_inst.imem_inst.memdata[8]  = encode_b(8, 4, 3, 3'b000);              // beq x3,x4,+8
-        dut.datapath_inst.imem_inst.memdata[9]  = encode_i(1, 0, 3'b000, 14, 7'b0010011);// skipped
-        dut.datapath_inst.imem_inst.memdata[10] = encode_b(8, 4, 3, 3'b001);              // bne not taken
-        dut.datapath_inst.imem_inst.memdata[11] = encode_i(1, 0, 3'b000, 8, 7'b0010011); // executes
-        dut.datapath_inst.imem_inst.memdata[12] = encode_b(8, 2, 1, 3'b001);              // bne taken
-        dut.datapath_inst.imem_inst.memdata[13] = encode_i(1, 0, 3'b000, 9, 7'b0010011); // skipped
-        dut.datapath_inst.imem_inst.memdata[14] = encode_j(12, 10);                       // jal x10,+12
-        dut.datapath_inst.imem_inst.memdata[15] = encode_i(1, 0, 3'b000, 11, 7'b0010011);// skipped
-        dut.datapath_inst.imem_inst.memdata[16] = encode_i(1, 0, 3'b000, 12, 7'b0010011);// skipped
-        dut.datapath_inst.imem_inst.memdata[17] = encode_i(0, 10, 3'b000, 13, 7'b0010011);// addi x13,x10,0
-        dut.datapath_inst.imem_inst.memdata[18] = encode_b(0, 0, 0, 3'b000);              // halt
+        program_words[0]  = encode_i(10, 0, 3'b000, 1, 7'b0010011); // addi x1,x0,10
+        program_words[1]  = encode_i(3, 0, 3'b000, 2, 7'b0010011);  // addi x2,x0,3
+        program_words[2]  = encode_r(0, 2, 1, 3'b000, 3);            // add x3,x1,x2
+        program_words[3]  = encode_r(7'b0100000, 2, 1, 3'b000, 5);   // sub x5,x1,x2
+        program_words[4]  = encode_r(0, 2, 1, 3'b110, 6);            // or x6,x1,x2
+        program_words[5]  = encode_r(0, 2, 1, 3'b111, 7);            // and x7,x1,x2
+        program_words[6]  = encode_s(64, 3, 0);                      // sw x3,64(x0)
+        program_words[7]  = encode_i(64, 0, 3'b010, 4, 7'b0000011); // lw x4,64(x0)
+        program_words[8]  = encode_b(8, 4, 3, 3'b000);              // beq x3,x4,+8
+        program_words[9]  = encode_i(1, 0, 3'b000, 14, 7'b0010011);// skipped
+        program_words[10] = encode_b(8, 4, 3, 3'b001);              // bne not taken
+        program_words[11] = encode_i(1, 0, 3'b000, 8, 7'b0010011); // executes
+        program_words[12] = encode_b(8, 2, 1, 3'b001);              // bne taken
+        program_words[13] = encode_i(1, 0, 3'b000, 9, 7'b0010011); // skipped
+        program_words[14] = encode_j(12, 10);                       // jal x10,+12
+        program_words[15] = encode_i(1, 0, 3'b000, 11, 7'b0010011);// skipped
+        program_words[16] = encode_i(1, 0, 3'b000, 12, 7'b0010011);// skipped
+        program_words[17] = encode_i(0, 10, 3'b000, 13, 7'b0010011);// addi x13,x10,0
+        program_words[18] = encode_b(0, 0, 0, 3'b000);              // halt
 
-        repeat (2) @(posedge clk);
+        for (i = 0; i < 19; i = i + 1) begin
+            @(negedge clk);
+            imem_we = 1'b1;
+            imem_waddr = 10'(i);
+            imem_wdata = program_words[i];
+        end
+        @(negedge clk);
+        imem_we = 1'b0;
         reset = 1'b0;
 
         cycles = 0;

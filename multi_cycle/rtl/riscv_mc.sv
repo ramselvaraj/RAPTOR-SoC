@@ -1,6 +1,9 @@
 module riscv_mc(
     input logic clk,
     input logic reset,
+    input logic imem_we,
+    input logic [9:0] imem_waddr,
+    input logic [31:0] imem_wdata,
     output logic mem_req,
     output logic mem_we,
     output logic [31:0] mem_addr,

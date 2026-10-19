@@ -3,6 +3,13 @@
 module soc_top (
     input  logic        clk,
     input  logic        reset,
+    // Synchronous writes while reset=1; all addresses are word indices.
+    // 0: CPU instructions, 1: GPU instructions, 2: shared RAM, 3: reserved.
+    input  logic        boot_we,
+    input  logic [1:0]  boot_sel,
+    input  logic [14:0] boot_addr,
+    input  logic [31:0] boot_wdata,
+    output logic [31:0] boot_rdata,
     output logic [3:0]  cpu_state,
     output logic        gpu_start,
     output logic        gpu_busy,
@@ -44,6 +51,8 @@ module soc_top (
 
     riscv_mc cpu (
         .clk(clk), .reset(reset),
+        .imem_we(reset && boot_we && boot_sel == 2'd0 && boot_addr < 15'd1024),
+        .imem_waddr(boot_addr[9:0]), .imem_wdata(boot_wdata),
         .mem_req(cpu_mem_req), .mem_we(cpu_mem_we),
         .mem_addr(cpu_mem_addr), .mem_wdata(cpu_mem_wdata),
         .mem_rdata(cpu_mem_rdata), .mem_done(cpu_mem_done), .state(cpu_state)
@@ -111,13 +120,20 @@ module soc_top (
     shared_ram ram (
         .clk(clk),
         .px_addr(gpu_mem_addr[14:0]),
-        .px_we(gpu_mem_req && gpu_mem_we && gpu_mem_ready),
+        .px_we(!reset && gpu_mem_req && gpu_mem_we && gpu_mem_ready),
         .px_wdata(gpu_mem_wdata), .px_rdata(gpu_mem_rdata),
-        .host_addr(host_addr), .host_we(host_we),
-        .host_wdata(host_wdata), .host_rdata(host_rdata)
+        .host_addr(reset ? boot_addr : host_addr),
+        .host_we(reset ? (boot_we && boot_sel == 2'd2) : host_we),
+        .host_wdata(reset ? boot_wdata : host_wdata), .host_rdata(host_rdata)
     );
 
+    // RAM readback is asynchronous and only available while reset is asserted.
+    assign boot_rdata = (reset && boot_sel == 2'd2) ? host_rdata : 32'b0;
+
     program_memory program_mem (
+        .clk(clk),
+        .write_enable(reset && boot_we && boot_sel == 2'd1 && boot_addr < 15'd1024),
+        .write_addr(boot_addr[9:0]), .write_data(boot_wdata[15:0]),
         .prog_base(gpu_prog_base), .imem_addr(gpu_imem_addr), .imem_rdata(gpu_imem_rdata)
     );
 

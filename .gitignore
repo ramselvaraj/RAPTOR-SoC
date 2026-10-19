@@ -8,3 +8,9 @@ simt_gpu/.venv/
 simt_gpu/**/__pycache__/
 soc/build/
 soc/**/__pycache__/
+
+# Design Compiler outputs and default startup logs
+synth/build/
+command.log
+default.svf
+filenames.log

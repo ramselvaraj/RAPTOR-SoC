@@ -41,11 +41,12 @@ The tests compare each output pixel with an independent Python model.
 
 | Frame | GPU threads | SoC cycles | GPU reads | GPU writes | Mismatches |
 |---:|---:|---:|---:|---:|---:|
-| 16x16 | 196 + 60 | 22,066 | 2,304 | 256 | 0 |
-| 32x32 | 900 + 124 | 81,970 | 9,216 | 1,024 | 0 |
-| 64x64 | 3,844 + 252 | 317,362 | 36,864 | 4,096 | 0 |
+| 16x16 | 196 + 60 | 22,438 | 2,304 | 256 | 0 |
+| 32x32 | 900 + 124 | 82,362 | 9,216 | 1,024 | 0 |
+| 64x64 | 3,844 + 252 | 317,774 | 36,864 | 4,096 | 0 |
 
 Each test also confirms that the GPU does not change the source frame.
+Cycle counts include firmware register initialization but exclude boot-port loading.
 The Phase 1 through Phase 3 tests remain valid.
 
 ## Run the SoC
@@ -69,6 +70,87 @@ make phase4    # Run all Phase 1 through Phase 4 tests.
 ```
 
 The SoC test creates a trace, a memory dump, and an output image in `soc/build/run/`.
+
+## Synthesize with Synopsys Design Compiler
+
+The synthesis top is `soc_top`.
+Simulation and synthesis use the same RTL list in `soc/rtl/files.txt`.
+The RTL does not use file initialization or hierarchical writes to initialize hardware.
+
+Run the local checks first:
+
+```sh
+make lint
+make boot
+make phase4
+```
+
+On a machine with DC and a technology library, set the absolute `.db` path:
+
+```sh
+export TARGET_LIBRARY='/absolute/path/to/standard_cells.db'
+export DC_CLOCK_PERIOD=20.0
+make dc-elab
+make dc
+```
+
+`TARGET_LIBRARY` accepts a Tcl list of `.db` paths.
+Use braces around a path that contains spaces.
+Use `LINK_LIBRARY` for additional libraries.
+Use `DC_SHELL` to select another DC executable.
+Use `DC_OUT_DIR` to select another output directory.
+
+The flow uses `compile_ultra` and the installed DesignWare library.
+Make sure the required licenses are available.
+DC writes reports to `synth/build/reports/`.
+It writes the mapped Verilog, DDC, and SDC files to `synth/build/results/`.
+The `dc-elab` target stops before technology mapping.
+
+The default constraints are starting values, not timing-signoff requirements.
+Review `synth/constraints.tcl` for the selected library and external interface.
+Time values use the library's time unit, normally nanoseconds.
+Do not constrain `reset` or the boot inputs to constants during synthesis.
+The memories need these inputs for initialization.
+
+### Hardware initialization
+
+The `soc_top` boot port uses the same `clk` as the processors.
+Writes occur on the rising edge only when `reset=1` and `boot_we=1`.
+All boot addresses are word indices, not byte addresses.
+
+| `boot_sel` | Destination | Valid `boot_addr` | Data |
+|---:|---|---|---|
+| 0 | CPU instructions | 0–1023 | `boot_wdata[31:0]` |
+| 1 | GPU instructions | 0–1023 | `boot_wdata[15:0]` |
+| 2 | Shared RAM | 0–32767 | `boot_wdata[31:0]` |
+| 3 | Reserved | None | Writes have no effect |
+
+1. Assert `reset`.
+2. Write the CPU program, GPU programs, and required RAM contents through the boot port.
+3. Clear `boot_we`.
+4. Deassert `reset` with the required clock timing.
+
+The CPU starts at address zero.
+The generated firmware initializes its own registers with supported instructions.
+Boot writes have no effect while the processors run.
+Reset preserves all memory contents.
+While `reset=1`, `boot_rdata` gives asynchronous RAM readback when `boot_sel=2`.
+Otherwise, `boot_rdata` is zero.
+The port does not provide instruction readback.
+Initialize each memory location before the processors read it.
+
+### Memory and timing limits
+
+The shared RAM contains 1,048,576 bits with two asynchronous read ports and two synchronous write ports.
+The CPU and GPU instruction memories add 49,152 bits.
+Without explicit memory-macro integration, DC can implement these arrays with registers and multiplexers.
+This implementation can need substantial area, runtime, and host memory.
+Adding a memory `.db` to the library list alone does not replace the RTL arrays with that macro.
+A synchronous SRAM macro also needs changes to the memory protocols.
+
+The GPU uses combinational 32-bit multiplication and division in each lane.
+These operations are synthesizable, but they can dominate area and timing.
+Check the mapped reports before you select a clock frequency.
 
 ## Main Parts
 

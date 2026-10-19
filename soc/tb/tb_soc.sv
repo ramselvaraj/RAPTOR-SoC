@@ -7,6 +7,11 @@ module tb_soc;
 
     logic clk = 1'b0;
     logic reset = 1'b1;
+    logic boot_we = 1'b0;
+    logic [1:0] boot_sel = 2'd0;
+    logic [14:0] boot_addr = '0;
+    logic [31:0] boot_wdata = '0;
+    logic [31:0] boot_rdata;
     logic [3:0] cpu_state;
     logic gpu_start, gpu_busy, gpu_done;
     logic gpu_mem_req, gpu_mem_we;
@@ -22,10 +27,25 @@ module tb_soc;
     int unsigned cycles = 0, reads = 0, writes = 0, starts = 0, dones = 0;
     integer i, tfd;
     bit trace_on;
+    logic [31:0] ram_image [0:WORDS-1];
+    logic [31:0] cpu_image [0:1023];
+    logic [15:0] gpu_image [0:1023];
 
     soc_top dut (.*);
 
     always #5 clk = ~clk;
+
+    task automatic boot_write(
+        input logic [1:0] sel,
+        input logic [14:0] addr,
+        input logic [31:0] data
+    );
+        @(negedge clk);
+        boot_we = 1'b1;
+        boot_sel = sel;
+        boot_addr = addr;
+        boot_wdata = data;
+    endtask
 
     always_ff @(posedge clk) begin
         if (reset) begin
@@ -82,39 +102,54 @@ module tb_soc;
         end
 
         #1;
-        for (i = 0; i < WORDS; i = i + 1) dut.ram.mem[i] = 32'b0;
+        for (i = 0; i < WORDS; i = i + 1) ram_image[i] = 32'b0;
         for (i = 0; i < 1024; i = i + 1) begin
-            dut.cpu.datapath_inst.imem_inst.memdata[i] = 32'b0;
-            dut.program_mem.mem[i] = 16'b0;
+            cpu_image[i] = 32'b0;
+            gpu_image[i] = 16'b0;
         end
-        $readmemh(frame_path, dut.ram.mem, SRC, SRC + width*height - 1);
-        $readmemh(cpu_path, dut.cpu.datapath_inst.imem_inst.memdata);
-        $readmemh(gpu1_path, dut.program_mem.mem, 0);
-        $readmemh(gpu2_path, dut.program_mem.mem, 512);
+        $readmemh(frame_path, ram_image, SRC, SRC + width*height - 1);
+        $readmemh(cpu_path, cpu_image);
+        $readmemh(gpu1_path, gpu_image, 0);
+        $readmemh(gpu2_path, gpu_image, 512);
 
-        repeat (2) @(posedge clk);
+        for (i = 0; i < WORDS; i = i + 1)
+            boot_write(2'd2, 15'(i), ram_image[i]);
+        for (i = 0; i < 1024; i = i + 1)
+            boot_write(2'd0, 15'(i), cpu_image[i]);
+        for (i = 0; i < 1024; i = i + 1)
+            boot_write(2'd1, 15'(i), {16'b0, gpu_image[i]});
         @(negedge clk);
+        boot_we = 1'b0;
         reset = 1'b0;
-        dut.cpu.datapath_inst.regfile_inst.registers[5]  = 32'h4000_0000;
-        dut.cpu.datapath_inst.regfile_inst.registers[6]  = SRC;
-        dut.cpu.datapath_inst.regfile_inst.registers[7]  = DST;
-        dut.cpu.datapath_inst.regfile_inst.registers[8]  = threads1;
-        dut.cpu.datapath_inst.regfile_inst.registers[9]  = threads2;
-        dut.cpu.datapath_inst.regfile_inst.registers[10] = 0;
-        dut.cpu.datapath_inst.regfile_inst.registers[11] = 512;
-        dut.cpu.datapath_inst.regfile_inst.registers[14] = 2;
+
+        // Programming requests during execution must not corrupt any memory.
+        boot_write(2'd0, 15'd0, 32'b0);
+        boot_write(2'd1, 15'd0, 32'h0000_c000);
+        boot_write(2'd2, 15'(SRC), 32'hdead_beef);
+        @(negedge clk);
+        boot_we = 1'b0;
 
         wait (dones == 2);
         repeat (50) @(posedge clk);
         if (starts != 2 || dones != 2)
             $fatal(1, "expected two GPU passes, saw starts=%0d dones=%0d", starts, dones);
-        $writememh(out_path, dut.ram.mem);
         if (trace_on) begin
             $fdisplay(tfd, "SUMMARY cycles=%0d reads=%0d writes=%0d starts=%0d dones=%0d",
                       cycles, reads, writes, starts, dones);
             $fclose(tfd);
         end
         $display("tb_soc: two CPU-driven GPU passes completed in %0d cycles", cycles);
+
+        // Reset the processors, not the memories, and read back through the pins.
+        @(negedge clk);
+        reset = 1'b1;
+        boot_sel = 2'd2;
+        for (i = 0; i < WORDS; i = i + 1) begin
+            boot_addr = 15'(i);
+            #1;
+            ram_image[i] = boot_rdata;
+        end
+        $writememh(out_path, ram_image);
         $finish;
     end
 
