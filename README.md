@@ -85,7 +85,29 @@ make boot
 make phase4
 ```
 
-On a machine with DC and a technology library, set the absolute `.db` path:
+On the ADDV lab server, load the environment from the repository root.
+For Bash, use:
+
+```bash
+source synth/env.sh
+make dc-elab
+make dc
+```
+
+For csh or tcsh, use:
+
+```csh
+source synth/env.csh
+make dc-elab
+make dc
+```
+
+These files use the DC installation, license server, and FreePDK45 paths from ADDV Lab 2.
+They preserve existing environment settings.
+Set `DC_HOME` before sourcing to select a different DC installation.
+The setup does not need VCS, Verdi, or an SRAM library.
+
+On another machine, load its DC environment and set the absolute `.db` path:
 
 ```sh
 export TARGET_LIBRARY='/absolute/path/to/standard_cells.db'
