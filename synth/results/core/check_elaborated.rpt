@@ -1,0 +1,698 @@
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5-1
+Date:        Tue Oct 20 03:19:26 2026
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                    331
+    Unconnected ports (LINT-28)                                    51
+    Feedthrough (LINT-29)                                         150
+    Shorted outputs (LINT-31)                                     125
+    Constant outputs (LINT-52)                                      5
+
+Cells                                                             197
+    Cells do not drive (LINT-1)                                    81
+    Connected to power or ground (LINT-32)                        106
+    Nets connected to multiple pins on same cell (LINT-33)         10
+
+Nets                                                               29
+    Unloaded nets (LINT-2)                                         29
+--------------------------------------------------------------------------------
+
+Warning: In design 'axi_lite_ram', cell 'B_10' does not drive any nets. (LINT-1)
+Warning: In design 'axi_lite_ram', cell 'C717' does not drive any nets. (LINT-1)
+Warning: In design 'axi_lite_ram', cell 'C745' does not drive any nets. (LINT-1)
+Warning: In design 'mc_datapath', cell 'B_14' does not drive any nets. (LINT-1)
+Warning: In design 'mc_datapath', cell 'B_15' does not drive any nets. (LINT-1)
+Warning: In design 'dcr_TB8', cell 'C997' does not drive any nets. (LINT-1)
+Warning: In design 'scheduler_WARPS2', cell 'C316' does not drive any nets. (LINT-1)
+Warning: In design 'warp_LANES4_PC_W16_1', cell 'C925' does not drive any nets. (LINT-1)
+Warning: In design 'warp_LANES4_PC_W16_1', cell 'C944' does not drive any nets. (LINT-1)
+Warning: In design 'warp_LANES4_PC_W16_1', cell 'C945' does not drive any nets. (LINT-1)
+Warning: In design 'warp_LANES4_PC_W16_1', cell 'C952' does not drive any nets. (LINT-1)
+Warning: In design 'mc_alu', cell 'B_4' does not drive any nets. (LINT-1)
+Warning: In design 'mc_alu', cell 'B_5' does not drive any nets. (LINT-1)
+Warning: In design 'regfile_LANES4_1', cell 'B_26' does not drive any nets. (LINT-1)
+Warning: In design 'regfile_LANES4_1', cell 'B_27' does not drive any nets. (LINT-1)
+Warning: In design 'regfile_LANES4_1', cell 'B_28' does not drive any nets. (LINT-1)
+Warning: In design 'regfile_LANES4_1', cell 'B_29' does not drive any nets. (LINT-1)
+Warning: In design 'regfile_LANES4_1', cell 'B_30' does not drive any nets. (LINT-1)
+Warning: In design 'regfile_LANES4_1', cell 'B_31' does not drive any nets. (LINT-1)
+Warning: In design 'alu_7', cell 'B_12' does not drive any nets. (LINT-1)
+Warning: In design 'alu_7', cell 'B_13' does not drive any nets. (LINT-1)
+Warning: In design 'alu_7', cell 'B_14' does not drive any nets. (LINT-1)
+Warning: In design 'alu_7', cell 'C311' does not drive any nets. (LINT-1)
+Warning: In design 'alu_7', cell 'B_16' does not drive any nets. (LINT-1)
+Warning: In design 'alu_7', cell 'B_17' does not drive any nets. (LINT-1)
+Warning: In design 'mem_unit_LANES4_1', cell 'B_12' does not drive any nets. (LINT-1)
+Warning: In design 'mem_unit_LANES4_1', cell 'C1433' does not drive any nets. (LINT-1)
+Warning: In design 'warp_LANES4_PC_W16_0', cell 'C925' does not drive any nets. (LINT-1)
+Warning: In design 'warp_LANES4_PC_W16_0', cell 'C944' does not drive any nets. (LINT-1)
+Warning: In design 'warp_LANES4_PC_W16_0', cell 'C945' does not drive any nets. (LINT-1)
+Warning: In design 'warp_LANES4_PC_W16_0', cell 'C952' does not drive any nets. (LINT-1)
+Warning: In design 'regfile_LANES4_0', cell 'B_26' does not drive any nets. (LINT-1)
+Warning: In design 'regfile_LANES4_0', cell 'B_27' does not drive any nets. (LINT-1)
+Warning: In design 'regfile_LANES4_0', cell 'B_28' does not drive any nets. (LINT-1)
+Warning: In design 'regfile_LANES4_0', cell 'B_29' does not drive any nets. (LINT-1)
+Warning: In design 'regfile_LANES4_0', cell 'B_30' does not drive any nets. (LINT-1)
+Warning: In design 'regfile_LANES4_0', cell 'B_31' does not drive any nets. (LINT-1)
+Warning: In design 'alu_0', cell 'B_12' does not drive any nets. (LINT-1)
+Warning: In design 'alu_0', cell 'B_13' does not drive any nets. (LINT-1)
+Warning: In design 'alu_0', cell 'B_14' does not drive any nets. (LINT-1)
+Warning: In design 'alu_0', cell 'C311' does not drive any nets. (LINT-1)
+Warning: In design 'alu_0', cell 'B_16' does not drive any nets. (LINT-1)
+Warning: In design 'alu_0', cell 'B_17' does not drive any nets. (LINT-1)
+Warning: In design 'alu_1', cell 'B_12' does not drive any nets. (LINT-1)
+Warning: In design 'alu_1', cell 'B_13' does not drive any nets. (LINT-1)
+Warning: In design 'alu_1', cell 'B_14' does not drive any nets. (LINT-1)
+Warning: In design 'alu_1', cell 'C311' does not drive any nets. (LINT-1)
+Warning: In design 'alu_1', cell 'B_16' does not drive any nets. (LINT-1)
+Warning: In design 'alu_1', cell 'B_17' does not drive any nets. (LINT-1)
+Warning: In design 'alu_2', cell 'B_12' does not drive any nets. (LINT-1)
+Warning: In design 'alu_2', cell 'B_13' does not drive any nets. (LINT-1)
+Warning: In design 'alu_2', cell 'B_14' does not drive any nets. (LINT-1)
+Warning: In design 'alu_2', cell 'C311' does not drive any nets. (LINT-1)
+Warning: In design 'alu_2', cell 'B_16' does not drive any nets. (LINT-1)
+Warning: In design 'alu_2', cell 'B_17' does not drive any nets. (LINT-1)
+Warning: In design 'alu_3', cell 'B_12' does not drive any nets. (LINT-1)
+Warning: In design 'alu_3', cell 'B_13' does not drive any nets. (LINT-1)
+Warning: In design 'alu_3', cell 'B_14' does not drive any nets. (LINT-1)
+Warning: In design 'alu_3', cell 'C311' does not drive any nets. (LINT-1)
+Warning: In design 'alu_3', cell 'B_16' does not drive any nets. (LINT-1)
+Warning: In design 'alu_3', cell 'B_17' does not drive any nets. (LINT-1)
+Warning: In design 'alu_4', cell 'B_12' does not drive any nets. (LINT-1)
+Warning: In design 'alu_4', cell 'B_13' does not drive any nets. (LINT-1)
+Warning: In design 'alu_4', cell 'B_14' does not drive any nets. (LINT-1)
+Warning: In design 'alu_4', cell 'C311' does not drive any nets. (LINT-1)
+Warning: In design 'alu_4', cell 'B_16' does not drive any nets. (LINT-1)
+Warning: In design 'alu_4', cell 'B_17' does not drive any nets. (LINT-1)
+Warning: In design 'alu_5', cell 'B_12' does not drive any nets. (LINT-1)
+Warning: In design 'alu_5', cell 'B_13' does not drive any nets. (LINT-1)
+Warning: In design 'alu_5', cell 'B_14' does not drive any nets. (LINT-1)
+Warning: In design 'alu_5', cell 'C311' does not drive any nets. (LINT-1)
+Warning: In design 'alu_5', cell 'B_16' does not drive any nets. (LINT-1)
+Warning: In design 'alu_5', cell 'B_17' does not drive any nets. (LINT-1)
+Warning: In design 'alu_6', cell 'B_12' does not drive any nets. (LINT-1)
+Warning: In design 'alu_6', cell 'B_13' does not drive any nets. (LINT-1)
+Warning: In design 'alu_6', cell 'B_14' does not drive any nets. (LINT-1)
+Warning: In design 'alu_6', cell 'C311' does not drive any nets. (LINT-1)
+Warning: In design 'alu_6', cell 'B_16' does not drive any nets. (LINT-1)
+Warning: In design 'alu_6', cell 'B_17' does not drive any nets. (LINT-1)
+Warning: In design 'mem_unit_LANES4_0', cell 'B_12' does not drive any nets. (LINT-1)
+Warning: In design 'mem_unit_LANES4_0', cell 'C1433' does not drive any nets. (LINT-1)
+Warning: In design 'soc_top', net 'gpu_imem_addr[10]' driven by pin 'gpu/imem_addr[10]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_imem_addr[11]' driven by pin 'gpu/imem_addr[11]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_imem_addr[12]' driven by pin 'gpu/imem_addr[12]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_imem_addr[13]' driven by pin 'gpu/imem_addr[13]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_imem_addr[14]' driven by pin 'gpu/imem_addr[14]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_imem_addr[15]' driven by pin 'gpu/imem_addr[15]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[10]' driven by pin 'mmio/prog_base[10]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[11]' driven by pin 'mmio/prog_base[11]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[12]' driven by pin 'mmio/prog_base[12]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[13]' driven by pin 'mmio/prog_base[13]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[14]' driven by pin 'mmio/prog_base[14]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[15]' driven by pin 'mmio/prog_base[15]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[16]' driven by pin 'mmio/prog_base[16]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[17]' driven by pin 'mmio/prog_base[17]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[18]' driven by pin 'mmio/prog_base[18]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[19]' driven by pin 'mmio/prog_base[19]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[20]' driven by pin 'mmio/prog_base[20]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[21]' driven by pin 'mmio/prog_base[21]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[22]' driven by pin 'mmio/prog_base[22]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[23]' driven by pin 'mmio/prog_base[23]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[24]' driven by pin 'mmio/prog_base[24]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[25]' driven by pin 'mmio/prog_base[25]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[26]' driven by pin 'mmio/prog_base[26]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[27]' driven by pin 'mmio/prog_base[27]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[28]' driven by pin 'mmio/prog_base[28]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[29]' driven by pin 'mmio/prog_base[29]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[30]' driven by pin 'mmio/prog_base[30]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'gpu_prog_base[31]' driven by pin 'mmio/prog_base[31]' has no loads. (LINT-2)
+Warning: In design 'soc_top', net 'cpu/branch_ne' driven by pin 'cpu/controller_inst/branch_ne' has no loads. (LINT-2)
+Warning: In design 'cpu_axi_master', port 'm_axi_bresp[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'cpu_axi_master', port 'm_axi_bresp[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'cpu_axi_master', port 'm_axi_rresp[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'cpu_axi_master', port 'm_axi_rresp[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'gpu_mmio', port 's_axi_awaddr[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'gpu_mmio', port 's_axi_awaddr[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'gpu_mmio', port 's_axi_araddr[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'gpu_mmio', port 's_axi_araddr[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_we' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_waddr[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_waddr[8]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_waddr[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_waddr[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_waddr[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_waddr[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_waddr[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_waddr[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_waddr[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_waddr[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[8]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'mc_datapath', port 'imem_wdata[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'soc_top', input port 'boot_addr[9]' is connected directly to output port 'gpu_program_waddr[9]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[9]' is connected directly to output port 'cpu_imem_waddr[9]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[8]' is connected directly to output port 'gpu_program_waddr[8]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[8]' is connected directly to output port 'cpu_imem_waddr[8]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[7]' is connected directly to output port 'gpu_program_waddr[7]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[7]' is connected directly to output port 'cpu_imem_waddr[7]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[6]' is connected directly to output port 'gpu_program_waddr[6]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[6]' is connected directly to output port 'cpu_imem_waddr[6]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[5]' is connected directly to output port 'gpu_program_waddr[5]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[5]' is connected directly to output port 'cpu_imem_waddr[5]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[4]' is connected directly to output port 'gpu_program_waddr[4]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[4]' is connected directly to output port 'cpu_imem_waddr[4]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[3]' is connected directly to output port 'gpu_program_waddr[3]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[3]' is connected directly to output port 'cpu_imem_waddr[3]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[2]' is connected directly to output port 'gpu_program_waddr[2]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[2]' is connected directly to output port 'cpu_imem_waddr[2]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[1]' is connected directly to output port 'gpu_program_waddr[1]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[1]' is connected directly to output port 'cpu_imem_waddr[1]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[0]' is connected directly to output port 'gpu_program_waddr[0]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_addr[0]' is connected directly to output port 'cpu_imem_waddr[0]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[31]' is connected directly to output port 'cpu_imem_wdata[31]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[30]' is connected directly to output port 'cpu_imem_wdata[30]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[29]' is connected directly to output port 'cpu_imem_wdata[29]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[28]' is connected directly to output port 'cpu_imem_wdata[28]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[27]' is connected directly to output port 'cpu_imem_wdata[27]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[26]' is connected directly to output port 'cpu_imem_wdata[26]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[25]' is connected directly to output port 'cpu_imem_wdata[25]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[24]' is connected directly to output port 'cpu_imem_wdata[24]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[23]' is connected directly to output port 'cpu_imem_wdata[23]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[22]' is connected directly to output port 'cpu_imem_wdata[22]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[21]' is connected directly to output port 'cpu_imem_wdata[21]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[20]' is connected directly to output port 'cpu_imem_wdata[20]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[19]' is connected directly to output port 'cpu_imem_wdata[19]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[18]' is connected directly to output port 'cpu_imem_wdata[18]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[17]' is connected directly to output port 'cpu_imem_wdata[17]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[16]' is connected directly to output port 'cpu_imem_wdata[16]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[15]' is connected directly to output port 'gpu_program_wdata[15]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[15]' is connected directly to output port 'cpu_imem_wdata[15]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[14]' is connected directly to output port 'gpu_program_wdata[14]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[14]' is connected directly to output port 'cpu_imem_wdata[14]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[13]' is connected directly to output port 'gpu_program_wdata[13]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[13]' is connected directly to output port 'cpu_imem_wdata[13]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[12]' is connected directly to output port 'gpu_program_wdata[12]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[12]' is connected directly to output port 'cpu_imem_wdata[12]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[11]' is connected directly to output port 'gpu_program_wdata[11]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[11]' is connected directly to output port 'cpu_imem_wdata[11]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[10]' is connected directly to output port 'gpu_program_wdata[10]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[10]' is connected directly to output port 'cpu_imem_wdata[10]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[9]' is connected directly to output port 'gpu_program_wdata[9]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[9]' is connected directly to output port 'cpu_imem_wdata[9]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[8]' is connected directly to output port 'gpu_program_wdata[8]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[8]' is connected directly to output port 'cpu_imem_wdata[8]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[7]' is connected directly to output port 'gpu_program_wdata[7]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[7]' is connected directly to output port 'cpu_imem_wdata[7]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[6]' is connected directly to output port 'gpu_program_wdata[6]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[6]' is connected directly to output port 'cpu_imem_wdata[6]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[5]' is connected directly to output port 'gpu_program_wdata[5]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[5]' is connected directly to output port 'cpu_imem_wdata[5]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[4]' is connected directly to output port 'gpu_program_wdata[4]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[4]' is connected directly to output port 'cpu_imem_wdata[4]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[3]' is connected directly to output port 'gpu_program_wdata[3]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[3]' is connected directly to output port 'cpu_imem_wdata[3]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[2]' is connected directly to output port 'gpu_program_wdata[2]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[2]' is connected directly to output port 'cpu_imem_wdata[2]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[1]' is connected directly to output port 'gpu_program_wdata[1]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[1]' is connected directly to output port 'cpu_imem_wdata[1]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[0]' is connected directly to output port 'gpu_program_wdata[0]'. (LINT-29)
+Warning: In design 'soc_top', input port 'boot_wdata[0]' is connected directly to output port 'cpu_imem_wdata[0]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'start' is connected directly to output port 'warp_start[0]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'start' is connected directly to output port 'warp_start[1]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[31]' is connected directly to output port 'warp_tid_base[0][31]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[30]' is connected directly to output port 'warp_tid_base[0][30]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[29]' is connected directly to output port 'warp_tid_base[0][29]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[28]' is connected directly to output port 'warp_tid_base[0][28]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[27]' is connected directly to output port 'warp_tid_base[0][27]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[26]' is connected directly to output port 'warp_tid_base[0][26]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[25]' is connected directly to output port 'warp_tid_base[0][25]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[24]' is connected directly to output port 'warp_tid_base[0][24]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[23]' is connected directly to output port 'warp_tid_base[0][23]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[22]' is connected directly to output port 'warp_tid_base[0][22]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[21]' is connected directly to output port 'warp_tid_base[0][21]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[20]' is connected directly to output port 'warp_tid_base[0][20]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[19]' is connected directly to output port 'warp_tid_base[0][19]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[18]' is connected directly to output port 'warp_tid_base[0][18]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[17]' is connected directly to output port 'warp_tid_base[0][17]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[16]' is connected directly to output port 'warp_tid_base[0][16]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[15]' is connected directly to output port 'warp_tid_base[0][15]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[14]' is connected directly to output port 'warp_tid_base[0][14]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[13]' is connected directly to output port 'warp_tid_base[0][13]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[12]' is connected directly to output port 'warp_tid_base[0][12]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[11]' is connected directly to output port 'warp_tid_base[0][11]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[10]' is connected directly to output port 'warp_tid_base[0][10]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[9]' is connected directly to output port 'warp_tid_base[0][9]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[8]' is connected directly to output port 'warp_tid_base[0][8]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[7]' is connected directly to output port 'warp_tid_base[0][7]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[6]' is connected directly to output port 'warp_tid_base[0][6]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[5]' is connected directly to output port 'warp_tid_base[0][5]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[4]' is connected directly to output port 'warp_tid_base[0][4]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[3]' is connected directly to output port 'warp_tid_base[0][3]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[2]' is connected directly to output port 'warp_tid_base[0][2]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[1]' is connected directly to output port 'warp_tid_base[0][1]'. (LINT-29)
+Warning: In design 'dispatcher_WARPS2_LANES4', input port 'block_base[0]' is connected directly to output port 'warp_tid_base[0][0]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[15]' is connected directly to output port 'opcode[3]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[14]' is connected directly to output port 'opcode[2]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[13]' is connected directly to output port 'opcode[1]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[12]' is connected directly to output port 'opcode[0]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[11]' is connected directly to output port 'rd[3]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[10]' is connected directly to output port 'rd[2]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[9]' is connected directly to output port 'rd[1]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[8]' is connected directly to output port 'rd[0]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[7]' is connected directly to output port 'rs1[3]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[7]' is connected directly to output port 'imm8[7]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[6]' is connected directly to output port 'rs1[2]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[6]' is connected directly to output port 'imm8[6]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[5]' is connected directly to output port 'rs1[1]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[5]' is connected directly to output port 'imm8[5]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[4]' is connected directly to output port 'rs1[0]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[4]' is connected directly to output port 'imm8[4]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[3]' is connected directly to output port 'rs2[3]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[3]' is connected directly to output port 'imm8[3]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[2]' is connected directly to output port 'rs2[2]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[2]' is connected directly to output port 'imm8[2]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[1]' is connected directly to output port 'rs2[1]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[1]' is connected directly to output port 'imm8[1]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[0]' is connected directly to output port 'rs2[0]'. (LINT-29)
+Warning: In design 'decoder_1', input port 'instr[0]' is connected directly to output port 'imm8[0]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[15]' is connected directly to output port 'opcode[3]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[14]' is connected directly to output port 'opcode[2]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[13]' is connected directly to output port 'opcode[1]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[12]' is connected directly to output port 'opcode[0]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[11]' is connected directly to output port 'rd[3]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[10]' is connected directly to output port 'rd[2]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[9]' is connected directly to output port 'rd[1]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[8]' is connected directly to output port 'rd[0]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[7]' is connected directly to output port 'rs1[3]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[7]' is connected directly to output port 'imm8[7]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[6]' is connected directly to output port 'rs1[2]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[6]' is connected directly to output port 'imm8[6]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[5]' is connected directly to output port 'rs1[1]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[5]' is connected directly to output port 'imm8[5]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[4]' is connected directly to output port 'rs1[0]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[4]' is connected directly to output port 'imm8[4]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[3]' is connected directly to output port 'rs2[3]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[3]' is connected directly to output port 'imm8[3]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[2]' is connected directly to output port 'rs2[2]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[2]' is connected directly to output port 'imm8[2]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[1]' is connected directly to output port 'rs2[1]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[1]' is connected directly to output port 'imm8[1]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[0]' is connected directly to output port 'rs2[0]'. (LINT-29)
+Warning: In design 'decoder_0', input port 'instr[0]' is connected directly to output port 'imm8[0]'. (LINT-29)
+Warning: In design 'soc_top', output port 'cpu_imem_waddr[9]' is connected directly to output port 'gpu_program_waddr[9]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_waddr[8]' is connected directly to output port 'gpu_program_waddr[8]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_waddr[7]' is connected directly to output port 'gpu_program_waddr[7]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_waddr[6]' is connected directly to output port 'gpu_program_waddr[6]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_waddr[5]' is connected directly to output port 'gpu_program_waddr[5]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_waddr[4]' is connected directly to output port 'gpu_program_waddr[4]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_waddr[3]' is connected directly to output port 'gpu_program_waddr[3]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_waddr[2]' is connected directly to output port 'gpu_program_waddr[2]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_waddr[1]' is connected directly to output port 'gpu_program_waddr[1]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_waddr[0]' is connected directly to output port 'gpu_program_waddr[0]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_wdata[15]' is connected directly to output port 'gpu_program_wdata[15]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_wdata[14]' is connected directly to output port 'gpu_program_wdata[14]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_wdata[13]' is connected directly to output port 'gpu_program_wdata[13]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_wdata[12]' is connected directly to output port 'gpu_program_wdata[12]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_wdata[11]' is connected directly to output port 'gpu_program_wdata[11]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_wdata[10]' is connected directly to output port 'gpu_program_wdata[10]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_wdata[9]' is connected directly to output port 'gpu_program_wdata[9]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_wdata[8]' is connected directly to output port 'gpu_program_wdata[8]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_wdata[7]' is connected directly to output port 'gpu_program_wdata[7]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_wdata[6]' is connected directly to output port 'gpu_program_wdata[6]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_wdata[5]' is connected directly to output port 'gpu_program_wdata[5]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_wdata[4]' is connected directly to output port 'gpu_program_wdata[4]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_wdata[3]' is connected directly to output port 'gpu_program_wdata[3]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_wdata[2]' is connected directly to output port 'gpu_program_wdata[2]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_wdata[1]' is connected directly to output port 'gpu_program_wdata[1]'. (LINT-31)
+Warning: In design 'soc_top', output port 'cpu_imem_wdata[0]' is connected directly to output port 'gpu_program_wdata[0]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_addr[14]' is connected directly to output port 'gpu_mem_addr[14]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_addr[13]' is connected directly to output port 'gpu_mem_addr[13]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_addr[12]' is connected directly to output port 'gpu_mem_addr[12]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_addr[11]' is connected directly to output port 'gpu_mem_addr[11]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_addr[10]' is connected directly to output port 'gpu_mem_addr[10]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_addr[9]' is connected directly to output port 'gpu_mem_addr[9]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_addr[8]' is connected directly to output port 'gpu_mem_addr[8]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_addr[7]' is connected directly to output port 'gpu_mem_addr[7]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_addr[6]' is connected directly to output port 'gpu_mem_addr[6]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_addr[5]' is connected directly to output port 'gpu_mem_addr[5]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_addr[4]' is connected directly to output port 'gpu_mem_addr[4]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_addr[3]' is connected directly to output port 'gpu_mem_addr[3]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_addr[2]' is connected directly to output port 'gpu_mem_addr[2]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_addr[1]' is connected directly to output port 'gpu_mem_addr[1]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_addr[0]' is connected directly to output port 'gpu_mem_addr[0]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[31]' is connected directly to output port 'gpu_mem_wdata[31]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[30]' is connected directly to output port 'gpu_mem_wdata[30]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[29]' is connected directly to output port 'gpu_mem_wdata[29]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[28]' is connected directly to output port 'gpu_mem_wdata[28]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[27]' is connected directly to output port 'gpu_mem_wdata[27]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[26]' is connected directly to output port 'gpu_mem_wdata[26]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[25]' is connected directly to output port 'gpu_mem_wdata[25]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[24]' is connected directly to output port 'gpu_mem_wdata[24]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[23]' is connected directly to output port 'gpu_mem_wdata[23]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[22]' is connected directly to output port 'gpu_mem_wdata[22]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[21]' is connected directly to output port 'gpu_mem_wdata[21]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[20]' is connected directly to output port 'gpu_mem_wdata[20]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[19]' is connected directly to output port 'gpu_mem_wdata[19]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[18]' is connected directly to output port 'gpu_mem_wdata[18]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[17]' is connected directly to output port 'gpu_mem_wdata[17]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[16]' is connected directly to output port 'gpu_mem_wdata[16]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[15]' is connected directly to output port 'gpu_mem_wdata[15]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[14]' is connected directly to output port 'gpu_mem_wdata[14]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[13]' is connected directly to output port 'gpu_mem_wdata[13]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[12]' is connected directly to output port 'gpu_mem_wdata[12]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[11]' is connected directly to output port 'gpu_mem_wdata[11]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[10]' is connected directly to output port 'gpu_mem_wdata[10]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[9]' is connected directly to output port 'gpu_mem_wdata[9]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[8]' is connected directly to output port 'gpu_mem_wdata[8]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[7]' is connected directly to output port 'gpu_mem_wdata[7]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[6]' is connected directly to output port 'gpu_mem_wdata[6]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[5]' is connected directly to output port 'gpu_mem_wdata[5]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[4]' is connected directly to output port 'gpu_mem_wdata[4]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[3]' is connected directly to output port 'gpu_mem_wdata[3]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[2]' is connected directly to output port 'gpu_mem_wdata[2]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[1]' is connected directly to output port 'gpu_mem_wdata[1]'. (LINT-31)
+Warning: In design 'soc_top', output port 'ram_px_wdata[0]' is connected directly to output port 'gpu_mem_wdata[0]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[31]' is connected directly to output port 'm_axi_araddr[31]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[30]' is connected directly to output port 'm_axi_araddr[30]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[29]' is connected directly to output port 'm_axi_araddr[29]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[28]' is connected directly to output port 'm_axi_araddr[28]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[27]' is connected directly to output port 'm_axi_araddr[27]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[26]' is connected directly to output port 'm_axi_araddr[26]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[25]' is connected directly to output port 'm_axi_araddr[25]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[24]' is connected directly to output port 'm_axi_araddr[24]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[23]' is connected directly to output port 'm_axi_araddr[23]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[22]' is connected directly to output port 'm_axi_araddr[22]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[21]' is connected directly to output port 'm_axi_araddr[21]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[20]' is connected directly to output port 'm_axi_araddr[20]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[19]' is connected directly to output port 'm_axi_araddr[19]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[18]' is connected directly to output port 'm_axi_araddr[18]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[17]' is connected directly to output port 'm_axi_araddr[17]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[16]' is connected directly to output port 'm_axi_araddr[16]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[15]' is connected directly to output port 'm_axi_araddr[15]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[14]' is connected directly to output port 'm_axi_araddr[14]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[13]' is connected directly to output port 'm_axi_araddr[13]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[12]' is connected directly to output port 'm_axi_araddr[12]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[11]' is connected directly to output port 'm_axi_araddr[11]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[10]' is connected directly to output port 'm_axi_araddr[10]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[9]' is connected directly to output port 'm_axi_araddr[9]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[8]' is connected directly to output port 'm_axi_araddr[8]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[7]' is connected directly to output port 'm_axi_araddr[7]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[6]' is connected directly to output port 'm_axi_araddr[6]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[5]' is connected directly to output port 'm_axi_araddr[5]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[4]' is connected directly to output port 'm_axi_araddr[4]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[3]' is connected directly to output port 'm_axi_araddr[3]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[2]' is connected directly to output port 'm_axi_araddr[2]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[1]' is connected directly to output port 'm_axi_araddr[1]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_awaddr[0]' is connected directly to output port 'm_axi_araddr[0]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_wstrb[3]' is connected directly to output port 'm_axi_wstrb[0]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_wstrb[3]' is connected directly to output port 'm_axi_wstrb[1]'. (LINT-31)
+Warning: In design 'cpu_axi_master', output port 'm_axi_wstrb[3]' is connected directly to output port 'm_axi_wstrb[2]'. (LINT-31)
+Warning: In design 'dispatcher_WARPS2_LANES4', output port 'warp_start[1]' is connected directly to output port 'warp_start[0]'. (LINT-31)
+Warning: In design 'decoder_1', output port 'rs1[3]' is connected directly to output port 'imm8[7]'. (LINT-31)
+Warning: In design 'decoder_1', output port 'rs1[2]' is connected directly to output port 'imm8[6]'. (LINT-31)
+Warning: In design 'decoder_1', output port 'rs1[1]' is connected directly to output port 'imm8[5]'. (LINT-31)
+Warning: In design 'decoder_1', output port 'rs1[0]' is connected directly to output port 'imm8[4]'. (LINT-31)
+Warning: In design 'decoder_1', output port 'rs2[3]' is connected directly to output port 'imm8[3]'. (LINT-31)
+Warning: In design 'decoder_1', output port 'rs2[2]' is connected directly to output port 'imm8[2]'. (LINT-31)
+Warning: In design 'decoder_1', output port 'rs2[1]' is connected directly to output port 'imm8[1]'. (LINT-31)
+Warning: In design 'decoder_1', output port 'rs2[0]' is connected directly to output port 'imm8[0]'. (LINT-31)
+Warning: In design 'decoder_0', output port 'rs1[3]' is connected directly to output port 'imm8[7]'. (LINT-31)
+Warning: In design 'decoder_0', output port 'rs1[2]' is connected directly to output port 'imm8[6]'. (LINT-31)
+Warning: In design 'decoder_0', output port 'rs1[1]' is connected directly to output port 'imm8[5]'. (LINT-31)
+Warning: In design 'decoder_0', output port 'rs1[0]' is connected directly to output port 'imm8[4]'. (LINT-31)
+Warning: In design 'decoder_0', output port 'rs2[3]' is connected directly to output port 'imm8[3]'. (LINT-31)
+Warning: In design 'decoder_0', output port 'rs2[2]' is connected directly to output port 'imm8[2]'. (LINT-31)
+Warning: In design 'decoder_0', output port 'rs2[1]' is connected directly to output port 'imm8[1]'. (LINT-31)
+Warning: In design 'decoder_0', output port 'rs2[0]' is connected directly to output port 'imm8[0]'. (LINT-31)
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[31]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[30]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[29]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[28]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[27]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[26]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[25]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[24]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[23]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[22]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[21]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[20]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[19]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[18]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[17]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[16]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[15]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[14]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[13]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[12]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[11]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[10]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[9]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[8]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[7]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[6]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[5]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[4]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[3]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[2]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[1]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awaddr[0]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_awvalid' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[31]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[30]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[29]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[28]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[27]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[26]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[25]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[24]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[23]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[22]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[21]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[20]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[19]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[18]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[17]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[16]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[15]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[14]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[13]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[12]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[11]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[10]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[9]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[8]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[7]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[6]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[5]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[4]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[3]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[2]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[1]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wdata[0]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wstrb[3]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wstrb[2]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wstrb[1]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wstrb[0]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_wvalid' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_bready' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[31]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[30]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[29]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[28]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[27]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[26]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[25]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[24]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[23]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[22]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[21]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[20]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[19]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[18]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[17]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[16]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[15]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[14]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[13]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[12]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[11]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[10]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[9]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[8]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[7]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[6]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[5]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[4]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[3]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[2]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[1]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_araddr[0]' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_arvalid' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'u_interconnect' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'm1_axi_rready' is connected to logic 0. 
+Warning: In design 'soc_top', a pin on submodule 'gpu' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'mem_ready' is connected to logic 1. 
+Warning: In design 'soc_top', the same net is connected to more than one pin on submodule 'u_interconnect'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'm1_axi_awaddr[31]', 'm1_axi_awaddr[30]'', 'm1_axi_awaddr[29]', 'm1_axi_awaddr[28]', 'm1_axi_awaddr[27]', 'm1_axi_awaddr[26]', 'm1_axi_awaddr[25]', 'm1_axi_awaddr[24]', 'm1_axi_awaddr[23]', 'm1_axi_awaddr[22]', 'm1_axi_awaddr[21]', 'm1_axi_awaddr[20]', 'm1_axi_awaddr[19]', 'm1_axi_awaddr[18]', 'm1_axi_awaddr[17]', 'm1_axi_awaddr[16]', 'm1_axi_awaddr[15]', 'm1_axi_awaddr[14]', 'm1_axi_awaddr[13]', 'm1_axi_awaddr[12]', 'm1_axi_awaddr[11]', 'm1_axi_awaddr[10]', 'm1_axi_awaddr[9]', 'm1_axi_awaddr[8]', 'm1_axi_awaddr[7]', 'm1_axi_awaddr[6]', 'm1_axi_awaddr[5]', 'm1_axi_awaddr[4]', 'm1_axi_awaddr[3]', 'm1_axi_awaddr[2]', 'm1_axi_awaddr[1]', 'm1_axi_awaddr[0]', 'm1_axi_awvalid', 'm1_axi_wdata[31]', 'm1_axi_wdata[30]', 'm1_axi_wdata[29]', 'm1_axi_wdata[28]', 'm1_axi_wdata[27]', 'm1_axi_wdata[26]', 'm1_axi_wdata[25]', 'm1_axi_wdata[24]', 'm1_axi_wdata[23]', 'm1_axi_wdata[22]', 'm1_axi_wdata[21]', 'm1_axi_wdata[20]', 'm1_axi_wdata[19]', 'm1_axi_wdata[18]', 'm1_axi_wdata[17]', 'm1_axi_wdata[16]', 'm1_axi_wdata[15]', 'm1_axi_wdata[14]', 'm1_axi_wdata[13]', 'm1_axi_wdata[12]', 'm1_axi_wdata[11]', 'm1_axi_wdata[10]', 'm1_axi_wdata[9]', 'm1_axi_wdata[8]', 'm1_axi_wdata[7]', 'm1_axi_wdata[6]', 'm1_axi_wdata[5]', 'm1_axi_wdata[4]', 'm1_axi_wdata[3]', 'm1_axi_wdata[2]', 'm1_axi_wdata[1]', 'm1_axi_wdata[0]', 'm1_axi_wstrb[3]', 'm1_axi_wstrb[2]', 'm1_axi_wstrb[1]', 'm1_axi_wstrb[0]', 'm1_axi_wvalid', 'm1_axi_bready', 'm1_axi_araddr[31]', 'm1_axi_araddr[30]', 'm1_axi_araddr[29]', 'm1_axi_araddr[28]', 'm1_axi_araddr[27]', 'm1_axi_araddr[26]', 'm1_axi_araddr[25]', 'm1_axi_araddr[24]', 'm1_axi_araddr[23]', 'm1_axi_araddr[22]', 'm1_axi_araddr[21]', 'm1_axi_araddr[20]', 'm1_axi_araddr[19]', 'm1_axi_araddr[18]', 'm1_axi_araddr[17]', 'm1_axi_araddr[16]', 'm1_axi_araddr[15]', 'm1_axi_araddr[14]', 'm1_axi_araddr[13]', 'm1_axi_araddr[12]', 'm1_axi_araddr[11]', 'm1_axi_araddr[10]', 'm1_axi_araddr[9]', 'm1_axi_araddr[8]', 'm1_axi_araddr[7]', 'm1_axi_araddr[6]', 'm1_axi_araddr[5]', 'm1_axi_araddr[4]', 'm1_axi_araddr[3]', 'm1_axi_araddr[2]', 'm1_axi_araddr[1]', 'm1_axi_araddr[0]', 'm1_axi_arvalid', 'm1_axi_rready'.
+Warning: In design 'riscv_mc', the same net is connected to more than one pin on submodule 'controller_inst'. (LINT-33)
+   Net 'mem_done' is connected to pins 'mem_rd_done', 'mem_wr_done''.
+Warning: In design 'warp_LANES4_PC_W16_1', the same net is connected to more than one pin on submodule 'u_rf'. (LINT-33)
+   Net 'rd[3]' is connected to pins 'write_addr[3]', 'read_addr3[3]''.
+Warning: In design 'warp_LANES4_PC_W16_1', the same net is connected to more than one pin on submodule 'u_rf'. (LINT-33)
+   Net 'rd[2]' is connected to pins 'write_addr[2]', 'read_addr3[2]''.
+Warning: In design 'warp_LANES4_PC_W16_1', the same net is connected to more than one pin on submodule 'u_rf'. (LINT-33)
+   Net 'rd[1]' is connected to pins 'write_addr[1]', 'read_addr3[1]''.
+Warning: In design 'warp_LANES4_PC_W16_1', the same net is connected to more than one pin on submodule 'u_rf'. (LINT-33)
+   Net 'rd[0]' is connected to pins 'write_addr[0]', 'read_addr3[0]''.
+Warning: In design 'warp_LANES4_PC_W16_0', the same net is connected to more than one pin on submodule 'u_rf'. (LINT-33)
+   Net 'rd[3]' is connected to pins 'write_addr[3]', 'read_addr3[3]''.
+Warning: In design 'warp_LANES4_PC_W16_0', the same net is connected to more than one pin on submodule 'u_rf'. (LINT-33)
+   Net 'rd[2]' is connected to pins 'write_addr[2]', 'read_addr3[2]''.
+Warning: In design 'warp_LANES4_PC_W16_0', the same net is connected to more than one pin on submodule 'u_rf'. (LINT-33)
+   Net 'rd[1]' is connected to pins 'write_addr[1]', 'read_addr3[1]''.
+Warning: In design 'warp_LANES4_PC_W16_0', the same net is connected to more than one pin on submodule 'u_rf'. (LINT-33)
+   Net 'rd[0]' is connected to pins 'write_addr[0]', 'read_addr3[0]''.
+Warning: In design 'cpu_axi_master', output port 'm_axi_wstrb[3]' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'cpu_axi_master', output port 'm_axi_wstrb[2]' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'cpu_axi_master', output port 'm_axi_wstrb[1]' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'cpu_axi_master', output port 'm_axi_wstrb[0]' is connected directly to 'logic 1'. (LINT-52)
+Warning: In design 'mc_controller', output port 'alu_operation[2]' is connected directly to 'logic 0'. (LINT-52)
+1

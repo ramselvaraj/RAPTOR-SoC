@@ -1,0 +1,5 @@
+Synthesis mode: core
+CPU, GPU, AXI, MMIO, and register files included.
+Shared RAM and CPU/GPU instruction memories excluded; interfaces exposed as ports.
+I/O delays are budgets, not characterized memory timing.
+Area excludes the three memories; timing is not complete-SoC timing.

@@ -1,0 +1,88 @@
+ 
+****************************************
+Report : area
+Design : soc_top
+Version: V-2023.12-SP5-1
+Date   : Tue Oct 20 03:32:09 2026
+****************************************
+
+Information: Updating design information... (UID-85)
+Warning: Design 'soc_top' contains 3 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Library(s) Used:
+
+    gscl45nm (File: /usr/local2/cadence/NCSU/SRC/FreePDK45/osu_soc/lib/files/gscl45nm.db)
+
+Number of ports:                         7381
+Number of nets:                        117580
+Number of cells:                       105710
+Number of combinational cells:         100299
+Number of sequential cells:              5356
+Number of macros/black boxes:               0
+Number of buf/inv:                      24169
+Number of references:                      16
+
+Combinational area:             287690.284345
+Buf/Inv area:                    37341.730940
+Noncombinational area:           55298.558777
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                342988.843122
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area              Local cell area
+                                  --------------------  ------------------------------- 
+Hierarchical cell                 Absolute     Percent  Combi-       Noncombi-   Black-
+                                  Total        Total    national     national    boxes   Design
+--------------------------------  -----------  -------  -----------  ----------  ------  ------------------------
+soc_top                           342988.8431    100.0     420.9621      0.0000  0.0000  soc_top
+cpu                                26560.5029      7.7       0.0000      0.0000  0.0000  riscv_mc
+cpu/controller_inst                  237.9351      0.1     196.6367     41.2984  0.0000  mc_controller
+cpu/datapath_inst                  26322.5678      7.7     975.2054      0.0000  0.0000  mc_datapath
+cpu/datapath_inst/a_reg              483.3790      0.1     152.9918    330.3872  0.0000  data_reg_3
+cpu/datapath_inst/alu_inst           909.5034      0.3     909.5034      0.0000  0.0000  mc_alu
+cpu/datapath_inst/aluout_reg         495.1115      0.1     164.7243    330.3872  0.0000  data_reg_1
+cpu/datapath_inst/b_reg              553.7740      0.2     223.3868    330.3872  0.0000  data_reg_2
+cpu/datapath_inst/ir_inst            530.3090      0.2     199.9218    330.3872  0.0000  instr_reg
+cpu/datapath_inst/mdr_reg            483.3790      0.1     152.9918    330.3872  0.0000  data_reg_0
+cpu/datapath_inst/pc_inst            558.4670      0.2     228.0798    330.3872  0.0000  pc_sv
+cpu/datapath_inst/regfile_inst     21333.4395      6.2   11091.4360  10242.0034  0.0000  mc_reg_file
+cpu_master                          1661.7913      0.5     660.3051   1001.4862  0.0000  cpu_axi_master
+gpu                               308552.5476     90.0     363.2382      0.0000  0.0000  simt_gpu
+gpu/g_warp_0__u_warp              148085.7373     43.2    1664.6071    330.3872  0.0000  warp_LANES4_PC_W16_1
+gpu/g_warp_0__u_warp/g_alu_0__u_alu
+                                   24093.3925      7.0   24093.3925      0.0000  0.0000  alu_7
+gpu/g_warp_0__u_warp/g_alu_1__u_alu
+                                   24474.4641      7.1   24474.4641      0.0000  0.0000  alu_6
+gpu/g_warp_0__u_warp/g_alu_2__u_alu
+                                   23981.6991      7.0   23981.6991      0.0000  0.0000  alu_5
+gpu/g_warp_0__u_warp/g_alu_3__u_alu
+                                   28315.2155      8.3   28315.2155      0.0000  0.0000  alu_4
+gpu/g_warp_0__u_warp/u_dec             4.6930      0.0       4.6930      0.0000  0.0000  decoder_1
+gpu/g_warp_0__u_warp/u_mem          3596.7152      1.0    2223.5434   1373.1718  0.0000  mem_unit_LANES4_1
+gpu/g_warp_0__u_warp/u_rf          41624.5636     12.1   24444.4289  17180.1348  0.0000  regfile_LANES4_1
+gpu/g_warp_1__u_warp              157117.8855     45.8    1664.1378    330.3872  0.0000  warp_LANES4_PC_W16_0
+gpu/g_warp_1__u_warp/g_alu_0__u_alu
+                                   24120.6119      7.0   24120.6119      0.0000  0.0000  alu_3
+gpu/g_warp_1__u_warp/g_alu_1__u_alu
+                                   28509.9750      8.3   28509.9750      0.0000  0.0000  alu_2
+gpu/g_warp_1__u_warp/g_alu_2__u_alu
+                                   28709.4275      8.4   28709.4275      0.0000  0.0000  alu_1
+gpu/g_warp_1__u_warp/g_alu_3__u_alu
+                                   28598.2034      8.3   28598.2034      0.0000  0.0000  alu_0
+gpu/g_warp_1__u_warp/u_dec             4.6930      0.0       4.6930      0.0000  0.0000  decoder_0
+gpu/g_warp_1__u_warp/u_mem          3594.3687      1.0    2221.1969   1373.1718  0.0000  mem_unit_LANES4_0
+gpu/g_warp_1__u_warp/u_rf          41586.0810     12.1   24405.9463  17180.1348  0.0000  regfile_LANES4_0
+gpu/u_dcr                           2603.2071      0.8    1291.9829   1311.2242  0.0000  dcr_TB8
+gpu/u_disp                           357.6066      0.1     357.6066      0.0000  0.0000  dispatcher_WARPS2_LANES4
+gpu/u_sched                           24.8729      0.0      14.5483     10.3246  0.0000  scheduler_WARPS2
+mmio                                3079.5466      0.9    1221.1186   1858.4280  0.0000  gpu_mmio
+ram_slave                           2064.9200      0.6    1011.8108   1053.1092  0.0000  axi_lite_ram
+u_interconnect                       648.5726      0.2     617.5988     30.9738  0.0000  axi_lite_interconnect
+--------------------------------  -----------  -------  -----------  ----------  ------  ------------------------
+Total                                                   287690.2843  55298.5588  0.0000
+
+1
