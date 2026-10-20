@@ -1,0 +1,411 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 5
+Design : soc_phase5_top
+Version: V-2023.12-SP5-1
+Date   : Tue Oct 20 08:01:33 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: gscl45nm
+Wire Load Model Mode: top
+
+  Startpoint: cpu/core/ex_mem_reg_rd__0_
+              (rising edge-triggered flip-flop clocked by cpu_clock)
+  Endpoint: cpu/core/ex_mem_reg_result__30_
+            (rising edge-triggered flip-flop clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock cpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  cpu/core/ex_mem_reg_rd__0_/CLK (DFFSR)              0.000000 # 0.000000 r
+  cpu/core/ex_mem_reg_rd__0_/Q (DFFSR) <-             0.126256   0.126256 r
+  cpu/core/U792/Y (BUFX2)                             0.044074   0.170330 r
+  cpu/core/U1078/Y (INVX1)                            0.037264   0.207594 f
+  cpu/core/U1236/Y (AOI22X1)                          0.048505   0.256099 r
+  cpu/core/U1238/Y (NAND3X1)                          0.023521   0.279620 f
+  cpu/core/U1242/Y (NOR3X1)                           0.350564   0.630184 r
+  cpu/core/U1243/Y (AOI21X1)                          0.143116   0.773300 f
+  cpu/core/U1247/Y (NAND2X1)                          0.065704   0.839004 r
+  cpu/core/U1042/Y (INVX1)                            0.194958   1.033962 f
+  cpu/core/U1454/Y (AOI22X1)                          0.093600   1.127562 r
+  cpu/core/U1456/Y (AND2X1)                           0.054051   1.181613 r
+  cpu/core/U1711/Y (MUX2X1)                           0.032902   1.214515 f
+  cpu/core/U1038/Y (INVX1)                            0.583143   1.797658 r
+  cpu/core/U1712/Y (INVX1)                            0.573561   2.371219 f
+  cpu/core/U1713/Y (AND2X1)                           0.099868   2.471087 f
+  cpu/core/U1714/Y (XOR2X1)                           0.050384   2.521471 f
+  cpu/core/DP_OP_183J2_122_4017_U33/YC (FAX1)         0.090575   2.612046 f
+  cpu/core/DP_OP_183J2_122_4017_U32/YC (FAX1)         0.081340   2.693386 f
+  cpu/core/DP_OP_183J2_122_4017_U31/YC (FAX1)         0.081470   2.774856 f
+  cpu/core/DP_OP_183J2_122_4017_U30/YC (FAX1)         0.081470   2.856327 f
+  cpu/core/DP_OP_183J2_122_4017_U29/YC (FAX1)         0.081470   2.937797 f
+  cpu/core/DP_OP_183J2_122_4017_U28/YC (FAX1)         0.081470   3.019268 f
+  cpu/core/DP_OP_183J2_122_4017_U27/YC (FAX1)         0.081470   3.100738 f
+  cpu/core/DP_OP_183J2_122_4017_U26/YC (FAX1)         0.081470   3.182209 f
+  cpu/core/DP_OP_183J2_122_4017_U25/YC (FAX1)         0.081470   3.263679 f
+  cpu/core/DP_OP_183J2_122_4017_U24/YC (FAX1)         0.081470   3.345150 f
+  cpu/core/DP_OP_183J2_122_4017_U23/YC (FAX1)         0.081470   3.426620 f
+  cpu/core/DP_OP_183J2_122_4017_U22/YC (FAX1)         0.081470   3.508090 f
+  cpu/core/DP_OP_183J2_122_4017_U21/YC (FAX1)         0.081470   3.589561 f
+  cpu/core/DP_OP_183J2_122_4017_U20/YC (FAX1)         0.081470   3.671031 f
+  cpu/core/DP_OP_183J2_122_4017_U19/YC (FAX1)         0.081470   3.752502 f
+  cpu/core/DP_OP_183J2_122_4017_U18/YC (FAX1)         0.081470   3.833972 f
+  cpu/core/DP_OP_183J2_122_4017_U17/YC (FAX1)         0.081470   3.915443 f
+  cpu/core/DP_OP_183J2_122_4017_U16/YC (FAX1)         0.081470   3.996913 f
+  cpu/core/DP_OP_183J2_122_4017_U15/YC (FAX1)         0.081470   4.078384 f
+  cpu/core/DP_OP_183J2_122_4017_U14/YC (FAX1)         0.081470   4.159854 f
+  cpu/core/DP_OP_183J2_122_4017_U13/YC (FAX1)         0.081470   4.241325 f
+  cpu/core/DP_OP_183J2_122_4017_U12/YC (FAX1)         0.081470   4.322795 f
+  cpu/core/DP_OP_183J2_122_4017_U11/YC (FAX1)         0.081470   4.404266 f
+  cpu/core/DP_OP_183J2_122_4017_U10/YC (FAX1)         0.081470   4.485736 f
+  cpu/core/DP_OP_183J2_122_4017_U9/YC (FAX1)          0.081470   4.567207 f
+  cpu/core/DP_OP_183J2_122_4017_U8/YC (FAX1)          0.081470   4.648677 f
+  cpu/core/DP_OP_183J2_122_4017_U7/YC (FAX1)          0.081470   4.730148 f
+  cpu/core/DP_OP_183J2_122_4017_U6/YC (FAX1)          0.081470   4.811618 f
+  cpu/core/DP_OP_183J2_122_4017_U5/YC (FAX1)          0.081470   4.893089 f
+  cpu/core/DP_OP_183J2_122_4017_U4/YC (FAX1)          0.081470   4.974559 f
+  cpu/core/DP_OP_183J2_122_4017_U3/YS (FAX1)          0.079648   5.054208 f
+  cpu/core/U3579/Y (AOI21X1)                          0.033317   5.087525 r
+  cpu/core/U3580/Y (INVX1)                            0.021507   5.109032 f
+  cpu/core/U3581/Y (NOR3X1)                           0.026415   5.135447 r
+  cpu/core/U3583/Y (AOI22X1)                          0.036482   5.171928 f
+  cpu/core/ex_mem_reg_result__30_/D (DFFSR)           0.000000   5.171928 f
+  data arrival time                                              5.171928
+
+  clock cpu_clock (rise edge)                         20.000000  20.000000
+  clock network delay (ideal)                         0.000000   20.000000
+  clock uncertainty                                   -0.200000  19.799999
+  cpu/core/ex_mem_reg_result__30_/CLK (DFFSR)         0.000000   19.799999 r
+  library setup time                                  -0.178695  19.621305
+  data required time                                             19.621305
+  --------------------------------------------------------------------------
+  data required time                                             19.621305
+  data arrival time                                              -5.171928
+  --------------------------------------------------------------------------
+  slack (MET)                                                    14.449377
+
+
+  Startpoint: cpu/core/ex_mem_reg_rd__0_
+              (rising edge-triggered flip-flop clocked by cpu_clock)
+  Endpoint: cpu/core/ex_mem_reg_result__31_
+            (rising edge-triggered flip-flop clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock cpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  cpu/core/ex_mem_reg_rd__0_/CLK (DFFSR)              0.000000 # 0.000000 r
+  cpu/core/ex_mem_reg_rd__0_/Q (DFFSR) <-             0.126256   0.126256 r
+  cpu/core/U792/Y (BUFX2)                             0.044074   0.170330 r
+  cpu/core/U1078/Y (INVX1)                            0.037264   0.207594 f
+  cpu/core/U1236/Y (AOI22X1)                          0.048505   0.256099 r
+  cpu/core/U1238/Y (NAND3X1)                          0.023521   0.279620 f
+  cpu/core/U1242/Y (NOR3X1)                           0.350564   0.630184 r
+  cpu/core/U1243/Y (AOI21X1)                          0.143116   0.773300 f
+  cpu/core/U1247/Y (NAND2X1)                          0.065704   0.839004 r
+  cpu/core/U1042/Y (INVX1)                            0.194958   1.033962 f
+  cpu/core/U1454/Y (AOI22X1)                          0.093600   1.127562 r
+  cpu/core/U1456/Y (AND2X1)                           0.054051   1.181613 r
+  cpu/core/U1711/Y (MUX2X1)                           0.032902   1.214515 f
+  cpu/core/U1038/Y (INVX1)                            0.583143   1.797658 r
+  cpu/core/U1712/Y (INVX1)                            0.573561   2.371219 f
+  cpu/core/U1713/Y (AND2X1)                           0.099868   2.471087 f
+  cpu/core/U1714/Y (XOR2X1)                           0.050384   2.521471 f
+  cpu/core/DP_OP_183J2_122_4017_U33/YC (FAX1)         0.090575   2.612046 f
+  cpu/core/DP_OP_183J2_122_4017_U32/YC (FAX1)         0.081340   2.693386 f
+  cpu/core/DP_OP_183J2_122_4017_U31/YC (FAX1)         0.081470   2.774856 f
+  cpu/core/DP_OP_183J2_122_4017_U30/YC (FAX1)         0.081470   2.856327 f
+  cpu/core/DP_OP_183J2_122_4017_U29/YC (FAX1)         0.081470   2.937797 f
+  cpu/core/DP_OP_183J2_122_4017_U28/YC (FAX1)         0.081470   3.019268 f
+  cpu/core/DP_OP_183J2_122_4017_U27/YC (FAX1)         0.081470   3.100738 f
+  cpu/core/DP_OP_183J2_122_4017_U26/YC (FAX1)         0.081470   3.182209 f
+  cpu/core/DP_OP_183J2_122_4017_U25/YC (FAX1)         0.081470   3.263679 f
+  cpu/core/DP_OP_183J2_122_4017_U24/YC (FAX1)         0.081470   3.345150 f
+  cpu/core/DP_OP_183J2_122_4017_U23/YC (FAX1)         0.081470   3.426620 f
+  cpu/core/DP_OP_183J2_122_4017_U22/YC (FAX1)         0.081470   3.508090 f
+  cpu/core/DP_OP_183J2_122_4017_U21/YC (FAX1)         0.081470   3.589561 f
+  cpu/core/DP_OP_183J2_122_4017_U20/YC (FAX1)         0.081470   3.671031 f
+  cpu/core/DP_OP_183J2_122_4017_U19/YC (FAX1)         0.081470   3.752502 f
+  cpu/core/DP_OP_183J2_122_4017_U18/YC (FAX1)         0.081470   3.833972 f
+  cpu/core/DP_OP_183J2_122_4017_U17/YC (FAX1)         0.081470   3.915443 f
+  cpu/core/DP_OP_183J2_122_4017_U16/YC (FAX1)         0.081470   3.996913 f
+  cpu/core/DP_OP_183J2_122_4017_U15/YC (FAX1)         0.081470   4.078384 f
+  cpu/core/DP_OP_183J2_122_4017_U14/YC (FAX1)         0.081470   4.159854 f
+  cpu/core/DP_OP_183J2_122_4017_U13/YC (FAX1)         0.081470   4.241325 f
+  cpu/core/DP_OP_183J2_122_4017_U12/YC (FAX1)         0.081470   4.322795 f
+  cpu/core/DP_OP_183J2_122_4017_U11/YC (FAX1)         0.081470   4.404266 f
+  cpu/core/DP_OP_183J2_122_4017_U10/YC (FAX1)         0.081470   4.485736 f
+  cpu/core/DP_OP_183J2_122_4017_U9/YC (FAX1)          0.081470   4.567207 f
+  cpu/core/DP_OP_183J2_122_4017_U8/YC (FAX1)          0.081470   4.648677 f
+  cpu/core/DP_OP_183J2_122_4017_U7/YC (FAX1)          0.081470   4.730148 f
+  cpu/core/DP_OP_183J2_122_4017_U6/YC (FAX1)          0.081470   4.811618 f
+  cpu/core/DP_OP_183J2_122_4017_U5/YC (FAX1)          0.081470   4.893089 f
+  cpu/core/DP_OP_183J2_122_4017_U4/YC (FAX1)          0.081470   4.974559 f
+  cpu/core/DP_OP_183J2_122_4017_U3/YC (FAX1)          0.077267   5.051826 f
+  cpu/core/U3592/Y (XOR2X1)                           0.029858   5.081684 f
+  cpu/core/U3593/Y (NAND2X1)                          0.028132   5.109816 r
+  cpu/core/U3594/Y (NAND2X1)                          0.021277   5.131094 f
+  cpu/core/U3608/Y (NOR3X1)                           0.051773   5.182867 r
+  cpu/core/U3610/Y (AOI22X1)                          0.036618   5.219485 f
+  cpu/core/ex_mem_reg_result__31_/D (DFFSR)           0.000000   5.219485 f
+  data arrival time                                              5.219485
+
+  clock cpu_clock (rise edge)                         20.000000  20.000000
+  clock network delay (ideal)                         0.000000   20.000000
+  clock uncertainty                                   -0.200000  19.799999
+  cpu/core/ex_mem_reg_result__31_/CLK (DFFSR)         0.000000   19.799999 r
+  library setup time                                  -0.130570  19.669430
+  data required time                                             19.669430
+  --------------------------------------------------------------------------
+  data required time                                             19.669430
+  data arrival time                                              -5.219485
+  --------------------------------------------------------------------------
+  slack (MET)                                                    14.449945
+
+
+  Startpoint: cpu/core/ex_mem_reg_rd__1_
+              (rising edge-triggered flip-flop clocked by cpu_clock)
+  Endpoint: cpu/core/ex_mem_reg_result__30_
+            (rising edge-triggered flip-flop clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock cpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  cpu/core/ex_mem_reg_rd__1_/CLK (DFFSR)              0.000000 # 0.000000 r
+  cpu/core/ex_mem_reg_rd__1_/Q (DFFSR) <-             0.153481   0.153481 r
+  cpu/core/U1068/Y (INVX1)                            0.044768   0.198249 f
+  cpu/core/U1237/Y (AOI22X1)                          0.048342   0.246591 r
+  cpu/core/U1238/Y (NAND3X1)                          0.020663   0.267254 f
+  cpu/core/U1242/Y (NOR3X1)                           0.350564   0.617818 r
+  cpu/core/U1243/Y (AOI21X1)                          0.143116   0.760934 f
+  cpu/core/U1247/Y (NAND2X1)                          0.065704   0.826638 r
+  cpu/core/U1042/Y (INVX1)                            0.194958   1.021596 f
+  cpu/core/U1454/Y (AOI22X1)                          0.093600   1.115196 r
+  cpu/core/U1456/Y (AND2X1)                           0.054051   1.169247 r
+  cpu/core/U1711/Y (MUX2X1)                           0.032902   1.202150 f
+  cpu/core/U1038/Y (INVX1)                            0.583143   1.785292 r
+  cpu/core/U1712/Y (INVX1)                            0.573561   2.358853 f
+  cpu/core/U1713/Y (AND2X1)                           0.099868   2.458721 f
+  cpu/core/U1714/Y (XOR2X1)                           0.050384   2.509105 f
+  cpu/core/DP_OP_183J2_122_4017_U33/YC (FAX1)         0.090575   2.599680 f
+  cpu/core/DP_OP_183J2_122_4017_U32/YC (FAX1)         0.081340   2.681020 f
+  cpu/core/DP_OP_183J2_122_4017_U31/YC (FAX1)         0.081470   2.762490 f
+  cpu/core/DP_OP_183J2_122_4017_U30/YC (FAX1)         0.081470   2.843961 f
+  cpu/core/DP_OP_183J2_122_4017_U29/YC (FAX1)         0.081470   2.925431 f
+  cpu/core/DP_OP_183J2_122_4017_U28/YC (FAX1)         0.081470   3.006902 f
+  cpu/core/DP_OP_183J2_122_4017_U27/YC (FAX1)         0.081470   3.088372 f
+  cpu/core/DP_OP_183J2_122_4017_U26/YC (FAX1)         0.081470   3.169843 f
+  cpu/core/DP_OP_183J2_122_4017_U25/YC (FAX1)         0.081470   3.251313 f
+  cpu/core/DP_OP_183J2_122_4017_U24/YC (FAX1)         0.081470   3.332784 f
+  cpu/core/DP_OP_183J2_122_4017_U23/YC (FAX1)         0.081470   3.414254 f
+  cpu/core/DP_OP_183J2_122_4017_U22/YC (FAX1)         0.081470   3.495725 f
+  cpu/core/DP_OP_183J2_122_4017_U21/YC (FAX1)         0.081470   3.577195 f
+  cpu/core/DP_OP_183J2_122_4017_U20/YC (FAX1)         0.081470   3.658666 f
+  cpu/core/DP_OP_183J2_122_4017_U19/YC (FAX1)         0.081470   3.740136 f
+  cpu/core/DP_OP_183J2_122_4017_U18/YC (FAX1)         0.081470   3.821607 f
+  cpu/core/DP_OP_183J2_122_4017_U17/YC (FAX1)         0.081470   3.903077 f
+  cpu/core/DP_OP_183J2_122_4017_U16/YC (FAX1)         0.081470   3.984548 f
+  cpu/core/DP_OP_183J2_122_4017_U15/YC (FAX1)         0.081470   4.066018 f
+  cpu/core/DP_OP_183J2_122_4017_U14/YC (FAX1)         0.081470   4.147489 f
+  cpu/core/DP_OP_183J2_122_4017_U13/YC (FAX1)         0.081470   4.228959 f
+  cpu/core/DP_OP_183J2_122_4017_U12/YC (FAX1)         0.081470   4.310430 f
+  cpu/core/DP_OP_183J2_122_4017_U11/YC (FAX1)         0.081470   4.391900 f
+  cpu/core/DP_OP_183J2_122_4017_U10/YC (FAX1)         0.081470   4.473371 f
+  cpu/core/DP_OP_183J2_122_4017_U9/YC (FAX1)          0.081470   4.554841 f
+  cpu/core/DP_OP_183J2_122_4017_U8/YC (FAX1)          0.081470   4.636312 f
+  cpu/core/DP_OP_183J2_122_4017_U7/YC (FAX1)          0.081470   4.717782 f
+  cpu/core/DP_OP_183J2_122_4017_U6/YC (FAX1)          0.081470   4.799253 f
+  cpu/core/DP_OP_183J2_122_4017_U5/YC (FAX1)          0.081470   4.880723 f
+  cpu/core/DP_OP_183J2_122_4017_U4/YC (FAX1)          0.081470   4.962193 f
+  cpu/core/DP_OP_183J2_122_4017_U3/YS (FAX1)          0.079648   5.041842 f
+  cpu/core/U3579/Y (AOI21X1)                          0.033317   5.075159 r
+  cpu/core/U3580/Y (INVX1)                            0.021507   5.096666 f
+  cpu/core/U3581/Y (NOR3X1)                           0.026415   5.123081 r
+  cpu/core/U3583/Y (AOI22X1)                          0.036482   5.159563 f
+  cpu/core/ex_mem_reg_result__30_/D (DFFSR)           0.000000   5.159563 f
+  data arrival time                                              5.159563
+
+  clock cpu_clock (rise edge)                         20.000000  20.000000
+  clock network delay (ideal)                         0.000000   20.000000
+  clock uncertainty                                   -0.200000  19.799999
+  cpu/core/ex_mem_reg_result__30_/CLK (DFFSR)         0.000000   19.799999 r
+  library setup time                                  -0.178695  19.621305
+  data required time                                             19.621305
+  --------------------------------------------------------------------------
+  data required time                                             19.621305
+  data arrival time                                              -5.159563
+  --------------------------------------------------------------------------
+  slack (MET)                                                    14.461742
+
+
+  Startpoint: cpu/core/ex_mem_reg_rd__1_
+              (rising edge-triggered flip-flop clocked by cpu_clock)
+  Endpoint: cpu/core/ex_mem_reg_result__31_
+            (rising edge-triggered flip-flop clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock cpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  cpu/core/ex_mem_reg_rd__1_/CLK (DFFSR)              0.000000 # 0.000000 r
+  cpu/core/ex_mem_reg_rd__1_/Q (DFFSR) <-             0.153481   0.153481 r
+  cpu/core/U1068/Y (INVX1)                            0.044768   0.198249 f
+  cpu/core/U1237/Y (AOI22X1)                          0.048342   0.246591 r
+  cpu/core/U1238/Y (NAND3X1)                          0.020663   0.267254 f
+  cpu/core/U1242/Y (NOR3X1)                           0.350564   0.617818 r
+  cpu/core/U1243/Y (AOI21X1)                          0.143116   0.760934 f
+  cpu/core/U1247/Y (NAND2X1)                          0.065704   0.826638 r
+  cpu/core/U1042/Y (INVX1)                            0.194958   1.021596 f
+  cpu/core/U1454/Y (AOI22X1)                          0.093600   1.115196 r
+  cpu/core/U1456/Y (AND2X1)                           0.054051   1.169247 r
+  cpu/core/U1711/Y (MUX2X1)                           0.032902   1.202150 f
+  cpu/core/U1038/Y (INVX1)                            0.583143   1.785292 r
+  cpu/core/U1712/Y (INVX1)                            0.573561   2.358853 f
+  cpu/core/U1713/Y (AND2X1)                           0.099868   2.458721 f
+  cpu/core/U1714/Y (XOR2X1)                           0.050384   2.509105 f
+  cpu/core/DP_OP_183J2_122_4017_U33/YC (FAX1)         0.090575   2.599680 f
+  cpu/core/DP_OP_183J2_122_4017_U32/YC (FAX1)         0.081340   2.681020 f
+  cpu/core/DP_OP_183J2_122_4017_U31/YC (FAX1)         0.081470   2.762490 f
+  cpu/core/DP_OP_183J2_122_4017_U30/YC (FAX1)         0.081470   2.843961 f
+  cpu/core/DP_OP_183J2_122_4017_U29/YC (FAX1)         0.081470   2.925431 f
+  cpu/core/DP_OP_183J2_122_4017_U28/YC (FAX1)         0.081470   3.006902 f
+  cpu/core/DP_OP_183J2_122_4017_U27/YC (FAX1)         0.081470   3.088372 f
+  cpu/core/DP_OP_183J2_122_4017_U26/YC (FAX1)         0.081470   3.169843 f
+  cpu/core/DP_OP_183J2_122_4017_U25/YC (FAX1)         0.081470   3.251313 f
+  cpu/core/DP_OP_183J2_122_4017_U24/YC (FAX1)         0.081470   3.332784 f
+  cpu/core/DP_OP_183J2_122_4017_U23/YC (FAX1)         0.081470   3.414254 f
+  cpu/core/DP_OP_183J2_122_4017_U22/YC (FAX1)         0.081470   3.495725 f
+  cpu/core/DP_OP_183J2_122_4017_U21/YC (FAX1)         0.081470   3.577195 f
+  cpu/core/DP_OP_183J2_122_4017_U20/YC (FAX1)         0.081470   3.658666 f
+  cpu/core/DP_OP_183J2_122_4017_U19/YC (FAX1)         0.081470   3.740136 f
+  cpu/core/DP_OP_183J2_122_4017_U18/YC (FAX1)         0.081470   3.821607 f
+  cpu/core/DP_OP_183J2_122_4017_U17/YC (FAX1)         0.081470   3.903077 f
+  cpu/core/DP_OP_183J2_122_4017_U16/YC (FAX1)         0.081470   3.984548 f
+  cpu/core/DP_OP_183J2_122_4017_U15/YC (FAX1)         0.081470   4.066018 f
+  cpu/core/DP_OP_183J2_122_4017_U14/YC (FAX1)         0.081470   4.147489 f
+  cpu/core/DP_OP_183J2_122_4017_U13/YC (FAX1)         0.081470   4.228959 f
+  cpu/core/DP_OP_183J2_122_4017_U12/YC (FAX1)         0.081470   4.310430 f
+  cpu/core/DP_OP_183J2_122_4017_U11/YC (FAX1)         0.081470   4.391900 f
+  cpu/core/DP_OP_183J2_122_4017_U10/YC (FAX1)         0.081470   4.473371 f
+  cpu/core/DP_OP_183J2_122_4017_U9/YC (FAX1)          0.081470   4.554841 f
+  cpu/core/DP_OP_183J2_122_4017_U8/YC (FAX1)          0.081470   4.636312 f
+  cpu/core/DP_OP_183J2_122_4017_U7/YC (FAX1)          0.081470   4.717782 f
+  cpu/core/DP_OP_183J2_122_4017_U6/YC (FAX1)          0.081470   4.799253 f
+  cpu/core/DP_OP_183J2_122_4017_U5/YC (FAX1)          0.081470   4.880723 f
+  cpu/core/DP_OP_183J2_122_4017_U4/YC (FAX1)          0.081470   4.962193 f
+  cpu/core/DP_OP_183J2_122_4017_U3/YC (FAX1)          0.077268   5.039461 f
+  cpu/core/U3592/Y (XOR2X1)                           0.029858   5.069319 f
+  cpu/core/U3593/Y (NAND2X1)                          0.028132   5.097451 r
+  cpu/core/U3594/Y (NAND2X1)                          0.021277   5.118728 f
+  cpu/core/U3608/Y (NOR3X1)                           0.051773   5.170501 r
+  cpu/core/U3610/Y (AOI22X1)                          0.036618   5.207119 f
+  cpu/core/ex_mem_reg_result__31_/D (DFFSR)           0.000000   5.207119 f
+  data arrival time                                              5.207119
+
+  clock cpu_clock (rise edge)                         20.000000  20.000000
+  clock network delay (ideal)                         0.000000   20.000000
+  clock uncertainty                                   -0.200000  19.799999
+  cpu/core/ex_mem_reg_result__31_/CLK (DFFSR)         0.000000   19.799999 r
+  library setup time                                  -0.130570  19.669430
+  data required time                                             19.669430
+  --------------------------------------------------------------------------
+  data required time                                             19.669430
+  data arrival time                                              -5.207119
+  --------------------------------------------------------------------------
+  slack (MET)                                                    14.462311
+
+
+  Startpoint: cpu/core/ex_mem_reg_rd__2_
+              (rising edge-triggered flip-flop clocked by cpu_clock)
+  Endpoint: cpu/core/ex_mem_reg_result__30_
+            (rising edge-triggered flip-flop clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock cpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  cpu/core/ex_mem_reg_rd__2_/CLK (DFFSR)              0.000000 # 0.000000 r
+  cpu/core/ex_mem_reg_rd__2_/Q (DFFSR) <-             0.151313   0.151313 r
+  cpu/core/U1081/Y (INVX1)                            0.043884   0.195197 f
+  cpu/core/U1235/Y (AOI22X1)                          0.047203   0.242400 r
+  cpu/core/U1238/Y (NAND3X1)                          0.024095   0.266495 f
+  cpu/core/U1242/Y (NOR3X1)                           0.350564   0.617059 r
+  cpu/core/U1243/Y (AOI21X1)                          0.143116   0.760175 f
+  cpu/core/U1247/Y (NAND2X1)                          0.065704   0.825879 r
+  cpu/core/U1042/Y (INVX1)                            0.194958   1.020837 f
+  cpu/core/U1454/Y (AOI22X1)                          0.093600   1.114437 r
+  cpu/core/U1456/Y (AND2X1)                           0.054051   1.168488 r
+  cpu/core/U1711/Y (MUX2X1)                           0.032902   1.201390 f
+  cpu/core/U1038/Y (INVX1)                            0.583143   1.784533 r
+  cpu/core/U1712/Y (INVX1)                            0.573561   2.358094 f
+  cpu/core/U1713/Y (AND2X1)                           0.099868   2.457962 f
+  cpu/core/U1714/Y (XOR2X1)                           0.050384   2.508346 f
+  cpu/core/DP_OP_183J2_122_4017_U33/YC (FAX1)         0.090575   2.598921 f
+  cpu/core/DP_OP_183J2_122_4017_U32/YC (FAX1)         0.081340   2.680261 f
+  cpu/core/DP_OP_183J2_122_4017_U31/YC (FAX1)         0.081470   2.761731 f
+  cpu/core/DP_OP_183J2_122_4017_U30/YC (FAX1)         0.081470   2.843202 f
+  cpu/core/DP_OP_183J2_122_4017_U29/YC (FAX1)         0.081470   2.924672 f
+  cpu/core/DP_OP_183J2_122_4017_U28/YC (FAX1)         0.081470   3.006143 f
+  cpu/core/DP_OP_183J2_122_4017_U27/YC (FAX1)         0.081470   3.087613 f
+  cpu/core/DP_OP_183J2_122_4017_U26/YC (FAX1)         0.081470   3.169084 f
+  cpu/core/DP_OP_183J2_122_4017_U25/YC (FAX1)         0.081470   3.250554 f
+  cpu/core/DP_OP_183J2_122_4017_U24/YC (FAX1)         0.081470   3.332025 f
+  cpu/core/DP_OP_183J2_122_4017_U23/YC (FAX1)         0.081470   3.413495 f
+  cpu/core/DP_OP_183J2_122_4017_U22/YC (FAX1)         0.081470   3.494966 f
+  cpu/core/DP_OP_183J2_122_4017_U21/YC (FAX1)         0.081470   3.576436 f
+  cpu/core/DP_OP_183J2_122_4017_U20/YC (FAX1)         0.081470   3.657907 f
+  cpu/core/DP_OP_183J2_122_4017_U19/YC (FAX1)         0.081470   3.739377 f
+  cpu/core/DP_OP_183J2_122_4017_U18/YC (FAX1)         0.081470   3.820848 f
+  cpu/core/DP_OP_183J2_122_4017_U17/YC (FAX1)         0.081470   3.902318 f
+  cpu/core/DP_OP_183J2_122_4017_U16/YC (FAX1)         0.081470   3.983788 f
+  cpu/core/DP_OP_183J2_122_4017_U15/YC (FAX1)         0.081470   4.065259 f
+  cpu/core/DP_OP_183J2_122_4017_U14/YC (FAX1)         0.081470   4.146729 f
+  cpu/core/DP_OP_183J2_122_4017_U13/YC (FAX1)         0.081470   4.228200 f
+  cpu/core/DP_OP_183J2_122_4017_U12/YC (FAX1)         0.081470   4.309670 f
+  cpu/core/DP_OP_183J2_122_4017_U11/YC (FAX1)         0.081470   4.391141 f
+  cpu/core/DP_OP_183J2_122_4017_U10/YC (FAX1)         0.081470   4.472611 f
+  cpu/core/DP_OP_183J2_122_4017_U9/YC (FAX1)          0.081470   4.554082 f
+  cpu/core/DP_OP_183J2_122_4017_U8/YC (FAX1)          0.081470   4.635552 f
+  cpu/core/DP_OP_183J2_122_4017_U7/YC (FAX1)          0.081470   4.717023 f
+  cpu/core/DP_OP_183J2_122_4017_U6/YC (FAX1)          0.081470   4.798493 f
+  cpu/core/DP_OP_183J2_122_4017_U5/YC (FAX1)          0.081470   4.879964 f
+  cpu/core/DP_OP_183J2_122_4017_U4/YC (FAX1)          0.081470   4.961434 f
+  cpu/core/DP_OP_183J2_122_4017_U3/YS (FAX1)          0.079648   5.041083 f
+  cpu/core/U3579/Y (AOI21X1)                          0.033317   5.074400 r
+  cpu/core/U3580/Y (INVX1)                            0.021507   5.095907 f
+  cpu/core/U3581/Y (NOR3X1)                           0.026415   5.122322 r
+  cpu/core/U3583/Y (AOI22X1)                          0.036482   5.158803 f
+  cpu/core/ex_mem_reg_result__30_/D (DFFSR)           0.000000   5.158803 f
+  data arrival time                                              5.158803
+
+  clock cpu_clock (rise edge)                         20.000000  20.000000
+  clock network delay (ideal)                         0.000000   20.000000
+  clock uncertainty                                   -0.200000  19.799999
+  cpu/core/ex_mem_reg_result__30_/CLK (DFFSR)         0.000000   19.799999 r
+  library setup time                                  -0.178695  19.621305
+  data required time                                             19.621305
+  --------------------------------------------------------------------------
+  data required time                                             19.621305
+  data arrival time                                              -5.158803
+  --------------------------------------------------------------------------
+  slack (MET)                                                    14.462502
+
+
+1

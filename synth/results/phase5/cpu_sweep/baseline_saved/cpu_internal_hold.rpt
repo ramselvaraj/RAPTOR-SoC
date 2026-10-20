@@ -1,0 +1,192 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -max_paths 5
+Design : soc_phase5_top
+Version: V-2023.12-SP5-1
+Date   : Tue Oct 20 08:02:37 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: gscl45nm
+Wire Load Model Mode: top
+
+  Startpoint: program_loader/requests/storage_reg_3__1_
+              (rising edge-triggered flip-flop clocked by cpu_clock)
+  Endpoint: program_loader/requests/storage_reg_3__1_
+            (rising edge-triggered flip-flop clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock cpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  program_loader/requests/storage_reg_3__1_/CLK (DFFPOSX1)
+                                                      0.000000 # 0.000000 r
+  program_loader/requests/storage_reg_3__1_/Q (DFFPOSX1) <-
+                                                      0.104912   0.104912 f
+  program_loader/requests/U163/Y (INVX1)              0.006760   0.111671 r
+  program_loader/requests/U164/Y (AOI22X1)            0.013140   0.124811 f
+  program_loader/requests/storage_reg_3__1_/D (DFFPOSX1)
+                                                      0.000000   0.124811 f
+  data arrival time                                              0.124811
+
+  clock cpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  clock uncertainty                                   0.050000   0.050000
+  program_loader/requests/storage_reg_3__1_/CLK (DFFPOSX1)
+                                                      0.000000   0.050000 r
+  library hold time                                   0.062124   0.112124
+  data required time                                             0.112124
+  --------------------------------------------------------------------------
+  data required time                                             0.112124
+  data arrival time                                              -0.124811
+  --------------------------------------------------------------------------
+  slack (MET)                                                    0.012687
+
+
+  Startpoint: program_loader/requests/storage_reg_3__2_
+              (rising edge-triggered flip-flop clocked by cpu_clock)
+  Endpoint: program_loader/requests/storage_reg_3__2_
+            (rising edge-triggered flip-flop clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock cpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  program_loader/requests/storage_reg_3__2_/CLK (DFFPOSX1)
+                                                      0.000000 # 0.000000 r
+  program_loader/requests/storage_reg_3__2_/Q (DFFPOSX1) <-
+                                                      0.104912   0.104912 f
+  program_loader/requests/U166/Y (INVX1)              0.006760   0.111671 r
+  program_loader/requests/U167/Y (AOI22X1)            0.013140   0.124811 f
+  program_loader/requests/storage_reg_3__2_/D (DFFPOSX1)
+                                                      0.000000   0.124811 f
+  data arrival time                                              0.124811
+
+  clock cpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  clock uncertainty                                   0.050000   0.050000
+  program_loader/requests/storage_reg_3__2_/CLK (DFFPOSX1)
+                                                      0.000000   0.050000 r
+  library hold time                                   0.062124   0.112124
+  data required time                                             0.112124
+  --------------------------------------------------------------------------
+  data required time                                             0.112124
+  data arrival time                                              -0.124811
+  --------------------------------------------------------------------------
+  slack (MET)                                                    0.012687
+
+
+  Startpoint: program_loader/requests/storage_reg_3__3_
+              (rising edge-triggered flip-flop clocked by cpu_clock)
+  Endpoint: program_loader/requests/storage_reg_3__3_
+            (rising edge-triggered flip-flop clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock cpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  program_loader/requests/storage_reg_3__3_/CLK (DFFPOSX1)
+                                                      0.000000 # 0.000000 r
+  program_loader/requests/storage_reg_3__3_/Q (DFFPOSX1) <-
+                                                      0.104912   0.104912 f
+  program_loader/requests/U169/Y (INVX1)              0.006760   0.111671 r
+  program_loader/requests/U170/Y (AOI22X1)            0.013140   0.124811 f
+  program_loader/requests/storage_reg_3__3_/D (DFFPOSX1)
+                                                      0.000000   0.124811 f
+  data arrival time                                              0.124811
+
+  clock cpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  clock uncertainty                                   0.050000   0.050000
+  program_loader/requests/storage_reg_3__3_/CLK (DFFPOSX1)
+                                                      0.000000   0.050000 r
+  library hold time                                   0.062124   0.112124
+  data required time                                             0.112124
+  --------------------------------------------------------------------------
+  data required time                                             0.112124
+  data arrival time                                              -0.124811
+  --------------------------------------------------------------------------
+  slack (MET)                                                    0.012687
+
+
+  Startpoint: program_loader/requests/storage_reg_3__4_
+              (rising edge-triggered flip-flop clocked by cpu_clock)
+  Endpoint: program_loader/requests/storage_reg_3__4_
+            (rising edge-triggered flip-flop clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock cpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  program_loader/requests/storage_reg_3__4_/CLK (DFFPOSX1)
+                                                      0.000000 # 0.000000 r
+  program_loader/requests/storage_reg_3__4_/Q (DFFPOSX1) <-
+                                                      0.104912   0.104912 f
+  program_loader/requests/U172/Y (INVX1)              0.006760   0.111671 r
+  program_loader/requests/U173/Y (AOI22X1)            0.013140   0.124811 f
+  program_loader/requests/storage_reg_3__4_/D (DFFPOSX1)
+                                                      0.000000   0.124811 f
+  data arrival time                                              0.124811
+
+  clock cpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  clock uncertainty                                   0.050000   0.050000
+  program_loader/requests/storage_reg_3__4_/CLK (DFFPOSX1)
+                                                      0.000000   0.050000 r
+  library hold time                                   0.062124   0.112124
+  data required time                                             0.112124
+  --------------------------------------------------------------------------
+  data required time                                             0.112124
+  data arrival time                                              -0.124811
+  --------------------------------------------------------------------------
+  slack (MET)                                                    0.012687
+
+
+  Startpoint: program_loader/requests/storage_reg_3__0_
+              (rising edge-triggered flip-flop clocked by cpu_clock)
+  Endpoint: program_loader/requests/storage_reg_3__0_
+            (rising edge-triggered flip-flop clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock cpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  program_loader/requests/storage_reg_3__0_/CLK (DFFPOSX1)
+                                                      0.000000 # 0.000000 r
+  program_loader/requests/storage_reg_3__0_/Q (DFFPOSX1) <-
+                                                      0.104912   0.104912 f
+  program_loader/requests/U175/Y (INVX1)              0.006760   0.111671 r
+  program_loader/requests/U176/Y (AOI22X1)            0.013140   0.124811 f
+  program_loader/requests/storage_reg_3__0_/D (DFFPOSX1)
+                                                      0.000000   0.124811 f
+  data arrival time                                              0.124811
+
+  clock cpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  clock uncertainty                                   0.050000   0.050000
+  program_loader/requests/storage_reg_3__0_/CLK (DFFPOSX1)
+                                                      0.000000   0.050000 r
+  library hold time                                   0.062124   0.112124
+  data required time                                             0.112124
+  --------------------------------------------------------------------------
+  data required time                                             0.112124
+  data arrival time                                              -0.124811
+  --------------------------------------------------------------------------
+  slack (MET)                                                    0.012687
+
+
+1
