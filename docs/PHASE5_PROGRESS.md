@@ -126,6 +126,14 @@ Debug counters stay in their original domains and are not synchronized for direc
 
 ## Remaining implementation-tool validation
 
+The focused GPU check preserved the passing CPU result and reported GPU setup +0.000183 ns and hold -0.044487 ns at 20 ns.
+The worst GPU hold path starts at external `gpu_program_rdata[0]` and ends at a warp instruction register.
+`make dc-phase5-gpu-interface-check` tests a separate 0.1..4.0 ns GPU program-data arrival contract.
+Only that input minimum changes. CPU contracts, margins, clocks, exceptions, and library limits remain unchanged.
+It writes to `synth/build/phase5/reports/gpu_50mhz_interfaces/`, preserving the original GPU check.
+The contract is a requirement on excluded memory, not a characterized property of an implementation.
+Its actual DC results remain pending until that check runs on the server.
+
 ### Preserved passing CPU-domain result
 
 `synth/results/phase5/cpu_100mhz_interfaces/` preserves the passing 10 ns CPU result:

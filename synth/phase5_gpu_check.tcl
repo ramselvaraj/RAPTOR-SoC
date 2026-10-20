@@ -19,14 +19,30 @@ proc run_phase5_gpu_check {repo_dir} {
     reset_design
     if {![read_sdc [file join $saved constraints.sdc]]} {error "Cannot read preserved CPU constraints."}
     set directory reports/gpu_50mhz
+    set memory_contract [expr {[env_or DC_GPU_MEMORY_CONTRACT 0] eq "1"}]
+    if {$memory_contract} {
+        set program_data [get_ports gpu_program_rdata*]
+        if {[sizeof_collection $program_data] == 0} {error "GPU program-data port collection is empty."}
+        # A requirement on the excluded memory, not inserted hardware delay.
+        set_input_delay -min 0.1 -clock gpu_clock $program_data
+        set directory reports/gpu_50mhz_interfaces
+    }
     file mkdir $directory
     set summary [open $directory/summary.txt w]
-    puts $summary "Saved-netlist re-analysis using the preserved CPU result's exact SDC."
+    puts $summary "Saved-netlist re-analysis starting from the preserved CPU result's exact SDC."
     puts $summary "DDC SHA256: $actual"
     puts $summary "CPU period: [get_attribute [get_clocks cpu_clock] period] ns"
     puts $summary "GPU period: [get_attribute [get_clocks gpu_clock] period] ns"
-    puts $summary "No clock margins, interface budgets, exceptions, or library limits changed."
-    puts $summary "CPU is re-reported as a control. GPU program-data minimum input delay remains at the saved value."
+    if {$memory_contract} {
+        puts $summary "Conditional GPU program-memory contract: data arrival 0.1..4.0 ns relative to gpu_clock."
+        puts $summary "Only GPU program-data minimum input delay changed; maximum remains 4.0 ns."
+        puts $summary "CPU contracts, clocks, margins, exceptions, and library limits remain unchanged."
+        puts $summary "External memory must satisfy this requirement; no memory implementation was characterized here."
+    } else {
+        puts $summary "No clock margins, interface budgets, exceptions, or library limits changed."
+        puts $summary "GPU program-data minimum input delay remains at the saved value."
+    }
+    puts $summary "CPU is re-reported as a control."
     flush $summary
     foreach domain {cpu gpu} {
         foreach kind {max min} label {setup hold} {
