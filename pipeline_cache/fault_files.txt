@@ -1,0 +1,4 @@
+./pipeline_cache/rtl/rv32_pkg.sv
+./pipeline_cache/rtl/decoder.sv
+./pipeline_cache/rtl/core.sv
+./pipeline_cache/tb/tb_core_faults.sv

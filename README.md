@@ -8,7 +8,7 @@
   A verified RISC-V system-on-chip with a programmable SIMT GPU.
 </p>
 
-## Final SoC
+## Final SoC (Phase 4 Baseline)
 
 RAPTOR-SoC uses SystemVerilog for the CPU, GPU, memory, and bus logic.
 The RISC-V CPU controls the complete system through an AXI4-Lite bus.
@@ -49,7 +49,7 @@ Each test also confirms that the GPU does not change the source frame.
 Cycle counts include firmware register initialization but exclude boot-port loading.
 The Phase 1 through Phase 3 tests remain valid.
 
-## Synthesis Results
+## Phase 4 Synthesis Results
 
 The RAPTOR-SoC core was synthesized in **Synopsys Design Compiler** using the **FreePDK45 `gscl45nm` standard-cell library**.
 The CPU, GPU, AXI interconnect, and MMIO use a **shared 50 MHz clock**.
@@ -67,6 +67,23 @@ Instruction and data memories are external to the synthesized core. CPU and GPU 
 
 Timing uses a 0.1 ns clock transition, 0.2 ns setup uncertainty, and 0.05 ns hold uncertainty.
 The constraint sweep re-analyzes the same mapped netlist without changing the RTL or repeating synthesis.
+
+## Phase 5: Pipelined CPU and Independent Clocks
+
+`soc_phase5_top` adds the five-stage RV32I-subset CPU with separate instruction and data caches.
+The data cache serves only CPU-private RAM. GPU MMIO and shared framebuffers bypass it.
+CPU/system logic and GPU execution use independent clocks.
+Async FIFOs carry launch snapshots, completion events, pixel transactions, and boot program writes.
+The original `soc_top` and Phase 4 tests remain available.
+
+```sh
+make phase5          # Lint, CPU/cache tests, adapters, CDC, new SoC matrix, and Phase 4 regression.
+make phase5-soc      # Only the new multi-clock end-to-end matrix.
+```
+
+See `docs/PHASE5_PROGRESS.md` for verification evidence and `docs/PHASE5_ASSIGNMENT.md` for the interface contract.
+Simulation clock periods are stress-test settings, not synthesized operating frequencies.
+The Phase 4 50 MHz result above does not apply to this new top.
 
 ## Run the SoC
 
@@ -293,6 +310,8 @@ See `docs/GPU_ISA.md` for the complete instruction format.
 ## Documentation
 
 - `docs/PHASE4_ASSIGNMENT.md` defines the final SoC.
+- `docs/PHASE5_ASSIGNMENT.md` plans the pipelined CPU, cache-safe memory routing, independent clocks, and CDC verification.
+- `docs/PHASE5_PROGRESS.md` records the implemented multi-clock integration and its verification results.
 - `docs/PHASE4_PROGRESS.md` records the test results.
 - `docs/ADDRESS_MAP.md` defines CPU and GPU addresses.
 - `docs/BUS_PROTOCOL.md` defines the GPU bus and AXI4-Lite path.
@@ -300,7 +319,8 @@ See `docs/GPU_ISA.md` for the complete instruction format.
 
 ## Deferred Work
 
-The current design does not include caches, interrupts, DMA, or AXI bursts.
+The design does not include interrupts, DMA, or AXI bursts.
+Phase 5 adds caches without hardware cache coherence. Shared GPU buffers remain uncached.
 The GPU does not include memory coalescing or per-lane branch divergence.
 
 ## License

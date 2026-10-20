@@ -1,7 +1,8 @@
 `timescale 1ns/1ps
 
 module gpu_mmio #(
-    parameter bit RANDOM_BACKPRESSURE = 1'b0
+    parameter bit RANDOM_BACKPRESSURE = 1'b0,
+    parameter bit STRICT_START = 1'b0
 ) (
     input  logic        clk,
     input  logic        reset,
@@ -27,6 +28,7 @@ module gpu_mmio #(
 
     input  logic        gpu_busy,
     input  logic        gpu_done,
+    input  logic        command_ready,
     output logic        start,
     output logic [31:0] thread_count,
     output logic [31:0] src_addr,
@@ -67,7 +69,10 @@ module gpu_mmio #(
                            (!RANDOM_BACKPRESSURE || ready_lfsr[3]);
     assign s_axi_arready = !s_axi_rvalid &&
                            (!RANDOM_BACKPRESSURE || ready_lfsr[5]);
-    assign write_commit  = aw_held && w_held && !s_axi_bvalid;
+    logic start_write;
+    assign start_write = legal_write(awaddr_q) && awaddr_q[5:2] == 0 && wstrb_q[0] && wdata_q[0];
+    assign write_commit  = aw_held && w_held && !s_axi_bvalid &&
+                          (!STRICT_START || !start_write || gpu_busy || command_ready);
 
     always_ff @(posedge clk or posedge reset) begin : mmio_registers
         integer byte_index;
@@ -108,13 +113,13 @@ module gpu_mmio #(
             if (write_commit) begin
                 aw_held      <= 1'b0;
                 w_held       <= 1'b0;
-                s_axi_bresp  <= legal_write(awaddr_q) ? AXI_OKAY : AXI_SLVERR;
+                s_axi_bresp  <= legal_write(awaddr_q) && !(STRICT_START && start_write && gpu_busy) ? AXI_OKAY : AXI_SLVERR;
                 s_axi_bvalid <= 1'b1;
 
                 if (legal_write(awaddr_q)) begin
                     case ({awaddr_q[31:2], 2'b00})
                         MMIO_BASE + 32'h00: begin
-                            if (wstrb_q[0] && wdata_q[0]) begin
+                            if (wstrb_q[0] && wdata_q[0] && !(STRICT_START && gpu_busy)) begin
                                 start       <= 1'b1;
                                 done_sticky <= 1'b0;
                             end

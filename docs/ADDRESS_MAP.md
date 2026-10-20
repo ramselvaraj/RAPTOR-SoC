@@ -34,3 +34,14 @@ software cannot miss the GPU's one-cycle completion pulse.
 ## Framebuffer format
 
 Packed RGB in the low 24 bits: `0x00RRGGBB`. The top byte is ignored on read.
+
+## Phase 5 cache policy
+
+The new `soc_phase5_top` preserves these addresses.
+It enables D-cache only for `0x4000..0x4fff`, owned by CPU software.
+Other legal RAM addresses and all GPU MMIO accesses bypass the D-cache.
+The cache router selects the path before the cache and holds it through response acceptance.
+There is no cache-coherent alias for shared framebuffers.
+GPU kernels must not access CPU-private cached RAM.
+The instruction cache uses the private CPU program port, not the AXI data path.
+GPU program loading uses an acknowledged CPU-to-GPU bridge while execution is held.

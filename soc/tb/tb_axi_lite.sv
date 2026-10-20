@@ -104,6 +104,7 @@ module tb_axi_lite;
     );
 
     gpu_mmio #(.RANDOM_BACKPRESSURE(1'b1)) mmio_slave (
+        .command_ready(1'b1),
         .clk(clk), .reset(reset),
         .s_axi_awaddr(s_awaddr[1]), .s_axi_awvalid(s_awvalid[1]), .s_axi_awready(s_awready[1]),
         .s_axi_wdata(s_wdata[1]), .s_axi_wstrb(s_wstrb[1]), .s_axi_wvalid(s_wvalid[1]), .s_axi_wready(s_wready[1]),

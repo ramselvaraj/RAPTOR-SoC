@@ -74,7 +74,7 @@ def _encode_instruction(text, pc, labels):
         imm = _signed(_integer(ops[2]), 12, mnemonic)
         return (imm << 20) | (rs1 << 15) | (rd << 7) | 0x13
 
-    if mnemonic == "LW":
+    if mnemonic in ("LB", "LH", "LW", "LBU", "LHU"):
         _expect(ops, 2, mnemonic)
         match = _MEMORY.fullmatch(ops[1].replace(" ", ""))
         if not match:
@@ -82,9 +82,10 @@ def _encode_instruction(text, pc, labels):
         rd = _register(ops[0])
         imm = _signed(_integer(match.group(1)), 12, mnemonic)
         rs1 = _register(match.group(2))
-        return (imm << 20) | (rs1 << 15) | (0b010 << 12) | (rd << 7) | 0x03
+        funct3 = {"LB": 0, "LH": 1, "LW": 2, "LBU": 4, "LHU": 5}[mnemonic]
+        return (imm << 20) | (rs1 << 15) | (funct3 << 12) | (rd << 7) | 0x03
 
-    if mnemonic == "SW":
+    if mnemonic in ("SB", "SH", "SW"):
         _expect(ops, 2, mnemonic)
         match = _MEMORY.fullmatch(ops[1].replace(" ", ""))
         if not match:
@@ -92,7 +93,8 @@ def _encode_instruction(text, pc, labels):
         rs2 = _register(ops[0])
         imm = _signed(_integer(match.group(1)), 12, mnemonic)
         rs1 = _register(match.group(2))
-        return ((imm >> 5) << 25) | (rs2 << 20) | (rs1 << 15) | (0b010 << 12) | ((imm & 0x1F) << 7) | 0x23
+        funct3 = {"SB": 0, "SH": 1, "SW": 2}[mnemonic]
+        return ((imm >> 5) << 25) | (rs2 << 20) | (rs1 << 15) | (funct3 << 12) | ((imm & 0x1F) << 7) | 0x23
 
     if mnemonic in ("BEQ", "BNE"):
         _expect(ops, 3, mnemonic)

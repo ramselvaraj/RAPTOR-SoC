@@ -1,12 +1,5 @@
 # Starting constraints only. Validate against the selected library and board.
 # Time values use the technology library's time unit (normally ns).
-proc constraint_value {name fallback} {
-    set value [env_or $name $fallback]
-    if {![string is double -strict $value] || !($value >= 0 && $value < 1e9)} {
-        error "$name must be a finite nonnegative number."
-    }
-    return $value
-}
 set period [constraint_value DC_CLOCK_PERIOD 20.0]
 if {$period <= 0} {
     error "DC_CLOCK_PERIOD must be positive."

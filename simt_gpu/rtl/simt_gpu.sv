@@ -11,7 +11,8 @@
 module simt_gpu #(
     parameter int WARPS = 2,
     parameter int LANES = 4,
-    parameter int PC_W  = 16
+    parameter int PC_W  = 16,
+    parameter bit LOCK_MEMORY_OWNER = 0
 )(
     input  logic            clk,
     input  logic            reset,
@@ -37,6 +38,8 @@ module simt_gpu #(
     logic [WARPS-1:0][LANES-1:0] warp_lane_mask;
     logic [WARPS-1:0]            warp_ready;
     logic [WARPS-1:0]            warp_grant;
+    logic [WARPS-1:0]            scheduled_grant, locked_grant;
+    logic memory_locked;
     logic [WARPS-1:0]            warp_halted;
     logic [WARPS-1:0]            w_mem_req;
     logic [WARPS-1:0]            w_mem_we;
@@ -63,8 +66,19 @@ module simt_gpu #(
 
     scheduler #(.WARPS(WARPS)) u_sched(
         .clk(clk), .reset(reset),
-        .ready(warp_ready), .grant(warp_grant)
+        .ready(warp_ready), .grant(scheduled_grant)
     );
+
+    assign warp_grant = LOCK_MEMORY_OWNER && memory_locked ? locked_grant : scheduled_grant;
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset) begin memory_locked <= 0; locked_grant <= 0; end
+        else if (LOCK_MEMORY_OWNER) begin
+            if (!memory_locked && mem_req && !mem_ready) begin
+                memory_locked <= 1;
+                locked_grant <= scheduled_grant;
+            end else if (memory_locked && mem_req && mem_ready) memory_locked <= 0;
+        end
+    end
 
     generate
         for (genvar w = 0; w < WARPS; w++) begin : g_warp

@@ -81,6 +81,40 @@ def _cpu_bootstrap(threads1, threads2):
     return "\n".join(lines) + "\n"
 
 
+PHASE5_PRIVATE_TEST = """
+    add x1, x6, x6
+    addi x2, x0, 123
+    sw x2, 0(x1)
+    lw x3, 0(x1)
+    bne x2, x3, private_fail
+    sb x2, 1(x1)
+    lbu x3, 1(x1)
+    bne x2, x3, private_fail
+    sh x2, 2(x1)
+    lhu x3, 2(x1)
+    bne x2, x3, private_fail
+    sw x2, 64(x1)
+    sw x2, 128(x1)
+    sw x2, 192(x1)
+    sw x2, 256(x1)
+    lw x3, 256(x1)
+    bne x2, x3, private_fail
+    jal x0, private_done
+private_fail:
+    beq x0, x0, private_fail
+private_done:
+"""
+PHASE5_READBACK = """
+    add x1, x7, x7
+    add x1, x1, x1
+    lw x20, 0(x1)
+    add x1, x6, x6
+    add x1, x1, x1
+    lw x21, 0(x1)
+    addi x22, x0, 123
+"""
+
+
 def _build_programs(width, height):
     interior, interior_meta = assemble.assemble(f".gen_blur {width} {height}\n")[:2]
     border, border_meta = assemble.assemble(f".gen_blur_border {width} {height}\n")[:2]
@@ -154,7 +188,18 @@ def run(args):
     pixels_hex, output_png = path("pixels.hex"), path("output.png")
 
     interior, threads1, border, threads2 = _build_programs(width, height)
-    cpu = riscv_asm.assemble(_cpu_bootstrap(threads1, threads2) + CPU_DRIVER)
+    driver = CPU_DRIVER
+    prelude = _cpu_bootstrap(threads1, threads2)
+    if getattr(args, "phase5", False):
+        prelude += PHASE5_PRIVATE_TEST
+        driver = driver.replace("    sw x12, 0(x5)", """    sw x12, 0(x5)
+    # Shadow writes must not change the already accepted launch snapshot.
+    sw x0, 8(x5)
+    sw x0, 12(x5)
+    sw x0, 16(x5)
+    sw x11, 20(x5)""", 1)
+        driver = driver.replace("halt:", PHASE5_READBACK + "\nhalt:")
+    cpu = riscv_asm.assemble(prelude + driver)
     if len(cpu) > 1024:
         raise ValueError(f"CPU program has {len(cpu)} words; instruction memory holds 1024")
     _write_hex(cpu_hex, cpu, 8)
@@ -191,6 +236,9 @@ def run(args):
         f"+threads1={threads1}",
         f"+threads2={threads2}",
     ])
+    if getattr(args, "phase5", False):
+        command.extend([f"+cpu_half_ps={args.cpu_half_ps}", f"+gpu_half_ps={args.gpu_half_ps}",
+                        f"+seed={args.seed}", f"+stalls={int(args.stalls)}", f"+reset_test={int(args.reset_test)}"])
     print("run:", " ".join(command))
     subprocess.run(command, check=True, cwd=workdir)
 
@@ -229,6 +277,12 @@ def main(argv=None):
     parser.add_argument("--workdir", default=None, help="default: soc/build/run/soc<SIZE>")
     parser.add_argument("--image", default=None, help="optional input image (requires Pillow)")
     parser.add_argument("--no-trace", action="store_true", help="disable trace generation and validation")
+    parser.add_argument("--phase5", action="store_true", help="test the cached multi-clock SoC")
+    parser.add_argument("--cpu-half-ps", type=int, default=3500)
+    parser.add_argument("--gpu-half-ps", type=int, default=5500)
+    parser.add_argument("--seed", type=int, default=1)
+    parser.add_argument("--stalls", action="store_true")
+    parser.add_argument("--reset-test", action="store_true")
     args = parser.parse_args(argv)
     try:
         run(args)

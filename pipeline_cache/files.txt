@@ -1,0 +1,7 @@
+./pipeline_cache/rtl/rv32_pkg.sv
+./pipeline_cache/rtl/decoder.sv
+./pipeline_cache/rtl/core.sv
+./pipeline_cache/rtl/blocking_cache.sv
+./pipeline_cache/rtl/pipeline_cache.sv
+./pipeline_cache/tb/delayed_memory.sv
+./pipeline_cache/tb/tb_pipeline_cache.sv

@@ -1,0 +1,3 @@
+./pipeline_cache/rtl/blocking_cache.sv
+./pipeline_cache/tb/delayed_memory.sv
+./pipeline_cache/tb/tb_blocking_cache.sv

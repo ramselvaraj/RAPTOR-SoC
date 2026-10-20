@@ -132,6 +132,7 @@ module soc_top (
     );
 
     gpu_mmio mmio (
+        .command_ready(1'b1),
         .clk(clk), .reset(reset),
         .s_axi_awaddr(s1_awaddr), .s_axi_awvalid(s1_awvalid), .s_axi_awready(s1_awready),
         .s_axi_wdata(s1_wdata), .s_axi_wstrb(s1_wstrb), .s_axi_wvalid(s1_wvalid), .s_axi_wready(s1_wready),
