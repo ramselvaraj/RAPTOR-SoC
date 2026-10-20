@@ -126,6 +126,20 @@ Debug counters stay in their original domains and are not synchronized for direc
 
 ## Remaining implementation-tool validation
 
+The first Phase 5 DC reports are now available in `synth/results/phase5/`.
+They show completed mapping at 20 ns CPU and GPU targets, with remaining hold and capacitance violations.
+Use `make dc-phase5-sweep` to inspect the saved mapped design without recompilation.
+It writes `synth/build/phase5/reports/cpu_sweep/summary.csv` and per-case reports.
+The saved baseline retains its original constraints.
+Controlled cases fix GPU period at 20 ns and test CPU periods of 20, 15, 10, and 5 ns.
+Setup/hold margins stay at 0.2/0.05 ns, clock/input transitions at 0.1 ns, and I/O budgets and load stay fixed.
+The Gray-pointer delay bound follows the faster clock period, as in the synthesis constraints.
+Compare each case's exported SDC before attributing differences to clock period alone.
+
+The summary separates internal CPU/GPU register paths, interface paths, port feedthroughs, and cross-domain paths.
+`NA` means no analyzed path. It does not mean a path passed.
+Internal timing excludes interface and CDC paths, so its passing target is not automatically a complete-domain frequency claim.
+
 - Run the new top through DC and verify the two-domain timing exceptions against its actual hierarchy.
 - Perform structural CDC analysis and physical Gray-bus delay/skew checks with suitable tools.
 - Characterize any backing-memory implementation before asserting complete-SoC timing.

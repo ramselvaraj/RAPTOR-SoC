@@ -85,6 +85,10 @@ See `docs/PHASE5_PROGRESS.md` for verification evidence and `docs/PHASE5_ASSIGNM
 Simulation clock periods are stress-test settings, not synthesized operating frequencies.
 The Phase 4 50 MHz result above does not apply to this new top.
 
+After mapping Phase 5, run `make dc-phase5-sweep` to separate internal CPU/GPU timing from interface paths.
+This target sweeps the CPU period on the saved netlist while keeping the GPU at 20 ns.
+Results appear in `synth/build/phase5/reports/cpu_sweep/summary.csv`.
+
 ## Run the SoC
 
 Install Verilator and Python 3.
