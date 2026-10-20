@@ -126,6 +126,28 @@ Debug counters stay in their original domains and are not synchronized for direc
 
 ## Remaining implementation-tool validation
 
+### Preserved passing CPU-domain result
+
+`synth/results/phase5/cpu_100mhz_interfaces/` preserves the passing 10 ns CPU result:
+
+| Check | Slack |
+|---|---:|
+| CPU-domain setup | +0.924154 ns |
+| CPU-domain hold | +0.012687 ns |
+
+This is re-analysis of the existing mapped core, not a new synthesis run.
+The SDC requires the stated boot input minimum and CPU memory read-data timing contracts.
+The directory includes the exact constraints, path reports, clock/coverage reports, and mapped DDC SHA256 fingerprint.
+The external memories remain excluded. Passing checks are conditional on their implementations satisfying those requirements.
+The GPU target remains 20 ns, but this saved CPU-only check does not establish GPU hold closure.
+
+Run `make dc-phase5-gpu-check` to inspect the GPU under these exact saved constraints.
+It verifies the DDC fingerprint, restores the saved SDC, and reports each domain's setup and hold separately.
+It does not change clock margins, interface delays, exceptions, or library capacitance limits.
+CPU reports serve as a control against the preserved result.
+Outputs go to `synth/build/phase5/reports/gpu_50mhz/`, without changing earlier files.
+DC execution of this new diagnostic remains pending in the local environment.
+
 The boot-only contract check left a -0.014636 ns hold path from `cpu_imem_rdata[0]` to `idata_reg_0_`.
 This is an external-memory input path, not a register-to-register CPU pipeline path.
 `make dc-phase5-interface-check` retains the boot contract and tests a 0.1..4.0 ns arrival window

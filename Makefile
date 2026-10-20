@@ -10,6 +10,10 @@ PY := $(shell if [ -x simt_gpu/.venv/bin/python ]; then echo simt_gpu/.venv/bin/
 .PHONY: phase5 phase5-cpu phase5-bus phase5-cdc phase5-soc phase5-lint
 .PHONY: dc-phase5-core dc-phase5-elab dc-phase5-sweep dc-phase5-cpu-check dc-phase5-boot-check
 .PHONY: dc-phase5-interface-check
+.PHONY: dc-phase5-gpu-check
+
+dc-phase5-gpu-check:
+	DC_MODE=phase5 DC_PHASE5_GPU_CHECK=1 $(DC_SHELL) -f synth/dc.tcl
 
 dc-phase5-interface-check:
 	DC_MODE=phase5 DC_PHASE5_CPU_CHECK=1 DC_BOOT_CONTRACT=1 DC_MEMORY_CONTRACT=1 $(DC_SHELL) -f synth/dc.tcl
