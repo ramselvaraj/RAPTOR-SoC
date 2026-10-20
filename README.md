@@ -49,6 +49,25 @@ Each test also confirms that the GPU does not change the source frame.
 Cycle counts include firmware register initialization but exclude boot-port loading.
 The Phase 1 through Phase 3 tests remain valid.
 
+## Synthesis Results
+
+The RAPTOR-SoC core was synthesized in **Synopsys Design Compiler** using the **FreePDK45 `gscl45nm` standard-cell library**.
+The CPU, GPU, AXI interconnect, and MMIO use a **shared 50 MHz clock**.
+Pre-layout timing analysis of the mapped core meets setup and hold at a **20 ns clock period**.
+Instruction and data memories are external to the synthesized core. CPU and GPU register files are included.
+
+| Metric | Result |
+|---|---:|
+| Shared clock target | **50 MHz** |
+| Setup slack | **+0.771 ns** |
+| Hold slack | **+0.0476 ns** |
+| Leaf cells | 105,655 |
+| Sequential cells | 5,356 |
+| Total cell area | 342,988.84 library area units |
+
+Timing uses a 0.1 ns clock transition, 0.2 ns setup uncertainty, and 0.05 ns hold uncertainty.
+The constraint sweep re-analyzes the same mapped netlist without changing the RTL or repeating synthesis.
+
 ## Run the SoC
 
 Install Verilator and Python 3.
