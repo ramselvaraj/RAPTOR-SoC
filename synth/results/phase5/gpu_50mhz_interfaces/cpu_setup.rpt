@@ -1,0 +1,56 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'soc_phase5_top' contains 5 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -group cpu_clock
+        -max_paths 1
+Design : soc_phase5_top
+Version: V-2023.12-SP5-1
+Date   : Tue Oct 20 08:33:14 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: gscl45nm
+Wire Load Model Mode: top
+
+  Startpoint: boot_hold (input port clocked by cpu_clock)
+  Endpoint: ram_px_we (output port clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock cpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  input external delay                                4.000000   4.000000 f
+  boot_hold (in)                                      0.000000   4.000000 f
+  U751/Y (INVX1)                                      0.505406   4.505406 r
+  U820/Y (NAND3X1)                                    0.128451   4.633858 f
+  U821/Y (INVX1)                                      0.076195   4.710052 r
+  memory_bridge/service_enable (gpu_memory_cdc_DEPTH4)
+                                                      0.000000   4.710052 r
+  memory_bridge/U41/Y (AND2X1)                        0.038036   4.748088 r
+  memory_bridge/U3/Y (AND2X1)                         0.066601   4.814689 r
+  memory_bridge/U37/Y (AND2X1)                        0.061157   4.875846 r
+  memory_bridge/ram_we (gpu_memory_cdc_DEPTH4)        0.000000   4.875846 r
+  ram_px_we (out)                                     0.000000   4.875846 r
+  data arrival time                                              4.875846
+
+  clock cpu_clock (rise edge)                         10.000000  10.000000
+  clock network delay (ideal)                         0.000000   10.000000
+  clock uncertainty                                   -0.200000  9.800000
+  output external delay                               -4.000000  5.800000
+  data required time                                             5.800000
+  --------------------------------------------------------------------------
+  data required time                                             5.800000
+  data arrival time                                              -4.875846
+  --------------------------------------------------------------------------
+  slack (MET)                                                    0.924154
+
+
+1
+

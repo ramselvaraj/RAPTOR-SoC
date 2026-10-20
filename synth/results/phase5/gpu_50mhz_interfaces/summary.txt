@@ -1,0 +1,13 @@
+Saved-netlist re-analysis starting from the preserved CPU result's exact SDC.
+DDC SHA256: 802db59bfe92e47c8d043ef7a4c2c0579dc13ab9ef39c57847e5e3b12c498693
+CPU period: 10.000000 ns
+GPU period: 20.000000 ns
+Conditional GPU program-memory contract: data arrival 0.1..4.0 ns relative to gpu_clock.
+Only GPU program-data minimum input delay changed; maximum remains 4.0 ns.
+CPU contracts, clocks, margins, exceptions, and library limits remain unchanged.
+External memory must satisfy this requirement; no memory implementation was characterized here.
+CPU is re-reported as a control.
+cpu setup slack: 0.924154 ns (MET)
+cpu hold slack: 0.012687 ns (MET)
+gpu setup slack: 0.000183 ns (MET)
+gpu hold slack: 0.012687 ns (MET)

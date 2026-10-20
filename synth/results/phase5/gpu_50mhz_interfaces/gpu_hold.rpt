@@ -1,0 +1,54 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -group gpu_clock
+        -max_paths 1
+Design : soc_phase5_top
+Version: V-2023.12-SP5-1
+Date   : Tue Oct 20 08:33:14 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: gscl45nm
+Wire Load Model Mode: top
+
+  Startpoint: memory_bridge/channel/requests/storage_reg_2__0_
+              (rising edge-triggered flip-flop clocked by gpu_clock)
+  Endpoint: memory_bridge/channel/requests/storage_reg_2__0_
+            (rising edge-triggered flip-flop clocked by gpu_clock)
+  Path Group: gpu_clock
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  memory_bridge/channel/requests/storage_reg_2__0_/CLK (DFFPOSX1)
+                                                      0.000000 # 0.000000 r
+  memory_bridge/channel/requests/storage_reg_2__0_/Q (DFFPOSX1)
+                                                      0.104912   0.104912 f
+  memory_bridge/channel/requests/U386/Y (INVX1)       0.006760   0.111671 r
+  memory_bridge/channel/requests/U388/Y (AOI22X1)     0.013140   0.124811 f
+  memory_bridge/channel/requests/storage_reg_2__0_/D (DFFPOSX1)
+                                                      0.000000   0.124811 f
+  data arrival time                                              0.124811
+
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  clock uncertainty                                   0.050000   0.050000
+  memory_bridge/channel/requests/storage_reg_2__0_/CLK (DFFPOSX1)
+                                                      0.000000   0.050000 r
+  library hold time                                   0.062124   0.112124
+  data required time                                             0.112124
+  --------------------------------------------------------------------------
+  data required time                                             0.112124
+  data arrival time                                              -0.124811
+  --------------------------------------------------------------------------
+  slack (MET)                                                    0.012687
+
+
+1
+
