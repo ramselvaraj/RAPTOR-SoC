@@ -12,6 +12,21 @@ proc env_or {name fallback} {
     return $fallback
 }
 
+proc report_diagnostics {} {
+    # Preserve the saved constraints. Do not change margins to hide violations.
+    redirect -file reports/timing_hold.rpt {
+        report_timing -delay_type min -max_paths 10 -significant_digits 6
+    }
+    redirect -file reports/constraints_detailed.rpt {
+        report_constraint -all_violators -significant_digits 6
+    }
+    redirect -file reports/clock.rpt {report_clock -attributes}
+    redirect -file reports/units.rpt {report_units}
+    redirect -file reports/ports.rpt {report_port -verbose [get_ports *]}
+    redirect -file reports/check_timing.rpt {check_timing -verbose}
+    write_sdc results/constraints_diagnostic.sdc
+}
+
 proc run_synthesis {} {
     global repo_dir script_dir
     set top soc_top
@@ -46,6 +61,20 @@ proc run_synthesis {} {
     # compile_ultra uses the installed DesignWare implementation of arithmetic.
     set_app_var synthetic_library [list dw_foundation.sldb]
     set_app_var link_library [concat [list *] $libraries $extra_libraries [list dw_foundation.sldb]]
+
+    if {[env_or DC_REPORT_ONLY 0] eq "1"} {
+        if {![file isfile results/soc_top.ddc]} {
+            error "No mapped DDC in $output_dir/results. Run synthesis first or set DC_OUT_DIR."
+        }
+        read_ddc results/soc_top.ddc
+        current_design $top
+        if {![link]} {
+            error "Cannot link the saved mapped design."
+        }
+        report_diagnostics
+        puts "Diagnostic reports complete, without recompilation: $output_dir/reports"
+        return
+    }
 
     set fd [open [file join $repo_dir soc rtl files.txt] r]
     set manifest [read $fd]
@@ -113,6 +142,7 @@ proc run_synthesis {} {
     redirect -file reports/constraints.rpt {report_constraint -all_violators}
     redirect -file reports/qor.rpt {report_qor}
     redirect -file reports/resources.rpt {report_resources -hierarchy}
+    report_diagnostics
     puts "Synthesis complete: $output_dir"
 }
 

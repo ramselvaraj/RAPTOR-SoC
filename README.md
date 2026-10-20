@@ -136,6 +136,13 @@ It writes the mapped Verilog, DDC, and SDC files to `synth/build/core/results/`.
 The `dc-core-elab` target stops before technology mapping.
 The `reports/scope.rpt` file identifies the included and excluded hardware.
 
+To inspect an existing mapped core without recompilation, run `make dc-core-report`.
+This target reads `synth/build/core/results/soc_top.ddc` and preserves its saved constraints.
+It adds detailed hold, constraint, clock, port, unit, and timing-coverage reports.
+The detailed constraint report uses six decimal places to show small capacitance limits.
+Copy these diagnostic reports to `synth/results/core/` for review.
+Do not publish the mapped DDC file.
+
 The original `make dc-elab` and `make dc` targets still include all three memories as registers.
 Those targets use `synth/build/` and can need substantial runtime and host memory.
 
