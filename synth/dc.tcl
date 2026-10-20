@@ -23,7 +23,7 @@ proc report_diagnostics {} {
     redirect -file reports/clock.rpt {report_clock -attributes}
     redirect -file reports/units.rpt {report_units}
     redirect -file reports/ports.rpt {report_port -verbose [get_ports *]}
-    redirect -file reports/check_timing.rpt {check_timing -verbose}
+    redirect -file reports/check_timing.rpt {check_timing}
     write_sdc results/constraints_diagnostic.sdc
 }
 

@@ -1,0 +1,3854 @@
+ 
+****************************************
+Report : port
+        -verbose
+Design : soc_top
+Version: V-2023.12-SP5-1
+Date   : Tue Oct 20 03:51:06 2026
+****************************************
+
+
+                       Pin      Wire     Max     Max     Connection
+Port           Dir     Load     Load     Trans   Cap     Class      Attrs
+--------------------------------------------------------------------------------
+boot_sel[1]    in      0.0000   0.0000   --      --      --         
+boot_sel[0]    in      0.0000   0.0000   --      --      --         
+boot_addr[14]  in      0.0000   0.0000   --      --      --         
+boot_addr[13]  in      0.0000   0.0000   --      --      --         
+boot_addr[12]  in      0.0000   0.0000   --      --      --         
+boot_addr[11]  in      0.0000   0.0000   --      --      --         
+boot_addr[10]  in      0.0000   0.0000   --      --      --         
+boot_addr[9]   in      0.0000   0.0000   --      --      --         
+boot_addr[8]   in      0.0000   0.0000   --      --      --         
+boot_addr[7]   in      0.0000   0.0000   --      --      --         
+boot_addr[6]   in      0.0000   0.0000   --      --      --         
+boot_addr[5]   in      0.0000   0.0000   --      --      --         
+boot_addr[4]   in      0.0000   0.0000   --      --      --         
+boot_addr[3]   in      0.0000   0.0000   --      --      --         
+boot_addr[2]   in      0.0000   0.0000   --      --      --         
+boot_addr[1]   in      0.0000   0.0000   --      --      --         
+boot_addr[0]   in      0.0000   0.0000   --      --      --         
+boot_wdata[31] in      0.0000   0.0000   --      --      --         
+boot_wdata[30] in      0.0000   0.0000   --      --      --         
+boot_wdata[29] in      0.0000   0.0000   --      --      --         
+boot_wdata[28] in      0.0000   0.0000   --      --      --         
+boot_wdata[27] in      0.0000   0.0000   --      --      --         
+boot_wdata[26] in      0.0000   0.0000   --      --      --         
+boot_wdata[25] in      0.0000   0.0000   --      --      --         
+boot_wdata[24] in      0.0000   0.0000   --      --      --         
+boot_wdata[23] in      0.0000   0.0000   --      --      --         
+boot_wdata[22] in      0.0000   0.0000   --      --      --         
+boot_wdata[21] in      0.0000   0.0000   --      --      --         
+boot_wdata[20] in      0.0000   0.0000   --      --      --         
+boot_wdata[19] in      0.0000   0.0000   --      --      --         
+boot_wdata[18] in      0.0000   0.0000   --      --      --         
+boot_wdata[17] in      0.0000   0.0000   --      --      --         
+boot_wdata[16] in      0.0000   0.0000   --      --      --         
+boot_wdata[15] in      0.0000   0.0000   --      --      --         
+boot_wdata[14] in      0.0000   0.0000   --      --      --         
+boot_wdata[13] in      0.0000   0.0000   --      --      --         
+boot_wdata[12] in      0.0000   0.0000   --      --      --         
+boot_wdata[11] in      0.0000   0.0000   --      --      --         
+boot_wdata[10] in      0.0000   0.0000   --      --      --         
+boot_wdata[9]  in      0.0000   0.0000   --      --      --         
+boot_wdata[8]  in      0.0000   0.0000   --      --      --         
+boot_wdata[7]  in      0.0000   0.0000   --      --      --         
+boot_wdata[6]  in      0.0000   0.0000   --      --      --         
+boot_wdata[5]  in      0.0000   0.0000   --      --      --         
+boot_wdata[4]  in      0.0000   0.0000   --      --      --         
+boot_wdata[3]  in      0.0000   0.0000   --      --      --         
+boot_wdata[2]  in      0.0000   0.0000   --      --      --         
+boot_wdata[1]  in      0.0000   0.0000   --      --      --         
+boot_wdata[0]  in      0.0000   0.0000   --      --      --         
+boot_rdata[31] out     0.0100   0.0000   --      --      --         
+boot_rdata[30] out     0.0100   0.0000   --      --      --         
+boot_rdata[29] out     0.0100   0.0000   --      --      --         
+boot_rdata[28] out     0.0100   0.0000   --      --      --         
+boot_rdata[27] out     0.0100   0.0000   --      --      --         
+boot_rdata[26] out     0.0100   0.0000   --      --      --         
+boot_rdata[25] out     0.0100   0.0000   --      --      --         
+boot_rdata[24] out     0.0100   0.0000   --      --      --         
+boot_rdata[23] out     0.0100   0.0000   --      --      --         
+boot_rdata[22] out     0.0100   0.0000   --      --      --         
+boot_rdata[21] out     0.0100   0.0000   --      --      --         
+boot_rdata[20] out     0.0100   0.0000   --      --      --         
+boot_rdata[19] out     0.0100   0.0000   --      --      --         
+boot_rdata[18] out     0.0100   0.0000   --      --      --         
+boot_rdata[17] out     0.0100   0.0000   --      --      --         
+boot_rdata[16] out     0.0100   0.0000   --      --      --         
+boot_rdata[15] out     0.0100   0.0000   --      --      --         
+boot_rdata[14] out     0.0100   0.0000   --      --      --         
+boot_rdata[13] out     0.0100   0.0000   --      --      --         
+boot_rdata[12] out     0.0100   0.0000   --      --      --         
+boot_rdata[11] out     0.0100   0.0000   --      --      --         
+boot_rdata[10] out     0.0100   0.0000   --      --      --         
+boot_rdata[9]  out     0.0100   0.0000   --      --      --         
+boot_rdata[8]  out     0.0100   0.0000   --      --      --         
+boot_rdata[7]  out     0.0100   0.0000   --      --      --         
+boot_rdata[6]  out     0.0100   0.0000   --      --      --         
+boot_rdata[5]  out     0.0100   0.0000   --      --      --         
+boot_rdata[4]  out     0.0100   0.0000   --      --      --         
+boot_rdata[3]  out     0.0100   0.0000   --      --      --         
+boot_rdata[2]  out     0.0100   0.0000   --      --      --         
+boot_rdata[1]  out     0.0100   0.0000   --      --      --         
+boot_rdata[0]  out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[31]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[30]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[29]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[28]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[27]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[26]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[25]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[24]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[23]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[22]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[21]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[20]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[19]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[18]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[17]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[16]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[15]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[14]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[13]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[12]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[11]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[10]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[9]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[8]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[7]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[6]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[5]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[4]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[3]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[2]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[1]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_addr[0]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_rdata[31]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[30]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[29]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[28]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[27]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[26]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[25]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[24]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[23]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[22]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[21]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[20]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[19]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[18]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[17]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[16]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[15]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[14]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[13]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[12]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[11]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[10]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[9]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[8]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[7]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[6]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[5]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[4]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[3]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[2]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[1]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_rdata[0]
+               in      0.0000   0.0000   --      --      --         
+cpu_imem_waddr[9]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_waddr[8]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_waddr[7]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_waddr[6]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_waddr[5]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_waddr[4]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_waddr[3]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_waddr[2]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_waddr[1]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_waddr[0]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[31]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[30]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[29]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[28]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[27]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[26]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[25]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[24]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[23]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[22]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[21]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[20]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[19]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[18]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[17]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[16]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[15]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[14]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[13]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[12]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[11]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[10]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[9]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[8]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[7]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[6]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[5]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[4]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[3]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[2]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[1]
+               out     0.0100   0.0000   --      --      --         
+cpu_imem_wdata[0]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_addr[9]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_addr[8]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_addr[7]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_addr[6]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_addr[5]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_addr[4]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_addr[3]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_addr[2]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_addr[1]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_addr[0]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_rdata[15]
+               in      0.0000   0.0000   --      --      --         
+gpu_program_rdata[14]
+               in      0.0000   0.0000   --      --      --         
+gpu_program_rdata[13]
+               in      0.0000   0.0000   --      --      --         
+gpu_program_rdata[12]
+               in      0.0000   0.0000   --      --      --         
+gpu_program_rdata[11]
+               in      0.0000   0.0000   --      --      --         
+gpu_program_rdata[10]
+               in      0.0000   0.0000   --      --      --         
+gpu_program_rdata[9]
+               in      0.0000   0.0000   --      --      --         
+gpu_program_rdata[8]
+               in      0.0000   0.0000   --      --      --         
+gpu_program_rdata[7]
+               in      0.0000   0.0000   --      --      --         
+gpu_program_rdata[6]
+               in      0.0000   0.0000   --      --      --         
+gpu_program_rdata[5]
+               in      0.0000   0.0000   --      --      --         
+gpu_program_rdata[4]
+               in      0.0000   0.0000   --      --      --         
+gpu_program_rdata[3]
+               in      0.0000   0.0000   --      --      --         
+gpu_program_rdata[2]
+               in      0.0000   0.0000   --      --      --         
+gpu_program_rdata[1]
+               in      0.0000   0.0000   --      --      --         
+gpu_program_rdata[0]
+               in      0.0000   0.0000   --      --      --         
+gpu_program_waddr[9]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_waddr[8]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_waddr[7]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_waddr[6]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_waddr[5]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_waddr[4]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_waddr[3]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_waddr[2]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_waddr[1]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_waddr[0]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_wdata[15]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_wdata[14]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_wdata[13]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_wdata[12]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_wdata[11]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_wdata[10]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_wdata[9]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_wdata[8]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_wdata[7]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_wdata[6]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_wdata[5]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_wdata[4]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_wdata[3]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_wdata[2]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_wdata[1]
+               out     0.0100   0.0000   --      --      --         
+gpu_program_wdata[0]
+               out     0.0100   0.0000   --      --      --         
+ram_px_addr[14]
+               out     0.0100   0.0000   --      --      --         
+ram_px_addr[13]
+               out     0.0100   0.0000   --      --      --         
+ram_px_addr[12]
+               out     0.0100   0.0000   --      --      --         
+ram_px_addr[11]
+               out     0.0100   0.0000   --      --      --         
+ram_px_addr[10]
+               out     0.0100   0.0000   --      --      --         
+ram_px_addr[9] out     0.0100   0.0000   --      --      --         
+ram_px_addr[8] out     0.0100   0.0000   --      --      --         
+ram_px_addr[7] out     0.0100   0.0000   --      --      --         
+ram_px_addr[6] out     0.0100   0.0000   --      --      --         
+ram_px_addr[5] out     0.0100   0.0000   --      --      --         
+ram_px_addr[4] out     0.0100   0.0000   --      --      --         
+ram_px_addr[3] out     0.0100   0.0000   --      --      --         
+ram_px_addr[2] out     0.0100   0.0000   --      --      --         
+ram_px_addr[1] out     0.0100   0.0000   --      --      --         
+ram_px_addr[0] out     0.0100   0.0000   --      --      --         
+ram_px_wdata[31]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[30]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[29]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[28]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[27]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[26]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[25]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[24]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[23]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[22]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[21]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[20]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[19]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[18]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[17]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[16]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[15]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[14]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[13]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[12]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[11]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[10]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[9]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[8]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[7]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[6]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[5]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[4]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[3]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[2]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[1]
+               out     0.0100   0.0000   --      --      --         
+ram_px_wdata[0]
+               out     0.0100   0.0000   --      --      --         
+ram_px_rdata[31]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[30]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[29]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[28]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[27]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[26]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[25]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[24]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[23]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[22]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[21]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[20]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[19]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[18]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[17]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[16]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[15]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[14]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[13]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[12]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[11]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[10]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[9]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[8]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[7]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[6]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[5]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[4]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[3]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[2]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[1]
+               in      0.0000   0.0000   --      --      --         
+ram_px_rdata[0]
+               in      0.0000   0.0000   --      --      --         
+ram_host_addr[14]
+               out     0.0100   0.0000   --      --      --         
+ram_host_addr[13]
+               out     0.0100   0.0000   --      --      --         
+ram_host_addr[12]
+               out     0.0100   0.0000   --      --      --         
+ram_host_addr[11]
+               out     0.0100   0.0000   --      --      --         
+ram_host_addr[10]
+               out     0.0100   0.0000   --      --      --         
+ram_host_addr[9]
+               out     0.0100   0.0000   --      --      --         
+ram_host_addr[8]
+               out     0.0100   0.0000   --      --      --         
+ram_host_addr[7]
+               out     0.0100   0.0000   --      --      --         
+ram_host_addr[6]
+               out     0.0100   0.0000   --      --      --         
+ram_host_addr[5]
+               out     0.0100   0.0000   --      --      --         
+ram_host_addr[4]
+               out     0.0100   0.0000   --      --      --         
+ram_host_addr[3]
+               out     0.0100   0.0000   --      --      --         
+ram_host_addr[2]
+               out     0.0100   0.0000   --      --      --         
+ram_host_addr[1]
+               out     0.0100   0.0000   --      --      --         
+ram_host_addr[0]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[31]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[30]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[29]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[28]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[27]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[26]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[25]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[24]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[23]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[22]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[21]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[20]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[19]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[18]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[17]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[16]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[15]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[14]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[13]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[12]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[11]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[10]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[9]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[8]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[7]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[6]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[5]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[4]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[3]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[2]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[1]
+               out     0.0100   0.0000   --      --      --         
+ram_host_wdata[0]
+               out     0.0100   0.0000   --      --      --         
+ram_host_rdata[31]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[30]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[29]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[28]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[27]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[26]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[25]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[24]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[23]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[22]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[21]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[20]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[19]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[18]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[17]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[16]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[15]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[14]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[13]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[12]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[11]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[10]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[9]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[8]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[7]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[6]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[5]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[4]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[3]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[2]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[1]
+               in      0.0000   0.0000   --      --      --         
+ram_host_rdata[0]
+               in      0.0000   0.0000   --      --      --         
+cpu_state[3]   out     0.0100   0.0000   --      --      --         
+cpu_state[2]   out     0.0100   0.0000   --      --      --         
+cpu_state[1]   out     0.0100   0.0000   --      --      --         
+cpu_state[0]   out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[31]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[30]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[29]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[28]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[27]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[26]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[25]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[24]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[23]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[22]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[21]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[20]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[19]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[18]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[17]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[16]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[15]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[14]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[13]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[12]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[11]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[10]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[9]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[8]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[7]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[6]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[5]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[4]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[3]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[2]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[1]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_addr[0]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[31]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[30]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[29]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[28]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[27]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[26]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[25]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[24]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[23]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[22]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[21]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[20]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[19]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[18]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[17]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[16]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[15]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[14]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[13]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[12]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[11]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[10]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[9]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[8]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[7]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[6]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[5]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[4]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[3]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[2]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[1]
+               out     0.0100   0.0000   --      --      --         
+gpu_mem_wdata[0]
+               out     0.0100   0.0000   --      --      --         
+clk            in      0.0000   0.0000   --      --      --         
+reset          in      0.0000   0.0000   --      --      --         
+boot_we        in      0.0000   0.0000   --      --      --         
+cpu_imem_we    out     0.0100   0.0000   --      --      --         
+gpu_program_we out     0.0100   0.0000   --      --      --         
+ram_px_we      out     0.0100   0.0000   --      --      --         
+ram_host_we    out     0.0100   0.0000   --      --      --         
+gpu_start      out     0.0100   0.0000   --      --      --         
+gpu_busy       out     0.0100   0.0000   --      --      --         
+gpu_done       out     0.0100   0.0000   --      --      --         
+gpu_mem_req    out     0.0100   0.0000   --      --      --         
+gpu_mem_we     out     0.0100   0.0000   --      --      --         
+
+
+              External  Max             Min                Min       Min
+              Number    Wireload        Wireload           Pin       Wire
+Port          Points    Model           Model              Load      Load
+--------------------------------------------------------------------------------
+boot_sel[1]        1      --              --              --        -- 
+boot_sel[0]        1      --              --              --        -- 
+boot_addr[14]      1      --              --              --        -- 
+boot_addr[13]      1      --              --              --        -- 
+boot_addr[12]      1      --              --              --        -- 
+boot_addr[11]      1      --              --              --        -- 
+boot_addr[10]      1      --              --              --        -- 
+boot_addr[9]       1      --              --              --        -- 
+boot_addr[8]       1      --              --              --        -- 
+boot_addr[7]       1      --              --              --        -- 
+boot_addr[6]       1      --              --              --        -- 
+boot_addr[5]       1      --              --              --        -- 
+boot_addr[4]       1      --              --              --        -- 
+boot_addr[3]       1      --              --              --        -- 
+boot_addr[2]       1      --              --              --        -- 
+boot_addr[1]       1      --              --              --        -- 
+boot_addr[0]       1      --              --              --        -- 
+boot_wdata[31]
+                   1      --              --              --        -- 
+boot_wdata[30]
+                   1      --              --              --        -- 
+boot_wdata[29]
+                   1      --              --              --        -- 
+boot_wdata[28]
+                   1      --              --              --        -- 
+boot_wdata[27]
+                   1      --              --              --        -- 
+boot_wdata[26]
+                   1      --              --              --        -- 
+boot_wdata[25]
+                   1      --              --              --        -- 
+boot_wdata[24]
+                   1      --              --              --        -- 
+boot_wdata[23]
+                   1      --              --              --        -- 
+boot_wdata[22]
+                   1      --              --              --        -- 
+boot_wdata[21]
+                   1      --              --              --        -- 
+boot_wdata[20]
+                   1      --              --              --        -- 
+boot_wdata[19]
+                   1      --              --              --        -- 
+boot_wdata[18]
+                   1      --              --              --        -- 
+boot_wdata[17]
+                   1      --              --              --        -- 
+boot_wdata[16]
+                   1      --              --              --        -- 
+boot_wdata[15]
+                   1      --              --              --        -- 
+boot_wdata[14]
+                   1      --              --              --        -- 
+boot_wdata[13]
+                   1      --              --              --        -- 
+boot_wdata[12]
+                   1      --              --              --        -- 
+boot_wdata[11]
+                   1      --              --              --        -- 
+boot_wdata[10]
+                   1      --              --              --        -- 
+boot_wdata[9]      1      --              --              --        -- 
+boot_wdata[8]      1      --              --              --        -- 
+boot_wdata[7]      1      --              --              --        -- 
+boot_wdata[6]      1      --              --              --        -- 
+boot_wdata[5]      1      --              --              --        -- 
+boot_wdata[4]      1      --              --              --        -- 
+boot_wdata[3]      1      --              --              --        -- 
+boot_wdata[2]      1      --              --              --        -- 
+boot_wdata[1]      1      --              --              --        -- 
+boot_wdata[0]      1      --              --              --        -- 
+boot_rdata[31]
+                   1      --              --              --        -- 
+boot_rdata[30]
+                   1      --              --              --        -- 
+boot_rdata[29]
+                   1      --              --              --        -- 
+boot_rdata[28]
+                   1      --              --              --        -- 
+boot_rdata[27]
+                   1      --              --              --        -- 
+boot_rdata[26]
+                   1      --              --              --        -- 
+boot_rdata[25]
+                   1      --              --              --        -- 
+boot_rdata[24]
+                   1      --              --              --        -- 
+boot_rdata[23]
+                   1      --              --              --        -- 
+boot_rdata[22]
+                   1      --              --              --        -- 
+boot_rdata[21]
+                   1      --              --              --        -- 
+boot_rdata[20]
+                   1      --              --              --        -- 
+boot_rdata[19]
+                   1      --              --              --        -- 
+boot_rdata[18]
+                   1      --              --              --        -- 
+boot_rdata[17]
+                   1      --              --              --        -- 
+boot_rdata[16]
+                   1      --              --              --        -- 
+boot_rdata[15]
+                   1      --              --              --        -- 
+boot_rdata[14]
+                   1      --              --              --        -- 
+boot_rdata[13]
+                   1      --              --              --        -- 
+boot_rdata[12]
+                   1      --              --              --        -- 
+boot_rdata[11]
+                   1      --              --              --        -- 
+boot_rdata[10]
+                   1      --              --              --        -- 
+boot_rdata[9]      1      --              --              --        -- 
+boot_rdata[8]      1      --              --              --        -- 
+boot_rdata[7]      1      --              --              --        -- 
+boot_rdata[6]      1      --              --              --        -- 
+boot_rdata[5]      1      --              --              --        -- 
+boot_rdata[4]      1      --              --              --        -- 
+boot_rdata[3]      1      --              --              --        -- 
+boot_rdata[2]      1      --              --              --        -- 
+boot_rdata[1]      1      --              --              --        -- 
+boot_rdata[0]      1      --              --              --        -- 
+cpu_imem_addr[31]
+                   1      --              --              --        -- 
+cpu_imem_addr[30]
+                   1      --              --              --        -- 
+cpu_imem_addr[29]
+                   1      --              --              --        -- 
+cpu_imem_addr[28]
+                   1      --              --              --        -- 
+cpu_imem_addr[27]
+                   1      --              --              --        -- 
+cpu_imem_addr[26]
+                   1      --              --              --        -- 
+cpu_imem_addr[25]
+                   1      --              --              --        -- 
+cpu_imem_addr[24]
+                   1      --              --              --        -- 
+cpu_imem_addr[23]
+                   1      --              --              --        -- 
+cpu_imem_addr[22]
+                   1      --              --              --        -- 
+cpu_imem_addr[21]
+                   1      --              --              --        -- 
+cpu_imem_addr[20]
+                   1      --              --              --        -- 
+cpu_imem_addr[19]
+                   1      --              --              --        -- 
+cpu_imem_addr[18]
+                   1      --              --              --        -- 
+cpu_imem_addr[17]
+                   1      --              --              --        -- 
+cpu_imem_addr[16]
+                   1      --              --              --        -- 
+cpu_imem_addr[15]
+                   1      --              --              --        -- 
+cpu_imem_addr[14]
+                   1      --              --              --        -- 
+cpu_imem_addr[13]
+                   1      --              --              --        -- 
+cpu_imem_addr[12]
+                   1      --              --              --        -- 
+cpu_imem_addr[11]
+                   1      --              --              --        -- 
+cpu_imem_addr[10]
+                   1      --              --              --        -- 
+cpu_imem_addr[9]
+                   1      --              --              --        -- 
+cpu_imem_addr[8]
+                   1      --              --              --        -- 
+cpu_imem_addr[7]
+                   1      --              --              --        -- 
+cpu_imem_addr[6]
+                   1      --              --              --        -- 
+cpu_imem_addr[5]
+                   1      --              --              --        -- 
+cpu_imem_addr[4]
+                   1      --              --              --        -- 
+cpu_imem_addr[3]
+                   1      --              --              --        -- 
+cpu_imem_addr[2]
+                   1      --              --              --        -- 
+cpu_imem_addr[1]
+                   1      --              --              --        -- 
+cpu_imem_addr[0]
+                   1      --              --              --        -- 
+cpu_imem_rdata[31]
+                   1      --              --              --        -- 
+cpu_imem_rdata[30]
+                   1      --              --              --        -- 
+cpu_imem_rdata[29]
+                   1      --              --              --        -- 
+cpu_imem_rdata[28]
+                   1      --              --              --        -- 
+cpu_imem_rdata[27]
+                   1      --              --              --        -- 
+cpu_imem_rdata[26]
+                   1      --              --              --        -- 
+cpu_imem_rdata[25]
+                   1      --              --              --        -- 
+cpu_imem_rdata[24]
+                   1      --              --              --        -- 
+cpu_imem_rdata[23]
+                   1      --              --              --        -- 
+cpu_imem_rdata[22]
+                   1      --              --              --        -- 
+cpu_imem_rdata[21]
+                   1      --              --              --        -- 
+cpu_imem_rdata[20]
+                   1      --              --              --        -- 
+cpu_imem_rdata[19]
+                   1      --              --              --        -- 
+cpu_imem_rdata[18]
+                   1      --              --              --        -- 
+cpu_imem_rdata[17]
+                   1      --              --              --        -- 
+cpu_imem_rdata[16]
+                   1      --              --              --        -- 
+cpu_imem_rdata[15]
+                   1      --              --              --        -- 
+cpu_imem_rdata[14]
+                   1      --              --              --        -- 
+cpu_imem_rdata[13]
+                   1      --              --              --        -- 
+cpu_imem_rdata[12]
+                   1      --              --              --        -- 
+cpu_imem_rdata[11]
+                   1      --              --              --        -- 
+cpu_imem_rdata[10]
+                   1      --              --              --        -- 
+cpu_imem_rdata[9]
+                   1      --              --              --        -- 
+cpu_imem_rdata[8]
+                   1      --              --              --        -- 
+cpu_imem_rdata[7]
+                   1      --              --              --        -- 
+cpu_imem_rdata[6]
+                   1      --              --              --        -- 
+cpu_imem_rdata[5]
+                   1      --              --              --        -- 
+cpu_imem_rdata[4]
+                   1      --              --              --        -- 
+cpu_imem_rdata[3]
+                   1      --              --              --        -- 
+cpu_imem_rdata[2]
+                   1      --              --              --        -- 
+cpu_imem_rdata[1]
+                   1      --              --              --        -- 
+cpu_imem_rdata[0]
+                   1      --              --              --        -- 
+cpu_imem_waddr[9]
+                   1      --              --              --        -- 
+cpu_imem_waddr[8]
+                   1      --              --              --        -- 
+cpu_imem_waddr[7]
+                   1      --              --              --        -- 
+cpu_imem_waddr[6]
+                   1      --              --              --        -- 
+cpu_imem_waddr[5]
+                   1      --              --              --        -- 
+cpu_imem_waddr[4]
+                   1      --              --              --        -- 
+cpu_imem_waddr[3]
+                   1      --              --              --        -- 
+cpu_imem_waddr[2]
+                   1      --              --              --        -- 
+cpu_imem_waddr[1]
+                   1      --              --              --        -- 
+cpu_imem_waddr[0]
+                   1      --              --              --        -- 
+cpu_imem_wdata[31]
+                   1      --              --              --        -- 
+cpu_imem_wdata[30]
+                   1      --              --              --        -- 
+cpu_imem_wdata[29]
+                   1      --              --              --        -- 
+cpu_imem_wdata[28]
+                   1      --              --              --        -- 
+cpu_imem_wdata[27]
+                   1      --              --              --        -- 
+cpu_imem_wdata[26]
+                   1      --              --              --        -- 
+cpu_imem_wdata[25]
+                   1      --              --              --        -- 
+cpu_imem_wdata[24]
+                   1      --              --              --        -- 
+cpu_imem_wdata[23]
+                   1      --              --              --        -- 
+cpu_imem_wdata[22]
+                   1      --              --              --        -- 
+cpu_imem_wdata[21]
+                   1      --              --              --        -- 
+cpu_imem_wdata[20]
+                   1      --              --              --        -- 
+cpu_imem_wdata[19]
+                   1      --              --              --        -- 
+cpu_imem_wdata[18]
+                   1      --              --              --        -- 
+cpu_imem_wdata[17]
+                   1      --              --              --        -- 
+cpu_imem_wdata[16]
+                   1      --              --              --        -- 
+cpu_imem_wdata[15]
+                   1      --              --              --        -- 
+cpu_imem_wdata[14]
+                   1      --              --              --        -- 
+cpu_imem_wdata[13]
+                   1      --              --              --        -- 
+cpu_imem_wdata[12]
+                   1      --              --              --        -- 
+cpu_imem_wdata[11]
+                   1      --              --              --        -- 
+cpu_imem_wdata[10]
+                   1      --              --              --        -- 
+cpu_imem_wdata[9]
+                   1      --              --              --        -- 
+cpu_imem_wdata[8]
+                   1      --              --              --        -- 
+cpu_imem_wdata[7]
+                   1      --              --              --        -- 
+cpu_imem_wdata[6]
+                   1      --              --              --        -- 
+cpu_imem_wdata[5]
+                   1      --              --              --        -- 
+cpu_imem_wdata[4]
+                   1      --              --              --        -- 
+cpu_imem_wdata[3]
+                   1      --              --              --        -- 
+cpu_imem_wdata[2]
+                   1      --              --              --        -- 
+cpu_imem_wdata[1]
+                   1      --              --              --        -- 
+cpu_imem_wdata[0]
+                   1      --              --              --        -- 
+gpu_program_addr[9]
+                   1      --              --              --        -- 
+gpu_program_addr[8]
+                   1      --              --              --        -- 
+gpu_program_addr[7]
+                   1      --              --              --        -- 
+gpu_program_addr[6]
+                   1      --              --              --        -- 
+gpu_program_addr[5]
+                   1      --              --              --        -- 
+gpu_program_addr[4]
+                   1      --              --              --        -- 
+gpu_program_addr[3]
+                   1      --              --              --        -- 
+gpu_program_addr[2]
+                   1      --              --              --        -- 
+gpu_program_addr[1]
+                   1      --              --              --        -- 
+gpu_program_addr[0]
+                   1      --              --              --        -- 
+gpu_program_rdata[15]
+                   1      --              --              --        -- 
+gpu_program_rdata[14]
+                   1      --              --              --        -- 
+gpu_program_rdata[13]
+                   1      --              --              --        -- 
+gpu_program_rdata[12]
+                   1      --              --              --        -- 
+gpu_program_rdata[11]
+                   1      --              --              --        -- 
+gpu_program_rdata[10]
+                   1      --              --              --        -- 
+gpu_program_rdata[9]
+                   1      --              --              --        -- 
+gpu_program_rdata[8]
+                   1      --              --              --        -- 
+gpu_program_rdata[7]
+                   1      --              --              --        -- 
+gpu_program_rdata[6]
+                   1      --              --              --        -- 
+gpu_program_rdata[5]
+                   1      --              --              --        -- 
+gpu_program_rdata[4]
+                   1      --              --              --        -- 
+gpu_program_rdata[3]
+                   1      --              --              --        -- 
+gpu_program_rdata[2]
+                   1      --              --              --        -- 
+gpu_program_rdata[1]
+                   1      --              --              --        -- 
+gpu_program_rdata[0]
+                   1      --              --              --        -- 
+gpu_program_waddr[9]
+                   1      --              --              --        -- 
+gpu_program_waddr[8]
+                   1      --              --              --        -- 
+gpu_program_waddr[7]
+                   1      --              --              --        -- 
+gpu_program_waddr[6]
+                   1      --              --              --        -- 
+gpu_program_waddr[5]
+                   1      --              --              --        -- 
+gpu_program_waddr[4]
+                   1      --              --              --        -- 
+gpu_program_waddr[3]
+                   1      --              --              --        -- 
+gpu_program_waddr[2]
+                   1      --              --              --        -- 
+gpu_program_waddr[1]
+                   1      --              --              --        -- 
+gpu_program_waddr[0]
+                   1      --              --              --        -- 
+gpu_program_wdata[15]
+                   1      --              --              --        -- 
+gpu_program_wdata[14]
+                   1      --              --              --        -- 
+gpu_program_wdata[13]
+                   1      --              --              --        -- 
+gpu_program_wdata[12]
+                   1      --              --              --        -- 
+gpu_program_wdata[11]
+                   1      --              --              --        -- 
+gpu_program_wdata[10]
+                   1      --              --              --        -- 
+gpu_program_wdata[9]
+                   1      --              --              --        -- 
+gpu_program_wdata[8]
+                   1      --              --              --        -- 
+gpu_program_wdata[7]
+                   1      --              --              --        -- 
+gpu_program_wdata[6]
+                   1      --              --              --        -- 
+gpu_program_wdata[5]
+                   1      --              --              --        -- 
+gpu_program_wdata[4]
+                   1      --              --              --        -- 
+gpu_program_wdata[3]
+                   1      --              --              --        -- 
+gpu_program_wdata[2]
+                   1      --              --              --        -- 
+gpu_program_wdata[1]
+                   1      --              --              --        -- 
+gpu_program_wdata[0]
+                   1      --              --              --        -- 
+ram_px_addr[14]
+                   1      --              --              --        -- 
+ram_px_addr[13]
+                   1      --              --              --        -- 
+ram_px_addr[12]
+                   1      --              --              --        -- 
+ram_px_addr[11]
+                   1      --              --              --        -- 
+ram_px_addr[10]
+                   1      --              --              --        -- 
+ram_px_addr[9]
+                   1      --              --              --        -- 
+ram_px_addr[8]
+                   1      --              --              --        -- 
+ram_px_addr[7]
+                   1      --              --              --        -- 
+ram_px_addr[6]
+                   1      --              --              --        -- 
+ram_px_addr[5]
+                   1      --              --              --        -- 
+ram_px_addr[4]
+                   1      --              --              --        -- 
+ram_px_addr[3]
+                   1      --              --              --        -- 
+ram_px_addr[2]
+                   1      --              --              --        -- 
+ram_px_addr[1]
+                   1      --              --              --        -- 
+ram_px_addr[0]
+                   1      --              --              --        -- 
+ram_px_wdata[31]
+                   1      --              --              --        -- 
+ram_px_wdata[30]
+                   1      --              --              --        -- 
+ram_px_wdata[29]
+                   1      --              --              --        -- 
+ram_px_wdata[28]
+                   1      --              --              --        -- 
+ram_px_wdata[27]
+                   1      --              --              --        -- 
+ram_px_wdata[26]
+                   1      --              --              --        -- 
+ram_px_wdata[25]
+                   1      --              --              --        -- 
+ram_px_wdata[24]
+                   1      --              --              --        -- 
+ram_px_wdata[23]
+                   1      --              --              --        -- 
+ram_px_wdata[22]
+                   1      --              --              --        -- 
+ram_px_wdata[21]
+                   1      --              --              --        -- 
+ram_px_wdata[20]
+                   1      --              --              --        -- 
+ram_px_wdata[19]
+                   1      --              --              --        -- 
+ram_px_wdata[18]
+                   1      --              --              --        -- 
+ram_px_wdata[17]
+                   1      --              --              --        -- 
+ram_px_wdata[16]
+                   1      --              --              --        -- 
+ram_px_wdata[15]
+                   1      --              --              --        -- 
+ram_px_wdata[14]
+                   1      --              --              --        -- 
+ram_px_wdata[13]
+                   1      --              --              --        -- 
+ram_px_wdata[12]
+                   1      --              --              --        -- 
+ram_px_wdata[11]
+                   1      --              --              --        -- 
+ram_px_wdata[10]
+                   1      --              --              --        -- 
+ram_px_wdata[9]
+                   1      --              --              --        -- 
+ram_px_wdata[8]
+                   1      --              --              --        -- 
+ram_px_wdata[7]
+                   1      --              --              --        -- 
+ram_px_wdata[6]
+                   1      --              --              --        -- 
+ram_px_wdata[5]
+                   1      --              --              --        -- 
+ram_px_wdata[4]
+                   1      --              --              --        -- 
+ram_px_wdata[3]
+                   1      --              --              --        -- 
+ram_px_wdata[2]
+                   1      --              --              --        -- 
+ram_px_wdata[1]
+                   1      --              --              --        -- 
+ram_px_wdata[0]
+                   1      --              --              --        -- 
+ram_px_rdata[31]
+                   1      --              --              --        -- 
+ram_px_rdata[30]
+                   1      --              --              --        -- 
+ram_px_rdata[29]
+                   1      --              --              --        -- 
+ram_px_rdata[28]
+                   1      --              --              --        -- 
+ram_px_rdata[27]
+                   1      --              --              --        -- 
+ram_px_rdata[26]
+                   1      --              --              --        -- 
+ram_px_rdata[25]
+                   1      --              --              --        -- 
+ram_px_rdata[24]
+                   1      --              --              --        -- 
+ram_px_rdata[23]
+                   1      --              --              --        -- 
+ram_px_rdata[22]
+                   1      --              --              --        -- 
+ram_px_rdata[21]
+                   1      --              --              --        -- 
+ram_px_rdata[20]
+                   1      --              --              --        -- 
+ram_px_rdata[19]
+                   1      --              --              --        -- 
+ram_px_rdata[18]
+                   1      --              --              --        -- 
+ram_px_rdata[17]
+                   1      --              --              --        -- 
+ram_px_rdata[16]
+                   1      --              --              --        -- 
+ram_px_rdata[15]
+                   1      --              --              --        -- 
+ram_px_rdata[14]
+                   1      --              --              --        -- 
+ram_px_rdata[13]
+                   1      --              --              --        -- 
+ram_px_rdata[12]
+                   1      --              --              --        -- 
+ram_px_rdata[11]
+                   1      --              --              --        -- 
+ram_px_rdata[10]
+                   1      --              --              --        -- 
+ram_px_rdata[9]
+                   1      --              --              --        -- 
+ram_px_rdata[8]
+                   1      --              --              --        -- 
+ram_px_rdata[7]
+                   1      --              --              --        -- 
+ram_px_rdata[6]
+                   1      --              --              --        -- 
+ram_px_rdata[5]
+                   1      --              --              --        -- 
+ram_px_rdata[4]
+                   1      --              --              --        -- 
+ram_px_rdata[3]
+                   1      --              --              --        -- 
+ram_px_rdata[2]
+                   1      --              --              --        -- 
+ram_px_rdata[1]
+                   1      --              --              --        -- 
+ram_px_rdata[0]
+                   1      --              --              --        -- 
+ram_host_addr[14]
+                   1      --              --              --        -- 
+ram_host_addr[13]
+                   1      --              --              --        -- 
+ram_host_addr[12]
+                   1      --              --              --        -- 
+ram_host_addr[11]
+                   1      --              --              --        -- 
+ram_host_addr[10]
+                   1      --              --              --        -- 
+ram_host_addr[9]
+                   1      --              --              --        -- 
+ram_host_addr[8]
+                   1      --              --              --        -- 
+ram_host_addr[7]
+                   1      --              --              --        -- 
+ram_host_addr[6]
+                   1      --              --              --        -- 
+ram_host_addr[5]
+                   1      --              --              --        -- 
+ram_host_addr[4]
+                   1      --              --              --        -- 
+ram_host_addr[3]
+                   1      --              --              --        -- 
+ram_host_addr[2]
+                   1      --              --              --        -- 
+ram_host_addr[1]
+                   1      --              --              --        -- 
+ram_host_addr[0]
+                   1      --              --              --        -- 
+ram_host_wdata[31]
+                   1      --              --              --        -- 
+ram_host_wdata[30]
+                   1      --              --              --        -- 
+ram_host_wdata[29]
+                   1      --              --              --        -- 
+ram_host_wdata[28]
+                   1      --              --              --        -- 
+ram_host_wdata[27]
+                   1      --              --              --        -- 
+ram_host_wdata[26]
+                   1      --              --              --        -- 
+ram_host_wdata[25]
+                   1      --              --              --        -- 
+ram_host_wdata[24]
+                   1      --              --              --        -- 
+ram_host_wdata[23]
+                   1      --              --              --        -- 
+ram_host_wdata[22]
+                   1      --              --              --        -- 
+ram_host_wdata[21]
+                   1      --              --              --        -- 
+ram_host_wdata[20]
+                   1      --              --              --        -- 
+ram_host_wdata[19]
+                   1      --              --              --        -- 
+ram_host_wdata[18]
+                   1      --              --              --        -- 
+ram_host_wdata[17]
+                   1      --              --              --        -- 
+ram_host_wdata[16]
+                   1      --              --              --        -- 
+ram_host_wdata[15]
+                   1      --              --              --        -- 
+ram_host_wdata[14]
+                   1      --              --              --        -- 
+ram_host_wdata[13]
+                   1      --              --              --        -- 
+ram_host_wdata[12]
+                   1      --              --              --        -- 
+ram_host_wdata[11]
+                   1      --              --              --        -- 
+ram_host_wdata[10]
+                   1      --              --              --        -- 
+ram_host_wdata[9]
+                   1      --              --              --        -- 
+ram_host_wdata[8]
+                   1      --              --              --        -- 
+ram_host_wdata[7]
+                   1      --              --              --        -- 
+ram_host_wdata[6]
+                   1      --              --              --        -- 
+ram_host_wdata[5]
+                   1      --              --              --        -- 
+ram_host_wdata[4]
+                   1      --              --              --        -- 
+ram_host_wdata[3]
+                   1      --              --              --        -- 
+ram_host_wdata[2]
+                   1      --              --              --        -- 
+ram_host_wdata[1]
+                   1      --              --              --        -- 
+ram_host_wdata[0]
+                   1      --              --              --        -- 
+ram_host_rdata[31]
+                   1      --              --              --        -- 
+ram_host_rdata[30]
+                   1      --              --              --        -- 
+ram_host_rdata[29]
+                   1      --              --              --        -- 
+ram_host_rdata[28]
+                   1      --              --              --        -- 
+ram_host_rdata[27]
+                   1      --              --              --        -- 
+ram_host_rdata[26]
+                   1      --              --              --        -- 
+ram_host_rdata[25]
+                   1      --              --              --        -- 
+ram_host_rdata[24]
+                   1      --              --              --        -- 
+ram_host_rdata[23]
+                   1      --              --              --        -- 
+ram_host_rdata[22]
+                   1      --              --              --        -- 
+ram_host_rdata[21]
+                   1      --              --              --        -- 
+ram_host_rdata[20]
+                   1      --              --              --        -- 
+ram_host_rdata[19]
+                   1      --              --              --        -- 
+ram_host_rdata[18]
+                   1      --              --              --        -- 
+ram_host_rdata[17]
+                   1      --              --              --        -- 
+ram_host_rdata[16]
+                   1      --              --              --        -- 
+ram_host_rdata[15]
+                   1      --              --              --        -- 
+ram_host_rdata[14]
+                   1      --              --              --        -- 
+ram_host_rdata[13]
+                   1      --              --              --        -- 
+ram_host_rdata[12]
+                   1      --              --              --        -- 
+ram_host_rdata[11]
+                   1      --              --              --        -- 
+ram_host_rdata[10]
+                   1      --              --              --        -- 
+ram_host_rdata[9]
+                   1      --              --              --        -- 
+ram_host_rdata[8]
+                   1      --              --              --        -- 
+ram_host_rdata[7]
+                   1      --              --              --        -- 
+ram_host_rdata[6]
+                   1      --              --              --        -- 
+ram_host_rdata[5]
+                   1      --              --              --        -- 
+ram_host_rdata[4]
+                   1      --              --              --        -- 
+ram_host_rdata[3]
+                   1      --              --              --        -- 
+ram_host_rdata[2]
+                   1      --              --              --        -- 
+ram_host_rdata[1]
+                   1      --              --              --        -- 
+ram_host_rdata[0]
+                   1      --              --              --        -- 
+cpu_state[3]       1      --              --              --        -- 
+cpu_state[2]       1      --              --              --        -- 
+cpu_state[1]       1      --              --              --        -- 
+cpu_state[0]       1      --              --              --        -- 
+gpu_mem_addr[31]
+                   1      --              --              --        -- 
+gpu_mem_addr[30]
+                   1      --              --              --        -- 
+gpu_mem_addr[29]
+                   1      --              --              --        -- 
+gpu_mem_addr[28]
+                   1      --              --              --        -- 
+gpu_mem_addr[27]
+                   1      --              --              --        -- 
+gpu_mem_addr[26]
+                   1      --              --              --        -- 
+gpu_mem_addr[25]
+                   1      --              --              --        -- 
+gpu_mem_addr[24]
+                   1      --              --              --        -- 
+gpu_mem_addr[23]
+                   1      --              --              --        -- 
+gpu_mem_addr[22]
+                   1      --              --              --        -- 
+gpu_mem_addr[21]
+                   1      --              --              --        -- 
+gpu_mem_addr[20]
+                   1      --              --              --        -- 
+gpu_mem_addr[19]
+                   1      --              --              --        -- 
+gpu_mem_addr[18]
+                   1      --              --              --        -- 
+gpu_mem_addr[17]
+                   1      --              --              --        -- 
+gpu_mem_addr[16]
+                   1      --              --              --        -- 
+gpu_mem_addr[15]
+                   1      --              --              --        -- 
+gpu_mem_addr[14]
+                   1      --              --              --        -- 
+gpu_mem_addr[13]
+                   1      --              --              --        -- 
+gpu_mem_addr[12]
+                   1      --              --              --        -- 
+gpu_mem_addr[11]
+                   1      --              --              --        -- 
+gpu_mem_addr[10]
+                   1      --              --              --        -- 
+gpu_mem_addr[9]
+                   1      --              --              --        -- 
+gpu_mem_addr[8]
+                   1      --              --              --        -- 
+gpu_mem_addr[7]
+                   1      --              --              --        -- 
+gpu_mem_addr[6]
+                   1      --              --              --        -- 
+gpu_mem_addr[5]
+                   1      --              --              --        -- 
+gpu_mem_addr[4]
+                   1      --              --              --        -- 
+gpu_mem_addr[3]
+                   1      --              --              --        -- 
+gpu_mem_addr[2]
+                   1      --              --              --        -- 
+gpu_mem_addr[1]
+                   1      --              --              --        -- 
+gpu_mem_addr[0]
+                   1      --              --              --        -- 
+gpu_mem_wdata[31]
+                   1      --              --              --        -- 
+gpu_mem_wdata[30]
+                   1      --              --              --        -- 
+gpu_mem_wdata[29]
+                   1      --              --              --        -- 
+gpu_mem_wdata[28]
+                   1      --              --              --        -- 
+gpu_mem_wdata[27]
+                   1      --              --              --        -- 
+gpu_mem_wdata[26]
+                   1      --              --              --        -- 
+gpu_mem_wdata[25]
+                   1      --              --              --        -- 
+gpu_mem_wdata[24]
+                   1      --              --              --        -- 
+gpu_mem_wdata[23]
+                   1      --              --              --        -- 
+gpu_mem_wdata[22]
+                   1      --              --              --        -- 
+gpu_mem_wdata[21]
+                   1      --              --              --        -- 
+gpu_mem_wdata[20]
+                   1      --              --              --        -- 
+gpu_mem_wdata[19]
+                   1      --              --              --        -- 
+gpu_mem_wdata[18]
+                   1      --              --              --        -- 
+gpu_mem_wdata[17]
+                   1      --              --              --        -- 
+gpu_mem_wdata[16]
+                   1      --              --              --        -- 
+gpu_mem_wdata[15]
+                   1      --              --              --        -- 
+gpu_mem_wdata[14]
+                   1      --              --              --        -- 
+gpu_mem_wdata[13]
+                   1      --              --              --        -- 
+gpu_mem_wdata[12]
+                   1      --              --              --        -- 
+gpu_mem_wdata[11]
+                   1      --              --              --        -- 
+gpu_mem_wdata[10]
+                   1      --              --              --        -- 
+gpu_mem_wdata[9]
+                   1      --              --              --        -- 
+gpu_mem_wdata[8]
+                   1      --              --              --        -- 
+gpu_mem_wdata[7]
+                   1      --              --              --        -- 
+gpu_mem_wdata[6]
+                   1      --              --              --        -- 
+gpu_mem_wdata[5]
+                   1      --              --              --        -- 
+gpu_mem_wdata[4]
+                   1      --              --              --        -- 
+gpu_mem_wdata[3]
+                   1      --              --              --        -- 
+gpu_mem_wdata[2]
+                   1      --              --              --        -- 
+gpu_mem_wdata[1]
+                   1      --              --              --        -- 
+gpu_mem_wdata[0]
+                   1      --              --              --        -- 
+clk                1      --              --              --        -- 
+reset              1      --              --              --        -- 
+boot_we            1      --              --              --        -- 
+cpu_imem_we        1      --              --              --        -- 
+gpu_program_we
+                   1      --              --              --        -- 
+ram_px_we          1      --              --              --        -- 
+ram_host_we        1      --              --              --        -- 
+gpu_start          1      --              --              --        -- 
+gpu_busy           1      --              --              --        -- 
+gpu_done           1      --              --              --        -- 
+gpu_mem_req        1      --              --              --        -- 
+gpu_mem_we         1      --              --              --        -- 
+
+                    Input Delay
+                  Min             Max       Related   Max
+Input Port    Rise    Fall    Rise    Fall   Clock  Fanout
+--------------------------------------------------------------------------------
+boot_sel[1]   4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_sel[0]   4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_addr[14]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_addr[13]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_addr[12]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_addr[11]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_addr[10]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_addr[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_addr[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_addr[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_addr[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_addr[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_addr[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_addr[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_addr[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_addr[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_addr[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[31]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[30]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[29]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[28]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[27]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[26]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[25]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[24]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[23]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[22]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[21]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[20]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[19]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[18]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[17]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[16]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[15]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[14]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[13]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[12]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[11]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[10]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_wdata[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[31]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[30]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[29]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[28]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[27]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[26]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[25]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[24]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[23]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[22]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[21]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[20]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[19]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[18]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[17]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[16]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[15]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[14]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[13]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[12]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[11]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[10]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+cpu_imem_rdata[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+gpu_program_rdata[15]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+gpu_program_rdata[14]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+gpu_program_rdata[13]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+gpu_program_rdata[12]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+gpu_program_rdata[11]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+gpu_program_rdata[10]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+gpu_program_rdata[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+gpu_program_rdata[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+gpu_program_rdata[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+gpu_program_rdata[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+gpu_program_rdata[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+gpu_program_rdata[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+gpu_program_rdata[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+gpu_program_rdata[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+gpu_program_rdata[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+gpu_program_rdata[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[31]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[30]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[29]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[28]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[27]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[26]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[25]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[24]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[23]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[22]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[21]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[20]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[19]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[18]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[17]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[16]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[15]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[14]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[13]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[12]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[11]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[10]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_px_rdata[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[31]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[30]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[29]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[28]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[27]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[26]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[25]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[24]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[23]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[22]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[21]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[20]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[19]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[18]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[17]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[16]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[15]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[14]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[13]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[12]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[11]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[10]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+ram_host_rdata[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+clk           --      --      --      --      --      -- 
+reset         4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+boot_we       4.00    4.00    4.00    4.00  core_clk
+                                                      --    
+
+
+               Max Drive      Min Drive      Resistance    Min    Min       Cell
+Input Port    Rise    Fall   Rise    Fall   Max     Min    Cap    Fanout    Deg
+--------------------------------------------------------------------------------
+boot_sel[1]   --      --     --      --     --      --     --     --        -- 
+boot_sel[0]   --      --     --      --     --      --     --     --        -- 
+boot_addr[14]
+              --      --     --      --     --      --     --     --        -- 
+boot_addr[13]
+              --      --     --      --     --      --     --     --        -- 
+boot_addr[12]
+              --      --     --      --     --      --     --     --        -- 
+boot_addr[11]
+              --      --     --      --     --      --     --     --        -- 
+boot_addr[10]
+              --      --     --      --     --      --     --     --        -- 
+boot_addr[9]
+              --      --     --      --     --      --     --     --        -- 
+boot_addr[8]
+              --      --     --      --     --      --     --     --        -- 
+boot_addr[7]
+              --      --     --      --     --      --     --     --        -- 
+boot_addr[6]
+              --      --     --      --     --      --     --     --        -- 
+boot_addr[5]
+              --      --     --      --     --      --     --     --        -- 
+boot_addr[4]
+              --      --     --      --     --      --     --     --        -- 
+boot_addr[3]
+              --      --     --      --     --      --     --     --        -- 
+boot_addr[2]
+              --      --     --      --     --      --     --     --        -- 
+boot_addr[1]
+              --      --     --      --     --      --     --     --        -- 
+boot_addr[0]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[31]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[30]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[29]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[28]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[27]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[26]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[25]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[24]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[23]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[22]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[21]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[20]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[19]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[18]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[17]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[16]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[15]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[14]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[13]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[12]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[11]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[10]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[9]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[8]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[7]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[6]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[5]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[4]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[3]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[2]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[1]
+              --      --     --      --     --      --     --     --        -- 
+boot_wdata[0]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[31]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[30]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[29]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[28]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[27]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[26]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[25]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[24]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[23]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[22]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[21]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[20]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[19]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[18]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[17]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[16]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[15]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[14]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[13]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[12]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[11]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[10]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[9]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[8]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[7]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[6]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[5]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[4]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[3]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[2]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[1]
+              --      --     --      --     --      --     --     --        -- 
+cpu_imem_rdata[0]
+              --      --     --      --     --      --     --     --        -- 
+gpu_program_rdata[15]
+              --      --     --      --     --      --     --     --        -- 
+gpu_program_rdata[14]
+              --      --     --      --     --      --     --     --        -- 
+gpu_program_rdata[13]
+              --      --     --      --     --      --     --     --        -- 
+gpu_program_rdata[12]
+              --      --     --      --     --      --     --     --        -- 
+gpu_program_rdata[11]
+              --      --     --      --     --      --     --     --        -- 
+gpu_program_rdata[10]
+              --      --     --      --     --      --     --     --        -- 
+gpu_program_rdata[9]
+              --      --     --      --     --      --     --     --        -- 
+gpu_program_rdata[8]
+              --      --     --      --     --      --     --     --        -- 
+gpu_program_rdata[7]
+              --      --     --      --     --      --     --     --        -- 
+gpu_program_rdata[6]
+              --      --     --      --     --      --     --     --        -- 
+gpu_program_rdata[5]
+              --      --     --      --     --      --     --     --        -- 
+gpu_program_rdata[4]
+              --      --     --      --     --      --     --     --        -- 
+gpu_program_rdata[3]
+              --      --     --      --     --      --     --     --        -- 
+gpu_program_rdata[2]
+              --      --     --      --     --      --     --     --        -- 
+gpu_program_rdata[1]
+              --      --     --      --     --      --     --     --        -- 
+gpu_program_rdata[0]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[31]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[30]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[29]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[28]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[27]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[26]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[25]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[24]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[23]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[22]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[21]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[20]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[19]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[18]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[17]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[16]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[15]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[14]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[13]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[12]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[11]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[10]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[9]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[8]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[7]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[6]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[5]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[4]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[3]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[2]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[1]
+              --      --     --      --     --      --     --     --        -- 
+ram_px_rdata[0]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[31]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[30]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[29]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[28]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[27]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[26]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[25]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[24]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[23]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[22]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[21]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[20]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[19]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[18]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[17]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[16]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[15]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[14]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[13]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[12]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[11]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[10]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[9]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[8]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[7]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[6]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[5]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[4]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[3]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[2]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[1]
+              --      --     --      --     --      --     --     --        -- 
+ram_host_rdata[0]
+              --      --     --      --     --      --     --     --        -- 
+clk           --      --     --      --     --      --     --     --        -- 
+reset         --      --     --      --     --      --     --     --        -- 
+boot_we       --      --     --      --     --      --     --     --        -- 
+
+
+               Max Tran        Min Tran
+Input Port    Rise    Fall    Rise    Fall
+--------------------------------------------------------------------------------
+boot_sel[1]   1.00    1.00    1.00    1.00
+boot_sel[0]   1.00    1.00    1.00    1.00
+boot_addr[14]
+              1.00    1.00    1.00    1.00
+boot_addr[13]
+              1.00    1.00    1.00    1.00
+boot_addr[12]
+              1.00    1.00    1.00    1.00
+boot_addr[11]
+              1.00    1.00    1.00    1.00
+boot_addr[10]
+              1.00    1.00    1.00    1.00
+boot_addr[9]
+              1.00    1.00    1.00    1.00
+boot_addr[8]
+              1.00    1.00    1.00    1.00
+boot_addr[7]
+              1.00    1.00    1.00    1.00
+boot_addr[6]
+              1.00    1.00    1.00    1.00
+boot_addr[5]
+              1.00    1.00    1.00    1.00
+boot_addr[4]
+              1.00    1.00    1.00    1.00
+boot_addr[3]
+              1.00    1.00    1.00    1.00
+boot_addr[2]
+              1.00    1.00    1.00    1.00
+boot_addr[1]
+              1.00    1.00    1.00    1.00
+boot_addr[0]
+              1.00    1.00    1.00    1.00
+boot_wdata[31]
+              1.00    1.00    1.00    1.00
+boot_wdata[30]
+              1.00    1.00    1.00    1.00
+boot_wdata[29]
+              1.00    1.00    1.00    1.00
+boot_wdata[28]
+              1.00    1.00    1.00    1.00
+boot_wdata[27]
+              1.00    1.00    1.00    1.00
+boot_wdata[26]
+              1.00    1.00    1.00    1.00
+boot_wdata[25]
+              1.00    1.00    1.00    1.00
+boot_wdata[24]
+              1.00    1.00    1.00    1.00
+boot_wdata[23]
+              1.00    1.00    1.00    1.00
+boot_wdata[22]
+              1.00    1.00    1.00    1.00
+boot_wdata[21]
+              1.00    1.00    1.00    1.00
+boot_wdata[20]
+              1.00    1.00    1.00    1.00
+boot_wdata[19]
+              1.00    1.00    1.00    1.00
+boot_wdata[18]
+              1.00    1.00    1.00    1.00
+boot_wdata[17]
+              1.00    1.00    1.00    1.00
+boot_wdata[16]
+              1.00    1.00    1.00    1.00
+boot_wdata[15]
+              1.00    1.00    1.00    1.00
+boot_wdata[14]
+              1.00    1.00    1.00    1.00
+boot_wdata[13]
+              1.00    1.00    1.00    1.00
+boot_wdata[12]
+              1.00    1.00    1.00    1.00
+boot_wdata[11]
+              1.00    1.00    1.00    1.00
+boot_wdata[10]
+              1.00    1.00    1.00    1.00
+boot_wdata[9]
+              1.00    1.00    1.00    1.00
+boot_wdata[8]
+              1.00    1.00    1.00    1.00
+boot_wdata[7]
+              1.00    1.00    1.00    1.00
+boot_wdata[6]
+              1.00    1.00    1.00    1.00
+boot_wdata[5]
+              1.00    1.00    1.00    1.00
+boot_wdata[4]
+              1.00    1.00    1.00    1.00
+boot_wdata[3]
+              1.00    1.00    1.00    1.00
+boot_wdata[2]
+              1.00    1.00    1.00    1.00
+boot_wdata[1]
+              1.00    1.00    1.00    1.00
+boot_wdata[0]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[31]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[30]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[29]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[28]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[27]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[26]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[25]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[24]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[23]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[22]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[21]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[20]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[19]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[18]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[17]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[16]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[15]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[14]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[13]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[12]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[11]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[10]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[9]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[8]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[7]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[6]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[5]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[4]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[3]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[2]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[1]
+              1.00    1.00    1.00    1.00
+cpu_imem_rdata[0]
+              1.00    1.00    1.00    1.00
+gpu_program_rdata[15]
+              1.00    1.00    1.00    1.00
+gpu_program_rdata[14]
+              1.00    1.00    1.00    1.00
+gpu_program_rdata[13]
+              1.00    1.00    1.00    1.00
+gpu_program_rdata[12]
+              1.00    1.00    1.00    1.00
+gpu_program_rdata[11]
+              1.00    1.00    1.00    1.00
+gpu_program_rdata[10]
+              1.00    1.00    1.00    1.00
+gpu_program_rdata[9]
+              1.00    1.00    1.00    1.00
+gpu_program_rdata[8]
+              1.00    1.00    1.00    1.00
+gpu_program_rdata[7]
+              1.00    1.00    1.00    1.00
+gpu_program_rdata[6]
+              1.00    1.00    1.00    1.00
+gpu_program_rdata[5]
+              1.00    1.00    1.00    1.00
+gpu_program_rdata[4]
+              1.00    1.00    1.00    1.00
+gpu_program_rdata[3]
+              1.00    1.00    1.00    1.00
+gpu_program_rdata[2]
+              1.00    1.00    1.00    1.00
+gpu_program_rdata[1]
+              1.00    1.00    1.00    1.00
+gpu_program_rdata[0]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[31]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[30]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[29]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[28]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[27]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[26]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[25]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[24]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[23]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[22]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[21]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[20]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[19]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[18]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[17]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[16]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[15]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[14]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[13]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[12]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[11]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[10]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[9]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[8]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[7]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[6]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[5]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[4]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[3]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[2]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[1]
+              1.00    1.00    1.00    1.00
+ram_px_rdata[0]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[31]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[30]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[29]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[28]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[27]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[26]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[25]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[24]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[23]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[22]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[21]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[20]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[19]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[18]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[17]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[16]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[15]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[14]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[13]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[12]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[11]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[10]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[9]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[8]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[7]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[6]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[5]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[4]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[3]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[2]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[1]
+              1.00    1.00    1.00    1.00
+ram_host_rdata[0]
+              1.00    1.00    1.00    1.00
+clk           --      --      --      -- 
+reset         1.00    1.00    1.00    1.00
+boot_we       1.00    1.00    1.00    1.00
+
+
+                    Output Delay
+                  Min             Max      Related  Fanout
+Output Port   Rise    Fall    Rise    Fall  Clock     Load
+--------------------------------------------------------------------------------
+boot_rdata[31]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[30]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[29]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[28]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[27]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[26]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[25]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[24]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[23]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[22]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[21]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[20]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[19]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[18]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[17]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[16]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[15]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[14]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[13]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[12]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[11]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[10]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+boot_rdata[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[31]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[30]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[29]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[28]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[27]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[26]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[25]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[24]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[23]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[22]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[21]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[20]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[19]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[18]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[17]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[16]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[15]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[14]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[13]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[12]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[11]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[10]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_addr[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_waddr[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_waddr[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_waddr[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_waddr[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_waddr[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_waddr[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_waddr[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_waddr[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_waddr[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_waddr[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[31]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[30]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[29]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[28]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[27]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[26]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[25]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[24]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[23]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[22]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[21]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[20]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[19]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[18]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[17]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[16]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[15]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[14]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[13]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[12]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[11]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[10]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_wdata[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_addr[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_addr[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_addr[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_addr[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_addr[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_addr[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_addr[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_addr[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_addr[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_addr[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_waddr[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_waddr[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_waddr[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_waddr[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_waddr[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_waddr[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_waddr[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_waddr[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_waddr[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_waddr[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_wdata[15]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_wdata[14]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_wdata[13]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_wdata[12]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_wdata[11]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_wdata[10]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_wdata[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_wdata[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_wdata[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_wdata[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_wdata[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_wdata[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_wdata[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_wdata[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_wdata[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_wdata[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_addr[14]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_addr[13]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_addr[12]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_addr[11]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_addr[10]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_addr[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_addr[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_addr[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_addr[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_addr[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_addr[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_addr[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_addr[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_addr[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_addr[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[31]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[30]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[29]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[28]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[27]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[26]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[25]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[24]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[23]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[22]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[21]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[20]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[19]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[18]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[17]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[16]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[15]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[14]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[13]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[12]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[11]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[10]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_wdata[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_addr[14]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_addr[13]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_addr[12]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_addr[11]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_addr[10]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_addr[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_addr[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_addr[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_addr[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_addr[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_addr[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_addr[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_addr[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_addr[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_addr[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[31]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[30]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[29]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[28]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[27]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[26]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[25]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[24]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[23]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[22]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[21]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[20]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[19]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[18]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[17]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[16]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[15]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[14]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[13]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[12]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[11]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[10]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_wdata[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_state[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_state[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_state[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_state[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[31]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[30]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[29]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[28]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[27]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[26]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[25]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[24]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[23]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[22]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[21]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[20]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[19]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[18]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[17]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[16]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[15]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[14]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[13]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[12]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[11]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[10]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_addr[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[31]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[30]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[29]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[28]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[27]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[26]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[25]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[24]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[23]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[22]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[21]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[20]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[19]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[18]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[17]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[16]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[15]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[14]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[13]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[12]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[11]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[10]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[9]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[8]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[7]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[6]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[5]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[4]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[3]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[2]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[1]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_wdata[0]
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+cpu_imem_we   4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_program_we
+              4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_px_we     4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+ram_host_we   4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_start     4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_busy      4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_done      4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_req   4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+gpu_mem_we    4.00    4.00    4.00    4.00  core_clk
+                                                      0.00  
+
+1
