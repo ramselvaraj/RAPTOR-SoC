@@ -1,0 +1,15 @@
+Saved netlist re-analysis; no resynthesis.
+CPU: 10 ns / 100 MHz. GPU target retained: 20 ns / 50 MHz.
+CPU reports include internal, interface, and non-excepted cross-domain paths ending in cpu_clock.
+GPU timing is not re-reported by this focused command.
+Gray-pointer maximum delay follows the faster clock period (10 ns).
+Library capacitance limits remain unchanged.
+Conditional boot contract: minimum input delay 0.1 ns on boot_addr, boot_wdata, boot_sel, boot_valid.
+Existing maximum delays and all hold checks remain unchanged.
+This does not implement a boot driver or prove that a physical source meets the contract.
+Conditional memory contract: CPU instruction, RAM host, and RAM pixel read-data arrival window is 0.1..4.0 ns.
+This is a requirement for external memory timing, not characterized memory behavior.
+GPU program-data timing is unchanged; this check does not establish GPU setup/hold closure.
+Input minimum delays outside the stated contracts remain zero.
+CPU setup slack: 0.924154 ns (MET)
+CPU hold slack: 0.012687 ns (MET)
