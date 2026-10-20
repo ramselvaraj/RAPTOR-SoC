@@ -2,6 +2,32 @@
 
 **Status:** implemented. The final `make phase5` acceptance run passed, including strict lint and the complete legacy regression.
 
+## Preserved DC result: 100 MHz CPU / 50 MHz GPU
+
+The Phase 5 core was mapped in Synopsys DC V-2023.12-SP5-1 against `gscl45nm`.
+Re-analysis of that same mapped implementation passes the reported setup and hold checks in both clock groups:
+
+| Domain | Period | Setup slack | Hold slack |
+|---|---:|---:|---:|
+| CPU/system | 10 ns | +0.924154 ns | +0.012687 ns |
+| GPU | 20 ns | +0.000183 ns | +0.012687 ns |
+
+Combined evidence is in `synth/results/phase5/gpu_50mhz_interfaces/`.
+It includes both domains' path reports, clocks, timing coverage, exact SDC, and the DDC fingerprint in the summary.
+The mapped DDC remains on the server. Its SHA256 also matches the earlier preserved CPU-only result.
+
+The result uses 0.2 ns setup uncertainty, 0.05 ns hold uncertainty, and 0.1 ns clock/input transitions.
+It requires at least 0.1 ns minimum boot address/data/selection/valid arrival and a 0.1..4.0 ns memory read-data arrival window.
+CPU memory data uses `cpu_clock`; GPU program data uses `gpu_clock`.
+These are interface requirements for the excluded memories, not characterized physical-memory properties.
+The GPU setup margin is only 0.183 ps in this report. Do not infer useful frequency headroom from that value.
+
+The original mapping contains 120,776 leaf cells and 8,945 sequential cells, with total cell area 422,604.181460 library units.
+Reported mapping wall-clock time was 930.58 seconds, about 15 minutes 31 seconds.
+Caches, register files, and FIFO storage remain included. The three backing memory arrays remain excluded.
+Library capacitance-limit violations and structural/physical CDC validation remain separate unresolved checks.
+This result is pre-layout setup/hold analysis under documented contracts, not all-checks timing signoff.
+
 ## Implemented architecture
 
 `soc/rtl/soc_phase5_top.sv` is the new integration top.
@@ -114,7 +140,7 @@ CPU and GPU periods use `DC_CPU_CLOCK_PERIOD` and `DC_GPU_CLOCK_PERIOD`.
 The memory-excluded top retains caches, register files, and CDC FIFO storage.
 It excludes CPU instruction memory, GPU program memory, and shared backing RAM.
 
-DC is not installed in the local verification environment, so these new DC targets are not mapped or timing-validated here.
+DC is not installed in the local verification environment. Mapping and timing evidence came from the user's server and is preserved in this repository.
 The constraint template deliberately does not blanket-false-path all paths between the clocks.
 It applies a conservative source-period bound to Gray-pointer crossings and fails if expected synchronizer names are absent.
 Actual mapped synchronizer naming, bundled-data paths, reset checks, and physical bus delay/skew still need review in implementation tools.
@@ -132,7 +158,7 @@ The worst GPU hold path starts at external `gpu_program_rdata[0]` and ends at a 
 Only that input minimum changes. CPU contracts, margins, clocks, exceptions, and library limits remain unchanged.
 It writes to `synth/build/phase5/reports/gpu_50mhz_interfaces/`, preserving the original GPU check.
 The contract is a requirement on excluded memory, not a characterized property of an implementation.
-Its actual DC results remain pending until that check runs on the server.
+The server subsequently ran this check successfully; the preserved combined result above supersedes this intermediate hold failure.
 
 ### Preserved passing CPU-domain result
 
@@ -154,7 +180,7 @@ It verifies the DDC fingerprint, restores the saved SDC, and reports each domain
 It does not change clock margins, interface delays, exceptions, or library capacitance limits.
 CPU reports serve as a control against the preserved result.
 Outputs go to `synth/build/phase5/reports/gpu_50mhz/`, without changing earlier files.
-DC execution of this new diagnostic remains pending in the local environment.
+The server executed this diagnostic. The original GPU check and the later interface-contract check remain separate evidence sets.
 
 The boot-only contract check left a -0.014636 ns hold path from `cpu_imem_rdata[0]` to `idata_reg_0_`.
 This is an external-memory input path, not a register-to-register CPU pipeline path.

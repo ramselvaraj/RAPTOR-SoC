@@ -85,14 +85,19 @@ See `docs/PHASE5_PROGRESS.md` for verification evidence and `docs/PHASE5_ASSIGNM
 Simulation clock periods are stress-test settings, not synthesized operating frequencies.
 The Phase 4 50 MHz result above does not apply to this new top.
 
-Phase 5's mapped **CPU domain meets 100 MHz pre-layout setup and hold timing** under its documented boot and memory-interface contracts.
-The recorded slacks are **+0.924154 ns setup** and **+0.012687 ns hold**.
-The exact SDC, reports, and mapped-netlist fingerprint are in `synth/results/phase5/cpu_100mhz_interfaces/`.
-The GPU retains a 50 MHz target. Its hold timing remains a separate check.
+The dual-clock Phase 5 core was synthesized in **Synopsys Design Compiler** using the FreePDK45 `gscl45nm` library.
+The mapped core meets pre-layout setup and hold timing at **100 MHz CPU / 50 MHz GPU** under its documented boot and external-memory timing contracts.
 
-After mapping Phase 5, run `make dc-phase5-sweep` to separate internal CPU/GPU timing from interface paths.
-This target sweeps the CPU period on the saved netlist while keeping the GPU at 20 ns.
-Results appear in `synth/build/phase5/reports/cpu_sweep/summary.csv`.
+| Domain | Clock | Setup slack | Hold slack |
+|---|---:|---:|---:|
+| CPU/system | **100 MHz** | **+0.924154 ns** | **+0.012687 ns** |
+| GPU | **50 MHz** | **+0.000183 ns** | **+0.012687 ns** |
+
+The exact SDC, path reports, and netlist fingerprint are preserved in `synth/results/phase5/gpu_50mhz_interfaces/`.
+Backing memories are excluded and must meet the specified interface contracts. Library electrical-rule limitations remain separate from these setup/hold results.
+
+Run `make dc-phase5-gpu-interface-check` to reproduce the focused combined timing check on the preserved mapped DDC.
+The optional `make dc-phase5-sweep` separates internal and interface paths but can take substantially longer.
 
 ## Run the SoC
 
