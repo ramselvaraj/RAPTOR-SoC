@@ -20,6 +20,21 @@ The CPU configures and launches GPU programs, then polls for completion.
 The current workload is a two-pass, clamped 3×3 image blur.
 The integration top is `soc_phase5_top`.
 
+## Verification
+
+The complete Verilator regression passes, including **31 SoC configurations** with independent clocks, stalls, clock pauses, and reset recovery.
+The 16×16, 32×32, and 64×64 blur results match an independent Python reference, with unchanged source frames.
+
+- **912 CPU retirements** checked against an architectural reference across four configurations.
+- **672 standalone cache transactions** covering byte writes, eviction, reset, and backpressure.
+- **6,000 ordered CDC request/response transactions** across FIFO depths 2, 4, and 8.
+- **32 short GPU launches** tested with the GPU clock ten times faster than the CPU clock.
+- Directed tests for AXI stalls, bus faults, MMIO cache bypass, atomic launch configuration, and reset recovery.
+
+<p align="center">
+  <img src="docs/assets/simt_gpu_full_blur_ferrari.png" alt="GPU clamped full-frame blur output" width="720">
+</p>
+
 ## Synthesis and Implementation Results
 
 Synthesized in **Synopsys Design Compiler** using the **FreePDK45 `gscl45nm` library**.
@@ -44,21 +59,6 @@ Caches, register files, and CDC FIFOs are included; backing memories are exclude
 
 Evidence: [area and hierarchy](synth/results/phase5/area.rpt) · [cell counts and QoR](synth/results/phase5/qor.rpt) · [inferred resources](synth/results/phase5/resources.rpt) · [timing and exact constraints](synth/results/phase5/gpu_50mhz_interfaces/).
 The report set also includes structural checks and electrical-rule violations; these results are not physical signoff.
-
-## Verification
-
-The complete Verilator regression passes, including **31 SoC configurations** with independent clocks, stalls, clock pauses, and reset recovery.
-The 16×16, 32×32, and 64×64 blur results match an independent Python reference, with unchanged source frames.
-
-- **912 CPU retirements** checked against an architectural reference across four configurations.
-- **672 standalone cache transactions** covering byte writes, eviction, reset, and backpressure.
-- **6,000 ordered CDC request/response transactions** across FIFO depths 2, 4, and 8.
-- **32 short GPU launches** tested with the GPU clock ten times faster than the CPU clock.
-- Directed tests for AXI stalls, bus faults, MMIO cache bypass, atomic launch configuration, and reset recovery.
-
-<p align="center">
-  <img src="docs/assets/simt_gpu_full_blur_ferrari.png" alt="GPU clamped full-frame blur output" width="720">
-</p>
 
 ## Run
 
