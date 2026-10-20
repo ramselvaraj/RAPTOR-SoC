@@ -62,6 +62,12 @@ proc run_synthesis {} {
     set_app_var synthetic_library [list dw_foundation.sldb]
     set_app_var link_library [concat [list *] $libraries $extra_libraries [list dw_foundation.sldb]]
 
+    if {[env_or DC_CONSTRAINT_SWEEP 0] eq "1"} {
+        source [file join $script_dir sweep.tcl]
+        run_constraint_sweep $top $script_dir
+        return
+    }
+
     if {[env_or DC_REPORT_ONLY 0] eq "1"} {
         if {![file isfile results/soc_top.ddc]} {
             error "No mapped DDC in $output_dir/results. Run synthesis first or set DC_OUT_DIR."

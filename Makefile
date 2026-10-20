@@ -5,7 +5,7 @@ CORE_RTL := $(filter-out soc/rtl/shared_ram.sv soc/rtl/program_memory.sv multi_c
 .DEFAULT_GOAL := axi
 PY := $(shell if [ -x simt_gpu/.venv/bin/python ]; then echo simt_gpu/.venv/bin/python; else echo python3; fi)
 
-.PHONY: axi cpu boot lint lint-core dc dc-elab dc-core dc-core-elab dc-core-report core-test soc soc16 soc32 soc64 phase4 run blur blur16 blur32 blur64 golden branch trace phase3 unit clean
+.PHONY: axi cpu boot lint lint-core dc dc-elab dc-core dc-core-elab dc-core-report dc-core-sweep core-test soc soc16 soc32 soc64 phase4 run blur blur16 blur32 blur64 golden branch trace phase3 unit clean
 
 # Reset also gates the programming port, so synchronous and asynchronous uses
 # are intentional. Keep undriven signals, latches, and width warnings fatal.
@@ -28,6 +28,9 @@ dc-core-elab:
 
 dc-core-report:
 	DC_MODE=core DC_REPORT_ONLY=1 $(DC_SHELL) -f synth/dc.tcl
+
+dc-core-sweep:
+	DC_MODE=core DC_CONSTRAINT_SWEEP=1 $(DC_SHELL) -f synth/dc.tcl
 
 lint-core:
 	$(VERILATOR) --lint-only -Wall -DSYNTHESIS -DRAPTOR_EXTERNAL_MEMORIES \

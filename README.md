@@ -143,6 +143,34 @@ The detailed constraint report uses six decimal places to show small capacitance
 Copy these diagnostic reports to `synth/results/core/` for review.
 Do not publish the mapped DDC file.
 
+### Constraint experiments without synthesis
+
+Run `make dc-core-sweep` to analyze the saved mapped core under seven constraint scenarios.
+This target does not compile, change the RTL, or overwrite the mapped DDC.
+It writes `synth/build/core/reports/sweep/summary.csv` and per-scenario reports and SDC files.
+
+The first scenario preserves the saved constraints.
+The next scenarios isolate hold uncertainty and clock transition changes before combining them.
+Further scenarios reduce setup uncertainty and test 15 ns and 10 ns periods.
+The experimental values are assumptions, not measured clock specifications.
+The sweep keeps input transition, I/O delays, and output load fixed across the reconstructed scenarios.
+It does not change library capacitance limits or suppress hold checks.
+
+Compare the saved baseline with its existing reports before interpreting the other scenarios.
+An improvement from changed assumptions does not prove that the assumptions are correct.
+Shorter-period failures describe this mapped netlist, not the result of resynthesis at those periods.
+No scenario establishes complete-SoC timing or a validated maximum frequency.
+
+For later synthesis runs, the constraints accept these environment overrides:
+
+- `DC_SETUP_UNCERTAINTY`, `DC_HOLD_UNCERTAINTY`, and `DC_CLOCK_TRANSITION`
+- `DC_INPUT_TRANSITION`
+- `DC_INPUT_DELAY_MIN`, `DC_INPUT_DELAY_MAX`, `DC_OUTPUT_DELAY_MIN`, and `DC_OUTPUT_DELAY_MAX`
+- `DC_OUTPUT_LOAD` in pF for the current library
+
+Time values use the library time unit, which is ns for the current library.
+Without overrides, the original constraint values remain unchanged.
+
 The original `make dc-elab` and `make dc` targets still include all three memories as registers.
 Those targets use `synth/build/` and can need substantial runtime and host memory.
 
