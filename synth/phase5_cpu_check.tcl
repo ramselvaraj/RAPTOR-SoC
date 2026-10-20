@@ -21,6 +21,7 @@ proc run_phase5_cpu_check {} {
     apply_phase5_constraints
     set directory reports/cpu_100mhz
     set boot_contract [expr {[env_or DC_BOOT_CONTRACT 0] eq "1"}]
+    set memory_contract [expr {[env_or DC_MEMORY_CONTRACT 0] eq "1"}]
     if {$boot_contract} {
         # Interface requirement, not inserted delay or a hold-path exception.
         # A real boot source must guarantee this minimum arrival/hold budget.
@@ -28,6 +29,13 @@ proc run_phase5_cpu_check {} {
         if {[sizeof_collection $boot_inputs] == 0} {error "Boot input collection is empty."}
         set_input_delay -min 0.1 -clock cpu_clock $boot_inputs
         set directory reports/cpu_100mhz_boot_contract
+    }
+    if {$memory_contract} {
+        if {!$boot_contract} {error "Memory-interface check requires the explicit boot contract too."}
+        set memory_inputs [get_ports {cpu_imem_rdata* ram_host_rdata* ram_px_rdata*}]
+        if {[sizeof_collection $memory_inputs] == 0} {error "CPU memory read-data input collection is empty."}
+        set_input_delay -min 0.1 -clock cpu_clock $memory_inputs
+        set directory reports/cpu_100mhz_interfaces
     }
     file mkdir $directory
     set fd [open $directory/summary.txt w]
@@ -39,9 +47,15 @@ proc run_phase5_cpu_check {} {
     puts $fd "Library capacitance limits remain unchanged."
     if {$boot_contract} {
         puts $fd "Conditional boot contract: minimum input delay 0.1 ns on boot_addr, boot_wdata, boot_sel, boot_valid."
-        puts $fd "Other input minimum delays remain zero. Existing maximum delays and all hold checks remain unchanged."
+        puts $fd "Existing maximum delays and all hold checks remain unchanged."
         puts $fd "This does not implement a boot driver or prove that a physical source meets the contract."
     }
+    if {$memory_contract} {
+        puts $fd "Conditional memory contract: CPU instruction, RAM host, and RAM pixel read-data arrival window is 0.1..4.0 ns."
+        puts $fd "This is a requirement for external memory timing, not characterized memory behavior."
+        puts $fd "GPU program-data timing is unchanged; this check does not establish GPU setup/hold closure."
+    }
+    puts $fd "Input minimum delays outside the stated contracts remain zero."
     flush $fd
     foreach kind {max min} label {setup hold} {
         puts "Reporting CPU-domain $label timing..."

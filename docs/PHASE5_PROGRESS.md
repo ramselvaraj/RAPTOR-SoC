@@ -126,6 +126,14 @@ Debug counters stay in their original domains and are not synchronized for direc
 
 ## Remaining implementation-tool validation
 
+The boot-only contract check left a -0.014636 ns hold path from `cpu_imem_rdata[0]` to `idata_reg_0_`.
+This is an external-memory input path, not a register-to-register CPU pipeline path.
+`make dc-phase5-interface-check` retains the boot contract and tests a 0.1..4.0 ns arrival window
+for all CPU instruction, RAM-host, and RAM-pixel read-data input bits.
+It writes to `synth/build/phase5/reports/cpu_100mhz_interfaces/` without overwriting earlier checks.
+The minimum is an explicit requirement for a future memory implementation, not a measured property of the excluded memories.
+The GPU program-data contract and GPU timing checks remain unchanged.
+
 The focused 100 MHz CPU check reported +0.924154 ns setup and -0.050000 ns hold.
 The worst hold path is the direct `boot_addr[0]` to `cpu_imem_waddr[0]` feedthrough.
 Its zero minimum input delay conflicts with the 0.05 ns hold margin on the external write-address interface.
