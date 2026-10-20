@@ -138,6 +138,7 @@ proc run_synthesis {} {
     uniquify
     if {$mode eq "phase5"} {
         source [file join $script_dir phase5_constraints.tcl]
+        apply_phase5_constraints
     } else {
         source [file join $script_dir constraints.tcl]
     }

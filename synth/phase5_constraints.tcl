@@ -1,5 +1,6 @@
 # Exploratory pre-layout constraints, not proven operating frequencies.
 # No blanket asynchronous clock group: it would override Gray-pointer bounds.
+proc apply_phase5_constraints {} {
 set cpu_period [constraint_value DC_CPU_CLOCK_PERIOD 20.0]
 set gpu_period [constraint_value DC_GPU_CLOCK_PERIOD 20.0]
 if {$cpu_period <= 0 || $gpu_period <= 0} {error "Clock periods must be positive."}
@@ -26,22 +27,24 @@ foreach domain {cpu gpu} {
 
 # Bound Gray-register -> first synchronizer data paths by the faster period.
 # This is conservative for either source domain. Hold has no fixed phase.
-set gray_first [get_cells -hierarchical -filter {full_name =~ *wg1_reg* || full_name =~ *rg1_reg*}]
-if {[sizeof_collection $gray_first] == 0} {
-    error "Cannot locate Gray synchronizers. Review naming before applying CDC exceptions."
-}
-set gray_d [get_pins -of_objects $gray_first -filter {full_name =~ */D}]
+set data_pins [all_registers -data_pins]
+set gray_d [filter_collection $data_pins {full_name =~ *wg1_reg* || full_name =~ *rg1_reg*}]
 if {[sizeof_collection $gray_d] == 0} {error "Cannot locate Gray synchronizer D pins."}
-set_max_delay [expr {min($cpu_period,$gpu_period)}] -datapath_only -to $gray_d
-set_false_path -hold -to $gray_d
+# Presto generic registers can expose DATA rather than D. Use register-role
+# queries above, not library pin names. DC does not support PT's datapath_only.
+# This bound assumes ideal zero-latency clocks; review it after clock insertion.
+if {![set_max_delay [expr {min($cpu_period,$gpu_period)}] -to $gray_d]} {
+    error "Failed to constrain Gray-pointer maximum delay."
+}
+if {![set_false_path -hold -to $gray_d]} {error "Failed to constrain Gray-pointer asynchronous hold paths."}
 
 # Single-bit link-ready flags. Only the first stage is asynchronous.
-set flag_first [get_cells -hierarchical -filter {full_name =~ *gpu_up_cpu_reg*0* || full_name =~ *cpu_up_gpu_reg*0*}]
-if {[sizeof_collection $flag_first] == 0} {error "Cannot locate link-ready synchronizers."}
-set flag_d [get_pins -of_objects $flag_first -filter {full_name =~ */D}]
-set_false_path -to $flag_d
+set flag_d [filter_collection $data_pins {full_name =~ *gpu_up_cpu_reg*0* || full_name =~ *cpu_up_gpu_reg*0*}]
+if {[sizeof_collection $flag_d] == 0} {error "Cannot locate link-ready synchronizer data pins."}
+if {![set_false_path -to $flag_d]} {error "Failed to constrain asynchronous link-ready flags."}
 
 # Reset release uses local two-stage synchronizers. Keep recovery/removal checks
 # visible for review rather than masking every asynchronous reset pin globally.
 # The async FIFO payload is a stable bundled-data memory path: review its actual
 # implementation and remaining cross-domain timing with structural CDC checks.
+}
