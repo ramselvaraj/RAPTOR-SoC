@@ -3,6 +3,10 @@ module mc_datapath(
     input logic imem_we,
     input logic [9:0] imem_waddr,
     input logic [31:0] imem_wdata,
+`ifdef RAPTOR_EXTERNAL_MEMORIES
+    output logic [31:0] imem_addr,
+    input logic [31:0] imem_rdata,
+`endif
     input logic pc_write, ir_write, ab_write, aluout_write, mdr_write, reg_write,
     input logic alu_src_a_pc,
     input logic [2:0] alu_src_b,
@@ -20,11 +24,17 @@ module mc_datapath(
     logic [31:0] immediate_i_s, immediate_b, immediate_j, writeback_data;
 
     pc_sv pc_inst(.clk, .reset, .pc_ctrl(pc_write), .pc_next, .pc);
+`ifdef RAPTOR_EXTERNAL_MEMORIES
+    // Preserve the original combinational instruction-read behavior.
+    assign imem_addr = pc;
+    assign instruction = imem_rdata;
+`else
     mc_instruction_memory imem_inst(
         .clk, .write_enable(imem_we && reset),
         .write_addr(imem_waddr), .write_data(imem_wdata),
         .address(pc), .instruction
     );
+`endif
     instr_reg ir_inst(.clk, .reset, .write_enable(ir_write), .instruction_in(instruction), .instruction_out(ir));
     mc_reg_file regfile_inst(.clk, .reset, .write_enable(reg_write), .read_addr1(ir[19:15]), .read_addr2(ir[24:20]), .write_addr(ir[11:7]), .write_data(writeback_data), .read_data1, .read_data2);
     data_reg a_reg(.clk, .reset, .write_enable(ab_write), .data_in(read_data1), .data_out(a));

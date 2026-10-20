@@ -4,6 +4,10 @@ module riscv_mc(
     input logic imem_we,
     input logic [9:0] imem_waddr,
     input logic [31:0] imem_wdata,
+`ifdef RAPTOR_EXTERNAL_MEMORIES
+    output logic [31:0] imem_addr,
+    input logic [31:0] imem_rdata,
+`endif
     output logic mem_req,
     output logic mem_we,
     output logic [31:0] mem_addr,

@@ -1,5 +1,6 @@
 # Run from any directory: dc_shell -f /path/to/RAPTOR-SoC/synth/dc.tcl
 # TARGET_LIBRARY is a Tcl list of technology .db files (absolute paths).
+# DC_MODE=core exposes the three large memories as ports instead of arrays.
 
 set script_dir [file dirname [file normalize [info script]]]
 set repo_dir [file dirname $script_dir]
@@ -14,6 +15,16 @@ proc env_or {name fallback} {
 proc run_synthesis {} {
     global repo_dir script_dir
     set top soc_top
+    set mode [env_or DC_MODE soc]
+    if {$mode ni {soc core}} {
+        error "DC_MODE must be soc or core."
+    }
+    set defines [list SYNTHESIS]
+    set default_output [file join $repo_dir synth build]
+    if {$mode eq "core"} {
+        lappend defines RAPTOR_EXTERNAL_MEMORIES
+        set default_output [file join $default_output core]
+    }
     set libraries [env_or TARGET_LIBRARY {}]
     if {[llength $libraries] == 0} {
         error "Set TARGET_LIBRARY to a Tcl list of absolute technology .db paths."
@@ -25,7 +36,7 @@ proc run_synthesis {} {
         }
     }
 
-    set output_dir [file normalize [env_or DC_OUT_DIR [file join $repo_dir synth build]]]
+    set output_dir [file normalize [env_or DC_OUT_DIR $default_output]]
     file mkdir $output_dir
     cd $output_dir
     file mkdir work reports results
@@ -40,14 +51,31 @@ proc run_synthesis {} {
     set manifest [read $fd]
     close $fd
     set rtl_sources {}
+    set memory_sources [list soc/rtl/shared_ram.sv soc/rtl/program_memory.sv \
+        multi_cycle/rtl/instruction_memory.sv]
     foreach line [split $manifest "\n"] {
         set line [string trim $line]
         if {$line ne "" && ![string match "#*" $line]} {
+            if {$mode eq "core" && $line in $memory_sources} {
+                continue
+            }
             lappend rtl_sources [file join $repo_dir $line]
         }
     }
 
-    if {![analyze -format sverilog -define SYNTHESIS $rtl_sources]} {
+    set fd [open reports/scope.rpt w]
+    puts $fd "Synthesis mode: $mode"
+    if {$mode eq "core"} {
+        puts $fd "CPU, GPU, AXI, MMIO, and register files included."
+        puts $fd "Shared RAM and CPU/GPU instruction memories excluded; interfaces exposed as ports."
+        puts $fd "I/O delays are budgets, not characterized memory timing."
+        puts $fd "Area excludes the three memories; timing is not complete-SoC timing."
+    } else {
+        puts $fd "Full SoC, including register-based memories."
+    }
+    close $fd
+    puts "Synthesis mode: $mode"
+    if {![analyze -format sverilog -define $defines $rtl_sources]} {
         error "RTL analysis failed."
     }
     elaborate $top

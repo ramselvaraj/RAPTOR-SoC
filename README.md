@@ -74,13 +74,20 @@ The SoC test creates a trace, a memory dump, and an output image in `soc/build/r
 ## Synthesize with Synopsys Design Compiler
 
 The synthesis top is `soc_top`.
-Simulation and synthesis use the same RTL list in `soc/rtl/files.txt`.
+Use `dc-core` to synthesize all SoC logic without the three large memory arrays.
+This target includes the CPU, GPU, AXI bus, MMIO, and CPU/GPU register files.
+It exposes the excluded memories as ports, not black boxes or constant data.
+It does not instantiate SRAM macros or change instruction execution.
+
+Simulation and synthesis use the RTL list in `soc/rtl/files.txt`.
+The core flow excludes `shared_ram.sv`, `program_memory.sv`, and `instruction_memory.sv` from analysis.
 The RTL does not use file initialization or hierarchical writes to initialize hardware.
 
 Run the local checks first:
 
 ```sh
 make lint
+make core-test
 make boot
 make phase4
 ```
@@ -90,16 +97,16 @@ For Bash, use:
 
 ```bash
 source synth/env.sh
-make dc-elab
-make dc
+make dc-core-elab
+make dc-core
 ```
 
 For csh or tcsh, use:
 
 ```csh
 source synth/env.csh
-make dc-elab
-make dc
+make dc-core-elab
+make dc-core
 ```
 
 These files use the DC installation, license server, and FreePDK45 paths from ADDV Lab 2.
@@ -112,8 +119,8 @@ On another machine, load its DC environment and set the absolute `.db` path:
 ```sh
 export TARGET_LIBRARY='/absolute/path/to/standard_cells.db'
 export DC_CLOCK_PERIOD=20.0
-make dc-elab
-make dc
+make dc-core-elab
+make dc-core
 ```
 
 `TARGET_LIBRARY` accepts a Tcl list of `.db` paths.
@@ -124,15 +131,47 @@ Use `DC_OUT_DIR` to select another output directory.
 
 The flow uses `compile_ultra` and the installed DesignWare library.
 Make sure the required licenses are available.
-DC writes reports to `synth/build/reports/`.
-It writes the mapped Verilog, DDC, and SDC files to `synth/build/results/`.
-The `dc-elab` target stops before technology mapping.
+The core flow writes reports to `synth/build/core/reports/`.
+It writes the mapped Verilog, DDC, and SDC files to `synth/build/core/results/`.
+The `dc-core-elab` target stops before technology mapping.
+The `reports/scope.rpt` file identifies the included and excluded hardware.
+
+The original `make dc-elab` and `make dc` targets still include all three memories as registers.
+Those targets use `synth/build/` and can need substantial runtime and host memory.
 
 The default constraints are starting values, not timing-signoff requirements.
 Review `synth/constraints.tcl` for the selected library and external interface.
 Time values use the library's time unit, normally nanoseconds.
 Do not constrain `reset` or the boot inputs to constants during synthesis.
 The memories need these inputs for initialization.
+
+### Core memory interfaces
+
+The `dc-core` target defines `RAPTOR_EXTERNAL_MEMORIES`.
+Without this define, `soc_top` keeps the original internal memories and ports.
+With this define, `soc_top` adds these memory ports:
+
+| Port group | Interface |
+|---|---|
+| `cpu_imem_*` | 32-bit instruction read, 32-bit byte address, and a boot write port with a 10-bit word address |
+| `gpu_program_*` | 16-bit instruction read with a 10-bit word address, and a boot write port |
+| `ram_px_*` | GPU RAM port with a 15-bit word address and 32-bit data |
+| `ram_host_*` | CPU/boot RAM port with a 15-bit word address and 32-bit data |
+
+External memories must provide asynchronous reads and writes on the rising edge of `clk`.
+The CPU memory selects a word with `cpu_imem_addr[11:2]`, as in the original design.
+The GPU program address includes `prog_base` and wraps at 1024 words.
+All memory writes use active-high enables.
+If both RAM ports write the same word, the host write must take priority.
+Boot writes remain valid only while `reset=1`.
+
+The default constraints apply I/O timing budgets to these ports.
+They do not model a physical memory or its address-to-data delay.
+Core area excludes the three memories, and core timing does not establish complete-SoC timing.
+Actual memory integration still needs a compatible implementation and timing verification.
+
+Run `make core-test` to test the core with external memory models.
+The test uses the existing 16x16, 32x32, and 64x64 blur checks through the exported ports.
 
 ### Hardware initialization
 

@@ -10,6 +10,29 @@ module soc_top (
     input  logic [14:0] boot_addr,
     input  logic [31:0] boot_wdata,
     output logic [31:0] boot_rdata,
+`ifdef RAPTOR_EXTERNAL_MEMORIES
+    // Logic-only synthesis: asynchronous reads, writes on posedge clk.
+    // CPU read address is a byte address; write addresses are word indices.
+    output logic [31:0] cpu_imem_addr,
+    input  logic [31:0] cpu_imem_rdata,
+    output logic        cpu_imem_we,
+    output logic [9:0]  cpu_imem_waddr,
+    output logic [31:0] cpu_imem_wdata,
+    // GPU program address includes prog_base and wraps at 1024 words.
+    output logic [9:0]  gpu_program_addr,
+    input  logic [15:0] gpu_program_rdata,
+    output logic        gpu_program_we,
+    output logic [9:0]  gpu_program_waddr,
+    output logic [15:0] gpu_program_wdata,
+    output logic [14:0] ram_px_addr,
+    output logic        ram_px_we,
+    output logic [31:0] ram_px_wdata,
+    input  logic [31:0] ram_px_rdata,
+    output logic [14:0] ram_host_addr,
+    output logic        ram_host_we,
+    output logic [31:0] ram_host_wdata,
+    input  logic [31:0] ram_host_rdata,
+`endif
     output logic [3:0]  cpu_state,
     output logic        gpu_start,
     output logic        gpu_busy,
@@ -51,6 +74,9 @@ module soc_top (
 
     riscv_mc cpu (
         .clk(clk), .reset(reset),
+`ifdef RAPTOR_EXTERNAL_MEMORIES
+        .imem_addr(cpu_imem_addr), .imem_rdata(cpu_imem_rdata),
+`endif
         .imem_we(reset && boot_we && boot_sel == 2'd0 && boot_addr < 15'd1024),
         .imem_waddr(boot_addr[9:0]), .imem_wdata(boot_wdata),
         .mem_req(cpu_mem_req), .mem_we(cpu_mem_we),
@@ -117,6 +143,16 @@ module soc_top (
         .prog_base(gpu_prog_base)
     );
 
+`ifdef RAPTOR_EXTERNAL_MEMORIES
+    assign ram_px_addr = gpu_mem_addr[14:0];
+    assign ram_px_we = !reset && gpu_mem_req && gpu_mem_we && gpu_mem_ready;
+    assign ram_px_wdata = gpu_mem_wdata;
+    assign gpu_mem_rdata = ram_px_rdata;
+    assign ram_host_addr = reset ? boot_addr : host_addr;
+    assign ram_host_we = reset ? (boot_we && boot_sel == 2'd2) : host_we;
+    assign ram_host_wdata = reset ? boot_wdata : host_wdata;
+    assign host_rdata = ram_host_rdata;
+`else
     shared_ram ram (
         .clk(clk),
         .px_addr(gpu_mem_addr[14:0]),
@@ -126,16 +162,28 @@ module soc_top (
         .host_we(reset ? (boot_we && boot_sel == 2'd2) : host_we),
         .host_wdata(reset ? boot_wdata : host_wdata), .host_rdata(host_rdata)
     );
+`endif
 
     // RAM readback is asynchronous and only available while reset is asserted.
     assign boot_rdata = (reset && boot_sel == 2'd2) ? host_rdata : 32'b0;
 
+`ifdef RAPTOR_EXTERNAL_MEMORIES
+    assign cpu_imem_we = reset && boot_we && boot_sel == 2'd0 && boot_addr < 15'd1024;
+    assign cpu_imem_waddr = boot_addr[9:0];
+    assign cpu_imem_wdata = boot_wdata;
+    assign gpu_program_addr = gpu_prog_base[9:0] + gpu_imem_addr[9:0];
+    assign gpu_imem_rdata = gpu_program_rdata;
+    assign gpu_program_we = reset && boot_we && boot_sel == 2'd1 && boot_addr < 15'd1024;
+    assign gpu_program_waddr = boot_addr[9:0];
+    assign gpu_program_wdata = boot_wdata[15:0];
+`else
     program_memory program_mem (
         .clk(clk),
         .write_enable(reset && boot_we && boot_sel == 2'd1 && boot_addr < 15'd1024),
         .write_addr(boot_addr[9:0]), .write_data(boot_wdata[15:0]),
         .prog_base(gpu_prog_base), .imem_addr(gpu_imem_addr), .imem_rdata(gpu_imem_rdata)
     );
+`endif
 
     assign gpu_mem_ready = 1'b1;
 

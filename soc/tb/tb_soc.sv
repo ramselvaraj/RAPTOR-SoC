@@ -31,6 +31,38 @@ module tb_soc;
     logic [31:0] cpu_image [0:1023];
     logic [15:0] gpu_image [0:1023];
 
+`ifdef RAPTOR_EXTERNAL_MEMORIES
+    logic [31:0] cpu_imem_addr, cpu_imem_rdata, cpu_imem_wdata;
+    logic cpu_imem_we;
+    logic [9:0] cpu_imem_waddr;
+    logic [9:0] gpu_program_addr, gpu_program_waddr;
+    logic [15:0] gpu_program_rdata, gpu_program_wdata;
+    logic gpu_program_we;
+    logic [14:0] ram_px_addr, ram_host_addr;
+    logic ram_px_we, ram_host_we;
+    logic [31:0] ram_px_wdata, ram_px_rdata, ram_host_wdata, ram_host_rdata;
+
+    // Memory models are outside the DUT, so tests exercise the exported ports.
+    mc_instruction_memory external_cpu_imem (
+        .clk(clk), .write_enable(cpu_imem_we),
+        .write_addr(cpu_imem_waddr), .write_data(cpu_imem_wdata),
+        .address(cpu_imem_addr), .instruction(cpu_imem_rdata)
+    );
+    program_memory external_gpu_program (
+        .clk(clk), .write_enable(gpu_program_we),
+        .write_addr(gpu_program_waddr), .write_data(gpu_program_wdata),
+        .prog_base(32'b0), .imem_addr({6'b0, gpu_program_addr}),
+        .imem_rdata(gpu_program_rdata)
+    );
+    shared_ram external_ram (
+        .clk(clk),
+        .px_addr(ram_px_addr), .px_we(ram_px_we),
+        .px_wdata(ram_px_wdata), .px_rdata(ram_px_rdata),
+        .host_addr(ram_host_addr), .host_we(ram_host_we),
+        .host_wdata(ram_host_wdata), .host_rdata(ram_host_rdata)
+    );
+`endif
+
     soc_top dut (.*);
 
     always #5 clk = ~clk;
