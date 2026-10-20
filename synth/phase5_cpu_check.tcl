@@ -19,8 +19,17 @@ proc run_phase5_cpu_check {} {
     set ::env(DC_OUTPUT_DELAY_MIN) 0.0
     set ::env(DC_OUTPUT_LOAD) 0.01
     apply_phase5_constraints
-    file mkdir reports/cpu_100mhz
     set directory reports/cpu_100mhz
+    set boot_contract [expr {[env_or DC_BOOT_CONTRACT 0] eq "1"}]
+    if {$boot_contract} {
+        # Interface requirement, not inserted delay or a hold-path exception.
+        # A real boot source must guarantee this minimum arrival/hold budget.
+        set boot_inputs [get_ports {boot_addr* boot_wdata* boot_sel* boot_valid}]
+        if {[sizeof_collection $boot_inputs] == 0} {error "Boot input collection is empty."}
+        set_input_delay -min 0.1 -clock cpu_clock $boot_inputs
+        set directory reports/cpu_100mhz_boot_contract
+    }
+    file mkdir $directory
     set fd [open $directory/summary.txt w]
     puts $fd "Saved netlist re-analysis; no resynthesis."
     puts $fd "CPU: 10 ns / 100 MHz. GPU target retained: 20 ns / 50 MHz."
@@ -28,6 +37,11 @@ proc run_phase5_cpu_check {} {
     puts $fd "GPU timing is not re-reported by this focused command."
     puts $fd "Gray-pointer maximum delay follows the faster clock period (10 ns)."
     puts $fd "Library capacitance limits remain unchanged."
+    if {$boot_contract} {
+        puts $fd "Conditional boot contract: minimum input delay 0.1 ns on boot_addr, boot_wdata, boot_sel, boot_valid."
+        puts $fd "Other input minimum delays remain zero. Existing maximum delays and all hold checks remain unchanged."
+        puts $fd "This does not implement a boot driver or prove that a physical source meets the contract."
+    }
     flush $fd
     foreach kind {max min} label {setup hold} {
         puts "Reporting CPU-domain $label timing..."

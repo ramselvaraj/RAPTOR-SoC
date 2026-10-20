@@ -126,6 +126,18 @@ Debug counters stay in their original domains and are not synchronized for direc
 
 ## Remaining implementation-tool validation
 
+The focused 100 MHz CPU check reported +0.924154 ns setup and -0.050000 ns hold.
+The worst hold path is the direct `boot_addr[0]` to `cpu_imem_waddr[0]` feedthrough.
+Its zero minimum input delay conflicts with the 0.05 ns hold margin on the external write-address interface.
+This identifies the reported path, not every remaining CPU-domain violation.
+
+`make dc-phase5-boot-check` tests a separate, explicit boot-source contract.
+It requires 0.1 ns minimum input delay on boot address, data, selection, and valid.
+All other minimum delays, maximum delays, margins, loads, and checks remain unchanged.
+It writes to `synth/build/phase5/reports/cpu_100mhz_boot_contract/`, preserving the original check.
+This is a conditional interface assumption, not inserted hardware delay or proof about an actual boot source.
+The run must still report the next worst hold path. Do not infer all-checks closure from removing one failure.
+
 The uploaded internal CPU-clock register reports show +14.449377 ns setup slack at a 20 ns period
 and +0.012687 ns hold slack. These are register-to-register paths, not complete-domain timing.
 The setup-only internal boundary is approximately 5.550623 ns under the saved assumptions.
