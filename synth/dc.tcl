@@ -77,6 +77,14 @@ proc run_synthesis {} {
     set_app_var synthetic_library [list dw_foundation.sldb]
     set_app_var link_library [concat [list *] $libraries $extra_libraries [list dw_foundation.sldb]]
 
+    if {[env_or DC_PHASE5_CPU_CHECK 0] eq "1"} {
+        if {$mode ne "phase5"} {error "DC_PHASE5_CPU_CHECK requires DC_MODE=phase5."}
+        source [file join $script_dir phase5_constraints.tcl]
+        source [file join $script_dir phase5_cpu_check.tcl]
+        run_phase5_cpu_check
+        return
+    }
+
     if {[env_or DC_PHASE5_SWEEP 0] eq "1"} {
         if {$mode ne "phase5"} {error "DC_PHASE5_SWEEP requires DC_MODE=phase5."}
         source [file join $script_dir phase5_constraints.tcl]

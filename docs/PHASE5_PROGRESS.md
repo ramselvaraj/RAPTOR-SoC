@@ -126,6 +126,18 @@ Debug counters stay in their original domains and are not synchronized for direc
 
 ## Remaining implementation-tool validation
 
+The uploaded internal CPU-clock register reports show +14.449377 ns setup slack at a 20 ns period
+and +0.012687 ns hold slack. These are register-to-register paths, not complete-domain timing.
+The setup-only internal boundary is approximately 5.550623 ns under the saved assumptions.
+This estimate is not a validated whole-domain operating frequency.
+
+Use `make dc-phase5-cpu-check` for a focused 10 ns CPU / 20 ns GPU experiment.
+It reads the saved mapped DDC, applies the documented margins and I/O budgets, and reports only CPU-domain setup and hold.
+It avoids the expensive explicit register-to-register and cross-domain searches of the full sweep.
+It writes `synth/build/phase5/reports/cpu_100mhz/summary.txt`, reports, and SDC, without changing the original files.
+The GPU remains targeted at 20 ns, but this focused command does not re-report GPU timing.
+Passing CPU setup alone does not clear CPU hold, CDC, or electrical-rule violations.
+
 The first Phase 5 DC reports are now available in `synth/results/phase5/`.
 They show completed mapping at 20 ns CPU and GPU targets, with remaining hold and capacitance violations.
 Use `make dc-phase5-sweep` to inspect the saved mapped design without recompilation.

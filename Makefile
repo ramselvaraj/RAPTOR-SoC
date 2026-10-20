@@ -8,7 +8,10 @@ PY := $(shell if [ -x simt_gpu/.venv/bin/python ]; then echo simt_gpu/.venv/bin/
 
 .PHONY: axi cpu boot lint lint-core dc dc-elab dc-core dc-core-elab dc-core-report dc-core-sweep core-test soc soc16 soc32 soc64 phase4 run blur blur16 blur32 blur64 golden branch trace phase3 unit clean
 .PHONY: phase5 phase5-cpu phase5-bus phase5-cdc phase5-soc phase5-lint
-.PHONY: dc-phase5-core dc-phase5-elab dc-phase5-sweep
+.PHONY: dc-phase5-core dc-phase5-elab dc-phase5-sweep dc-phase5-cpu-check
+
+dc-phase5-cpu-check:
+	DC_MODE=phase5 DC_PHASE5_CPU_CHECK=1 $(DC_SHELL) -f synth/dc.tcl
 
 dc-phase5-sweep:
 	DC_MODE=phase5 DC_PHASE5_SWEEP=1 $(DC_SHELL) -f synth/dc.tcl
