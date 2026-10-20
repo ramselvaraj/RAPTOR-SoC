@@ -40,6 +40,9 @@ module soc_phase5_top #(
     logic cpu_reset, gpu_reset, cpu_exec_reset, gpu_exec_reset;
     (* ASYNC_REG="TRUE" *) logic [1:0] gpu_up_cpu, cpu_up_gpu;
     logic cpu_online, gpu_online, core_fault, bus_fault;
+    logic iv, ir, irv, irr, dv, dr, drv, drr;
+    logic [31:0] ia, iw, idata, da, dw, dread;
+    logic [3:0] istrb, ds;
     reset_release cpu_rst(.clk(cpu_clk), .arst, .reset(cpu_reset));
     reset_release gpu_rst(.clk(gpu_clk), .arst, .reset(gpu_reset));
     reset_release cpu_hold(.clk(cpu_clk), .arst(cpu_reset || boot_hold || fault), .reset(cpu_exec_reset));
@@ -55,9 +58,6 @@ module soc_phase5_top #(
         if(cpu_reset) fault<=0;
         else if(core_fault || bus_fault || (iv && ir && (ia>=4096 || istrb!=0))) fault<=1;
 
-    logic iv, ir, irv, irr, dv, dr, drv, drr;
-    logic [31:0] ia, iw, idata, da, dw, dread;
-    logic [3:0] istrb, ds;
     pipeline_cache #(.REGION_BYPASS(1), .BYPASS_ICACHE(!CACHE_ENABLE), .BYPASS_DCACHE(!CACHE_ENABLE)) cpu(
         .clk(cpu_clk), .reset(cpu_exec_reset),
         .imem_req_valid(iv), .imem_req_ready(ir), .imem_req_addr(ia), .imem_req_data(iw), .imem_req_strb(istrb),
