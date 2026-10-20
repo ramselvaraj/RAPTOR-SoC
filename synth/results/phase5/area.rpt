@@ -1,0 +1,97 @@
+ 
+****************************************
+Report : area
+Design : soc_phase5_top
+Version: V-2023.12-SP5-1
+Date   : Tue Oct 20 07:44:42 2026
+****************************************
+
+Information: Updating design information... (UID-85)
+Warning: Design 'soc_phase5_top' contains 5 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Library(s) Used:
+
+    gscl45nm (File: /usr/local2/cadence/NCSU/SRC/FreePDK45/osu_soc/lib/files/gscl45nm.db)
+
+Number of ports:                        11108
+Number of nets:                        137368
+Number of cells:                       120857
+Number of combinational cells:         111831
+Number of sequential cells:              8945
+Number of macros/black boxes:               0
+Number of buf/inv:                      28941
+Number of references:                      31
+
+Combinational area:             332240.464831
+Buf/Inv area:                    45467.660247
+Noncombinational area:           90363.716629
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                422604.181460
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area              Local cell area
+                                  --------------------  ------------------------------- 
+Hierarchical cell                 Absolute     Percent  Combi-       Noncombi-   Black-
+                                  Total        Total    national     national    boxes   Design
+--------------------------------  -----------  -------  -----------  ----------  ------  ----------------------------------------------------------
+soc_phase5_top                    422604.1815    100.0    2041.9243   2219.7890  0.0000  soc_phase5_top
+commands                            6817.5210      1.6    3207.6655   3609.8555  0.0000  async_fifo_WIDTH128_DEPTH4
+completions                          345.4048      0.1     118.2636    227.1412  0.0000  async_fifo_WIDTH1_DEPTH4_1
+cpu                                77103.1745     18.2       0.0000      0.0000  0.0000  pipeline_cache_REGION_BYPASS1_484242
+cpu/cached_fetch_icache            15600.4707      3.7    7185.9215   8414.5492  0.0000  blocking_cache_LINES4_WORDS_PER_LINE4_READ_ONLY1
+cpu/core                           39944.9389      9.5   21844.0375  17778.9616  0.0000  cache_pipeline_core
+cpu/core/decoder                     321.9398      0.1     321.9398      0.0000  0.0000  cache_cpu_decoder
+cpu/routed_data_router             21557.7649      5.1    1028.2363    712.3974  0.0000  cache_data_router_4_4_0_1
+cpu/routed_data_router/cache_enabled_cache
+                                   19817.1312      4.7   10318.4990   9498.6322  0.0000  blocking_cache_4_4_1
+cpu_hold                              24.4036      0.0       3.7544     20.6492  0.0000  reset_release_1
+cpu_master                          1778.6470      0.4     725.5378   1053.1092  0.0000  cpu_request_axi
+cpu_rst                               22.0571      0.0       1.4079     20.6492  0.0000  reset_release_3
+gpu                               317365.0643     75.1     311.6152     30.9738  0.0000  simt_gpu_LOCK_MEMORY_OWNER1
+gpu/g_warp_0__u_warp              156833.9595     37.1    1667.4229    330.3872  0.0000  warp_LANES4_PC_W16_1
+gpu/g_warp_0__u_warp/g_alu_0__u_alu
+                                   27556.3575      6.5   27556.3575      0.0000  0.0000  alu_7
+gpu/g_warp_0__u_warp/g_alu_1__u_alu
+                                   27878.7665      6.6   27878.7665      0.0000  0.0000  alu_6
+gpu/g_warp_0__u_warp/g_alu_2__u_alu
+                                   27733.2836      6.6   27733.2836      0.0000  0.0000  alu_5
+gpu/g_warp_0__u_warp/g_alu_3__u_alu
+                                   27198.2816      6.4   27198.2816      0.0000  0.0000  alu_4
+gpu/g_warp_0__u_warp/u_dec             4.6930      0.0       4.6930      0.0000  0.0000  decoder_1
+gpu/g_warp_0__u_warp/u_mem          2802.6596      0.7    1429.4878   1373.1718  0.0000  mem_unit_LANES4_1
+gpu/g_warp_0__u_warp/u_rf          41662.1076      9.9   24481.9728  17180.1348  0.0000  regfile_LANES4_1
+gpu/g_warp_1__u_warp              157077.5261     37.2    1679.1554    330.3872  0.0000  warp_LANES4_PC_W16_0
+gpu/g_warp_1__u_warp/g_alu_0__u_alu
+                                   27382.2472      6.5   27382.2472      0.0000  0.0000  alu_3
+gpu/g_warp_1__u_warp/g_alu_1__u_alu
+                                   27672.7438      6.5   27672.7438      0.0000  0.0000  alu_2
+gpu/g_warp_1__u_warp/g_alu_2__u_alu
+                                   27908.3324      6.6   27908.3324      0.0000  0.0000  alu_1
+gpu/g_warp_1__u_warp/g_alu_3__u_alu
+                                   27773.6433      6.6   27773.6433      0.0000  0.0000  alu_0
+gpu/g_warp_1__u_warp/u_dec             4.6930      0.0       4.6930      0.0000  0.0000  decoder_0
+gpu/g_warp_1__u_warp/u_mem          2802.6596      0.7    1429.4878   1373.1718  0.0000  mem_unit_LANES4_0
+gpu/g_warp_1__u_warp/u_rf          41523.6641      9.8   24343.5294  17180.1348  0.0000  regfile_LANES4_0
+gpu/u_dcr                           2726.6330      0.6    1415.4088   1311.2242  0.0000  dcr_TB8
+gpu/u_disp                           359.9531      0.1     359.9531      0.0000  0.0000  dispatcher_WARPS2_LANES4
+gpu/u_sched                           24.4036      0.0      14.0790     10.3246  0.0000  scheduler_WARPS2
+gpu_hold                              24.8729      0.0       4.2237     20.6492  0.0000  reset_release_0
+gpu_rst                               24.4036      0.0       3.7544     20.6492  0.0000  reset_release_2
+memory_bridge                       6391.8659      1.5     259.5229    351.0364  0.0000  gpu_memory_cdc_DEPTH4
+memory_bridge/channel               5781.3066      1.4       0.0000      0.0000  0.0000  cdc_request_channel_REQUEST_WIDTH65_DEPTH4
+memory_bridge/channel/requests      3391.6311      0.8    1622.3701   1769.2610  0.0000  async_fifo_WIDTH65_DEPTH4
+memory_bridge/channel/responses     2389.6756      0.6    1131.0130   1258.6626  0.0000  async_fifo_WIDTH32_DEPTH4
+mmio                                3331.5607      0.8    1452.4835   1879.0772  0.0000  gpu_mmio_0_1
+program_loader                      2342.7456      0.6       0.0000      0.0000  0.0000  cdc_request_channel_REQUEST_WIDTH26_RESPONSE_WIDTH1_DEPTH4
+program_loader/requests             1997.3408      0.5     940.4772   1056.8636  0.0000  async_fifo_WIDTH26_DEPTH4
+program_loader/responses             345.4048      0.1     118.2636    227.1412  0.0000  async_fifo_WIDTH1_DEPTH4_0
+ram_slave                           2098.7096      0.5    1024.9512   1073.7584  0.0000  axi_lite_ram_0
+u_interconnect                       672.0376      0.2     641.0638     30.9738  0.0000  axi_lite_interconnect
+--------------------------------  -----------  -------  -----------  ----------  ------  ----------------------------------------------------------
+Total                                                   332240.4648  90363.7166  0.0000
+
+1

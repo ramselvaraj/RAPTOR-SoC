@@ -1,0 +1,647 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -max_paths 10
+Design : soc_phase5_top
+Version: V-2023.12-SP5-1
+Date   : Tue Oct 20 07:44:46 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: gscl45nm
+Wire Load Model Mode: top
+
+  Startpoint: boot_addr[9]
+              (input port clocked by cpu_clock)
+  Endpoint: cpu_imem_waddr[9]
+            (output port clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  input external delay                 0.000000   0.000000 r
+  boot_addr[9] (in)                    0.000000   0.000000 r
+  cpu_imem_waddr[9] (out)              0.000000   0.000000 r
+  data arrival time                               0.000000
+
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  clock uncertainty                    0.050000   0.050000
+  output external delay                0.000000   0.050000
+  data required time                              0.050000
+  -----------------------------------------------------------
+  data required time                              0.050000
+  data arrival time                               0.000000
+  -----------------------------------------------------------
+  slack (VIOLATED)                                -0.050000
+
+
+  Startpoint: boot_addr[8]
+              (input port clocked by cpu_clock)
+  Endpoint: cpu_imem_waddr[8]
+            (output port clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  input external delay                 0.000000   0.000000 r
+  boot_addr[8] (in)                    0.000000   0.000000 r
+  cpu_imem_waddr[8] (out)              0.000000   0.000000 r
+  data arrival time                               0.000000
+
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  clock uncertainty                    0.050000   0.050000
+  output external delay                0.000000   0.050000
+  data required time                              0.050000
+  -----------------------------------------------------------
+  data required time                              0.050000
+  data arrival time                               0.000000
+  -----------------------------------------------------------
+  slack (VIOLATED)                                -0.050000
+
+
+  Startpoint: boot_addr[7]
+              (input port clocked by cpu_clock)
+  Endpoint: cpu_imem_waddr[7]
+            (output port clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  input external delay                 0.000000   0.000000 r
+  boot_addr[7] (in)                    0.000000   0.000000 r
+  cpu_imem_waddr[7] (out)              0.000000   0.000000 r
+  data arrival time                               0.000000
+
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  clock uncertainty                    0.050000   0.050000
+  output external delay                0.000000   0.050000
+  data required time                              0.050000
+  -----------------------------------------------------------
+  data required time                              0.050000
+  data arrival time                               0.000000
+  -----------------------------------------------------------
+  slack (VIOLATED)                                -0.050000
+
+
+  Startpoint: boot_addr[6]
+              (input port clocked by cpu_clock)
+  Endpoint: cpu_imem_waddr[6]
+            (output port clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  input external delay                 0.000000   0.000000 r
+  boot_addr[6] (in)                    0.000000   0.000000 r
+  cpu_imem_waddr[6] (out)              0.000000   0.000000 r
+  data arrival time                               0.000000
+
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  clock uncertainty                    0.050000   0.050000
+  output external delay                0.000000   0.050000
+  data required time                              0.050000
+  -----------------------------------------------------------
+  data required time                              0.050000
+  data arrival time                               0.000000
+  -----------------------------------------------------------
+  slack (VIOLATED)                                -0.050000
+
+
+  Startpoint: boot_addr[5]
+              (input port clocked by cpu_clock)
+  Endpoint: cpu_imem_waddr[5]
+            (output port clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  input external delay                 0.000000   0.000000 r
+  boot_addr[5] (in)                    0.000000   0.000000 r
+  cpu_imem_waddr[5] (out)              0.000000   0.000000 r
+  data arrival time                               0.000000
+
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  clock uncertainty                    0.050000   0.050000
+  output external delay                0.000000   0.050000
+  data required time                              0.050000
+  -----------------------------------------------------------
+  data required time                              0.050000
+  data arrival time                               0.000000
+  -----------------------------------------------------------
+  slack (VIOLATED)                                -0.050000
+
+
+  Startpoint: boot_addr[4]
+              (input port clocked by cpu_clock)
+  Endpoint: cpu_imem_waddr[4]
+            (output port clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  input external delay                 0.000000   0.000000 r
+  boot_addr[4] (in)                    0.000000   0.000000 r
+  cpu_imem_waddr[4] (out)              0.000000   0.000000 r
+  data arrival time                               0.000000
+
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  clock uncertainty                    0.050000   0.050000
+  output external delay                0.000000   0.050000
+  data required time                              0.050000
+  -----------------------------------------------------------
+  data required time                              0.050000
+  data arrival time                               0.000000
+  -----------------------------------------------------------
+  slack (VIOLATED)                                -0.050000
+
+
+  Startpoint: boot_addr[3]
+              (input port clocked by cpu_clock)
+  Endpoint: cpu_imem_waddr[3]
+            (output port clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  input external delay                 0.000000   0.000000 r
+  boot_addr[3] (in)                    0.000000   0.000000 r
+  cpu_imem_waddr[3] (out)              0.000000   0.000000 r
+  data arrival time                               0.000000
+
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  clock uncertainty                    0.050000   0.050000
+  output external delay                0.000000   0.050000
+  data required time                              0.050000
+  -----------------------------------------------------------
+  data required time                              0.050000
+  data arrival time                               0.000000
+  -----------------------------------------------------------
+  slack (VIOLATED)                                -0.050000
+
+
+  Startpoint: boot_addr[2]
+              (input port clocked by cpu_clock)
+  Endpoint: cpu_imem_waddr[2]
+            (output port clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  input external delay                 0.000000   0.000000 r
+  boot_addr[2] (in)                    0.000000   0.000000 r
+  cpu_imem_waddr[2] (out)              0.000000   0.000000 r
+  data arrival time                               0.000000
+
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  clock uncertainty                    0.050000   0.050000
+  output external delay                0.000000   0.050000
+  data required time                              0.050000
+  -----------------------------------------------------------
+  data required time                              0.050000
+  data arrival time                               0.000000
+  -----------------------------------------------------------
+  slack (VIOLATED)                                -0.050000
+
+
+  Startpoint: boot_addr[1]
+              (input port clocked by cpu_clock)
+  Endpoint: cpu_imem_waddr[1]
+            (output port clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  input external delay                 0.000000   0.000000 r
+  boot_addr[1] (in)                    0.000000   0.000000 r
+  cpu_imem_waddr[1] (out)              0.000000   0.000000 r
+  data arrival time                               0.000000
+
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  clock uncertainty                    0.050000   0.050000
+  output external delay                0.000000   0.050000
+  data required time                              0.050000
+  -----------------------------------------------------------
+  data required time                              0.050000
+  data arrival time                               0.000000
+  -----------------------------------------------------------
+  slack (VIOLATED)                                -0.050000
+
+
+  Startpoint: boot_addr[0]
+              (input port clocked by cpu_clock)
+  Endpoint: cpu_imem_waddr[0]
+            (output port clocked by cpu_clock)
+  Path Group: cpu_clock
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  input external delay                 0.000000   0.000000 r
+  boot_addr[0] (in)                    0.000000   0.000000 r
+  cpu_imem_waddr[0] (out)              0.000000   0.000000 r
+  data arrival time                               0.000000
+
+  clock cpu_clock (rise edge)          0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  clock uncertainty                    0.050000   0.050000
+  output external delay                0.000000   0.050000
+  data required time                              0.050000
+  -----------------------------------------------------------
+  data required time                              0.050000
+  data arrival time                               0.000000
+  -----------------------------------------------------------
+  slack (VIOLATED)                                -0.050000
+
+
+  Startpoint: gpu_program_rdata[0]
+              (input port clocked by gpu_clock)
+  Endpoint: gpu/g_warp_0__u_warp/ir_reg_0_
+            (rising edge-triggered flip-flop clocked by gpu_clock)
+  Path Group: gpu_clock
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  input external delay                                0.000000   0.000000 f
+  gpu_program_rdata[0] (in)                           0.000000   0.000000 f
+  gpu/imem_rdata[0] (simt_gpu_LOCK_MEMORY_OWNER1)     0.000000   0.000000 f
+  gpu/g_warp_0__u_warp/imem_rdata[0] (warp_LANES4_PC_W16_1)
+                                                      0.000000   0.000000 f
+  gpu/g_warp_0__u_warp/U18/Y (AND2X1)                 0.044647   0.044647 f
+  gpu/g_warp_0__u_warp/U19/Y (INVX1)                  -0.001972  0.042674 r
+  gpu/g_warp_0__u_warp/U283/Y (OAI21X1)               0.009713   0.052388 f
+  gpu/g_warp_0__u_warp/ir_reg_0_/D (DFFSR)            0.000000   0.052388 f
+  data arrival time                                              0.052388
+
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  clock uncertainty                                   0.050000   0.050000
+  gpu/g_warp_0__u_warp/ir_reg_0_/CLK (DFFSR)          0.000000   0.050000 r
+  library hold time                                   0.046875   0.096875
+  data required time                                             0.096875
+  --------------------------------------------------------------------------
+  data required time                                             0.096875
+  data arrival time                                              -0.052388
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                               -0.044487
+
+
+  Startpoint: gpu_program_rdata[7]
+              (input port clocked by gpu_clock)
+  Endpoint: gpu/g_warp_0__u_warp/ir_reg_7_
+            (rising edge-triggered flip-flop clocked by gpu_clock)
+  Path Group: gpu_clock
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  input external delay                                0.000000   0.000000 f
+  gpu_program_rdata[7] (in)                           0.000000   0.000000 f
+  gpu/imem_rdata[7] (simt_gpu_LOCK_MEMORY_OWNER1)     0.000000   0.000000 f
+  gpu/g_warp_0__u_warp/imem_rdata[7] (warp_LANES4_PC_W16_1)
+                                                      0.000000   0.000000 f
+  gpu/g_warp_0__u_warp/U24/Y (AND2X1)                 0.044647   0.044647 f
+  gpu/g_warp_0__u_warp/U25/Y (INVX1)                  -0.001972  0.042674 r
+  gpu/g_warp_0__u_warp/U326/Y (OAI21X1)               0.009713   0.052388 f
+  gpu/g_warp_0__u_warp/ir_reg_7_/D (DFFSR)            0.000000   0.052388 f
+  data arrival time                                              0.052388
+
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  clock uncertainty                                   0.050000   0.050000
+  gpu/g_warp_0__u_warp/ir_reg_7_/CLK (DFFSR)          0.000000   0.050000 r
+  library hold time                                   0.046875   0.096875
+  data required time                                             0.096875
+  --------------------------------------------------------------------------
+  data required time                                             0.096875
+  data arrival time                                              -0.052388
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                               -0.044487
+
+
+  Startpoint: gpu_program_rdata[6]
+              (input port clocked by gpu_clock)
+  Endpoint: gpu/g_warp_0__u_warp/ir_reg_6_
+            (rising edge-triggered flip-flop clocked by gpu_clock)
+  Path Group: gpu_clock
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  input external delay                                0.000000   0.000000 f
+  gpu_program_rdata[6] (in)                           0.000000   0.000000 f
+  gpu/imem_rdata[6] (simt_gpu_LOCK_MEMORY_OWNER1)     0.000000   0.000000 f
+  gpu/g_warp_0__u_warp/imem_rdata[6] (warp_LANES4_PC_W16_1)
+                                                      0.000000   0.000000 f
+  gpu/g_warp_0__u_warp/U26/Y (AND2X1)                 0.044647   0.044647 f
+  gpu/g_warp_0__u_warp/U27/Y (INVX1)                  -0.001972  0.042674 r
+  gpu/g_warp_0__u_warp/U320/Y (OAI21X1)               0.009713   0.052388 f
+  gpu/g_warp_0__u_warp/ir_reg_6_/D (DFFSR)            0.000000   0.052388 f
+  data arrival time                                              0.052388
+
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  clock uncertainty                                   0.050000   0.050000
+  gpu/g_warp_0__u_warp/ir_reg_6_/CLK (DFFSR)          0.000000   0.050000 r
+  library hold time                                   0.046875   0.096875
+  data required time                                             0.096875
+  --------------------------------------------------------------------------
+  data required time                                             0.096875
+  data arrival time                                              -0.052388
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                               -0.044487
+
+
+  Startpoint: gpu_program_rdata[5]
+              (input port clocked by gpu_clock)
+  Endpoint: gpu/g_warp_0__u_warp/ir_reg_5_
+            (rising edge-triggered flip-flop clocked by gpu_clock)
+  Path Group: gpu_clock
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  input external delay                                0.000000   0.000000 f
+  gpu_program_rdata[5] (in)                           0.000000   0.000000 f
+  gpu/imem_rdata[5] (simt_gpu_LOCK_MEMORY_OWNER1)     0.000000   0.000000 f
+  gpu/g_warp_0__u_warp/imem_rdata[5] (warp_LANES4_PC_W16_1)
+                                                      0.000000   0.000000 f
+  gpu/g_warp_0__u_warp/U28/Y (AND2X1)                 0.044647   0.044647 f
+  gpu/g_warp_0__u_warp/U29/Y (INVX1)                  -0.001972  0.042674 r
+  gpu/g_warp_0__u_warp/U314/Y (OAI21X1)               0.009713   0.052388 f
+  gpu/g_warp_0__u_warp/ir_reg_5_/D (DFFSR)            0.000000   0.052388 f
+  data arrival time                                              0.052388
+
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  clock uncertainty                                   0.050000   0.050000
+  gpu/g_warp_0__u_warp/ir_reg_5_/CLK (DFFSR)          0.000000   0.050000 r
+  library hold time                                   0.046875   0.096875
+  data required time                                             0.096875
+  --------------------------------------------------------------------------
+  data required time                                             0.096875
+  data arrival time                                              -0.052388
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                               -0.044487
+
+
+  Startpoint: gpu_program_rdata[2]
+              (input port clocked by gpu_clock)
+  Endpoint: gpu/g_warp_0__u_warp/ir_reg_2_
+            (rising edge-triggered flip-flop clocked by gpu_clock)
+  Path Group: gpu_clock
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  input external delay                                0.000000   0.000000 f
+  gpu_program_rdata[2] (in)                           0.000000   0.000000 f
+  gpu/imem_rdata[2] (simt_gpu_LOCK_MEMORY_OWNER1)     0.000000   0.000000 f
+  gpu/g_warp_0__u_warp/imem_rdata[2] (warp_LANES4_PC_W16_1)
+                                                      0.000000   0.000000 f
+  gpu/g_warp_0__u_warp/U30/Y (AND2X1)                 0.044647   0.044647 f
+  gpu/g_warp_0__u_warp/U31/Y (INVX1)                  -0.001972  0.042674 r
+  gpu/g_warp_0__u_warp/U295/Y (OAI21X1)               0.009713   0.052388 f
+  gpu/g_warp_0__u_warp/ir_reg_2_/D (DFFSR)            0.000000   0.052388 f
+  data arrival time                                              0.052388
+
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  clock uncertainty                                   0.050000   0.050000
+  gpu/g_warp_0__u_warp/ir_reg_2_/CLK (DFFSR)          0.000000   0.050000 r
+  library hold time                                   0.046875   0.096875
+  data required time                                             0.096875
+  --------------------------------------------------------------------------
+  data required time                                             0.096875
+  data arrival time                                              -0.052388
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                               -0.044487
+
+
+  Startpoint: gpu_program_rdata[0]
+              (input port clocked by gpu_clock)
+  Endpoint: gpu/g_warp_1__u_warp/ir_reg_0_
+            (rising edge-triggered flip-flop clocked by gpu_clock)
+  Path Group: gpu_clock
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  input external delay                                0.000000   0.000000 f
+  gpu_program_rdata[0] (in)                           0.000000   0.000000 f
+  gpu/imem_rdata[0] (simt_gpu_LOCK_MEMORY_OWNER1)     0.000000   0.000000 f
+  gpu/g_warp_1__u_warp/imem_rdata[0] (warp_LANES4_PC_W16_0)
+                                                      0.000000   0.000000 f
+  gpu/g_warp_1__u_warp/U12/Y (AND2X1)                 0.044647   0.044647 f
+  gpu/g_warp_1__u_warp/U13/Y (INVX1)                  -0.001972  0.042674 r
+  gpu/g_warp_1__u_warp/U282/Y (OAI21X1)               0.009713   0.052388 f
+  gpu/g_warp_1__u_warp/ir_reg_0_/D (DFFSR)            0.000000   0.052388 f
+  data arrival time                                              0.052388
+
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  clock uncertainty                                   0.050000   0.050000
+  gpu/g_warp_1__u_warp/ir_reg_0_/CLK (DFFSR)          0.000000   0.050000 r
+  library hold time                                   0.046875   0.096875
+  data required time                                             0.096875
+  --------------------------------------------------------------------------
+  data required time                                             0.096875
+  data arrival time                                              -0.052388
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                               -0.044487
+
+
+  Startpoint: gpu_program_rdata[5]
+              (input port clocked by gpu_clock)
+  Endpoint: gpu/g_warp_1__u_warp/ir_reg_5_
+            (rising edge-triggered flip-flop clocked by gpu_clock)
+  Path Group: gpu_clock
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  input external delay                                0.000000   0.000000 f
+  gpu_program_rdata[5] (in)                           0.000000   0.000000 f
+  gpu/imem_rdata[5] (simt_gpu_LOCK_MEMORY_OWNER1)     0.000000   0.000000 f
+  gpu/g_warp_1__u_warp/imem_rdata[5] (warp_LANES4_PC_W16_0)
+                                                      0.000000   0.000000 f
+  gpu/g_warp_1__u_warp/U20/Y (AND2X1)                 0.044647   0.044647 f
+  gpu/g_warp_1__u_warp/U21/Y (INVX1)                  -0.001972  0.042674 r
+  gpu/g_warp_1__u_warp/U312/Y (OAI21X1)               0.009713   0.052388 f
+  gpu/g_warp_1__u_warp/ir_reg_5_/D (DFFSR)            0.000000   0.052388 f
+  data arrival time                                              0.052388
+
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  clock uncertainty                                   0.050000   0.050000
+  gpu/g_warp_1__u_warp/ir_reg_5_/CLK (DFFSR)          0.000000   0.050000 r
+  library hold time                                   0.046875   0.096875
+  data required time                                             0.096875
+  --------------------------------------------------------------------------
+  data required time                                             0.096875
+  data arrival time                                              -0.052388
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                               -0.044487
+
+
+  Startpoint: gpu_program_rdata[2]
+              (input port clocked by gpu_clock)
+  Endpoint: gpu/g_warp_1__u_warp/ir_reg_2_
+            (rising edge-triggered flip-flop clocked by gpu_clock)
+  Path Group: gpu_clock
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  input external delay                                0.000000   0.000000 f
+  gpu_program_rdata[2] (in)                           0.000000   0.000000 f
+  gpu/imem_rdata[2] (simt_gpu_LOCK_MEMORY_OWNER1)     0.000000   0.000000 f
+  gpu/g_warp_1__u_warp/imem_rdata[2] (warp_LANES4_PC_W16_0)
+                                                      0.000000   0.000000 f
+  gpu/g_warp_1__u_warp/U22/Y (AND2X1)                 0.044647   0.044647 f
+  gpu/g_warp_1__u_warp/U23/Y (INVX1)                  -0.001972  0.042674 r
+  gpu/g_warp_1__u_warp/U293/Y (OAI21X1)               0.009713   0.052388 f
+  gpu/g_warp_1__u_warp/ir_reg_2_/D (DFFSR)            0.000000   0.052388 f
+  data arrival time                                              0.052388
+
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  clock uncertainty                                   0.050000   0.050000
+  gpu/g_warp_1__u_warp/ir_reg_2_/CLK (DFFSR)          0.000000   0.050000 r
+  library hold time                                   0.046875   0.096875
+  data required time                                             0.096875
+  --------------------------------------------------------------------------
+  data required time                                             0.096875
+  data arrival time                                              -0.052388
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                               -0.044487
+
+
+  Startpoint: gpu_program_rdata[15]
+              (input port clocked by gpu_clock)
+  Endpoint: gpu/g_warp_0__u_warp/ir_reg_15_
+            (rising edge-triggered flip-flop clocked by gpu_clock)
+  Path Group: gpu_clock
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  input external delay                                0.000000   0.000000 f
+  gpu_program_rdata[15] (in)                          0.000000   0.000000 f
+  gpu/imem_rdata[15] (simt_gpu_LOCK_MEMORY_OWNER1)    0.000000   0.000000 f
+  gpu/g_warp_0__u_warp/imem_rdata[15] (warp_LANES4_PC_W16_1)
+                                                      0.000000   0.000000 f
+  gpu/g_warp_0__u_warp/U20/Y (AND2X1)                 0.044647   0.044647 f
+  gpu/g_warp_0__u_warp/U21/Y (INVX1)                  -0.001972  0.042674 r
+  gpu/g_warp_0__u_warp/U858/Y (OAI21X1)               0.009713   0.052388 f
+  gpu/g_warp_0__u_warp/ir_reg_15_/D (DFFSR)           0.000000   0.052388 f
+  data arrival time                                              0.052388
+
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  clock uncertainty                                   0.050000   0.050000
+  gpu/g_warp_0__u_warp/ir_reg_15_/CLK (DFFSR)         0.000000   0.050000 r
+  library hold time                                   0.046871   0.096871
+  data required time                                             0.096871
+  --------------------------------------------------------------------------
+  data required time                                             0.096871
+  data arrival time                                              -0.052388
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                               -0.044483
+
+
+  Startpoint: gpu_program_rdata[13]
+              (input port clocked by gpu_clock)
+  Endpoint: gpu/g_warp_0__u_warp/ir_reg_13_
+            (rising edge-triggered flip-flop clocked by gpu_clock)
+  Path Group: gpu_clock
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  input external delay                                0.000000   0.000000 f
+  gpu_program_rdata[13] (in)                          0.000000   0.000000 f
+  gpu/imem_rdata[13] (simt_gpu_LOCK_MEMORY_OWNER1)    0.000000   0.000000 f
+  gpu/g_warp_0__u_warp/imem_rdata[13] (warp_LANES4_PC_W16_1)
+                                                      0.000000   0.000000 f
+  gpu/g_warp_0__u_warp/U22/Y (AND2X1)                 0.044647   0.044647 f
+  gpu/g_warp_0__u_warp/U23/Y (INVX1)                  -0.001972  0.042674 r
+  gpu/g_warp_0__u_warp/U861/Y (OAI21X1)               0.009713   0.052388 f
+  gpu/g_warp_0__u_warp/ir_reg_13_/D (DFFSR)           0.000000   0.052388 f
+  data arrival time                                              0.052388
+
+  clock gpu_clock (rise edge)                         0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  clock uncertainty                                   0.050000   0.050000
+  gpu/g_warp_0__u_warp/ir_reg_13_/CLK (DFFSR)         0.000000   0.050000 r
+  library hold time                                   0.046871   0.096871
+  data required time                                             0.096871
+  --------------------------------------------------------------------------
+  data required time                                             0.096871
+  data arrival time                                              -0.052388
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                               -0.044483
+
+
+1

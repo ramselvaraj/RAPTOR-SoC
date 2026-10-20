@@ -1,0 +1,21 @@
+ 
+****************************************
+Report : clocks
+Design : soc_phase5_top
+Version: V-2023.12-SP5-1
+Date   : Tue Oct 20 07:44:47 2026
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+cpu_clock       20.00   {0 10}                        {cpu_clk}
+gpu_clock       20.00   {0 10}                        {gpu_clk}
+--------------------------------------------------------------------------------
+1

@@ -1,0 +1,1390 @@
+ 
+****************************************
+Report : resources
+Design : soc_phase5_top
+Version: V-2023.12-SP5-1
+Date   : Tue Oct 20 07:44:46 2026
+****************************************
+
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/soc/rtl/soc_phase5_top.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| add_x_3        | DW01_inc       | width=64   | add_160_S2 (soc_phase5_top.sv:160) |
+| add_x_15       | DW01_add       | width=10   | add_222 (soc_phase5_top.sv:222) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| add_x_3            | DW01_inc         | apparch (area)     |                |
+| add_x_15           | DW01_add         | apparch (area)     |                |
+===============================================================================
+
+
+No resource sharing information to report.
+ 
+****************************************
+Design : reset_release_2
+****************************************
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : reset_release_1
+****************************************
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : reset_release_0
+****************************************
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : cdc_request_channel_REQUEST_WIDTH26_RESPONSE_WIDTH1_DEPTH4
+****************************************
+
+No implementations to report
+ 
+****************************************
+Design : async_fifo_WIDTH1_DEPTH4_0
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/soc/rtl/async_fifo.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| eq_x_1         | DW_cmp         | width=3    | eq_23 (async_fifo.sv:23)   |
+| eq_x_2         | DW_cmp         | width=3    | eq_24 (async_fifo.sv:24)   |
+| add_x_3        | DW01_inc       | width=3    | add_34 (async_fifo.sv:34)  |
+|                |                |            | add_35 (async_fifo.sv:35)  |
+|                |                |            | add_35_2 (async_fifo.sv:35) |
+| add_x_5        | DW01_inc       | width=3    | add_44 (async_fifo.sv:44)  |
+|                |                |            | add_45 (async_fifo.sv:45)  |
+|                |                |            | add_45_2 (async_fifo.sv:45) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| eq_x_1             | DW_cmp           | apparch (area)     |                |
+| eq_x_2             | DW_cmp           | apparch (area)     |                |
+| add_x_3            | DW01_inc         | apparch (area)     |                |
+| add_x_5            | DW01_inc         | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : async_fifo_WIDTH26_DEPTH4
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/soc/rtl/async_fifo.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| eq_x_1         | DW_cmp         | width=3    | eq_23 (async_fifo.sv:23)   |
+| eq_x_2         | DW_cmp         | width=3    | eq_24 (async_fifo.sv:24)   |
+| add_x_3        | DW01_inc       | width=3    | add_34 (async_fifo.sv:34)  |
+|                |                |            | add_35 (async_fifo.sv:35)  |
+|                |                |            | add_35_2 (async_fifo.sv:35) |
+| add_x_5        | DW01_inc       | width=3    | add_44 (async_fifo.sv:44)  |
+|                |                |            | add_45 (async_fifo.sv:45)  |
+|                |                |            | add_45_2 (async_fifo.sv:45) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| eq_x_1             | DW_cmp           | apparch (area)     |                |
+| eq_x_2             | DW_cmp           | apparch (area)     |                |
+| add_x_3            | DW01_inc         | apparch (area)     |                |
+| add_x_5            | DW01_inc         | apparch (area)     |                |
+===============================================================================
+
+
+No resource sharing information to report.
+ 
+****************************************
+Design : gpu_memory_cdc_DEPTH4
+****************************************
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : cdc_request_channel_REQUEST_WIDTH65_DEPTH4
+****************************************
+
+No implementations to report
+ 
+****************************************
+Design : async_fifo_WIDTH32_DEPTH4
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/soc/rtl/async_fifo.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| eq_x_1         | DW_cmp         | width=3    | eq_23 (async_fifo.sv:23)   |
+| eq_x_2         | DW_cmp         | width=3    | eq_24 (async_fifo.sv:24)   |
+| add_x_3        | DW01_inc       | width=3    | add_34 (async_fifo.sv:34)  |
+|                |                |            | add_35 (async_fifo.sv:35)  |
+|                |                |            | add_35_2 (async_fifo.sv:35) |
+| add_x_5        | DW01_inc       | width=3    | add_44 (async_fifo.sv:44)  |
+|                |                |            | add_45 (async_fifo.sv:45)  |
+|                |                |            | add_45_2 (async_fifo.sv:45) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| eq_x_1             | DW_cmp           | apparch (area)     |                |
+| eq_x_2             | DW_cmp           | apparch (area)     |                |
+| add_x_3            | DW01_inc         | apparch (area)     |                |
+| add_x_5            | DW01_inc         | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : async_fifo_WIDTH65_DEPTH4
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/soc/rtl/async_fifo.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| eq_x_1         | DW_cmp         | width=3    | eq_23 (async_fifo.sv:23)   |
+| eq_x_2         | DW_cmp         | width=3    | eq_24 (async_fifo.sv:24)   |
+| add_x_3        | DW01_inc       | width=3    | add_34 (async_fifo.sv:34)  |
+|                |                |            | add_35 (async_fifo.sv:35)  |
+|                |                |            | add_35_2 (async_fifo.sv:35) |
+| add_x_5        | DW01_inc       | width=3    | add_44 (async_fifo.sv:44)  |
+|                |                |            | add_45 (async_fifo.sv:45)  |
+|                |                |            | add_45_2 (async_fifo.sv:45) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| eq_x_1             | DW_cmp           | apparch (area)     |                |
+| eq_x_2             | DW_cmp           | apparch (area)     |                |
+| add_x_3            | DW01_inc         | apparch (area)     |                |
+| add_x_5            | DW01_inc         | apparch (area)     |                |
+===============================================================================
+
+
+No resource sharing information to report.
+ 
+****************************************
+Design : simt_gpu_LOCK_MEMORY_OWNER1
+****************************************
+
+No implementations to report
+ 
+****************************************
+Design : warp_LANES4_PC_W16_0
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/warp.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=32   | sub_137 (warp.sv:137)      |
+| eq_x_10        | DW_cmp         | width=32   | eq_198 (warp.sv:198)       |
+| ne_x_11        | DW_cmp         | width=32   | ne_199 (warp.sv:199)       |
+| DP_OP_30J13_122_7276            |            |                            |
+|                | DP_OP_30J13_122_7276 |      |                            |
+=============================================================================
+
+Datapath Report for DP_OP_30J13_122_7276
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_30J13_122_7276 | add_208 (warp.sv:208) add_212 (warp.sv:212)         |
+|                      | add_206 (warp.sv:206) add_206_2 (warp.sv:206)       |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Unsigned | 16    |                                          |
+| I2    | PI   | Signed   | 9     |                                          |
+| O1    | PO   | Unsigned | 16    | I1 + $unsigned(1'b1) ( warp.sv:206 warp.sv:208 warp.sv:212 ) |
+| O2    | PO   | Signed   | 16    | I2 + O1 (warp.sv:206)                    |
+==============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_1            | DW01_sub         | apparch (area)     |                |
+| eq_x_10            | DW_cmp           | apparch (area)     |                |
+| ne_x_11            | DW_cmp           | apparch (area)     |                |
+| DP_OP_30J13_122_7276                  |                    |                |
+|                    | DP_OP_30J13_122_7276 | str (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : alu_3
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/alu.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| mult_x_1       | DW_mult_uns    | a_width=32 | mult_22 (alu.sv:22)        |
+|                |                | b_width=32 |                            |
+| div_2          | DW_div_uns     | a_width=32 | div_23 (alu.sv:23)         |
+|                |                | b_width=32 |                            |
+| ash_3          | DW_leftsh      | A_width=32 | sll_27 (alu.sv:27)         |
+|                |                | SH_width=5 |                            |
+| ashr_4         | DW_rightsh     | A_width=32 | srl_28 (alu.sv:28)         |
+|                |                | SH_width=5 |                            |
+| DP_OP_22J12_122_5665            |            |                            |
+|                | DP_OP_22J12_122_5665 |      |                            |
+=============================================================================
+
+Datapath Report for DP_OP_22J12_122_5665
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_22J12_122_5665 | add_20 (alu.sv:20) sub_21 (alu.sv:21)               |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| O1    | PO   | Signed   | 32    | addsub(I1,I2,I3) ( alu.sv:20 alu.sv:21 ) |
+==============================================================================
+
+
+Resource Report for Ungrouped Hierarchy
+        gpu/g_warp[1].u_warp/g_alu[0].u_alu/div_2
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| mult_x_1           | DW_mult_uns      | apparch (area)     |                |
+|                    |                  | mult_arch: benc_radix4_mux          |
+| div_2              | DW_div_uns       | cla3               |                |
+| ash_3              | DW_leftsh        | astr (area)        |                |
+| ashr_4             | DW_rightsh       | astr (area)        |                |
+| DP_OP_22J12_122_5665                  |                    |                |
+|                    | DP_OP_22J12_122_5665 | str (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : alu_2
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/alu.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| mult_x_1       | DW_mult_uns    | a_width=32 | mult_22 (alu.sv:22)        |
+|                |                | b_width=32 |                            |
+| div_2          | DW_div_uns     | a_width=32 | div_23 (alu.sv:23)         |
+|                |                | b_width=32 |                            |
+| ash_3          | DW_leftsh      | A_width=32 | sll_27 (alu.sv:27)         |
+|                |                | SH_width=5 |                            |
+| ashr_4         | DW_rightsh     | A_width=32 | srl_28 (alu.sv:28)         |
+|                |                | SH_width=5 |                            |
+| DP_OP_22J12_122_5665            |            |                            |
+|                | DP_OP_22J12_122_5665 |      |                            |
+=============================================================================
+
+Datapath Report for DP_OP_22J12_122_5665
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_22J12_122_5665 | add_20 (alu.sv:20) sub_21 (alu.sv:21)               |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| O1    | PO   | Signed   | 32    | addsub(I1,I2,I3) ( alu.sv:20 alu.sv:21 ) |
+==============================================================================
+
+
+Resource Report for Ungrouped Hierarchy
+        gpu/g_warp[1].u_warp/g_alu[1].u_alu/div_2
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| mult_x_1           | DW_mult_uns      | apparch (area)     |                |
+|                    |                  | mult_arch: benc_radix4_mux          |
+| div_2              | DW_div_uns       | cla3               |                |
+| ash_3              | DW_leftsh        | astr (area)        |                |
+| ashr_4             | DW_rightsh       | astr (area)        |                |
+| DP_OP_22J12_122_5665                  |                    |                |
+|                    | DP_OP_22J12_122_5665 | str (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : alu_1
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/alu.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| mult_x_1       | DW_mult_uns    | a_width=32 | mult_22 (alu.sv:22)        |
+|                |                | b_width=32 |                            |
+| div_2          | DW_div_uns     | a_width=32 | div_23 (alu.sv:23)         |
+|                |                | b_width=32 |                            |
+| ash_3          | DW_leftsh      | A_width=32 | sll_27 (alu.sv:27)         |
+|                |                | SH_width=5 |                            |
+| ashr_4         | DW_rightsh     | A_width=32 | srl_28 (alu.sv:28)         |
+|                |                | SH_width=5 |                            |
+| DP_OP_22J12_122_5665            |            |                            |
+|                | DP_OP_22J12_122_5665 |      |                            |
+=============================================================================
+
+Datapath Report for DP_OP_22J12_122_5665
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_22J12_122_5665 | add_20 (alu.sv:20) sub_21 (alu.sv:21)               |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| O1    | PO   | Signed   | 32    | addsub(I1,I2,I3) ( alu.sv:20 alu.sv:21 ) |
+==============================================================================
+
+
+Resource Report for Ungrouped Hierarchy
+        gpu/g_warp[1].u_warp/g_alu[2].u_alu/div_2
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| mult_x_1           | DW_mult_uns      | apparch (area)     |                |
+|                    |                  | mult_arch: benc_radix4_mux          |
+| div_2              | DW_div_uns       | cla3               |                |
+| ash_3              | DW_leftsh        | astr (area)        |                |
+| ashr_4             | DW_rightsh       | astr (area)        |                |
+| DP_OP_22J12_122_5665                  |                    |                |
+|                    | DP_OP_22J12_122_5665 | str (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : alu_0
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/alu.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| mult_x_1       | DW_mult_uns    | a_width=32 | mult_22 (alu.sv:22)        |
+|                |                | b_width=32 |                            |
+| div_2          | DW_div_uns     | a_width=32 | div_23 (alu.sv:23)         |
+|                |                | b_width=32 |                            |
+| ash_3          | DW_leftsh      | A_width=32 | sll_27 (alu.sv:27)         |
+|                |                | SH_width=5 |                            |
+| ashr_4         | DW_rightsh     | A_width=32 | srl_28 (alu.sv:28)         |
+|                |                | SH_width=5 |                            |
+| DP_OP_22J12_122_5665            |            |                            |
+|                | DP_OP_22J12_122_5665 |      |                            |
+=============================================================================
+
+Datapath Report for DP_OP_22J12_122_5665
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_22J12_122_5665 | add_20 (alu.sv:20) sub_21 (alu.sv:21)               |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| O1    | PO   | Signed   | 32    | addsub(I1,I2,I3) ( alu.sv:20 alu.sv:21 ) |
+==============================================================================
+
+
+Resource Report for Ungrouped Hierarchy
+        gpu/g_warp[1].u_warp/g_alu[3].u_alu/div_2
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| mult_x_1           | DW_mult_uns      | apparch (area)     |                |
+|                    |                  | mult_arch: benc_radix4_mux          |
+| div_2              | DW_div_uns       | cla3               |                |
+| ash_3              | DW_leftsh        | astr (area)        |                |
+| ashr_4             | DW_rightsh       | astr (area)        |                |
+| DP_OP_22J12_122_5665                  |                    |                |
+|                    | DP_OP_22J12_122_5665 | str (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : decoder_0
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/decoder.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| lte_x_1        | DW_cmp         | width=4    | lte_29 (decoder.sv:29)     |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| lte_x_1            | DW_cmp           | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : mem_unit_LANES4_0
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/mem_unit.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| gte_x_1        | DW_cmp         | width=32   | gte_50 (mem_unit.sv:50)    |
+| gte_x_2        | DW_cmp         | width=32   | gte_50_I2 (mem_unit.sv:50) |
+| gte_x_3        | DW_cmp         | width=32   | gte_50_I3 (mem_unit.sv:50) |
+| gte_x_4        | DW_cmp         | width=32   | gte_50_I4 (mem_unit.sv:50) |
+| add_x_5        | DW01_add       | width=32   | add_63 (mem_unit.sv:63)    |
+| add_x_14       | DW01_inc       | width=4    | add_83 (mem_unit.sv:83)    |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| gte_x_1            | DW_cmp           | apparch (area)     |                |
+| gte_x_2            | DW_cmp           | apparch (area)     |                |
+| gte_x_3            | DW_cmp           | apparch (area)     |                |
+| gte_x_4            | DW_cmp           | apparch (area)     |                |
+| add_x_5            | DW01_add         | apparch (area)     |                |
+| add_x_14           | DW01_inc         | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : regfile_LANES4_0
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/regfile.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+=============================================================================
+
+
+No implementations to report
+ 
+****************************************
+Design : warp_LANES4_PC_W16_1
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/warp.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=32   | sub_137 (warp.sv:137)      |
+| eq_x_10        | DW_cmp         | width=32   | eq_198 (warp.sv:198)       |
+| ne_x_11        | DW_cmp         | width=32   | ne_199 (warp.sv:199)       |
+| DP_OP_30J14_122_5235            |            |                            |
+|                | DP_OP_30J14_122_5235 |      |                            |
+=============================================================================
+
+Datapath Report for DP_OP_30J14_122_5235
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_30J14_122_5235 | add_208 (warp.sv:208) add_212 (warp.sv:212)         |
+|                      | add_206 (warp.sv:206) add_206_2 (warp.sv:206)       |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Unsigned | 16    |                                          |
+| I2    | PI   | Signed   | 9     |                                          |
+| O1    | PO   | Unsigned | 16    | I1 + $unsigned(1'b1) ( warp.sv:206 warp.sv:208 warp.sv:212 ) |
+| O2    | PO   | Signed   | 16    | I2 + O1 (warp.sv:206)                    |
+==============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_1            | DW01_sub         | apparch (area)     |                |
+| eq_x_10            | DW_cmp           | apparch (area)     |                |
+| ne_x_11            | DW_cmp           | apparch (area)     |                |
+| DP_OP_30J14_122_5235                  |                    |                |
+|                    | DP_OP_30J14_122_5235 | str (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : alu_6
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/alu.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| mult_x_1       | DW_mult_uns    | a_width=32 | mult_22 (alu.sv:22)        |
+|                |                | b_width=32 |                            |
+| div_2          | DW_div_uns     | a_width=32 | div_23 (alu.sv:23)         |
+|                |                | b_width=32 |                            |
+| ash_3          | DW_leftsh      | A_width=32 | sll_27 (alu.sv:27)         |
+|                |                | SH_width=5 |                            |
+| ashr_4         | DW_rightsh     | A_width=32 | srl_28 (alu.sv:28)         |
+|                |                | SH_width=5 |                            |
+| DP_OP_22J12_122_5665            |            |                            |
+|                | DP_OP_22J12_122_5665 |      |                            |
+=============================================================================
+
+Datapath Report for DP_OP_22J12_122_5665
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_22J12_122_5665 | add_20 (alu.sv:20) sub_21 (alu.sv:21)               |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| O1    | PO   | Signed   | 32    | addsub(I1,I2,I3) ( alu.sv:20 alu.sv:21 ) |
+==============================================================================
+
+
+Resource Report for Ungrouped Hierarchy
+        gpu/g_warp[0].u_warp/g_alu[1].u_alu/div_2
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| mult_x_1           | DW_mult_uns      | apparch (area)     |                |
+|                    |                  | mult_arch: benc_radix4_mux          |
+| div_2              | DW_div_uns       | cla3               |                |
+| ash_3              | DW_leftsh        | astr (area)        |                |
+| ashr_4             | DW_rightsh       | astr (area)        |                |
+| DP_OP_22J12_122_5665                  |                    |                |
+|                    | DP_OP_22J12_122_5665 | str (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : alu_5
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/alu.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| mult_x_1       | DW_mult_uns    | a_width=32 | mult_22 (alu.sv:22)        |
+|                |                | b_width=32 |                            |
+| div_2          | DW_div_uns     | a_width=32 | div_23 (alu.sv:23)         |
+|                |                | b_width=32 |                            |
+| ash_3          | DW_leftsh      | A_width=32 | sll_27 (alu.sv:27)         |
+|                |                | SH_width=5 |                            |
+| ashr_4         | DW_rightsh     | A_width=32 | srl_28 (alu.sv:28)         |
+|                |                | SH_width=5 |                            |
+| DP_OP_22J12_122_5665            |            |                            |
+|                | DP_OP_22J12_122_5665 |      |                            |
+=============================================================================
+
+Datapath Report for DP_OP_22J12_122_5665
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_22J12_122_5665 | add_20 (alu.sv:20) sub_21 (alu.sv:21)               |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| O1    | PO   | Signed   | 32    | addsub(I1,I2,I3) ( alu.sv:20 alu.sv:21 ) |
+==============================================================================
+
+
+Resource Report for Ungrouped Hierarchy
+        gpu/g_warp[0].u_warp/g_alu[2].u_alu/div_2
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| mult_x_1           | DW_mult_uns      | apparch (area)     |                |
+|                    |                  | mult_arch: benc_radix4_mux          |
+| div_2              | DW_div_uns       | cla3               |                |
+| ash_3              | DW_leftsh        | astr (area)        |                |
+| ashr_4             | DW_rightsh       | astr (area)        |                |
+| DP_OP_22J12_122_5665                  |                    |                |
+|                    | DP_OP_22J12_122_5665 | str (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : alu_4
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/alu.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| mult_x_1       | DW_mult_uns    | a_width=32 | mult_22 (alu.sv:22)        |
+|                |                | b_width=32 |                            |
+| div_2          | DW_div_uns     | a_width=32 | div_23 (alu.sv:23)         |
+|                |                | b_width=32 |                            |
+| ash_3          | DW_leftsh      | A_width=32 | sll_27 (alu.sv:27)         |
+|                |                | SH_width=5 |                            |
+| ashr_4         | DW_rightsh     | A_width=32 | srl_28 (alu.sv:28)         |
+|                |                | SH_width=5 |                            |
+| DP_OP_22J12_122_5665            |            |                            |
+|                | DP_OP_22J12_122_5665 |      |                            |
+=============================================================================
+
+Datapath Report for DP_OP_22J12_122_5665
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_22J12_122_5665 | add_20 (alu.sv:20) sub_21 (alu.sv:21)               |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| O1    | PO   | Signed   | 32    | addsub(I1,I2,I3) ( alu.sv:20 alu.sv:21 ) |
+==============================================================================
+
+
+Resource Report for Ungrouped Hierarchy
+        gpu/g_warp[0].u_warp/g_alu[3].u_alu/div_2
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| mult_x_1           | DW_mult_uns      | apparch (area)     |                |
+|                    |                  | mult_arch: benc_radix4_mux          |
+| div_2              | DW_div_uns       | cla3               |                |
+| ash_3              | DW_leftsh        | astr (area)        |                |
+| ashr_4             | DW_rightsh       | astr (area)        |                |
+| DP_OP_22J12_122_5665                  |                    |                |
+|                    | DP_OP_22J12_122_5665 | str (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : mem_unit_LANES4_1
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/mem_unit.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| gte_x_1        | DW_cmp         | width=32   | gte_50 (mem_unit.sv:50)    |
+| gte_x_2        | DW_cmp         | width=32   | gte_50_I2 (mem_unit.sv:50) |
+| gte_x_3        | DW_cmp         | width=32   | gte_50_I3 (mem_unit.sv:50) |
+| gte_x_4        | DW_cmp         | width=32   | gte_50_I4 (mem_unit.sv:50) |
+| add_x_5        | DW01_add       | width=32   | add_63 (mem_unit.sv:63)    |
+| add_x_14       | DW01_inc       | width=4    | add_83 (mem_unit.sv:83)    |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| gte_x_1            | DW_cmp           | apparch (area)     |                |
+| gte_x_2            | DW_cmp           | apparch (area)     |                |
+| gte_x_3            | DW_cmp           | apparch (area)     |                |
+| gte_x_4            | DW_cmp           | apparch (area)     |                |
+| add_x_5            | DW01_add         | apparch (area)     |                |
+| add_x_14           | DW01_inc         | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : alu_7
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/alu.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| mult_x_1       | DW_mult_uns    | a_width=32 | mult_22 (alu.sv:22)        |
+|                |                | b_width=32 |                            |
+| div_2          | DW_div_uns     | a_width=32 | div_23 (alu.sv:23)         |
+|                |                | b_width=32 |                            |
+| ash_3          | DW_leftsh      | A_width=32 | sll_27 (alu.sv:27)         |
+|                |                | SH_width=5 |                            |
+| ashr_4         | DW_rightsh     | A_width=32 | srl_28 (alu.sv:28)         |
+|                |                | SH_width=5 |                            |
+| DP_OP_22J12_122_5665            |            |                            |
+|                | DP_OP_22J12_122_5665 |      |                            |
+=============================================================================
+
+Datapath Report for DP_OP_22J12_122_5665
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_22J12_122_5665 | add_20 (alu.sv:20) sub_21 (alu.sv:21)               |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| O1    | PO   | Signed   | 32    | addsub(I1,I2,I3) ( alu.sv:20 alu.sv:21 ) |
+==============================================================================
+
+
+Resource Report for Ungrouped Hierarchy
+        gpu/g_warp[0].u_warp/g_alu[0].u_alu/div_2
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| mult_x_1           | DW_mult_uns      | apparch (area)     |                |
+|                    |                  | mult_arch: benc_radix4_mux          |
+| div_2              | DW_div_uns       | cla3               |                |
+| ash_3              | DW_leftsh        | astr (area)        |                |
+| ashr_4             | DW_rightsh       | astr (area)        |                |
+| DP_OP_22J12_122_5665                  |                    |                |
+|                    | DP_OP_22J12_122_5665 | str (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : regfile_LANES4_1
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/regfile.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+=============================================================================
+
+
+No implementations to report
+ 
+****************************************
+Design : decoder_1
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/decoder.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| lte_x_1        | DW_cmp         | width=4    | lte_29 (decoder.sv:29)     |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| lte_x_1            | DW_cmp           | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : scheduler_WARPS2
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/scheduler.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| add_x_1        | DW01_inc       | width=32   | add_27_I2 (scheduler.sv:27) |
+| add_x_11       | DW01_inc       | width=32   | add_38_S2 (scheduler.sv:38) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| add_x_11           | DW01_inc         | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : dispatcher_WARPS2_LANES4
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/dispatcher.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| lt_x_1         | DW_cmp         | width=32   | lt_29 (dispatcher.sv:29)   |
+| lt_x_3         | DW_cmp         | width=32   | lt_29_I2_I1 (dispatcher.sv:29) |
+| lt_x_5         | DW_cmp         | width=32   | lt_29_I3_I1 (dispatcher.sv:29) |
+| lt_x_7         | DW_cmp         | width=32   | lt_29_I4_I1 (dispatcher.sv:29) |
+| lt_x_9         | DW_cmp         | width=32   | lt_29_I2 (dispatcher.sv:29) |
+| lt_x_10        | DW_cmp         | width=32   | lt_29_I2_I2 (dispatcher.sv:29) |
+| lt_x_11        | DW_cmp         | width=32   | lt_29_I3_I2 (dispatcher.sv:29) |
+| lt_x_12        | DW_cmp         | width=32   | lt_29_I4_I2 (dispatcher.sv:29) |
+=============================================================================
+
+
+Datapath Extraction Report
+
+Information: Operator associated with resources 'add_29_2_I2_I1 (dispatcher.sv:29)' in design 'dispatcher_WARPS2_LANES4' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'lt_29_I2_I1 (dispatcher.sv:29)'.  (HDL-120)
+
+Information: Operator associated with resources 'add_29_2_I3_I1 (dispatcher.sv:29)' in design 'dispatcher_WARPS2_LANES4' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'lt_29_I3_I1 (dispatcher.sv:29)'.  (HDL-120)
+
+Information: Operator associated with resources 'add_29_2_I4_I1 (dispatcher.sv:29)' in design 'dispatcher_WARPS2_LANES4' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'lt_29_I4_I1 (dispatcher.sv:29)'.  (HDL-120)
+
+Information: Operator associated with resources 'add_27_I2 (dispatcher.sv:27) add_29_I2 (dispatcher.sv:29)' in design 'dispatcher_WARPS2_LANES4' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'lt_29_I2 (dispatcher.sv:29)'.  (HDL-120)
+
+Information: Operator associated with resources 'add_29_I2_I2 (dispatcher.sv:29) add_29_2_I2_I2 (dispatcher.sv:29)' in design 'dispatcher_WARPS2_LANES4' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'lt_29_I2_I2 (dispatcher.sv:29)'.  (HDL-120)
+
+Information: Operator associated with resources 'add_29_I3_I2 (dispatcher.sv:29) add_29_2_I3_I2 (dispatcher.sv:29)' in design 'dispatcher_WARPS2_LANES4' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'lt_29_I3_I2 (dispatcher.sv:29)'.  (HDL-120)
+
+Information: Operator associated with resources 'add_29_I4_I2 (dispatcher.sv:29) add_29_2_I4_I2 (dispatcher.sv:29)' in design 'dispatcher_WARPS2_LANES4' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'lt_29_I4_I2 (dispatcher.sv:29)'.  (HDL-120)
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| lt_x_1             | DW_cmp           | apparch (area)     |                |
+| lt_x_3             | DW_cmp           | apparch (area)     |                |
+| lt_x_5             | DW_cmp           | apparch (area)     |                |
+| lt_x_7             | DW_cmp           | apparch (area)     |                |
+| lt_x_9             | DW_cmp           | apparch (area)     |                |
+| lt_x_10            | DW_cmp           | apparch (area)     |                |
+| lt_x_11            | DW_cmp           | apparch (area)     |                |
+| lt_x_12            | DW_cmp           | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : dcr_TB8
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/simt_gpu/rtl/dcr.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| lt_x_2         | DW_cmp         | width=32   | lt_55 (dcr.sv:55)          |
+| add_x_1        | DW01_add       | width=32   | add_55 (dcr.sv:55)         |
+|                |                |            | add_56 (dcr.sv:56)         |
+=============================================================================
+
+
+Datapath Extraction Report
+
+Information: Operator associated with resources 'add_55 (dcr.sv:55) add_56 (dcr.sv:56)' in design 'dcr_TB8' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'lt_55 (dcr.sv:55)'.  (HDL-120)
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| lt_x_2             | DW_cmp           | apparch (area)     |                |
+| add_x_1            | DW01_add         | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : async_fifo_WIDTH1_DEPTH4_1
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/soc/rtl/async_fifo.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| eq_x_1         | DW_cmp         | width=3    | eq_23 (async_fifo.sv:23)   |
+| eq_x_2         | DW_cmp         | width=3    | eq_24 (async_fifo.sv:24)   |
+| add_x_3        | DW01_inc       | width=3    | add_34 (async_fifo.sv:34)  |
+|                |                |            | add_35 (async_fifo.sv:35)  |
+|                |                |            | add_35_2 (async_fifo.sv:35) |
+| add_x_5        | DW01_inc       | width=3    | add_44 (async_fifo.sv:44)  |
+|                |                |            | add_45 (async_fifo.sv:45)  |
+|                |                |            | add_45_2 (async_fifo.sv:45) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| eq_x_1             | DW_cmp           | apparch (area)     |                |
+| eq_x_2             | DW_cmp           | apparch (area)     |                |
+| add_x_3            | DW01_inc         | apparch (area)     |                |
+| add_x_5            | DW01_inc         | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : async_fifo_WIDTH128_DEPTH4
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/soc/rtl/async_fifo.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| eq_x_1         | DW_cmp         | width=3    | eq_23 (async_fifo.sv:23)   |
+| eq_x_2         | DW_cmp         | width=3    | eq_24 (async_fifo.sv:24)   |
+| add_x_3        | DW01_inc       | width=3    | add_34 (async_fifo.sv:34)  |
+|                |                |            | add_35 (async_fifo.sv:35)  |
+|                |                |            | add_35_2 (async_fifo.sv:35) |
+| add_x_5        | DW01_inc       | width=3    | add_44 (async_fifo.sv:44)  |
+|                |                |            | add_45 (async_fifo.sv:45)  |
+|                |                |            | add_45_2 (async_fifo.sv:45) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| eq_x_1             | DW_cmp           | apparch (area)     |                |
+| eq_x_2             | DW_cmp           | apparch (area)     |                |
+| add_x_3            | DW01_inc         | apparch (area)     |                |
+| add_x_5            | DW01_inc         | apparch (area)     |                |
+===============================================================================
+
+
+No resource sharing information to report.
+ 
+****************************************
+Design : gpu_mmio_0_1
+****************************************
+
+No implementations to report
+ 
+****************************************
+Design : axi_lite_ram_0
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/soc/rtl/axi_lite_ram.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| lte_x_7        | DW_cmp         | width=32   | lte_45_C101 (axi_lite_ram.sv:45) |
+| lte_x_16       | DW_cmp         | width=32   | lte_45_C58 (axi_lite_ram.sv:45) |
+            |                |            | lte_45_C94 (axi_lite_ram.sv:45) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| lte_x_7            | DW_cmp           | apparch (area)     |                |
+| lte_x_16           | DW_cmp           | apparch (area)     |                |
+===============================================================================
+
+
+No resource sharing information to report.
+ 
+****************************************
+Design : axi_lite_interconnect
+****************************************
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : cpu_request_axi
+****************************************
+
+No implementations to report
+
+No resource sharing information to report.
+ 
+****************************************
+Design : pipeline_cache_REGION_BYPASS1_484242
+****************************************
+
+No implementations to report
+ 
+****************************************
+Design : cache_data_router_4_4_0_1
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/pipeline_cache/rtl/cache_data_router.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| lte_x_9        | DW_cmp         | width=32   | lte_60 (cache_data_router.sv:60) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| lte_x_9            | DW_cmp           | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : blocking_cache_4_4_1
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/pipeline_cache/rtl/blocking_cache.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| eq_x_1         | DW_cmp         | width=26   | eq_56 (blocking_cache.sv:56) |
+| add_x_5        | DW01_inc       | width=64   | add_97 (blocking_cache.sv:97) |
+| add_x_6        | DW01_inc       | width=64   | add_106 (blocking_cache.sv:106) |
+| add_x_7        | DW01_inc       | width=64   | add_110 (blocking_cache.sv:110) |
+| eq_x_9         | DW_cmp         | width=2    | eq_134 (blocking_cache.sv:134) |
+| add_x_8        | DW01_inc       | width=2    | add_123 (blocking_cache.sv:123) |
+            |                |            | add_142 (blocking_cache.sv:142) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| eq_x_1             | DW_cmp           | apparch (area)     |                |
+| add_x_5            | DW01_inc         | apparch (area)     |                |
+| add_x_6            | DW01_inc         | apparch (area)     |                |
+| add_x_7            | DW01_inc         | apparch (area)     |                |
+| eq_x_9             | DW_cmp           | apparch (area)     |                |
+| add_x_8            | DW01_inc         | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : blocking_cache_LINES4_WORDS_PER_LINE4_READ_ONLY1
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/pipeline_cache/rtl/blocking_cache.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| eq_x_1         | DW_cmp         | width=26   | eq_56 (blocking_cache.sv:56) |
+| add_x_4        | DW01_inc       | width=64   | add_97 (blocking_cache.sv:97) |
+| add_x_5        | DW01_inc       | width=64   | add_106 (blocking_cache.sv:106) |
+| eq_x_7         | DW_cmp         | width=2    | eq_134 (blocking_cache.sv:134) |
+| add_x_6        | DW01_inc       | width=2    | add_123 (blocking_cache.sv:123) |
+            |                |            | add_142 (blocking_cache.sv:142) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| eq_x_1             | DW_cmp           | apparch (area)     |                |
+| add_x_4            | DW01_inc         | apparch (area)     |                |
+| add_x_5            | DW01_inc         | apparch (area)     |                |
+| eq_x_7             | DW_cmp           | apparch (area)     |                |
+| add_x_6            | DW01_inc         | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : cache_pipeline_core
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/pipeline_cache/rtl/core.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| eq_x_1         | DW_cmp         | width=5    | eq_47 (core.sv:47)         |
+| eq_x_2         | DW_cmp         | width=5    | eq_48 (core.sv:48)         |
+| eq_x_3         | DW_cmp         | width=5    | eq_53 (core.sv:53)         |
+| eq_x_4         | DW_cmp         | width=5    | eq_54 (core.sv:54)         |
+| eq_x_5         | DW_cmp         | width=5    | eq_57 (core.sv:57)         |
+| eq_x_6         | DW_cmp         | width=5    | eq_58 (core.sv:58)         |
+| lt_x_7         | DW_cmp         | width=32   | lt_68 (core.sv:68)         |
+| lt_x_8         | DW_cmp         | width=32   | lt_69 (core.sv:69)         |
+| ash_9          | DW_leftsh      | A_width=32 | sll_70 (core.sv:70)        |
+|                |                | SH_width=5 |                            |
+| ashr_10        | DW_rightsh     | A_width=32 | srl_71 (core.sv:71)        |
+|                |                | SH_width=5 |                            |
+| ashr_11        | DW_rightsh     | A_width=32 | sra_72 (core.sv:72)        |
+|                |                | SH_width=5 |                            |
+| eq_x_13        | DW_cmp         | width=32   | eq_79 (core.sv:79)         |
+| ne_x_14        | DW_cmp         | width=32   | ne_80 (core.sv:80)         |
+| lt_x_15        | DW_cmp         | width=32   | lt_81 (core.sv:81)         |
+| gte_x_16       | DW_cmp         | width=32   | gte_82 (core.sv:82)        |
+| lt_x_17        | DW_cmp         | width=32   | lt_83 (core.sv:83)         |
+| gte_x_18       | DW_cmp         | width=32   | gte_84 (core.sv:84)        |
+| add_x_19       | DW01_add       | width=32   | add_87 (core.sv:87)        |
+| eq_x_38        | DW_cmp         | width=5    | eq_102 (core.sv:102)       |
+| eq_x_39        | DW_cmp         | width=5    | eq_102_2 (core.sv:102)     |
+| ash_41         | DW_leftsh      | A_width=32 | sll_123 (core.sv:123)      |
+|                |                | SH_width=5 |                            |
+| ash_42         | DW_leftsh      | A_width=4  | sll_128 (core.sv:128)      |
+|                |                | SH_width=2 |                            |
+| ash_43         | DW_leftsh      | A_width=4  | sll_129 (core.sv:129)      |
+|                |                | SH_width=2 |                            |
+| ashr_44        | DW_rightsh     | A_width=32 | srl_133 (core.sv:133)      |
+|                |                | SH_width=5 |                            |
+| add_x_50       | DW01_inc       | width=64   | add_162 (core.sv:162)      |
+| add_x_51       | DW01_inc       | width=64   | add_164 (core.sv:164)      |
+| add_x_52       | DW01_add       | width=32   | add_187_S2 (core.sv:187)   |
+| add_x_12       | DW01_add       | width=32   | add_76_S2 (core.sv:76)     |
+|                |                |            | add_87_2 (core.sv:87)      |
+| DP_OP_183J2_122_4017            |            |                            |
+|                | DP_OP_183J2_122_4017 |      |                            |
+=============================================================================
+
+Datapath Report for DP_OP_183J2_122_4017
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_183J2_122_4017 | sub_64 (core.sv:64) add_73 (core.sv:73)             |
+|                      | add_77_S2 (core.sv:77)                              |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| O1    | PO   | Signed   | 32    | addsub(I1,I2,I3) ( core.sv:64 core.sv:73 core.sv:77 ) |
+==============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| eq_x_1             | DW_cmp           | apparch (area)     |                |
+| eq_x_2             | DW_cmp           | apparch (area)     |                |
+| eq_x_3             | DW_cmp           | apparch (area)     |                |
+| eq_x_4             | DW_cmp           | apparch (area)     |                |
+| eq_x_5             | DW_cmp           | apparch (area)     |                |
+| eq_x_6             | DW_cmp           | apparch (area)     |                |
+| lt_x_7             | DW_cmp           | apparch (area)     |                |
+| lt_x_8             | DW_cmp           | apparch (area)     |                |
+| ash_9              | DW_leftsh        | astr (area)        |                |
+| ashr_10            | DW_rightsh       | astr (area)        |                |
+| ashr_11            | DW_rightsh       | astr (area)        |                |
+| eq_x_13            | DW_cmp           | apparch (area)     |                |
+| ne_x_14            | DW_cmp           | apparch (area)     |                |
+| lt_x_15            | DW_cmp           | apparch (area)     |                |
+| gte_x_16           | DW_cmp           | apparch (area)     |                |
+| lt_x_17            | DW_cmp           | apparch (area)     |                |
+| gte_x_18           | DW_cmp           | apparch (area)     |                |
+| add_x_19           | DW01_add         | apparch (area)     |                |
+| eq_x_38            | DW_cmp           | apparch (area)     |                |
+| eq_x_39            | DW_cmp           | apparch (area)     |                |
+| ash_41             | DW_leftsh        | astr (area)        |                |
+| ash_42             | DW_leftsh        | astr (area)        |                |
+| ash_43             | DW_leftsh        | astr (area)        |                |
+| ashr_44            | DW_rightsh       | astr (area)        |                |
+| add_x_50           | DW01_inc         | apparch (area)     |                |
+| add_x_51           | DW01_inc         | apparch (area)     |                |
+| add_x_52           | DW01_add         | apparch (area)     |                |
+| add_x_12           | DW01_add         | apparch (area)     |                |
+| DP_OP_183J2_122_4017                  |                    |                |
+|                    | DP_OP_183J2_122_4017 | str (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : cache_cpu_decoder
+****************************************
+
+Resource Report for this hierarchy in file
+        /home/a33939_asu/Personal/RAPTOR-SoC/pipeline_cache/rtl/decoder.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| lte_x_1        | DW_cmp         | width=3    | lte_53 (decoder.sv:53)     |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| lte_x_1            | DW_cmp           | apparch (area)     |                |
+===============================================================================
+
+
+No resource sharing information to report.
+ 
+****************************************
+Design : reset_release_3
+****************************************
+
+No implementations to report
+1
