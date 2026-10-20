@@ -1,0 +1,8 @@
+case,period_ns,clock_slew_ns,setup_uncertainty_ns,hold_uncertainty_ns,setup_slack_ns,hold_slack_ns
+baseline_saved,NA,NA,NA,NA,0.000042,-1.709680
+hold_only,20.0,1.0,1.0,0.05,0.000042,-0.759682
+slew_only,20.0,0.1,1.0,1.0,-0.028639,-0.902422
+combined,20.0,0.1,1.0,0.05,-0.028639,0.047578
+setup_margin,20.0,0.1,0.2,0.05,0.771360,0.047578
+period_15ns,15.0,0.1,0.2,0.05,-4.228640,0.047578
+period_10ns,10.0,0.1,0.2,0.05,-9.228640,0.047578

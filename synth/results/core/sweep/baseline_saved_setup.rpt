@@ -1,0 +1,1420 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'soc_top' contains 3 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 3
+Design : soc_top
+Version: V-2023.12-SP5-1
+Date   : Tue Oct 20 04:18:33 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: gscl45nm
+Wire Load Model Mode: top
+
+  Startpoint: gpu/g_warp_1__u_warp/ir_reg_1_
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: gpu/g_warp_1__u_warp/u_rf/regs_reg_12__2__0_
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock core_clk (rise edge)                          0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  gpu/g_warp_1__u_warp/ir_reg_1_/CLK (DFFSR)          0.000000 # 0.000000 r
+  gpu/g_warp_1__u_warp/ir_reg_1_/Q (DFFSR)            0.174095   0.174095 r
+  gpu/g_warp_1__u_warp/U69/Y (BUFX2)                  0.071736   0.245831 r
+  gpu/g_warp_1__u_warp/u_dec/instr[1] (decoder_0)     0.000000   0.245831 r
+  gpu/g_warp_1__u_warp/u_dec/rs2[1] (decoder_0)       0.000000   0.245831 r
+  gpu/g_warp_1__u_warp/u_rf/read_addr2[1] (regfile_LANES4_0)
+                                                      0.000000   0.245831 r
+  gpu/g_warp_1__u_warp/u_rf/U1091/Y (NOR2X1)          0.033628   0.279460 f
+  gpu/g_warp_1__u_warp/u_rf/U1109/Y (NAND2X1)         0.020912   0.300371 r
+  gpu/g_warp_1__u_warp/u_rf/U922/Y (OR2X2)            0.052488   0.352860 r
+  gpu/g_warp_1__u_warp/u_rf/U86/Y (INVX2)             0.081985   0.434845 f
+  gpu/g_warp_1__u_warp/u_rf/U1113/Y (INVX1)           0.041274   0.476120 r
+  gpu/g_warp_1__u_warp/u_rf/U85/Y (INVX4)             0.077143   0.553263 f
+  gpu/g_warp_1__u_warp/u_rf/U1114/Y (AOI22X1)         0.051464   0.604726 r
+  gpu/g_warp_1__u_warp/u_rf/U1115/Y (NAND3X1)         0.017934   0.622660 f
+  gpu/g_warp_1__u_warp/u_rf/U997/Y (INVX1)            0.001863   0.624523 r
+  gpu/g_warp_1__u_warp/u_rf/U1116/Y (NAND2X1)         0.016714   0.641238 f
+  gpu/g_warp_1__u_warp/u_rf/read_data2[43] (regfile_LANES4_0)
+                                                      0.000000   0.641238 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/b[11] (alu_1)   0.000000   0.641238 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1344/Y (INVX1) 0.516745   1.157983 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1364/Y (INVX1) 0.191851   1.349834 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1156/Y (INVX1) 0.409972   1.759806 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1414/Y (NAND3X1)
+                                                      0.080015   1.839821 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1418/Y (NOR3X1)
+                                                      0.066890   1.906711 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1432/Y (NAND3X1)
+                                                      0.020772   1.927483 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1433/Y (INVX1) 0.002732   1.930215 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1216/Y (AND2X1)
+                                                      0.051254   1.981468 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1434/Y (AOI21X1)
+                                                      0.020827   2.002295 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U774/Y (BUFX2)  0.039408   2.041703 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U899/Y (OR2X2)  0.045848   2.087550 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U928/Y (AND2X1) 0.082637   2.170187 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1490/Y (AND2X1)
+                                                      0.061469   2.231656 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1492/Y (AOI21X1)
+                                                      0.040066   2.271723 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1493/Y (OAI21X1)
+                                                      0.018808   2.290531 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1494/Y (NAND3X1)
+                                                      0.027027   2.317558 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1495/Y (INVX1) 0.030570   2.348128 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1496/Y (NAND3X1)
+                                                      0.027833   2.375961 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1497/Y (INVX1) 0.036844   2.412805 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1498/Y (AOI21X1)
+                                                      0.033609   2.446414 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U726/Y (INVX1)  0.021713   2.468127 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U302/Y (AND2X1) 0.076958   2.545085 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1559/Y (AOI21X1)
+                                                      0.042601   2.587686 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1600/Y (AND2X2)
+                                                      0.069938   2.657624 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1639/Y (NAND2X1)
+                                                      0.026554   2.684178 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1640/Y (OAI21X1)
+                                                      0.117778   2.801956 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1778/Y (NOR2X1)
+                                                      0.064697   2.866653 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1779/Y (INVX1) 0.046450   2.913103 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1188/Y (AND2X1)
+                                                      0.044706   2.957808 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1785/Y (AOI21X1)
+                                                      0.023721   2.981530 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1786/Y (NOR3X1)
+                                                      0.026588   3.008118 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U43/Y (OR2X1)   0.041352   3.049470 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1789/Y (NAND3X1)
+                                                      0.011873   3.061342 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1225/Y (INVX1) 0.032537   3.093880 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1835/Y (OAI21X1)
+                                                      0.025199   3.119079 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U68/Y (AND2X1)  0.049575   3.168653 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1949/Y (INVX2) 0.063085   3.231738 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1836/Y (NOR2X1)
+                                                      0.031002   3.262740 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1837/Y (NOR2X1)
+                                                      0.025853   3.288593 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1922/Y (AND2X2)
+                                                      0.093262   3.381855 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1924/Y (NAND2X1)
+                                                      0.034164   3.416019 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1925/Y (OAI21X1)
+                                                      0.024907   3.440926 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U111/Y (BUFX4)  0.044051   3.484977 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1926/Y (OR2X1) 0.047099   3.532076 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2177/Y (AOI21X1)
+                                                      0.028317   3.560393 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U779/Y (BUFX2)  0.040607   3.601000 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2181/Y (OAI21X1)
+                                                      0.076253   3.677253 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2182/Y (NAND3X1)
+                                                      0.029186   3.706439 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1026/Y (AND2X2)
+                                                      0.038839   3.745278 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2192/Y (AOI21X1)
+                                                      0.025063   3.770341 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U701/Y (INVX1)  0.018048   3.788388 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U702/Y (INVX1)  0.012659   3.801047 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2308/Y (NAND2X1)
+                                                      0.015155   3.816201 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2309/Y (OAI21X1)
+                                                      0.057356   3.873558 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2529/Y (AOI21X1)
+                                                      0.042760   3.916317 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U827/Y (INVX1)  0.033309   3.949627 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U829/Y (INVX1)  0.023009   3.972636 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2530/Y (AND2X2)
+                                                      0.039674   4.012310 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2565/Y (NAND2X1)
+                                                      0.007086   4.019396 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2566/Y (BUFX2) 0.070226   4.089622 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U353/Y (OR2X1)  0.049831   4.139453 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U354/Y (INVX1)  0.017438   4.156891 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2623/Y (NOR3X1)
+                                                      0.023662   4.180553 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2624/Y (AND2X2)
+                                                      0.083119   4.263672 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2625/Y (OR2X1) 0.047566   4.311239 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2627/Y (AOI21X1)
+                                                      0.027630   4.338869 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U784/Y (INVX1)  0.009295   4.348164 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U785/Y (INVX1)  0.024175   4.372339 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2631/Y (OAI21X1)
+                                                      0.075544   4.447884 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2911/Y (AOI21X1)
+                                                      0.059410   4.507294 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2912/Y (AOI21X1)
+                                                      0.036755   4.544049 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2913/Y (AND2X2)
+                                                      0.048422   4.592471 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1230/Y (INVX1) 0.047217   4.639688 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2914/Y (NAND2X1)
+                                                      0.029027   4.668715 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2962/Y (NAND2X1)
+                                                      0.031527   4.700242 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3224/Y (AOI21X1)
+                                                      0.026301   4.726542 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3225/Y (AOI21X1)
+                                                      0.015237   4.741779 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U857/Y (INVX1)  0.005266   4.747046 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U858/Y (INVX1)  0.024749   4.771794 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3265/Y (NOR2X1)
+                                                      0.031172   4.802966 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U340/Y (BUFX2)  0.090551   4.893517 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3431/Y (AOI22X1)
+                                                      0.049402   4.942920 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3432/Y (NAND3X1)
+                                                      0.039917   4.982837 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3433/Y (NOR3X1)
+                                                      0.026205   5.009042 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3434/Y (INVX1) 0.015103   5.024146 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U110/Y (INVX4)  0.031850   5.055996 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3435/Y (NOR2X1)
+                                                      0.036748   5.092744 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3437/Y (OAI21X1)
+                                                      0.029079   5.121824 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4096/YC (FAX1) 0.079404   5.201228 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4075/YC (FAX1) 0.081314   5.282542 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4057/YC (FAX1) 0.081295   5.363836 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4036/YC (FAX1) 0.081155   5.444992 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4015/YC (FAX1) 0.081196   5.526188 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3993/YC (FAX1) 0.081221   5.607409 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3633/YC (FAX1) 0.081244   5.688652 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4292/YC (FAX1) 0.081237   5.769889 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4271/YC (FAX1) 0.081130   5.851019 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4249/YC (FAX1) 0.081243   5.932261 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4228/YC (FAX1) 0.081316   6.013577 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3634/YC (FAX1) 0.081199   6.094776 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3635/YC (FAX1) 0.070604   6.165380 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U915/Y (AND2X1) 0.034946   6.200326 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3636/YC (HAX1) 0.047747   6.248073 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3637/YC (HAX1) 0.050237   6.298310 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3638/YC (HAX1) 0.048220   6.346530 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3639/YC (HAX1) 0.048213   6.394744 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3640/YC (HAX1) 0.048122   6.442866 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3641/YC (HAX1) 0.048975   6.491841 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3642/YC (HAX1) 0.048676   6.540517 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3643/YC (HAX1) 0.048365   6.588881 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3644/YC (HAX1) 0.048336   6.637217 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3645/YC (HAX1) 0.048311   6.685528 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3646/YC (HAX1) 0.048330   6.733858 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3647/YC (HAX1) 0.048275   6.782133 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3648/YC (HAX1) 0.048269   6.830402 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3649/YC (HAX1) 0.048279   6.878681 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3650/YC (HAX1) 0.045195   6.923876 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U299/Y (AND2X1) 0.060349   6.984226 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1215/Y (AND2X1)
+                                                      0.051152   7.035378 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3717/Y (AOI21X1)
+                                                      0.019235   7.054613 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U830/Y (BUFX2)  0.046926   7.101539 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1207/Y (INVX1) 0.032104   7.133643 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3958/Y (NAND2X1)
+                                                      0.017025   7.150667 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3959/Y (AND2X2)
+                                                      0.045689   7.196356 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U270/Y (AND2X1) 0.128600   7.324956 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4169/Y (NAND2X1)
+                                                      0.052054   7.377010 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4170/Y (OAI21X1)
+                                                      0.017103   7.394113 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4171/Y (AOI21X1)
+                                                      0.016525   7.410638 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4183/Y (AND2X2)
+                                                      0.098596   7.509234 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4620/YC (FAX1) 0.097983   7.607217 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4598/YC (FAX1) 0.081233   7.688450 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4577/YC (FAX1) 0.081321   7.769771 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4557/YC (FAX1) 0.081155   7.850926 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4535/YC (FAX1) 0.081196   7.932122 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4518/YC (FAX1) 0.081221   8.013343 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4497/YC (FAX1) 0.081126   8.094469 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4476/YC (FAX1) 0.081237   8.175706 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4455/YC (FAX1) 0.081271   8.256977 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4329/YC (FAX1) 0.081243   8.338220 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4801/YC (FAX1) 0.081184   8.419404 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4780/YC (FAX1) 0.081254   8.500658 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4759/YC (FAX1) 0.081309   8.581967 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4738/YC (FAX1) 0.081163   8.663131 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4330/YC (FAX1) 0.081224   8.744355 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4331/YC (FAX1) 0.070541   8.814897 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U913/Y (AND2X1) 0.034958   8.849854 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4332/YC (HAX1) 0.047747   8.897601 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4333/YC (HAX1) 0.048121   8.945723 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4334/YC (HAX1) 0.048975   8.994698 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4335/YC (HAX1) 0.048676   9.043373 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4336/YC (HAX1) 0.048365   9.091738 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4337/YC (HAX1) 0.048336   9.140074 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4338/YC (HAX1) 0.048311   9.188385 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4339/YC (HAX1) 0.048330   9.236715 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4340/YC (HAX1) 0.048275   9.284990 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4341/YC (HAX1) 0.048269   9.333260 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4342/YC (HAX1) 0.048279   9.381538 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4343/YC (HAX1) 0.048326   9.429864 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4344/YC (HAX1) 0.074310   9.504174 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4362/Y (OAI21X1)
+                                                      0.086533   9.590707 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4425/Y (AOI21X1)
+                                                      0.037393   9.628099 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4426/Y (AOI21X1)
+                                                      0.018254   9.646354 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U777/Y (INVX1)  0.037083   9.683436 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U778/Y (INVX1)  0.020824   9.704261 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4427/Y (AND2X2)
+                                                      0.034890   9.739151 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4428/Y (INVX1) 0.017621   9.756772 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1017/Y (OR2X1) 0.049480   9.806252 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U85/Y (INVX2)   0.088522   9.894774 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4699/Y (AOI21X1)
+                                                      0.050636   9.945411 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4708/Y (AND2X1)
+                                                      0.045918   9.991329 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5147/YC (FAX1) 0.082341   10.073670 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5130/YC (FAX1) 0.081351   10.155022 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5112/YC (FAX1) 0.081314   10.236336 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5094/YC (FAX1) 0.081321   10.317657 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5076/YC (FAX1) 0.081156   10.398812 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5058/YC (FAX1) 0.081197   10.480009 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5041/YC (FAX1) 0.081221   10.561230 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5023/YC (FAX1) 0.081244   10.642473 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5005/YC (FAX1) 0.081237   10.723710 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4988/YC (FAX1) 0.081129   10.804839 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4971/YC (FAX1) 0.081243   10.886082 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4954/YC (FAX1) 0.081184   10.967266 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4937/YC (FAX1) 0.081254   11.048520 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4833/YC (FAX1) 0.081160   11.129680 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5278/YC (FAX1) 0.081347   11.211026 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5261/YC (FAX1) 0.081313   11.292339 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5244/YC (FAX1) 0.081097   11.373436 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5227/YC (FAX1) 0.081228   11.454664 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4834/YC (FAX1) 0.081233   11.535897 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4835/YC (FAX1) 0.070783   11.606680 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U945/Y (AND2X1) 0.034721   11.641401 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4836/YC (HAX1) 0.049174   11.690576 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4837/YC (HAX1) 0.048365   11.738940 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4838/YC (HAX1) 0.048336   11.787276 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4839/YC (HAX1) 0.048311   11.835588 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4840/YC (HAX1) 0.048330   11.883918 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4841/YC (HAX1) 0.048275   11.932193 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4842/YC (HAX1) 0.048269   11.980462 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4843/YC (HAX1) 0.048279   12.028741 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4844/YC (HAX1) 0.045182   12.073923 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U109/Y (AND2X2) 0.052832   12.126755 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4858/Y (OAI21X1)
+                                                      0.074027   12.200782 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1228/Y (INVX1) 0.047671   12.248453 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4903/Y (OAI21X1)
+                                                      0.021159   12.269612 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4904/Y (INVX1) 0.023739   12.293351 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4905/Y (AOI21X1)
+                                                      0.016402   12.309753 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U780/Y (INVX1)  0.017901   12.327655 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U781/Y (INVX1)  0.016409   12.344064 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4906/Y (AND2X2)
+                                                      0.033337   12.377400 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4933/Y (AND2X2)
+                                                      0.049244   12.426644 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4934/Y (INVX8) 0.031377   12.458021 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5200/Y (NOR2X1)
+                                                      0.035197   12.493218 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5201/Y (NOR3X1)
+                                                      0.024157   12.517375 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5202/Y (AND2X1)
+                                                      0.044000   12.561375 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5203/Y (INVX1) 0.015686   12.577061 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5204/Y (INVX1) 0.023016   12.600077 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5706/YC (FAX1) 0.081125   12.681202 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5686/YC (FAX1) 0.081351   12.762553 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5664/YC (FAX1) 0.081320   12.843873 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5643/YC (FAX1) 0.081321   12.925194 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5624/YC (FAX1) 0.081249   13.006443 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5603/YC (FAX1) 0.081197   13.087640 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5581/YC (FAX1) 0.081221   13.168860 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5560/YC (FAX1) 0.081126   13.249987 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5538/YC (FAX1) 0.081237   13.331223 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5517/YC (FAX1) 0.081271   13.412495 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5495/YC (FAX1) 0.081243   13.493737 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5474/YC (FAX1) 0.081184   13.574922 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5453/YC (FAX1) 0.081254   13.656176 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5432/YC (FAX1) 0.081309   13.737485 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5410/YC (FAX1) 0.081163   13.818648 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5389/YC (FAX1) 0.081224   13.899873 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5303/YC (FAX1) 0.081097   13.980969 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5866/YC (FAX1) 0.081358   14.062327 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5849/YC (FAX1) 0.081233   14.143560 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5828/YC (FAX1) 0.081339   14.224899 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5807/YC (FAX1) 0.081120   14.306019 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5786/YC (FAX1) 0.081124   14.387143 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5304/YC (FAX1) 0.070587   14.457730 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U953/Y (AND2X1) 0.034761   14.492492 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5305/YC (HAX1) 0.047748   14.540239 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5306/YC (HAX1) 0.048330   14.588570 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5307/YC (HAX1) 0.048275   14.636845 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5308/YC (HAX1) 0.048269   14.685114 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5309/YC (HAX1) 0.048279   14.733393 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5310/YC (HAX1) 0.045182   14.778575 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U108/Y (AND2X2) 0.052249   14.830824 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5328/Y (OAI21X1)
+                                                      0.088163   14.918987 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5362/Y (AOI21X1)
+                                                      0.036818   14.955805 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U802/Y (INVX1)  0.005655   14.961460 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U804/Y (INVX1)  0.015162   14.976622 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U805/Y (INVX1)  0.032598   15.009219 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U80/Y (AND2X1)  0.039582   15.048801 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5383/Y (INVX1) 0.021696   15.070498 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U77/Y (INVX2)   0.086929   15.157427 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5767/Y (NAND2X1)
+                                                      0.039061   15.196487 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5768/Y (OAI21X1)
+                                                      0.021267   15.217754 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5770/Y (NOR3X1)
+                                                      0.033375   15.251129 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5771/Y (AND2X1)
+                                                      0.141565   15.392694 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6269/YC (FAX1) 0.101760   15.494454 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6290/YC (FAX1) 0.081320   15.575774 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6305/YC (FAX1) 0.081294   15.657068 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6330/YC (FAX1) 0.081249   15.738317 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6344/YC (FAX1) 0.081197   15.819514 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6362/YC (FAX1) 0.081221   15.900735 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6376/YC (FAX1) 0.081126   15.981861 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6393/YC (FAX1) 0.081238   16.063099 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6409/YC (FAX1) 0.081129   16.144228 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6426/YC (FAX1) 0.081242   16.225470 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6440/YC (FAX1) 0.081316   16.306786 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6156/YC (FAX1) 0.081198   16.387983 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6141/YC (FAX1) 0.081160   16.469143 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6173/YC (FAX1) 0.081163   16.550306 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6186/YC (FAX1) 0.081312   16.631618 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6106/YC (FAX1) 0.081097   16.712715 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6121/YC (FAX1) 0.081228   16.793943 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6073/YC (FAX1) 0.081390   16.875334 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6089/YC (FAX1) 0.081301   16.956635 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5920/YC (FAX1) 0.081120   17.037754 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5985/YC (FAX1) 0.081125   17.118879 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6000/YC (FAX1) 0.081142   17.200022 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6014/YC (FAX1) 0.081160   17.281181 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6029/YC (FAX1) 0.081175   17.362356 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6044/YC (FAX1) 0.081163   17.443520 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5921/YC (FAX1) 0.070641   17.514160 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U989/Y (AND2X1) 0.034801   17.548962 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5922/YC (HAX1) 0.047749   17.596710 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5923/YC (HAX1) 0.048325   17.645035 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5924/YC (HAX1) 0.045176   17.690210 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5925/Y (NAND2X1)
+                                                      0.039879   17.730089 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U846/Y (AND2X2) 0.049009   17.779099 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U847/Y (INVX1)  0.038271   17.817369 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5960/Y (AOI21X1)
+                                                      0.069677   17.887047 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5966/Y (NAND2X1)
+                                                      0.034113   17.921160 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5968/Y (OR2X2) 0.048841   17.970001 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1163/Y (INVX2) 0.127499   18.097500 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6012/Y (AOI21X1)
+                                                      0.058624   18.156124 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6013/Y (NAND3X1)
+                                                      0.029913   18.186037 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U55/Y (BUFX2)   0.088644   18.274681 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6486/Y (OR2X1) 0.046484   18.321165 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6550/Y (AOI22X1)
+                                                      0.025705   18.346870 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6553/Y (OAI21X1)
+                                                      0.106079   18.452950 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6554/Y (AOI22X1)
+                                                      0.020706   18.473656 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6555/Y (OAI21X1)
+                                                      0.027184   18.500839 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6556/Y (AOI21X1)
+                                                      0.019363   18.520203 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1221/Y (INVX1) 0.041924   18.562126 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6557/Y (INVX1) 0.023022   18.585148 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6558/Y (NAND2X1)
+                                                      0.011774   18.596922 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6647/Y (NAND2X1)
+                                                      0.023790   18.620712 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U987/Y (OR2X2)  0.050186   18.670898 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U7000/Y (NAND3X1)
+                                                      0.027409   18.698307 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U7001/Y (INVX1) 0.024239   18.722546 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U7002/Y (NOR3X1)
+                                                      0.022236   18.744781 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U7003/Y (INVX1) 0.025124   18.769905 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/result[0] (alu_1)
+                                                      0.000000   18.769905 f
+  gpu/g_warp_1__u_warp/U58/Y (AND2X1)                 0.045372   18.815277 f
+  gpu/g_warp_1__u_warp/U97/Y (NOR3X1)                 0.023714   18.838991 r
+  gpu/g_warp_1__u_warp/U98/Y (INVX1)                  0.031868   18.870859 f
+  gpu/g_warp_1__u_warp/u_rf/write_data[32] (regfile_LANES4_0)
+                                                      0.000000   18.870859 f
+  gpu/g_warp_1__u_warp/u_rf/U6676/Y (INVX4)           0.037788   18.908648 r
+  gpu/g_warp_1__u_warp/u_rf/U6687/Y (MUX2X1)          0.024132   18.932779 f
+  gpu/g_warp_1__u_warp/u_rf/regs_reg_12__2__0_/D (DFFSR)
+                                                      0.000000   18.932779 f
+  data arrival time                                              18.932779
+
+  clock core_clk (rise edge)                          20.000000  20.000000
+  clock network delay (ideal)                         0.000000   20.000000
+  clock uncertainty                                   -1.000000  19.000000
+  gpu/g_warp_1__u_warp/u_rf/regs_reg_12__2__0_/CLK (DFFSR)
+                                                      0.000000   19.000000 r
+  library setup time                                  -0.067179  18.932821
+  data required time                                             18.932821
+  --------------------------------------------------------------------------
+  data required time                                             18.932821
+  data arrival time                                              -18.932779
+  --------------------------------------------------------------------------
+  slack (MET)                                                    0.000042
+
+
+  Startpoint: gpu/g_warp_1__u_warp/ir_reg_1_
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: gpu/g_warp_1__u_warp/u_rf/regs_reg_1__2__0_
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock core_clk (rise edge)                          0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  gpu/g_warp_1__u_warp/ir_reg_1_/CLK (DFFSR)          0.000000 # 0.000000 r
+  gpu/g_warp_1__u_warp/ir_reg_1_/Q (DFFSR)            0.174095   0.174095 r
+  gpu/g_warp_1__u_warp/U69/Y (BUFX2)                  0.071736   0.245831 r
+  gpu/g_warp_1__u_warp/u_dec/instr[1] (decoder_0)     0.000000   0.245831 r
+  gpu/g_warp_1__u_warp/u_dec/rs2[1] (decoder_0)       0.000000   0.245831 r
+  gpu/g_warp_1__u_warp/u_rf/read_addr2[1] (regfile_LANES4_0)
+                                                      0.000000   0.245831 r
+  gpu/g_warp_1__u_warp/u_rf/U1091/Y (NOR2X1)          0.033628   0.279460 f
+  gpu/g_warp_1__u_warp/u_rf/U1109/Y (NAND2X1)         0.020912   0.300371 r
+  gpu/g_warp_1__u_warp/u_rf/U922/Y (OR2X2)            0.052488   0.352860 r
+  gpu/g_warp_1__u_warp/u_rf/U86/Y (INVX2)             0.081985   0.434845 f
+  gpu/g_warp_1__u_warp/u_rf/U1113/Y (INVX1)           0.041274   0.476120 r
+  gpu/g_warp_1__u_warp/u_rf/U85/Y (INVX4)             0.077143   0.553263 f
+  gpu/g_warp_1__u_warp/u_rf/U1114/Y (AOI22X1)         0.051464   0.604726 r
+  gpu/g_warp_1__u_warp/u_rf/U1115/Y (NAND3X1)         0.017934   0.622660 f
+  gpu/g_warp_1__u_warp/u_rf/U997/Y (INVX1)            0.001863   0.624523 r
+  gpu/g_warp_1__u_warp/u_rf/U1116/Y (NAND2X1)         0.016714   0.641238 f
+  gpu/g_warp_1__u_warp/u_rf/read_data2[43] (regfile_LANES4_0)
+                                                      0.000000   0.641238 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/b[11] (alu_1)   0.000000   0.641238 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1344/Y (INVX1) 0.516745   1.157983 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1364/Y (INVX1) 0.191851   1.349834 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1156/Y (INVX1) 0.409972   1.759806 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1414/Y (NAND3X1)
+                                                      0.080015   1.839821 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1418/Y (NOR3X1)
+                                                      0.066890   1.906711 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1432/Y (NAND3X1)
+                                                      0.020772   1.927483 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1433/Y (INVX1) 0.002732   1.930215 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1216/Y (AND2X1)
+                                                      0.051254   1.981468 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1434/Y (AOI21X1)
+                                                      0.020827   2.002295 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U774/Y (BUFX2)  0.039408   2.041703 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U899/Y (OR2X2)  0.045848   2.087550 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U928/Y (AND2X1) 0.082637   2.170187 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1490/Y (AND2X1)
+                                                      0.061469   2.231656 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1492/Y (AOI21X1)
+                                                      0.040066   2.271723 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1493/Y (OAI21X1)
+                                                      0.018808   2.290531 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1494/Y (NAND3X1)
+                                                      0.027027   2.317558 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1495/Y (INVX1) 0.030570   2.348128 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1496/Y (NAND3X1)
+                                                      0.027833   2.375961 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1497/Y (INVX1) 0.036844   2.412805 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1498/Y (AOI21X1)
+                                                      0.033609   2.446414 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U726/Y (INVX1)  0.021713   2.468127 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U302/Y (AND2X1) 0.076958   2.545085 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1559/Y (AOI21X1)
+                                                      0.042601   2.587686 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1600/Y (AND2X2)
+                                                      0.069938   2.657624 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1639/Y (NAND2X1)
+                                                      0.026554   2.684178 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1640/Y (OAI21X1)
+                                                      0.117778   2.801956 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1778/Y (NOR2X1)
+                                                      0.064697   2.866653 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1779/Y (INVX1) 0.046450   2.913103 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1188/Y (AND2X1)
+                                                      0.044706   2.957808 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1785/Y (AOI21X1)
+                                                      0.023721   2.981530 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1786/Y (NOR3X1)
+                                                      0.026588   3.008118 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U43/Y (OR2X1)   0.041352   3.049470 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1789/Y (NAND3X1)
+                                                      0.011873   3.061342 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1225/Y (INVX1) 0.032537   3.093880 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1835/Y (OAI21X1)
+                                                      0.025199   3.119079 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U68/Y (AND2X1)  0.049575   3.168653 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1949/Y (INVX2) 0.063085   3.231738 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1836/Y (NOR2X1)
+                                                      0.031002   3.262740 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1837/Y (NOR2X1)
+                                                      0.025853   3.288593 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1922/Y (AND2X2)
+                                                      0.093262   3.381855 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1924/Y (NAND2X1)
+                                                      0.034164   3.416019 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1925/Y (OAI21X1)
+                                                      0.024907   3.440926 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U111/Y (BUFX4)  0.044051   3.484977 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1926/Y (OR2X1) 0.047099   3.532076 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2177/Y (AOI21X1)
+                                                      0.028317   3.560393 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U779/Y (BUFX2)  0.040607   3.601000 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2181/Y (OAI21X1)
+                                                      0.076253   3.677253 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2182/Y (NAND3X1)
+                                                      0.029186   3.706439 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1026/Y (AND2X2)
+                                                      0.038839   3.745278 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2192/Y (AOI21X1)
+                                                      0.025063   3.770341 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U701/Y (INVX1)  0.018048   3.788388 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U702/Y (INVX1)  0.012659   3.801047 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2308/Y (NAND2X1)
+                                                      0.015155   3.816201 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2309/Y (OAI21X1)
+                                                      0.057356   3.873558 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2529/Y (AOI21X1)
+                                                      0.042760   3.916317 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U827/Y (INVX1)  0.033309   3.949627 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U829/Y (INVX1)  0.023009   3.972636 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2530/Y (AND2X2)
+                                                      0.039674   4.012310 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2565/Y (NAND2X1)
+                                                      0.007086   4.019396 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2566/Y (BUFX2) 0.070226   4.089622 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U353/Y (OR2X1)  0.049831   4.139453 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U354/Y (INVX1)  0.017438   4.156891 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2623/Y (NOR3X1)
+                                                      0.023662   4.180553 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2624/Y (AND2X2)
+                                                      0.083119   4.263672 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2625/Y (OR2X1) 0.047566   4.311239 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2627/Y (AOI21X1)
+                                                      0.027630   4.338869 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U784/Y (INVX1)  0.009295   4.348164 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U785/Y (INVX1)  0.024175   4.372339 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2631/Y (OAI21X1)
+                                                      0.075544   4.447884 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2911/Y (AOI21X1)
+                                                      0.059410   4.507294 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2912/Y (AOI21X1)
+                                                      0.036755   4.544049 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2913/Y (AND2X2)
+                                                      0.048422   4.592471 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1230/Y (INVX1) 0.047217   4.639688 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2914/Y (NAND2X1)
+                                                      0.029027   4.668715 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2962/Y (NAND2X1)
+                                                      0.031527   4.700242 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3224/Y (AOI21X1)
+                                                      0.026301   4.726542 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3225/Y (AOI21X1)
+                                                      0.015237   4.741779 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U857/Y (INVX1)  0.005266   4.747046 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U858/Y (INVX1)  0.024749   4.771794 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3265/Y (NOR2X1)
+                                                      0.031172   4.802966 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U340/Y (BUFX2)  0.090551   4.893517 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3431/Y (AOI22X1)
+                                                      0.049402   4.942920 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3432/Y (NAND3X1)
+                                                      0.039917   4.982837 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3433/Y (NOR3X1)
+                                                      0.026205   5.009042 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3434/Y (INVX1) 0.015103   5.024146 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U110/Y (INVX4)  0.031850   5.055996 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3435/Y (NOR2X1)
+                                                      0.036748   5.092744 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3437/Y (OAI21X1)
+                                                      0.029079   5.121824 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4096/YC (FAX1) 0.079404   5.201228 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4075/YC (FAX1) 0.081314   5.282542 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4057/YC (FAX1) 0.081295   5.363836 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4036/YC (FAX1) 0.081155   5.444992 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4015/YC (FAX1) 0.081196   5.526188 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3993/YC (FAX1) 0.081221   5.607409 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3633/YC (FAX1) 0.081244   5.688652 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4292/YC (FAX1) 0.081237   5.769889 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4271/YC (FAX1) 0.081130   5.851019 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4249/YC (FAX1) 0.081243   5.932261 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4228/YC (FAX1) 0.081316   6.013577 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3634/YC (FAX1) 0.081199   6.094776 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3635/YC (FAX1) 0.070604   6.165380 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U915/Y (AND2X1) 0.034946   6.200326 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3636/YC (HAX1) 0.047747   6.248073 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3637/YC (HAX1) 0.050237   6.298310 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3638/YC (HAX1) 0.048220   6.346530 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3639/YC (HAX1) 0.048213   6.394744 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3640/YC (HAX1) 0.048122   6.442866 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3641/YC (HAX1) 0.048975   6.491841 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3642/YC (HAX1) 0.048676   6.540517 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3643/YC (HAX1) 0.048365   6.588881 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3644/YC (HAX1) 0.048336   6.637217 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3645/YC (HAX1) 0.048311   6.685528 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3646/YC (HAX1) 0.048330   6.733858 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3647/YC (HAX1) 0.048275   6.782133 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3648/YC (HAX1) 0.048269   6.830402 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3649/YC (HAX1) 0.048279   6.878681 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3650/YC (HAX1) 0.045195   6.923876 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U299/Y (AND2X1) 0.060349   6.984226 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1215/Y (AND2X1)
+                                                      0.051152   7.035378 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3717/Y (AOI21X1)
+                                                      0.019235   7.054613 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U830/Y (BUFX2)  0.046926   7.101539 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1207/Y (INVX1) 0.032104   7.133643 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3958/Y (NAND2X1)
+                                                      0.017025   7.150667 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3959/Y (AND2X2)
+                                                      0.045689   7.196356 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U270/Y (AND2X1) 0.128600   7.324956 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4169/Y (NAND2X1)
+                                                      0.052054   7.377010 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4170/Y (OAI21X1)
+                                                      0.017103   7.394113 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4171/Y (AOI21X1)
+                                                      0.016525   7.410638 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4183/Y (AND2X2)
+                                                      0.098596   7.509234 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4620/YC (FAX1) 0.097983   7.607217 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4598/YC (FAX1) 0.081233   7.688450 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4577/YC (FAX1) 0.081321   7.769771 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4557/YC (FAX1) 0.081155   7.850926 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4535/YC (FAX1) 0.081196   7.932122 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4518/YC (FAX1) 0.081221   8.013343 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4497/YC (FAX1) 0.081126   8.094469 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4476/YC (FAX1) 0.081237   8.175706 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4455/YC (FAX1) 0.081271   8.256977 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4329/YC (FAX1) 0.081243   8.338220 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4801/YC (FAX1) 0.081184   8.419404 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4780/YC (FAX1) 0.081254   8.500658 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4759/YC (FAX1) 0.081309   8.581967 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4738/YC (FAX1) 0.081163   8.663131 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4330/YC (FAX1) 0.081224   8.744355 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4331/YC (FAX1) 0.070541   8.814897 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U913/Y (AND2X1) 0.034958   8.849854 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4332/YC (HAX1) 0.047747   8.897601 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4333/YC (HAX1) 0.048121   8.945723 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4334/YC (HAX1) 0.048975   8.994698 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4335/YC (HAX1) 0.048676   9.043373 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4336/YC (HAX1) 0.048365   9.091738 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4337/YC (HAX1) 0.048336   9.140074 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4338/YC (HAX1) 0.048311   9.188385 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4339/YC (HAX1) 0.048330   9.236715 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4340/YC (HAX1) 0.048275   9.284990 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4341/YC (HAX1) 0.048269   9.333260 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4342/YC (HAX1) 0.048279   9.381538 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4343/YC (HAX1) 0.048326   9.429864 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4344/YC (HAX1) 0.074310   9.504174 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4362/Y (OAI21X1)
+                                                      0.086533   9.590707 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4425/Y (AOI21X1)
+                                                      0.037393   9.628099 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4426/Y (AOI21X1)
+                                                      0.018254   9.646354 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U777/Y (INVX1)  0.037083   9.683436 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U778/Y (INVX1)  0.020824   9.704261 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4427/Y (AND2X2)
+                                                      0.034890   9.739151 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4428/Y (INVX1) 0.017621   9.756772 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1017/Y (OR2X1) 0.049480   9.806252 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U85/Y (INVX2)   0.088522   9.894774 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4699/Y (AOI21X1)
+                                                      0.050636   9.945411 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4708/Y (AND2X1)
+                                                      0.045918   9.991329 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5147/YC (FAX1) 0.082341   10.073670 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5130/YC (FAX1) 0.081351   10.155022 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5112/YC (FAX1) 0.081314   10.236336 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5094/YC (FAX1) 0.081321   10.317657 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5076/YC (FAX1) 0.081156   10.398812 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5058/YC (FAX1) 0.081197   10.480009 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5041/YC (FAX1) 0.081221   10.561230 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5023/YC (FAX1) 0.081244   10.642473 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5005/YC (FAX1) 0.081237   10.723710 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4988/YC (FAX1) 0.081129   10.804839 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4971/YC (FAX1) 0.081243   10.886082 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4954/YC (FAX1) 0.081184   10.967266 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4937/YC (FAX1) 0.081254   11.048520 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4833/YC (FAX1) 0.081160   11.129680 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5278/YC (FAX1) 0.081347   11.211026 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5261/YC (FAX1) 0.081313   11.292339 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5244/YC (FAX1) 0.081097   11.373436 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5227/YC (FAX1) 0.081228   11.454664 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4834/YC (FAX1) 0.081233   11.535897 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4835/YC (FAX1) 0.070783   11.606680 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U945/Y (AND2X1) 0.034721   11.641401 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4836/YC (HAX1) 0.049174   11.690576 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4837/YC (HAX1) 0.048365   11.738940 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4838/YC (HAX1) 0.048336   11.787276 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4839/YC (HAX1) 0.048311   11.835588 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4840/YC (HAX1) 0.048330   11.883918 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4841/YC (HAX1) 0.048275   11.932193 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4842/YC (HAX1) 0.048269   11.980462 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4843/YC (HAX1) 0.048279   12.028741 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4844/YC (HAX1) 0.045182   12.073923 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U109/Y (AND2X2) 0.052832   12.126755 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4858/Y (OAI21X1)
+                                                      0.074027   12.200782 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1228/Y (INVX1) 0.047671   12.248453 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4903/Y (OAI21X1)
+                                                      0.021159   12.269612 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4904/Y (INVX1) 0.023739   12.293351 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4905/Y (AOI21X1)
+                                                      0.016402   12.309753 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U780/Y (INVX1)  0.017901   12.327655 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U781/Y (INVX1)  0.016409   12.344064 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4906/Y (AND2X2)
+                                                      0.033337   12.377400 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4933/Y (AND2X2)
+                                                      0.049244   12.426644 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4934/Y (INVX8) 0.031377   12.458021 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5200/Y (NOR2X1)
+                                                      0.035197   12.493218 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5201/Y (NOR3X1)
+                                                      0.024157   12.517375 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5202/Y (AND2X1)
+                                                      0.044000   12.561375 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5203/Y (INVX1) 0.015686   12.577061 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5204/Y (INVX1) 0.023016   12.600077 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5706/YC (FAX1) 0.081125   12.681202 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5686/YC (FAX1) 0.081351   12.762553 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5664/YC (FAX1) 0.081320   12.843873 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5643/YC (FAX1) 0.081321   12.925194 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5624/YC (FAX1) 0.081249   13.006443 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5603/YC (FAX1) 0.081197   13.087640 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5581/YC (FAX1) 0.081221   13.168860 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5560/YC (FAX1) 0.081126   13.249987 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5538/YC (FAX1) 0.081237   13.331223 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5517/YC (FAX1) 0.081271   13.412495 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5495/YC (FAX1) 0.081243   13.493737 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5474/YC (FAX1) 0.081184   13.574922 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5453/YC (FAX1) 0.081254   13.656176 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5432/YC (FAX1) 0.081309   13.737485 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5410/YC (FAX1) 0.081163   13.818648 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5389/YC (FAX1) 0.081224   13.899873 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5303/YC (FAX1) 0.081097   13.980969 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5866/YC (FAX1) 0.081358   14.062327 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5849/YC (FAX1) 0.081233   14.143560 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5828/YC (FAX1) 0.081339   14.224899 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5807/YC (FAX1) 0.081120   14.306019 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5786/YC (FAX1) 0.081124   14.387143 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5304/YC (FAX1) 0.070587   14.457730 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U953/Y (AND2X1) 0.034761   14.492492 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5305/YC (HAX1) 0.047748   14.540239 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5306/YC (HAX1) 0.048330   14.588570 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5307/YC (HAX1) 0.048275   14.636845 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5308/YC (HAX1) 0.048269   14.685114 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5309/YC (HAX1) 0.048279   14.733393 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5310/YC (HAX1) 0.045182   14.778575 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U108/Y (AND2X2) 0.052249   14.830824 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5328/Y (OAI21X1)
+                                                      0.088163   14.918987 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5362/Y (AOI21X1)
+                                                      0.036818   14.955805 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U802/Y (INVX1)  0.005655   14.961460 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U804/Y (INVX1)  0.015162   14.976622 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U805/Y (INVX1)  0.032598   15.009219 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U80/Y (AND2X1)  0.039582   15.048801 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5383/Y (INVX1) 0.021696   15.070498 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U77/Y (INVX2)   0.086929   15.157427 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5767/Y (NAND2X1)
+                                                      0.039061   15.196487 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5768/Y (OAI21X1)
+                                                      0.021267   15.217754 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5770/Y (NOR3X1)
+                                                      0.033375   15.251129 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5771/Y (AND2X1)
+                                                      0.141565   15.392694 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6269/YC (FAX1) 0.101760   15.494454 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6290/YC (FAX1) 0.081320   15.575774 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6305/YC (FAX1) 0.081294   15.657068 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6330/YC (FAX1) 0.081249   15.738317 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6344/YC (FAX1) 0.081197   15.819514 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6362/YC (FAX1) 0.081221   15.900735 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6376/YC (FAX1) 0.081126   15.981861 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6393/YC (FAX1) 0.081238   16.063099 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6409/YC (FAX1) 0.081129   16.144228 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6426/YC (FAX1) 0.081242   16.225470 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6440/YC (FAX1) 0.081316   16.306786 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6156/YC (FAX1) 0.081198   16.387983 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6141/YC (FAX1) 0.081160   16.469143 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6173/YC (FAX1) 0.081163   16.550306 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6186/YC (FAX1) 0.081312   16.631618 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6106/YC (FAX1) 0.081097   16.712715 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6121/YC (FAX1) 0.081228   16.793943 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6073/YC (FAX1) 0.081390   16.875334 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6089/YC (FAX1) 0.081301   16.956635 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5920/YC (FAX1) 0.081120   17.037754 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5985/YC (FAX1) 0.081125   17.118879 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6000/YC (FAX1) 0.081142   17.200022 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6014/YC (FAX1) 0.081160   17.281181 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6029/YC (FAX1) 0.081175   17.362356 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6044/YC (FAX1) 0.081163   17.443520 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5921/YC (FAX1) 0.070641   17.514160 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U989/Y (AND2X1) 0.034801   17.548962 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5922/YC (HAX1) 0.047749   17.596710 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5923/YC (HAX1) 0.048325   17.645035 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5924/YC (HAX1) 0.045176   17.690210 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5925/Y (NAND2X1)
+                                                      0.039879   17.730089 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U846/Y (AND2X2) 0.049009   17.779099 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U847/Y (INVX1)  0.038271   17.817369 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5960/Y (AOI21X1)
+                                                      0.069677   17.887047 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5966/Y (NAND2X1)
+                                                      0.034113   17.921160 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5968/Y (OR2X2) 0.048841   17.970001 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1163/Y (INVX2) 0.127499   18.097500 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6012/Y (AOI21X1)
+                                                      0.058624   18.156124 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6013/Y (NAND3X1)
+                                                      0.029913   18.186037 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U55/Y (BUFX2)   0.088644   18.274681 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6486/Y (OR2X1) 0.046484   18.321165 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6550/Y (AOI22X1)
+                                                      0.025705   18.346870 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6553/Y (OAI21X1)
+                                                      0.106079   18.452950 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6554/Y (AOI22X1)
+                                                      0.020706   18.473656 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6555/Y (OAI21X1)
+                                                      0.027184   18.500839 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6556/Y (AOI21X1)
+                                                      0.019363   18.520203 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1221/Y (INVX1) 0.041924   18.562126 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6557/Y (INVX1) 0.023022   18.585148 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6558/Y (NAND2X1)
+                                                      0.011774   18.596922 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6647/Y (NAND2X1)
+                                                      0.023790   18.620712 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U987/Y (OR2X2)  0.050186   18.670898 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U7000/Y (NAND3X1)
+                                                      0.027409   18.698307 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U7001/Y (INVX1) 0.024239   18.722546 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U7002/Y (NOR3X1)
+                                                      0.022236   18.744781 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U7003/Y (INVX1) 0.025124   18.769905 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/result[0] (alu_1)
+                                                      0.000000   18.769905 f
+  gpu/g_warp_1__u_warp/U58/Y (AND2X1)                 0.045372   18.815277 f
+  gpu/g_warp_1__u_warp/U97/Y (NOR3X1)                 0.023714   18.838991 r
+  gpu/g_warp_1__u_warp/U98/Y (INVX1)                  0.031868   18.870859 f
+  gpu/g_warp_1__u_warp/u_rf/write_data[32] (regfile_LANES4_0)
+                                                      0.000000   18.870859 f
+  gpu/g_warp_1__u_warp/u_rf/U6676/Y (INVX4)           0.037788   18.908648 r
+  gpu/g_warp_1__u_warp/u_rf/U6708/Y (MUX2X1)          0.024132   18.932779 f
+  gpu/g_warp_1__u_warp/u_rf/regs_reg_1__2__0_/D (DFFSR)
+                                                      0.000000   18.932779 f
+  data arrival time                                              18.932779
+
+  clock core_clk (rise edge)                          20.000000  20.000000
+  clock network delay (ideal)                         0.000000   20.000000
+  clock uncertainty                                   -1.000000  19.000000
+  gpu/g_warp_1__u_warp/u_rf/regs_reg_1__2__0_/CLK (DFFSR)
+                                                      0.000000   19.000000 r
+  library setup time                                  -0.067162  18.932838
+  data required time                                             18.932838
+  --------------------------------------------------------------------------
+  data required time                                             18.932838
+  data arrival time                                              -18.932779
+  --------------------------------------------------------------------------
+  slack (MET)                                                    0.000059
+
+
+  Startpoint: gpu/g_warp_1__u_warp/ir_reg_1_
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: gpu/g_warp_1__u_warp/u_rf/regs_reg_5__2__0_
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock core_clk (rise edge)                          0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  gpu/g_warp_1__u_warp/ir_reg_1_/CLK (DFFSR)          0.000000 # 0.000000 r
+  gpu/g_warp_1__u_warp/ir_reg_1_/Q (DFFSR)            0.174095   0.174095 r
+  gpu/g_warp_1__u_warp/U69/Y (BUFX2)                  0.071736   0.245831 r
+  gpu/g_warp_1__u_warp/u_dec/instr[1] (decoder_0)     0.000000   0.245831 r
+  gpu/g_warp_1__u_warp/u_dec/rs2[1] (decoder_0)       0.000000   0.245831 r
+  gpu/g_warp_1__u_warp/u_rf/read_addr2[1] (regfile_LANES4_0)
+                                                      0.000000   0.245831 r
+  gpu/g_warp_1__u_warp/u_rf/U1091/Y (NOR2X1)          0.033628   0.279460 f
+  gpu/g_warp_1__u_warp/u_rf/U1109/Y (NAND2X1)         0.020912   0.300371 r
+  gpu/g_warp_1__u_warp/u_rf/U922/Y (OR2X2)            0.052488   0.352860 r
+  gpu/g_warp_1__u_warp/u_rf/U86/Y (INVX2)             0.081985   0.434845 f
+  gpu/g_warp_1__u_warp/u_rf/U1113/Y (INVX1)           0.041274   0.476120 r
+  gpu/g_warp_1__u_warp/u_rf/U85/Y (INVX4)             0.077143   0.553263 f
+  gpu/g_warp_1__u_warp/u_rf/U1114/Y (AOI22X1)         0.051464   0.604726 r
+  gpu/g_warp_1__u_warp/u_rf/U1115/Y (NAND3X1)         0.017934   0.622660 f
+  gpu/g_warp_1__u_warp/u_rf/U997/Y (INVX1)            0.001863   0.624523 r
+  gpu/g_warp_1__u_warp/u_rf/U1116/Y (NAND2X1)         0.016714   0.641238 f
+  gpu/g_warp_1__u_warp/u_rf/read_data2[43] (regfile_LANES4_0)
+                                                      0.000000   0.641238 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/b[11] (alu_1)   0.000000   0.641238 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1344/Y (INVX1) 0.516745   1.157983 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1364/Y (INVX1) 0.191851   1.349834 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1156/Y (INVX1) 0.409972   1.759806 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1414/Y (NAND3X1)
+                                                      0.080015   1.839821 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1418/Y (NOR3X1)
+                                                      0.066890   1.906711 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1432/Y (NAND3X1)
+                                                      0.020772   1.927483 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1433/Y (INVX1) 0.002732   1.930215 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1216/Y (AND2X1)
+                                                      0.051254   1.981468 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1434/Y (AOI21X1)
+                                                      0.020827   2.002295 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U774/Y (BUFX2)  0.039408   2.041703 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U899/Y (OR2X2)  0.045848   2.087550 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U928/Y (AND2X1) 0.082637   2.170187 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1490/Y (AND2X1)
+                                                      0.061469   2.231656 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1492/Y (AOI21X1)
+                                                      0.040066   2.271723 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1493/Y (OAI21X1)
+                                                      0.018808   2.290531 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1494/Y (NAND3X1)
+                                                      0.027027   2.317558 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1495/Y (INVX1) 0.030570   2.348128 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1496/Y (NAND3X1)
+                                                      0.027833   2.375961 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1497/Y (INVX1) 0.036844   2.412805 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1498/Y (AOI21X1)
+                                                      0.033609   2.446414 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U726/Y (INVX1)  0.021713   2.468127 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U302/Y (AND2X1) 0.076958   2.545085 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1559/Y (AOI21X1)
+                                                      0.042601   2.587686 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1600/Y (AND2X2)
+                                                      0.069938   2.657624 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1639/Y (NAND2X1)
+                                                      0.026554   2.684178 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1640/Y (OAI21X1)
+                                                      0.117778   2.801956 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1778/Y (NOR2X1)
+                                                      0.064697   2.866653 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1779/Y (INVX1) 0.046450   2.913103 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1188/Y (AND2X1)
+                                                      0.044706   2.957808 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1785/Y (AOI21X1)
+                                                      0.023721   2.981530 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1786/Y (NOR3X1)
+                                                      0.026588   3.008118 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U43/Y (OR2X1)   0.041352   3.049470 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1789/Y (NAND3X1)
+                                                      0.011873   3.061342 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1225/Y (INVX1) 0.032537   3.093880 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1835/Y (OAI21X1)
+                                                      0.025199   3.119079 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U68/Y (AND2X1)  0.049575   3.168653 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1949/Y (INVX2) 0.063085   3.231738 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1836/Y (NOR2X1)
+                                                      0.031002   3.262740 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1837/Y (NOR2X1)
+                                                      0.025853   3.288593 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1922/Y (AND2X2)
+                                                      0.093262   3.381855 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1924/Y (NAND2X1)
+                                                      0.034164   3.416019 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1925/Y (OAI21X1)
+                                                      0.024907   3.440926 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U111/Y (BUFX4)  0.044051   3.484977 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1926/Y (OR2X1) 0.047099   3.532076 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2177/Y (AOI21X1)
+                                                      0.028317   3.560393 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U779/Y (BUFX2)  0.040607   3.601000 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2181/Y (OAI21X1)
+                                                      0.076253   3.677253 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2182/Y (NAND3X1)
+                                                      0.029186   3.706439 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1026/Y (AND2X2)
+                                                      0.038839   3.745278 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2192/Y (AOI21X1)
+                                                      0.025063   3.770341 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U701/Y (INVX1)  0.018048   3.788388 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U702/Y (INVX1)  0.012659   3.801047 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2308/Y (NAND2X1)
+                                                      0.015155   3.816201 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2309/Y (OAI21X1)
+                                                      0.057356   3.873558 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2529/Y (AOI21X1)
+                                                      0.042760   3.916317 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U827/Y (INVX1)  0.033309   3.949627 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U829/Y (INVX1)  0.023009   3.972636 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2530/Y (AND2X2)
+                                                      0.039674   4.012310 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2565/Y (NAND2X1)
+                                                      0.007086   4.019396 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2566/Y (BUFX2) 0.070226   4.089622 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U353/Y (OR2X1)  0.049831   4.139453 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U354/Y (INVX1)  0.017438   4.156891 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2623/Y (NOR3X1)
+                                                      0.023662   4.180553 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2624/Y (AND2X2)
+                                                      0.083119   4.263672 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2625/Y (OR2X1) 0.047566   4.311239 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2627/Y (AOI21X1)
+                                                      0.027630   4.338869 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U784/Y (INVX1)  0.009295   4.348164 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U785/Y (INVX1)  0.024175   4.372339 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2631/Y (OAI21X1)
+                                                      0.075544   4.447884 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2911/Y (AOI21X1)
+                                                      0.059410   4.507294 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2912/Y (AOI21X1)
+                                                      0.036755   4.544049 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2913/Y (AND2X2)
+                                                      0.048422   4.592471 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1230/Y (INVX1) 0.047217   4.639688 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2914/Y (NAND2X1)
+                                                      0.029027   4.668715 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U2962/Y (NAND2X1)
+                                                      0.031527   4.700242 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3224/Y (AOI21X1)
+                                                      0.026301   4.726542 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3225/Y (AOI21X1)
+                                                      0.015237   4.741779 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U857/Y (INVX1)  0.005266   4.747046 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U858/Y (INVX1)  0.024749   4.771794 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3265/Y (NOR2X1)
+                                                      0.031172   4.802966 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U340/Y (BUFX2)  0.090551   4.893517 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3431/Y (AOI22X1)
+                                                      0.049402   4.942920 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3432/Y (NAND3X1)
+                                                      0.039917   4.982837 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3433/Y (NOR3X1)
+                                                      0.026205   5.009042 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3434/Y (INVX1) 0.015103   5.024146 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U110/Y (INVX4)  0.031850   5.055996 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3435/Y (NOR2X1)
+                                                      0.036748   5.092744 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3437/Y (OAI21X1)
+                                                      0.029079   5.121824 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4096/YC (FAX1) 0.079404   5.201228 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4075/YC (FAX1) 0.081314   5.282542 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4057/YC (FAX1) 0.081295   5.363836 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4036/YC (FAX1) 0.081155   5.444992 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4015/YC (FAX1) 0.081196   5.526188 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3993/YC (FAX1) 0.081221   5.607409 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3633/YC (FAX1) 0.081244   5.688652 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4292/YC (FAX1) 0.081237   5.769889 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4271/YC (FAX1) 0.081130   5.851019 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4249/YC (FAX1) 0.081243   5.932261 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4228/YC (FAX1) 0.081316   6.013577 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3634/YC (FAX1) 0.081199   6.094776 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3635/YC (FAX1) 0.070604   6.165380 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U915/Y (AND2X1) 0.034946   6.200326 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3636/YC (HAX1) 0.047747   6.248073 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3637/YC (HAX1) 0.050237   6.298310 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3638/YC (HAX1) 0.048220   6.346530 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3639/YC (HAX1) 0.048213   6.394744 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3640/YC (HAX1) 0.048122   6.442866 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3641/YC (HAX1) 0.048975   6.491841 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3642/YC (HAX1) 0.048676   6.540517 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3643/YC (HAX1) 0.048365   6.588881 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3644/YC (HAX1) 0.048336   6.637217 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3645/YC (HAX1) 0.048311   6.685528 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3646/YC (HAX1) 0.048330   6.733858 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3647/YC (HAX1) 0.048275   6.782133 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3648/YC (HAX1) 0.048269   6.830402 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3649/YC (HAX1) 0.048279   6.878681 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3650/YC (HAX1) 0.045195   6.923876 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U299/Y (AND2X1) 0.060349   6.984226 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1215/Y (AND2X1)
+                                                      0.051152   7.035378 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3717/Y (AOI21X1)
+                                                      0.019235   7.054613 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U830/Y (BUFX2)  0.046926   7.101539 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1207/Y (INVX1) 0.032104   7.133643 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3958/Y (NAND2X1)
+                                                      0.017025   7.150667 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U3959/Y (AND2X2)
+                                                      0.045689   7.196356 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U270/Y (AND2X1) 0.128600   7.324956 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4169/Y (NAND2X1)
+                                                      0.052054   7.377010 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4170/Y (OAI21X1)
+                                                      0.017103   7.394113 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4171/Y (AOI21X1)
+                                                      0.016525   7.410638 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4183/Y (AND2X2)
+                                                      0.098596   7.509234 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4620/YC (FAX1) 0.097983   7.607217 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4598/YC (FAX1) 0.081233   7.688450 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4577/YC (FAX1) 0.081321   7.769771 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4557/YC (FAX1) 0.081155   7.850926 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4535/YC (FAX1) 0.081196   7.932122 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4518/YC (FAX1) 0.081221   8.013343 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4497/YC (FAX1) 0.081126   8.094469 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4476/YC (FAX1) 0.081237   8.175706 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4455/YC (FAX1) 0.081271   8.256977 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4329/YC (FAX1) 0.081243   8.338220 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4801/YC (FAX1) 0.081184   8.419404 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4780/YC (FAX1) 0.081254   8.500658 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4759/YC (FAX1) 0.081309   8.581967 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4738/YC (FAX1) 0.081163   8.663131 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4330/YC (FAX1) 0.081224   8.744355 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4331/YC (FAX1) 0.070541   8.814897 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U913/Y (AND2X1) 0.034958   8.849854 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4332/YC (HAX1) 0.047747   8.897601 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4333/YC (HAX1) 0.048121   8.945723 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4334/YC (HAX1) 0.048975   8.994698 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4335/YC (HAX1) 0.048676   9.043373 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4336/YC (HAX1) 0.048365   9.091738 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4337/YC (HAX1) 0.048336   9.140074 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4338/YC (HAX1) 0.048311   9.188385 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4339/YC (HAX1) 0.048330   9.236715 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4340/YC (HAX1) 0.048275   9.284990 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4341/YC (HAX1) 0.048269   9.333260 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4342/YC (HAX1) 0.048279   9.381538 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4343/YC (HAX1) 0.048326   9.429864 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4344/YC (HAX1) 0.074310   9.504174 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4362/Y (OAI21X1)
+                                                      0.086533   9.590707 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4425/Y (AOI21X1)
+                                                      0.037393   9.628099 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4426/Y (AOI21X1)
+                                                      0.018254   9.646354 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U777/Y (INVX1)  0.037083   9.683436 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U778/Y (INVX1)  0.020824   9.704261 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4427/Y (AND2X2)
+                                                      0.034890   9.739151 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4428/Y (INVX1) 0.017621   9.756772 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1017/Y (OR2X1) 0.049480   9.806252 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U85/Y (INVX2)   0.088522   9.894774 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4699/Y (AOI21X1)
+                                                      0.050636   9.945411 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4708/Y (AND2X1)
+                                                      0.045918   9.991329 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5147/YC (FAX1) 0.082341   10.073670 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5130/YC (FAX1) 0.081351   10.155022 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5112/YC (FAX1) 0.081314   10.236336 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5094/YC (FAX1) 0.081321   10.317657 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5076/YC (FAX1) 0.081156   10.398812 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5058/YC (FAX1) 0.081197   10.480009 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5041/YC (FAX1) 0.081221   10.561230 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5023/YC (FAX1) 0.081244   10.642473 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5005/YC (FAX1) 0.081237   10.723710 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4988/YC (FAX1) 0.081129   10.804839 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4971/YC (FAX1) 0.081243   10.886082 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4954/YC (FAX1) 0.081184   10.967266 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4937/YC (FAX1) 0.081254   11.048520 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4833/YC (FAX1) 0.081160   11.129680 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5278/YC (FAX1) 0.081347   11.211026 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5261/YC (FAX1) 0.081313   11.292339 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5244/YC (FAX1) 0.081097   11.373436 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5227/YC (FAX1) 0.081228   11.454664 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4834/YC (FAX1) 0.081233   11.535897 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4835/YC (FAX1) 0.070783   11.606680 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U945/Y (AND2X1) 0.034721   11.641401 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4836/YC (HAX1) 0.049174   11.690576 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4837/YC (HAX1) 0.048365   11.738940 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4838/YC (HAX1) 0.048336   11.787276 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4839/YC (HAX1) 0.048311   11.835588 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4840/YC (HAX1) 0.048330   11.883918 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4841/YC (HAX1) 0.048275   11.932193 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4842/YC (HAX1) 0.048269   11.980462 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4843/YC (HAX1) 0.048279   12.028741 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4844/YC (HAX1) 0.045182   12.073923 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U109/Y (AND2X2) 0.052832   12.126755 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4858/Y (OAI21X1)
+                                                      0.074027   12.200782 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1228/Y (INVX1) 0.047671   12.248453 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4903/Y (OAI21X1)
+                                                      0.021159   12.269612 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4904/Y (INVX1) 0.023739   12.293351 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4905/Y (AOI21X1)
+                                                      0.016402   12.309753 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U780/Y (INVX1)  0.017901   12.327655 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U781/Y (INVX1)  0.016409   12.344064 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4906/Y (AND2X2)
+                                                      0.033337   12.377400 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4933/Y (AND2X2)
+                                                      0.049244   12.426644 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U4934/Y (INVX8) 0.031377   12.458021 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5200/Y (NOR2X1)
+                                                      0.035197   12.493218 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5201/Y (NOR3X1)
+                                                      0.024157   12.517375 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5202/Y (AND2X1)
+                                                      0.044000   12.561375 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5203/Y (INVX1) 0.015686   12.577061 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5204/Y (INVX1) 0.023016   12.600077 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5706/YC (FAX1) 0.081125   12.681202 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5686/YC (FAX1) 0.081351   12.762553 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5664/YC (FAX1) 0.081320   12.843873 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5643/YC (FAX1) 0.081321   12.925194 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5624/YC (FAX1) 0.081249   13.006443 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5603/YC (FAX1) 0.081197   13.087640 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5581/YC (FAX1) 0.081221   13.168860 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5560/YC (FAX1) 0.081126   13.249987 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5538/YC (FAX1) 0.081237   13.331223 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5517/YC (FAX1) 0.081271   13.412495 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5495/YC (FAX1) 0.081243   13.493737 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5474/YC (FAX1) 0.081184   13.574922 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5453/YC (FAX1) 0.081254   13.656176 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5432/YC (FAX1) 0.081309   13.737485 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5410/YC (FAX1) 0.081163   13.818648 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5389/YC (FAX1) 0.081224   13.899873 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5303/YC (FAX1) 0.081097   13.980969 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5866/YC (FAX1) 0.081358   14.062327 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5849/YC (FAX1) 0.081233   14.143560 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5828/YC (FAX1) 0.081339   14.224899 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5807/YC (FAX1) 0.081120   14.306019 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5786/YC (FAX1) 0.081124   14.387143 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5304/YC (FAX1) 0.070587   14.457730 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U953/Y (AND2X1) 0.034761   14.492492 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5305/YC (HAX1) 0.047748   14.540239 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5306/YC (HAX1) 0.048330   14.588570 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5307/YC (HAX1) 0.048275   14.636845 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5308/YC (HAX1) 0.048269   14.685114 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5309/YC (HAX1) 0.048279   14.733393 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5310/YC (HAX1) 0.045182   14.778575 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U108/Y (AND2X2) 0.052249   14.830824 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5328/Y (OAI21X1)
+                                                      0.088163   14.918987 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5362/Y (AOI21X1)
+                                                      0.036818   14.955805 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U802/Y (INVX1)  0.005655   14.961460 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U804/Y (INVX1)  0.015162   14.976622 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U805/Y (INVX1)  0.032598   15.009219 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U80/Y (AND2X1)  0.039582   15.048801 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5383/Y (INVX1) 0.021696   15.070498 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U77/Y (INVX2)   0.086929   15.157427 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5767/Y (NAND2X1)
+                                                      0.039061   15.196487 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5768/Y (OAI21X1)
+                                                      0.021267   15.217754 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5770/Y (NOR3X1)
+                                                      0.033375   15.251129 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5771/Y (AND2X1)
+                                                      0.141565   15.392694 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6269/YC (FAX1) 0.101760   15.494454 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6290/YC (FAX1) 0.081320   15.575774 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6305/YC (FAX1) 0.081294   15.657068 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6330/YC (FAX1) 0.081249   15.738317 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6344/YC (FAX1) 0.081197   15.819514 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6362/YC (FAX1) 0.081221   15.900735 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6376/YC (FAX1) 0.081126   15.981861 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6393/YC (FAX1) 0.081238   16.063099 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6409/YC (FAX1) 0.081129   16.144228 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6426/YC (FAX1) 0.081242   16.225470 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6440/YC (FAX1) 0.081316   16.306786 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6156/YC (FAX1) 0.081198   16.387983 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6141/YC (FAX1) 0.081160   16.469143 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6173/YC (FAX1) 0.081163   16.550306 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6186/YC (FAX1) 0.081312   16.631618 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6106/YC (FAX1) 0.081097   16.712715 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6121/YC (FAX1) 0.081228   16.793943 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6073/YC (FAX1) 0.081390   16.875334 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6089/YC (FAX1) 0.081301   16.956635 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5920/YC (FAX1) 0.081120   17.037754 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5985/YC (FAX1) 0.081125   17.118879 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6000/YC (FAX1) 0.081142   17.200022 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6014/YC (FAX1) 0.081160   17.281181 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6029/YC (FAX1) 0.081175   17.362356 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6044/YC (FAX1) 0.081163   17.443520 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5921/YC (FAX1) 0.070641   17.514160 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U989/Y (AND2X1) 0.034801   17.548962 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5922/YC (HAX1) 0.047749   17.596710 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5923/YC (HAX1) 0.048325   17.645035 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5924/YC (HAX1) 0.045176   17.690210 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5925/Y (NAND2X1)
+                                                      0.039879   17.730089 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U846/Y (AND2X2) 0.049009   17.779099 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U847/Y (INVX1)  0.038271   17.817369 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5960/Y (AOI21X1)
+                                                      0.069677   17.887047 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5966/Y (NAND2X1)
+                                                      0.034113   17.921160 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U5968/Y (OR2X2) 0.048841   17.970001 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1163/Y (INVX2) 0.127499   18.097500 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6012/Y (AOI21X1)
+                                                      0.058624   18.156124 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6013/Y (NAND3X1)
+                                                      0.029913   18.186037 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U55/Y (BUFX2)   0.088644   18.274681 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6486/Y (OR2X1) 0.046484   18.321165 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6550/Y (AOI22X1)
+                                                      0.025705   18.346870 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6553/Y (OAI21X1)
+                                                      0.106079   18.452950 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6554/Y (AOI22X1)
+                                                      0.020706   18.473656 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6555/Y (OAI21X1)
+                                                      0.027184   18.500839 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6556/Y (AOI21X1)
+                                                      0.019363   18.520203 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U1221/Y (INVX1) 0.041924   18.562126 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6557/Y (INVX1) 0.023022   18.585148 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6558/Y (NAND2X1)
+                                                      0.011774   18.596922 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U6647/Y (NAND2X1)
+                                                      0.023790   18.620712 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U987/Y (OR2X2)  0.050186   18.670898 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U7000/Y (NAND3X1)
+                                                      0.027409   18.698307 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U7001/Y (INVX1) 0.024239   18.722546 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U7002/Y (NOR3X1)
+                                                      0.022236   18.744781 r
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/U7003/Y (INVX1) 0.025124   18.769905 f
+  gpu/g_warp_1__u_warp/g_alu_2__u_alu/result[0] (alu_1)
+                                                      0.000000   18.769905 f
+  gpu/g_warp_1__u_warp/U58/Y (AND2X1)                 0.045372   18.815277 f
+  gpu/g_warp_1__u_warp/U97/Y (NOR3X1)                 0.023714   18.838991 r
+  gpu/g_warp_1__u_warp/U98/Y (INVX1)                  0.031868   18.870859 f
+  gpu/g_warp_1__u_warp/u_rf/write_data[32] (regfile_LANES4_0)
+                                                      0.000000   18.870859 f
+  gpu/g_warp_1__u_warp/u_rf/U6676/Y (INVX4)           0.037788   18.908648 r
+  gpu/g_warp_1__u_warp/u_rf/U6690/Y (MUX2X1)          0.024132   18.932779 f
+  gpu/g_warp_1__u_warp/u_rf/regs_reg_5__2__0_/D (DFFSR)
+                                                      0.000000   18.932779 f
+  data arrival time                                              18.932779
+
+  clock core_clk (rise edge)                          20.000000  20.000000
+  clock network delay (ideal)                         0.000000   20.000000
+  clock uncertainty                                   -1.000000  19.000000
+  gpu/g_warp_1__u_warp/u_rf/regs_reg_5__2__0_/CLK (DFFSR)
+                                                      0.000000   19.000000 r
+  library setup time                                  -0.067162  18.932838
+  data required time                                             18.932838
+  --------------------------------------------------------------------------
+  data required time                                             18.932838
+  data arrival time                                              -18.932779
+  --------------------------------------------------------------------------
+  slack (MET)                                                    0.000059
+
+
+1

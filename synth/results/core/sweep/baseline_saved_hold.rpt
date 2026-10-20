@@ -1,0 +1,113 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -max_paths 3
+Design : soc_top
+Version: V-2023.12-SP5-1
+Date   : Tue Oct 20 04:18:33 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: gscl45nm
+Wire Load Model Mode: top
+
+  Startpoint: mmio/awaddr_q_reg_4_
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: mmio/start_reg
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock core_clk (rise edge)           0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  mmio/awaddr_q_reg_4_/CLK (DFFSR)     0.000000 # 0.000000 r
+  mmio/awaddr_q_reg_4_/Q (DFFSR)       0.151119   0.151119 f
+  mmio/U95/Y (INVX1)                   0.020092   0.171211 r
+  mmio/U97/Y (NAND2X1)                 0.013163   0.184374 f
+  mmio/U98/Y (NOR3X1)                  0.028408   0.212782 r
+  mmio/start_reg/D (DFFSR)             0.000000   0.212782 r
+  data arrival time                               0.212782
+
+  clock core_clk (rise edge)           0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  clock uncertainty                    1.000000   1.000000
+  mmio/start_reg/CLK (DFFSR)           0.000000   1.000000 r
+  library hold time                    0.922464   1.922464
+  data required time                              1.922464
+  -----------------------------------------------------------
+  data required time                              1.922464
+  data arrival time                               -0.212782
+  -----------------------------------------------------------
+  slack (VIOLATED)                                -1.709682
+
+
+  Startpoint: gpu/u_sched/last_reg_0_
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: gpu/u_sched/last_reg_0_
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock core_clk (rise edge)           0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  gpu/u_sched/last_reg_0_/CLK (DFFSR)  0.000000 # 0.000000 r
+  gpu/u_sched/last_reg_0_/Q (DFFSR)    0.150442   0.150442 f
+  gpu/u_sched/U5/Y (INVX1)             0.009848   0.160290 r
+  gpu/u_sched/U6/Y (NAND2X1)           0.015749   0.176040 f
+  gpu/u_sched/U7/Y (OAI21X1)           0.014373   0.190413 r
+  gpu/u_sched/last_reg_0_/D (DFFSR)    0.000000   0.190413 r
+  data arrival time                               0.190413
+
+  clock core_clk (rise edge)           0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  clock uncertainty                    1.000000   1.000000
+  gpu/u_sched/last_reg_0_/CLK (DFFSR)  0.000000   1.000000 r
+  library hold time                    0.855672   1.855672
+  data required time                              1.855672
+  -----------------------------------------------------------
+  data required time                              1.855672
+  data arrival time                               -0.190413
+  -----------------------------------------------------------
+  slack (VIOLATED)                                -1.665259
+
+
+  Startpoint: gpu/u_dcr/state_reg_1_
+              (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: gpu/u_dcr/state_reg_1_
+            (rising edge-triggered flip-flop clocked by core_clk)
+  Path Group: core_clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock core_clk (rise edge)           0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  gpu/u_dcr/state_reg_1_/CLK (DFFSR)   0.000000 # 0.000000 r
+  gpu/u_dcr/state_reg_1_/Q (DFFSR)     0.148797   0.148797 f
+  gpu/u_dcr/U103/Y (INVX1)             0.014555   0.163352 r
+  gpu/u_dcr/U104/Y (NAND2X1)           0.018518   0.181869 f
+  gpu/u_dcr/U553/Y (OAI21X1)           0.014373   0.196242 r
+  gpu/u_dcr/state_reg_1_/D (DFFSR)     0.000000   0.196242 r
+  data arrival time                               0.196242
+
+  clock core_clk (rise edge)           0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  clock uncertainty                    1.000000   1.000000
+  gpu/u_dcr/state_reg_1_/CLK (DFFSR)   0.000000   1.000000 r
+  library hold time                    0.855347   1.855347
+  data required time                              1.855347
+  -----------------------------------------------------------
+  data required time                              1.855347
+  data arrival time                               -0.196242
+  -----------------------------------------------------------
+  slack (VIOLATED)                                -1.659105
+
+
+1
