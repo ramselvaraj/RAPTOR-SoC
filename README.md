@@ -20,6 +20,10 @@ The CPU configures and launches GPU programs, then polls for completion.
 The current workload is a two-pass, clamped 3×3 image blur.
 The integration top is `soc_phase5_top`.
 
+<p align="center">
+  <img src="docs/assets/raptor-soc-architecture-deckcraft.png" alt="RAPTOR-SoC dual-clock architecture" width="100%">
+</p>
+
 ## Verification
 
 The complete Verilator regression passes, including **31 SoC configurations** with independent clocks, stalls, clock pauses, and reset recovery.
