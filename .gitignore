@@ -16,5 +16,5 @@ default.svf
 filenames.log
 
 # Local-only folders (not tracked)
-docs/
+docs/PHASE*
 learning/

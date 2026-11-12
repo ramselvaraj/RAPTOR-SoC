@@ -142,8 +142,6 @@ Generated execution traces, memory dumps, and output images are written under
 
 ## Documentation
 
-- [Implementation details and measured results](docs/PHASE5_PROGRESS.md)
-- [Architecture and verification specification](docs/PHASE5_ASSIGNMENT.md)
 - [CPU and GPU address map](docs/ADDRESS_MAP.md)
 - [AXI, GPU memory, and clock-crossing protocols](docs/BUS_PROTOCOL.md)
 - [GPU instruction set](docs/GPU_ISA.md)
