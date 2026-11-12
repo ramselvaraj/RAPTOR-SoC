@@ -14,3 +14,7 @@ synth/build/
 command.log
 default.svf
 filenames.log
+
+# Local-only folders (not tracked)
+docs/
+learning/
