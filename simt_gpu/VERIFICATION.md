@@ -53,7 +53,7 @@ kernel's register writes, so lane 0's registers keep the *previous wave's* value
 loops forever, `all_halted` never rises, and the wave sequencer never finishes. For T <= 4 the stale values are the reset zeros, so the
 loop exits by luck; for T = 13-16 both warps are active; hence the exact thread-count pattern.
 
-**Evidence.** Delta-debugging shrank a failing random kernel to a 5-instruction hang (`tools/repro_g1_idle_warp_hang.py`:
+**Evidence.** Delta-debugging shrank a failing random kernel to a 4-instruction hang (after the register-initialising prologue) (`tools/repro_g1_idle_warp_hang.py`:
 `CMP r10, r9 ; BR p, -11` with r10 = 81, r9 = 96, a later `CONST r9, 1`). A scratch copy of `warp.sv` with `br_taken` gated by
 `|lane_mask` (an idle warp never branches) removes every hang for T = 1..20, and the full random-kernel regression with loops on
 all thread counts then passes 400/400. Real RTL with loops on the affected thread counts: 171/200 (the rest hang).
