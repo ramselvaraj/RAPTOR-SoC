@@ -1,0 +1,29 @@
+[tasks]
+bmc
+prove
+cover
+
+[options]
+multiclock on
+bmc: mode bmc
+bmc: depth 28
+prove: mode prove
+prove: depth 30
+cover: mode cover
+cover: depth 40
+
+[engines]
+bmc: smtbmc boolector
+prove: abc pdr
+cover: smtbmc boolector
+
+[script]
+plugin -i slang
+bmc: read_slang --top async_fifo -G WIDTH=4 -G DEPTH=4 async_fifo.sv async_fifo_props.sv
+cover: read_slang --top async_fifo -G WIDTH=4 -G DEPTH=4 async_fifo.sv async_fifo_props.sv
+prove: read_slang -D STRENGTHEN --top async_fifo -G WIDTH=4 -G DEPTH=4 async_fifo.sv async_fifo_props.sv
+prep -top async_fifo
+
+[files]
+../../soc/rtl/async_fifo.sv
+async_fifo_props.sv
