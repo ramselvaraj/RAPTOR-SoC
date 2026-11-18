@@ -59,8 +59,8 @@ loop exits by luck; for T = 13-16 both warps are active; hence the exact thread-
 all thread counts then passes 400/400. Real RTL with loops on the affected thread counts: 171/200 (the rest hang).
 
 **Impact.** Any kernel whose loop depends on a register value can hang the GPU depending on leftover register state of an idle warp
-in the final wave. The shipped kernels (brighten/blur/copy, no data-dependent loops) are unaffected. **Suggested fix (not applied):**
-gate branch resolution with `|lane_mask`, or move a warp with an empty lane mask straight to `W_HALT` on launch. No RTL was changed.
+in the final wave. The shipped kernels (brighten/blur/copy, no data-dependent loops) are unaffected. **FIXED** in `rtl/warp.sv`:
+the PC update now requires `|lane_mask` for a taken branch. After the fix: `repro_g1_idle_warp_hang.py` passes for T = 1..20, `ALLOW_G1=1` random regression 800/800 identical to the model, and `make test` still passes.
 
 ## Gaps
 

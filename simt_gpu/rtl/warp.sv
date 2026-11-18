@@ -202,7 +202,7 @@ module warp #(parameter int LANES = 4, parameter int PC_W = 16)(
                 pc <= '0;                       // new wave restarts at pc 0
             else if (state == W_EXEC && grant) begin
                 if (!is_ret && !is_mem) begin
-                    if (is_br && br_taken)
+                    if (is_br && br_taken && (|lane_mask))   // G1: idle (fully-masked) warp must not branch on stale lane-0 data
                         pc <= pc + 1'b1 + {{(PC_W-9){ir[8]}}, ir[8:0]};
                     else
                         pc <= pc + 1'b1;
